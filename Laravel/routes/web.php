@@ -13,6 +13,13 @@
 
 //listen aller Routes: php artisan route:list
 
+
+Route::group(['namespace' => 'Frontend'], function () {
+
+		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
+
+});
+
 Route::get('/', function () {
     return view('startseite');
 });
