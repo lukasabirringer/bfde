@@ -11,6 +11,12 @@
 |
 */
 
+//listen aller Routes: php artisan route:list
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('startseite');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
