@@ -15,4 +15,6 @@
   &-green { @include -background-green(); }
 
   &-red { @include -background-red(); }
+
+  &-gradient { @include -background-gradient(); }
 }
