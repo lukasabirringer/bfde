@@ -1,0 +1,18 @@
+@import "typo.mixin.scss";
+
+.-typo {
+
+  &-headline-1 { @include -typo-headline-1(); }
+
+  &-headline-2 { @include -typo-headline-2(); }
+
+  &-headline-3 { @include -typo-headline-3(); }
+
+  &-headline-4 { @include -typo-headline-4(); }
+
+  &-headline-5 { @include -typo-headline-5(); }
+
+  &-copy { @include -typo-copy(); }
+}
+
+.overflow-ellipsis { @include -overflow-ellipsis(); }

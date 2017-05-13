@@ -1,0 +1,20 @@
+@import "text-color.mixin.scss";
+
+.-text-color {
+
+  &-white { @include -text-color-white(); }
+
+  &-black { @include -text-color-black(); }
+
+  &-blue-1 { @include -text-color-blue-1(); }
+
+  &-blue-2 { @include -text-color-blue-2(); }
+
+  &-green { @include -text-color-green(); }
+
+  &-gray-1 { @include -text-color-gray-1(); }
+
+  &-gray-2 { @include -text-color-gray-2(); }
+
+  &-red { @include -text-color-red(); }
+}

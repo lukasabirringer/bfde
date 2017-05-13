@@ -1,0 +1,18 @@
+@import "background.mixin.scss";
+
+.-background {
+
+  &-page { @include -background-page(); }
+
+  &-gray-1 { @include -background-gray-1(); }
+
+  &-gray-2 { @include -background-gray-2(); }
+
+  &-blue-1 { @include -background-blue-1(); }
+
+  &-blue-2 { @include -background-blue-2(); }
+
+  &-green { @include -background-green(); }
+
+  &-red { @include -background-red(); }
+}

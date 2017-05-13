@@ -1,0 +1,37 @@
+// setup
+@import "overlay.setup.scss";
+
+// mixin
+@import "../../base/font/font.mixin.scss";
+@import "../../base/typo/typo.mixin.scss";
+@import "../../base/text-color/text-color.mixin.scss";
+@import "../../base/align/align.mixin.scss";
+
+// extend
+@import "../../base/grid/flex.mixin.scss";
+
+.overlay {
+  position: relative;
+
+  &__item {
+    @include flex;
+    @include flex--center-vertical;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlay-background-color;
+  }
+
+  &__message {
+    @include -font-secondary();
+    @include -typo-headline-4();
+    @include -text-color-white();
+    @include -align-center();
+    max-width: 17.5rem;
+    padding: 1.125rem;
+    margin: 0 auto;
+    box-sizing: content-box;
+  }
+}
