@@ -1,0 +1,18 @@
+@import "../../setup/color-palette.setup.scss";
+
+$button-inline-min-width: 3.4375rem !default;
+$button-inline-height: 3rem !default;
+$button-inline-spacing-horizontal: .75rem !default;
+$button-inline-spacing-vertical: 0 !default;
+$button-inline-border-radius: .25rem !default;
+$button-inline-background-color: $color-palette-gray-1 !default;
+$button-inline-background-color-active: $color-palette-red !default;
+$button-inline-background-color-hovered: $color-palette-gray-2 !default;
+$button-inline-background-color-hovered-active: $color-palette-red !default;
+$button-inline-text-color: $color-palette-black !default;
+$button-inline-text-color-active: $color-palette-white !default;
+
+$button-inline-icon-font-size: 1rem !default;
+$button-inline-icon-spacing-to-label: .625rem !default;
+
+$button-inline-label-font-size: .875rem !default;

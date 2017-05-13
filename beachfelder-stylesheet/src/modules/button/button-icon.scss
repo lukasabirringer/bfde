@@ -1,0 +1,30 @@
+@import "button-icon.setup.scss";
+@import "../../base/align/align.mixin.scss";
+
+.button-icon {
+  position: relative;
+  display: inline-block;
+  appeareance: none;
+  outline: none;
+  border: 0;
+  color: $button-icon-text-color;
+  cursor: pointer;
+  font-size: $button-icon-size;
+
+  &:hover {
+    color: $button-icon-text-color-hovered;
+  }
+
+  &--invert {
+    color: $button-icon-text-color-invert;
+  }
+
+  &:after { // safe clickable area
+    content: "";
+    position: absolute;
+    top: $button-icon-safe-clickable-area;
+    right: $button-icon-safe-clickable-area;
+    bottom: $button-icon-safe-clickable-area;
+    left: $button-icon-safe-clickable-area;
+  }
+}

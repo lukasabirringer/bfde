@@ -1,0 +1,68 @@
+@import "spacing.setup.scss";
+@import "../../mixins/breakpoint.scss";
+
+@mixin -spacing-static-a() { margin-top: .1875rem; }
+@mixin -spacing-static-b() { margin-top: .375rem; }
+@mixin -spacing-static-c() { margin-top: .75rem; }
+@mixin -spacing-static-d() { margin-top: 1.125rem; }
+@mixin -spacing-static-e() { margin-top: 1.5rem; }
+@mixin -spacing-static-f() { margin-top: 1.875rem; }
+
+@mixin -spacing-a() {
+  margin-top: 1.5rem;
+  @include breakpoint('s') { margin-top: 1.75rem; }
+  @include breakpoint('l') { margin-top: 2.25rem; }
+}
+
+@mixin -spacing-b() {
+  margin-top: 1.5rem;
+  @include breakpoint('l') { margin-top: 1.875rem; }
+}
+
+@mixin -spacing-c() {
+  margin-top: 1.125rem;
+  @include breakpoint('m') { margin-top: 1.5rem; }
+  @include breakpoint('l') { margin-top: 1.875rem; }
+}
+
+@mixin -spacing-d() {
+  margin-top: 1.125rem;
+  @include breakpoint('s') { margin-top: 1.5rem; }
+}
+
+@mixin -spacing-e() {
+  margin-top: 1.125rem;
+  @include breakpoint('s') { margin-top: 1.5rem; }
+  @include breakpoint('l') { margin-top: 1.125rem; }
+}
+
+@mixin -spacing-f() {
+  margin-top: .75rem;
+  @include breakpoint('s') { margin-top: 1.125rem; }
+}
+
+@mixin -spacing-widget-default() {
+  margin-top: 1.125rem;
+  @include breakpoint('l') { margin-top: 1.5rem; }
+}
+
+@mixin -spacing-zero() { margin-top: 0; }
+
+@mixin -spacing-inner-a() {
+  padding: $spacing-inner-a;
+  @include breakpoint('s') { padding: $spacing-inner-a-s; }
+  @include breakpoint('l') { padding: $spacing-inner-a-l; }
+}
+
+@mixin -spacing-inner-b() {
+  padding: .75rem 1.125rem;
+  @include breakpoint('s') { padding: 1.125rem 1.5rem; }
+  @include breakpoint('l') { padding: 1.125rem 1.875rem; }
+}
+
+@mixin -spacing-inner-c() {
+  padding: 1.125rem;
+  @include breakpoint('s') { padding: 1.5rem; }
+  @include breakpoint('m') { padding: 1.125rem; }
+  @include breakpoint('l') { padding: 2.5rem 3.75rem; }
+}

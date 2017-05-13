@@ -1,0 +1,87 @@
+@import "button.setup.scss";
+
+.button {
+  $bem-block: &;
+
+  width: 100%;
+  max-width: 100%;
+  height: 4.5rem;
+  display: block;
+  padding: .375rem 1.125rem;
+  outline: none;
+  appearance: none;
+  box-sizing: border-box;
+  border: 0;
+  background: $button-background-color;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+
+  &--inline {
+    width: auto;
+    height: 3.75rem;
+    display: inline-block;
+    border-radius: 4px;
+  }
+
+  &--red {
+    background-color: $button-submit-background-color;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid $button-icon-border-color;
+    background-color: $button-icon-background-color;
+    border-radius: 50%;
+    transition: border-color .2s ease-in-out, background .2s ease-in-out;
+    position: relative;
+    color: $button-icon-color;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__label {
+    margin: 0 0 0 .5rem;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: normal;
+    color: $button-label-color;
+  }
+
+  // button is hovered
+  &:hover {
+
+    #{$bem-block}__icon {
+      border: 2px solid $button-hovered-icon-border-color;
+      background-color: $button-hovered-icon-background-color;
+      color: $button-hovered-icon-color;
+    }
+  }
+
+  // button is disabled
+  &:disabled {
+    background-color: $button-submit-background-color;
+
+    #{$bem-block}__icon {
+      border-color: $button-disabled-icon-border-color;
+    }
+
+    #{$bem-block}__label {
+      color: $button-disabled-label-color;
+    }
+  }
+}

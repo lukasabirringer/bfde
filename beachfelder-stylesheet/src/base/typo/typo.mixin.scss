@@ -1,0 +1,73 @@
+@import "../../mixins/breakpoint.scss";
+
+@mixin -typo-headline-1() {
+  font-weight: normal;
+  font-size: 1.375rem;
+  line-height: 1.18181818;
+
+  @include breakpoint('s') {
+    font-size: 1.75rem;
+    line-height: 1.14285714;
+  }
+
+  @include breakpoint('l') {
+    font-size: 2rem;
+    line-height: 1.1875;
+  }
+}
+
+@mixin -typo-headline-2() {
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.22222222;
+
+  @include breakpoint('s') {
+    font-size: 1.5rem;
+    line-height: 1.16666667;
+  }
+
+  @include breakpoint('l') {
+    font-size: 2rem;
+    line-height: 1.1875;
+  }
+}
+
+@mixin -typo-headline-3() {
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.22222222;
+
+  @include breakpoint('s') {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  @include breakpoint('l') {
+    font-size: 1.375rem;
+    line-height: 1.18181818;
+  }
+}
+
+@mixin -typo-headline-4() {
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.22222222;
+}
+
+@mixin -typo-headline-5() {
+  font-size: .875rem;
+  line-height: 1.42857143;
+}
+
+@mixin -typo-copy() {
+  font-weight: normal;
+  font-size: .875rem;
+  line-height: 1.42857143;
+}
+
+// TODO: I'm in the wrong place, find a nice home for me
+@mixin -overflow-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

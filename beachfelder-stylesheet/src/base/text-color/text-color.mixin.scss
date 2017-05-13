@@ -1,0 +1,33 @@
+@import "text-color.setup.scss";
+
+@mixin -text-color-white() {
+  color: $text-color-white;
+}
+
+@mixin -text-color-black() {
+  color: $text-color-black;
+}
+
+@mixin -text-color-gray-1() {
+  color: $text-color-gray-1;
+}
+
+@mixin -text-color-gray-2() {
+  color: $text-color-gray-2;
+}
+
+@mixin -text-color-blue-1() {
+  color: $text-color-blue-1;
+}
+
+@mixin -text-color-blue-2() {
+  color: $text-color-blue-2;
+}
+
+@mixin -text-color-green() {
+  color: $text-color-green;
+}
+
+@mixin -text-color-red() {
+  color: $text-color-red;
+}

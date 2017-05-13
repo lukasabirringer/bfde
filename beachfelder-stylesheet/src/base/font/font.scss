@@ -1,0 +1,31 @@
+@import "font.setup.scss";
+@import "font.mixin.scss";
+
+@font-face {
+  font-family: "OswaldRegular";
+  src: url('#{$font-resource-base-path}/oswald-regular/Oswald-regular.eot');
+  src: url('#{$font-resource-base-path}/oswald-regular/Oswald-regular.eot?#iefix') format("embedded-opentype"),
+  url('#{$font-resource-base-path}/oswald-regular/Oswald-regular.woff') format("woff"),
+  url('#{$font-resource-base-path}/oswald-regular/Oswald-regular.ttf') format("truetype"),
+  url('#{$font-resource-base-path}/oswald-regular/Oswald-regular.svg#OswaldRegular') format("svg");
+}
+
+@font-face {
+  font-family: "PTSansRegular";
+  src: url('#{$font-resource-base-path}/pt-sans-regular/PT-Sans-regular.eot');
+  src: url('#{$font-resource-base-path}/pt-sans-regular/PT-Sans-regular.eot?#iefix') format("embedded-opentype"),
+  url('#{$font-resource-base-path}/pt-sans-regular/PT-Sans-regular.woff') format("woff"),
+  url('#{$font-resource-base-path}/pt-sans-regular/PT-Sans-regular.ttf') format("truetype"),
+  url('#{$font-resource-base-path}/pt-sans-regular/PT-Sans-regular.svg#PTSansRegular') format("svg");
+}
+
+.-font {
+
+  &-primary {
+    @include -font-primary();
+  }
+
+  &-secondary {
+    @include -font-secondary();
+  }
+}
