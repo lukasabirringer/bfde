@@ -1,0 +1,51 @@
+@import "../../mixins/breakpoint.scss";
+@import "../../base/font/font.mixin.scss";
+@import "../../base/typo/typo.mixin.scss";
+
+@import "input.setup";
+
+.input {
+	display: inline-block;
+	border: none;
+	position: relative;
+	width: 100%;
+
+	&__field {
+		@include -font-primary();
+		border: none;
+		padding: $input-field-vertical-padding $input-field-horizontal-padding;
+		max-height: $input-field-max-height;
+		color: $input-field-text-color;
+		font-size: $input-field-label-font-size;
+		outline: none;
+		width: 100%;
+	}
+
+	&__label {
+		@include -font-primary();
+		position: absolute;
+		top: $input-label-position-top;
+		left: $input-label-position-left;
+		display: block;
+		color: $input-label-color;
+		font-size: $input-label-font-size;
+		transform: translateY(-50%);
+		transition: all 0.2s ease-in;
+	}
+
+	&__field:not(:placeholder-shown) + &__label {
+		top: $input-label-position-top-not-focused;
+		left: $input-label-position-left-not-focused;
+		font-size: $input-label-font-size-not-focused;
+		color: lighten($input-label-color, 10%);
+		transform: none;
+	}
+
+	&__field:focus:not(:placeholder-shown) + &__label {
+		top: $input-label-position-top-focused;
+		left: $input-label-position-left-focused;
+		font-size: $input-label-font-size-focused;
+		color: lighten($input-label-color, 10%);
+		transform: none;
+	}
+}
