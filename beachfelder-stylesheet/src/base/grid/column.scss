@@ -1,5 +1,5 @@
 // mixin
-@import "../../mixins/breakpoint.scss";
+@import "../../mixins/breakpoint";
 
 .column { /* TODO: should we really prefix this as helper, because this on uses BEM Modifiers */
   min-height: 1px; // prevents layout even when column is empty

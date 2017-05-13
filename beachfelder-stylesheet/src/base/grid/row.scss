@@ -1,5 +1,5 @@
 // mixin
-@import "../../mixins/breakpoint.scss";
+@import "../../mixins/breakpoint";
 
 .row { /* TODO: should we really prefix this as helper, because this on uses BEM Modifiers */
   margin-left: -0.25rem;

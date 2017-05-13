@@ -1,5 +1,5 @@
-@import "spacing.mixin.scss";
-@import "../../mixins/breakpoint.scss";
+@import "spacing.mixin";
+@import "../../mixins/breakpoint";
 
 .-spacing {
 
@@ -77,13 +77,5 @@
 
   &-inner-a {
     @include -spacing-inner-a;
-  }
-
-  &-inner-b {
-    @include -spacing-inner-b;
-  }
-
-  &-inner-c {
-    @include -spacing-inner-c;
   }
 }

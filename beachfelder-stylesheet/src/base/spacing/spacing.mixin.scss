@@ -1,5 +1,5 @@
-@import "spacing.setup.scss";
-@import "../../mixins/breakpoint.scss";
+@import "spacing.setup";
+@import "../../mixins/breakpoint";
 
 @mixin -spacing-static-a() { margin-top: .1875rem; }
 @mixin -spacing-static-b() { margin-top: .375rem; }
@@ -9,9 +9,9 @@
 @mixin -spacing-static-f() { margin-top: 1.875rem; }
 
 @mixin -spacing-a() {
-  margin-top: 1.5rem;
-  @include breakpoint('s') { margin-top: 1.75rem; }
-  @include breakpoint('l') { margin-top: 2.25rem; }
+  margin-top: 1.5625rem;
+  @include breakpoint('s') { margin-top: 2.5rem; }
+  @include breakpoint('l') { margin-top: 3.125rem; }
 }
 
 @mixin -spacing-b() {
@@ -49,20 +49,14 @@
 @mixin -spacing-zero() { margin-top: 0; }
 
 @mixin -spacing-inner-a() {
-  padding: $spacing-inner-a;
-  @include breakpoint('s') { padding: $spacing-inner-a-s; }
-  @include breakpoint('l') { padding: $spacing-inner-a-l; }
-}
+  padding: $spacing-inner-a-horizontal $spacing-inner-a-vertical;
+  
 
-@mixin -spacing-inner-b() {
-  padding: .75rem 1.125rem;
-  @include breakpoint('s') { padding: 1.125rem 1.5rem; }
-  @include breakpoint('l') { padding: 1.125rem 1.875rem; }
-}
-
-@mixin -spacing-inner-c() {
-  padding: 1.125rem;
-  @include breakpoint('s') { padding: 1.5rem; }
-  @include breakpoint('m') { padding: 1.125rem; }
-  @include breakpoint('l') { padding: 2.5rem 3.75rem; }
+  @include breakpoint('s') { 
+    padding: $spacing-inner-a-horizontal-s $spacing-inner-a-vertical-s;
+  
+  }
+  @include breakpoint('l') { 
+    padding: $spacing-inner-a-horizontal-l $spacing-inner-a-vertical-l;
+  }
 }

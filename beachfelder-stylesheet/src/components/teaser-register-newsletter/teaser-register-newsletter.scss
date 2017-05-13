@@ -1,0 +1,6 @@
+@import "teaser-register-newsletter.setup";
+
+.teaser-register-newsletter {
+	@include -spacing-inner-a();
+	background-image: linear-gradient(to bottom, rgba(150,251,196,0.45) 0%, rgba(249,245,134,0.45) 100%);
+}
