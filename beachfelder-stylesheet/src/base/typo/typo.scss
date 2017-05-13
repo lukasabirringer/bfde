@@ -15,4 +15,4 @@
   &-copy { @include -typo-copy(); }
 }
 
-.overflow-ellipsis { @include -overflow-ellipsis(); /* TODO: find a nice home for me */ }
+.overflow-ellipsis { @include -overflow-ellipsis(); }

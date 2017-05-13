@@ -2,70 +2,74 @@
 
 @mixin -typo-headline-1() {
   font-weight: normal;
-  font-size: 1.375rem;
+  font-size: 2.5rem;
   line-height: 1.18181818;
+  text-transform: uppercase;
 
   @include breakpoint('s') {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     line-height: 1.14285714;
   }
 
   @include breakpoint('l') {
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1.1875;
   }
 }
 
 @mixin -typo-headline-2() {
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 2.188rem;
   line-height: 1.22222222;
+  text-transform: uppercase;
 
   @include breakpoint('s') {
-    font-size: 1.5rem;
+    font-size: 2.188rem;
     line-height: 1.16666667;
   }
 
   @include breakpoint('l') {
-    font-size: 2rem;
+    font-size: 2.188rem;
     line-height: 1.1875;
   }
 }
 
 @mixin -typo-headline-3() {
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 1.875rem;
   line-height: 1.22222222;
+  text-transform: uppercase;
 
   @include breakpoint('s') {
-    font-size: 1.25rem;
+    font-size: 1.875rem;
     line-height: 1.2;
   }
 
   @include breakpoint('l') {
-    font-size: 1.375rem;
+    font-size: 1.875rem;
     line-height: 1.18181818;
   }
 }
 
 @mixin -typo-headline-4() {
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 1.563rem;
   line-height: 1.22222222;
+  text-transform: uppercase;
 }
 
 @mixin -typo-headline-5() {
-  font-size: .875rem;
+  font-size: 1.25rem;
   line-height: 1.42857143;
+  text-transform: uppercase;
 }
 
 @mixin -typo-copy() {
   font-weight: normal;
-  font-size: .875rem;
+  font-size: 1rem;
   line-height: 1.42857143;
 }
 
-// TODO: I'm in the wrong place, find a nice home for me
 @mixin -overflow-ellipsis() {
   overflow: hidden;
   text-overflow: ellipsis;
