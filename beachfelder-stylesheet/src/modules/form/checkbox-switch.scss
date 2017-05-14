@@ -1,0 +1,52 @@
+@import "../../base/font/font.mixin";
+
+@import "checkbox-switch.setup";
+
+.checkbox-switch {
+
+	&__field {
+		display: none;
+	}
+
+	&__label {
+		position: relative;
+		float: left;
+    height: $checkbox-switch-label-height;
+		cursor: pointer;
+
+		&::before,
+		&::after {
+			position: absolute;
+			left: 0;
+			content:'';
+			transition: all .1s cubic-bezier(.72,.21,.95,.64);
+		}
+
+		&::before {
+			width: $checkbox-switch-width;
+			top: 0;
+			bottom: 0;
+			background-color: $checkbox-switch-background-color-disabled;
+			border-radius: $checkbox-switch-border-radius;
+		}
+
+		&::after {
+			width: $checkbox-switch-width-switch;
+			top: 0.1rem;
+			bottom: 0.1rem;
+			margin-left: 0.1rem;
+			border-radius: $checkbox-switch-border-radius-label;
+			background-color: $checkbox-switch-background-color-label;
+		}
+	}
+
+	&__field:checked + &__label {
+		&::before {
+			background-color: $checkbox-switch-background-color-enabled;
+		}
+		
+		&::after { 
+			margin-left: $checkbox-switch-margin-left-label-checked;
+		}
+	}
+}

@@ -1,0 +1,106 @@
+@import "../../base/font/font.mixin";
+
+@import "checkbox.setup";
+
+.checkbox {
+
+	$bem-block: &;
+
+	display: inline-block;
+	max-width: 100%;
+	white-space: nowrap;
+	vertical-align: top; // get rid of space underneath because of inline-block
+	cursor: pointer;
+
+	&__field {
+		display: none;
+	}
+
+	&__icon {
+		position: relative;
+    float: left;
+    width: $checkbox-icon-dimensions;
+    height: $checkbox-icon-dimensions;
+    box-sizing: border-box;
+    background-color: $checkbox-icon-background-color;
+    transition: all 0.2s ease-in-out;
+
+    &:before {
+    	position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      color: $checkbox-icon-color;
+    }
+
+    &:after { // safe clickable area
+      content: '';
+      position: absolute;
+      top: $checkbox-icon-safe-area;
+      right: $checkbox-icon-safe-area;
+      bottom: $checkbox-icon-safe-area;
+      left: $checkbox-icon-safe-area;
+    }
+	}
+
+	&__label {
+		@include -font-primary();
+		display: block;
+		overflow: hidden;
+		margin: 0 0 0 2.125rem;
+		text-overflow: ellipsis;
+		font-weight: normal;
+		font-size: 1rem;
+		line-height: 1.625rem;
+		color: $checkbox-label-text-color;
+	}
+
+	// checkbox is hovered, not checked and not disabled
+  &:hover &__field:not(:checked):not(:disabled) {
+    & ~ #{$bem-block}__icon {
+      background-color: $checkbox-icon-background-color-unchecked-hovered;
+    }
+  }
+
+	// checkbox is checked
+	&__field:checked {
+	  & ~ #{$bem-block}__icon{
+			background-color: $checkbox-icon-background-color-checked;
+
+	    &:before {
+	      visibility: visible;
+	      color: $checkbox-icon-color-checked;
+	    }
+	  }
+	}
+
+	// checkbox is hovered, checked and not disabled
+	&:hover &__field:checked:not(:disabled) {
+	  & ~ #{$bem-block}__icon {
+	    background-color: $checkbox-icon-background-color-checked-hovered;
+
+	    &:before {
+	      color: $checkbox-icon-color-checked-hovered;
+	    }
+	  }
+	}
+
+	// checkbox is disabled, unchecked or checked
+	&__field:disabled:checked,
+	&__field:disabled:not(:checked) {
+	  & ~ #{$bem-block}__icon {
+	    cursor: default;
+	    background-color: $checkbox-icon-background-color-disabled;
+
+	    &:before {
+	      color: $checkbox-icon-color-checked-disabled;
+	    }
+	  }
+
+	  & ~ #{$bem-block}__label {
+	    cursor: default;
+	    color: $checkbox-label-text-color-disabled;
+	  }
+	}
+}

@@ -1,0 +1,23 @@
+@import "../../setup/color-palette.setup";
+
+/** standard **/
+$checkbox-icon-background-color: $color-palette-gray-2 !default;
+$checkbox-icon-color: $color-palette-blue-1 !default;
+$checkbox-label-text-color: $color-palette-blue-2 !default;
+$checkbox-icon-dimensions: 1.875rem !default;
+
+$checkbox-icon-background-color-unchecked-hovered: darken($color-palette-gray-2, 5%) !default;
+$checkbox-icon-border-color-unchecked-hovered: $color-palette-blue-2 !default;
+
+/** checked state **/
+$checkbox-icon-color-checked: $color-palette-white !default;
+$checkbox-icon-background-color-checked: $color-palette-blue-1 !default;
+$checkbox-icon-background-color-checked-hovered: $color-palette-blue-2 !default;
+$checkbox-icon-color-checked-hovered: $color-palette-white !default;
+
+/** disabled **/
+$checkbox-icon-background-color-disabled: darken($color-palette-gray-2, 5%) !default;
+$checkbox-icon-color-checked-disabled: $color-palette-gray-2 !default;
+$checkbox-label-text-color-disabled: $color-palette-blue-2 !default;
+
+$checkbox-icon-safe-area: -.4375rem !default;
