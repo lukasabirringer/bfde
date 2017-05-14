@@ -1,6 +1,6 @@
 {
 	"bodyClass": "sg-wrapper-dark",
 	"button-outline_label": "Some Label",
-	"button-outline_icon": "send",
+	"button-outline_icon": "",
 	"button-outline_disabled": false
 }
