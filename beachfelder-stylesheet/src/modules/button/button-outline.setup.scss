@@ -1,0 +1,23 @@
+@import "../../setup/color-palette.setup";
+
+$button-outline-width: 100% !default;
+$button-outline-height: 3.75rem !default;
+
+$button-outline-border-size: 1px !default;
+$button-outline-border-color: $color-palette-white !default;
+$button-outline-background-color: transparent !default;
+
+$button-outline-icon-color: $color-palette-white !default;
+$button-outline-icon-font-size: 1rem !default;
+
+$button-outline-label-color: $color-palette-white !default;
+$button-outline-label-font-size: 1rem !default;
+
+$button-outline-label-with-icon-margin-left: .625rem !default;
+
+$button-outline-background-color-hovered: $color-palette-white !default;
+$button-outline-icon-color-hovered: $color-palette-blue-2 !default;
+$button-outline-label-color-hovered: $color-palette-blue-2 !default;
+
+$button-outline-icon-color-disabled: rgba($color-palette-white, 0.7) !default;
+$button-outline-label-color-disabled: rgba($color-palette-white, 0.7) !default;
