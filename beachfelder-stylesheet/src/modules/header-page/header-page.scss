@@ -1,0 +1,18 @@
+@import "../../base/font/font.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/text-color/text-color.mixin";
+
+.header-page {
+
+	&__headline {
+		@include -typo-headline-1();
+		@include -font-secondary();	
+	}
+
+	&__subline {
+		@include -typo-copy();
+		@include -font-primary();
+		@include -text-color-blue-2();
+		@include -spacing-static-f();
+	}
+}

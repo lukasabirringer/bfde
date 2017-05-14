@@ -1,0 +1,23 @@
+@import "../../setup/color-palette.setup";
+
+
+/** Standard Box **/
+$notification-box-background-color: $color-palette-white !default;
+$notification-box-message-width: 100% !default;
+$notification-box-icon-font-size: 1.875rem !default;
+$notification-box-icon-width: 4rem !default;
+
+/** Info Box **/
+$notification-box-background-color-info: $color-palette-gray-2 !default;
+$notification-box-icon-bar-background-color-info: $color-palette-blue-1 !default;
+$notification-box-text-color-info: $color-palette-blue-2 !default;
+
+/** Warning Box **/
+$notification-box-background-color-warning: $color-palette-red !default;
+$notification-box-icon-bar-background-color-warning: darken($color-palette-red, 5%) !default;
+$notification-box-text-color-warning: $color-palette-white !default;
+
+/** Warning Box **/
+$notification-box-background-color-success: $color-palette-green !default;
+$notification-box-icon-bar-background-color-success: darken($color-palette-green, 5%) !default;
+$notification-box-text-color-success: $color-palette-white !default;

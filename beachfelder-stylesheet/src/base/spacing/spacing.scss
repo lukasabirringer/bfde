@@ -78,4 +78,7 @@
   &-inner-a {
     @include -spacing-inner-a;
   }
+  &-inner-b {
+    @include -spacing-inner-b;
+  }
 }

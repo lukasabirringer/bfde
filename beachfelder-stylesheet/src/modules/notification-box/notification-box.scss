@@ -1,0 +1,73 @@
+@import "../../base/font/font.mixin";
+@import "../../base/grid/flex.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/text-color/text-color.mixin";
+@import "../../base/spacing/spacing.mixin";
+
+@import "notification-box.setup";
+
+.notification-box {
+	$bem-block: &;
+	
+	@include flex();
+	background: $notification-box-background-color;
+
+	&__message {
+		@include -spacing-inner-b();
+		color: $notification-box-text-color-info;
+		width: $notification-box-message-width;
+	}
+
+	&__headline {
+		@include -font-secondary();
+		@include -typo-headline-3();
+		letter-spacing: 0.1rem;
+	}
+
+	&__subline {
+		@include -font-primary();
+		@include -typo-copy();
+		@include -spacing-static-c();
+	}
+	
+	&__icon {
+		@include flex();
+		@include flex--center-horizontal();
+		@include flex--center-vertical();
+		@include -text-color-white();
+		width: $notification-box-icon-width;
+	  font-size: $notification-box-icon-font-size;
+	}
+
+	&--info {
+  	background: $notification-box-background-color-info;
+    
+	  #{$bem-block}__icon {
+	  	background: $notification-box-icon-bar-background-color-info;
+		}
+ 	}
+  
+  &--warning {
+  	background: $notification-box-background-color-warning;
+    
+	  #{$bem-block}__icon {
+	  	background: $notification-box-icon-bar-background-color-warning;
+	  }
+    
+    #{$bem-block}__message {
+    	color: $notification-box-text-color-warning;
+		}
+	}
+  
+  &--success {
+  	background: $notification-box-background-color-success;
+    
+	  #{$bem-block}__icon {
+	  	background: $notification-box-icon-bar-background-color-success;
+	  }
+    
+	  #{$bem-block}__message {
+	  	color: $notification-box-text-color-success;
+	  }
+  }
+}

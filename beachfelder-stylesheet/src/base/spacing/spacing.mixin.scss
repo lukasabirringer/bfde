@@ -2,7 +2,7 @@
 @import "../../mixins/breakpoint";
 
 @mixin -spacing-static-a() { margin-top: .1875rem; }
-@mixin -spacing-static-b() { margin-top: .375rem; }
+@mixin -spacing-static-b() { margin-top: .9375rem; }
 @mixin -spacing-static-c() { margin-top: .75rem; }
 @mixin -spacing-static-d() { margin-top: 1.125rem; }
 @mixin -spacing-static-e() { margin-top: 1.5rem; }
@@ -58,5 +58,18 @@
   }
   @include breakpoint('l') { 
     padding: $spacing-inner-a-horizontal-l $spacing-inner-a-vertical-l;
+  }
+}
+
+@mixin -spacing-inner-b() {
+  padding: $spacing-inner-b-horizontal $spacing-inner-b-vertical;
+  
+
+  @include breakpoint('s') { 
+    padding: $spacing-inner-b-horizontal-s $spacing-inner-b-vertical-s;
+  
+  }
+  @include breakpoint('l') { 
+    padding: $spacing-inner-b-horizontal-l $spacing-inner-b-vertical-l;
   }
 }
