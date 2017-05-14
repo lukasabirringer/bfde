@@ -1,4 +1,5 @@
 {
 	"bodyClass": "sg-wrapper-dark",
-	"input_label": "Some label"
+	"input_label": "Some label",
+	"input_type": "text"
 }

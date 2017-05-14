@@ -1,7 +1,0 @@
-@import "../../setup/color-palette.setup.scss";
-
-$button-icon-size: 1.375rem !default;
-$button-icon-safe-clickable-area: - (2.5rem - $button-icon-size) / 2 !default;
-$button-icon-text-color: $color-palette-black !default;
-$button-icon-text-color-hovered: $color-palette-red !default;
-$button-icon-text-color-invert: $color-palette-white;

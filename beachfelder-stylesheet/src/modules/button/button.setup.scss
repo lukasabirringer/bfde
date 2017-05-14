@@ -1,15 +1,18 @@
-// TODO: color codes needs to be included by common color palette
-$button-background-color: #4A4D54 !default;
-$button-disabled-background-color: rgb(41, 42, 46) !default;
-$button-submit-background-color: #C00 !default;
+@import "../../setup/color-palette.setup";
 
-$button-icon-border-color: rgba(255,255,255,0.75) !default;
-$button-icon-background-color: transparent !default;
-$button-icon-color: #fff !default;
-$button-hovered-icon-border-color: transparent !default;
-$button-hovered-icon-background-color: #fff !default;
-$button-hovered-icon-color: #4A4D54 !default;
-$button-disabled-icon-border-color: rgb(73, 76, 82) !default;
+$button-background-color: $color-palette-blue-1 !default;
+$button-width: 100% !default;
+$button-height: 3.75rem;
 
-$button-label-color: #fff !default;
-$button-disabled-label-color: rgb(73, 76, 82) !default;
+$button-icon-color: $color-palette-white !default;
+$button-icon-font-size: 1rem !default;
+
+$button-label-color: $color-palette-white !default;
+$button-label-font-size: 1rem !default;
+$button-label-with-icon-margin-left: .625rem !default;
+
+$button-background-color-hovered: $color-palette-green !default;
+
+$button-background-color-disabled: rgba($color-palette-blue-1, 0.7) !default;
+$button-icon-color-disabled: rgba($color-palette-white, 0.7) !default;
+$button-label-color-disabled: rgba($color-palette-white, 0.7) !default;

@@ -5,10 +5,15 @@
 @import "input.setup";
 
 .input {
+	@include -spacing-static-c;
 	display: inline-block;
 	border: none;
 	position: relative;
 	width: 100%;
+
+	@include breakpoint('s') {
+		margin-top: 0;
+	}
 
 	&__field {
 		@include -font-primary();
