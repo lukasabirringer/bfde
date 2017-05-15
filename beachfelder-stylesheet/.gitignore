@@ -54,12 +54,11 @@ dist
 # Windows
 Thumbs.db
 
-# WebStorm/IntelliJ IDEA
-.idea/
-
 node_modules/
 .DS_Store
 patternlab.json
 .sass-cache/*
 /sass-cache
 patternlab/public
+
+ftpconfig.js

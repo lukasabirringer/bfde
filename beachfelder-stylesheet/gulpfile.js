@@ -4,10 +4,14 @@
  * The gulp wrapper around patternlab-node core, providing tasks to interact with the core library and move supporting frontend assets.
 ******************************************************/
 var gulp = require('gulp'),
-  path = require('path'),
-  browserSync = require('browser-sync').create(),
-  argv = require('minimist')(process.argv.slice(2))
-run = require('gulp-run');
+  	path = require('path'),
+  	browserSync = require('browser-sync').create(),
+  	argv = require('minimist')(process.argv.slice(2))
+  	run = require('gulp-run'),
+  	gutil = require('gulp-util'),
+  	ftp = require( 'vinyl-ftp' ),
+  	bump = require('gulp-bump');
+  	ftpconfig = require('./ftpconfig');
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g, "/");
@@ -76,6 +80,31 @@ gulp.task('pl-copy:beachfelder-stylesheet', gulp.series('pl-build:beachfelder-st
     .pipe(gulp.dest(resolvePath(paths().public.css)))
     .pipe(browserSync.stream());
 }));
+
+
+gulp.task( 'deploy', function () {
+ 	var conn = ftp.create( {
+  	host:     ftpconfig.host,
+    user:     ftpconfig.user,
+    password: ftpconfig.pass,
+    parallel: 10,
+    log:      gutil.log
+    });
+
+ 	var package = './package.json';
+
+ 	var globs = [
+		'/beachfelder-stylesheet/patternlab/public/**',
+		'/beachfelder-stylesheet/dist/**',
+	];
+
+ 	return gulp.src( package, globs, { base: '.', buffer: false } )
+ 		.pipe(bump())
+  	.pipe( gulp.dest('./'))
+ 		.pipe( conn.newer( '/beachfelder-stylesheet' ) )
+ 	  .pipe( conn.dest( '/beachfelder-stylesheet' ) );
+} );
+
 
 /******************************************************
  * PATTERN LAB CONFIGURATION - API with core library
