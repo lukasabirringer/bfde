@@ -32,9 +32,9 @@
 						    <option>{{ $user->role }}</option>
 						  </optgroup>
 						  <optgroup label="neue Rolle">
-						    <option>Registrated</option>
-						    <option>Betreiber</option>
-						    <option>Admin</option>
+						    <option value="registrated">Registrated</option>
+                            <option value="betreiber">Betreiber</option>
+                            <option value="admin">Admin</option>
 						  </optgroup>
 						</select>
 

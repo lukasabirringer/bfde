@@ -8,6 +8,8 @@
                 <div class="panel-heading">Startseite</div>
 
                
+				<a href="/beachcourts/"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
+				
             </div>
         </div>
     </div>
