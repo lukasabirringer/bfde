@@ -29,8 +29,6 @@
 	}
 
 	&:before {
-		@include -align-middle();
-		//display: table-cell;
 		color: $multifunctional-menu-icon-color;
 		font-size: $multifunctional-menu-icon-font-size;
 	}
