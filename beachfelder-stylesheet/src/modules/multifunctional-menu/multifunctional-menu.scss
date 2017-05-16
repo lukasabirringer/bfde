@@ -6,6 +6,9 @@
 .multifunctional-menu {
 	@include -align-center();
 	@include transition(all, 0.2s);
+	@include flex();
+	@include flex--center-horizontal();
+	@include flex--center-vertical();
 
 	position: absolute;
 
@@ -16,7 +19,7 @@
 	height: $multifunctional-menu-dimension;
 	background-color: $multifunctional-menu-background-color;
 	border-radius: $multifunctional-menu-border-radius;
-	display: table;
+
 	box-sizing: border-box;
 	cursor: pointer;
 
@@ -27,7 +30,7 @@
 
 	&:before {
 		@include -align-middle();
-		display: table-cell;
+		//display: table-cell;
 		color: $multifunctional-menu-icon-color;
 		font-size: $multifunctional-menu-icon-font-size;
 	}
