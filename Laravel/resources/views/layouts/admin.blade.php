@@ -29,6 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
+
                         {{ config('x', 'beachfelder.de - Backend') }}
                     </a>
                 </div>
@@ -40,7 +41,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="/admin/dashboard/">Backend</a></li>
+                            <li><a href="{{ url('admin/dashboard') }}"">Backend</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
@@ -62,10 +63,11 @@
                                         </form>
                                     </li>
 
-                                    <li><a href="/profile/{{ Auth::user()->id }}">Profil</a></li>
+                                    <li><a href="{{ url('profile/'.Auth::user()->id) }}">Profil</a></li>
                                     
                                     @if (Auth::user()->isAdmin())
-                                       <li><a href="/admin/dashboard/">Backend</a></li>
+                                       <li><a href="{{ url('admin/dashboard') }}"">Backend</a></li>
+                                       <li><a href="{{ route('home') }}">Frontend</a></li>
                                     @endif
                                 </ul>
                             </li>

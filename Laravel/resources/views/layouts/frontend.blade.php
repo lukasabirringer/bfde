@@ -8,17 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'beachfelder.de - Frontend') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 </head>
 <body>
     <div id="app">
@@ -35,8 +28,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        {{ config('x', 'beachfelder.de - Frontend') }}
                     </a>
                 </div>
 
@@ -50,6 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                            <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
@@ -70,6 +64,14 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+                                    <!-- <li><a href="/profile/{{ Auth::user()->id }}">Profil</a></li> -->
+                                    <li><a href="{{ url('profile/'.Auth::user()->id) }}">Profil</a></li>
+                                       
+                                    @if (Auth::user()->isAdmin())
+                                       <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
+                                       <li><a href="{{ route('home') }}">Frontend</a></li>
+                                    @endif
                                 </ul>
                             </li>
                         @endif

@@ -7,7 +7,7 @@
 				<div class="col-xs-12"> 
 
 	
-<form class="form-horizontal" action="/admin/users/{{ $user->id }}" method="POST">
+<form class="form-horizontal" action="{{ route('users.update', $user->id) }}" method="POST">
 <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">
@@ -32,9 +32,9 @@
 						    <option>{{ $user->role }}</option>
 						  </optgroup>
 						  <optgroup label="neue Rolle">
-						    <option value="registrated">Registrated</option>
-                            <option value="betreiber">Betreiber</option>
-                            <option value="admin">Admin</option>
+						    <option value="registrated">registrated</option>
+                <option value="betreiber">betreiber</option>
+                <option value="admin">admin</option>
 						  </optgroup>
 						</select>
 

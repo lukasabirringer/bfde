@@ -9,7 +9,7 @@
         <h2>Neuen User erstellen</h2>
 
                 
-<form class="form-horizontal" action="/admin/users/" method="POST">
+<form class="form-horizontal" action="{{ route('users.store') }}" method="POST">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group">
@@ -32,9 +32,9 @@
                     <select class="form-control" name="userRole" class="selectpicker">
                           
                          
-                            <option value="registrated">Registrated</option>
-                            <option value="betreiber">Betreiber</option>
-                            <option value="admin">Admin</option>
+                            <option value="registrated">registrated</option>
+                            <option value="betreiber">betreiber</option>
+                            <option value="admin">admin</option>
                     
                         </select>
                     

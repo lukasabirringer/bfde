@@ -9,8 +9,10 @@
 				<h2>Beachcourt-Listing</h2>
 				
 				<hr>
-				<a href="/admin/beachcourts/create/"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
+				<a href="{{ route('beachcourts.create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
 				<br><br>
+				
+
 				<table class="table table-striped"> 
 						<thead> 
 								<tr> 
