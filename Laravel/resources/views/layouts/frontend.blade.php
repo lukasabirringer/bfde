@@ -12,6 +12,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 <body>
     <div id="app">
@@ -43,7 +50,6 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="/admin/dashboard/">Backend</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
@@ -64,12 +70,6 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-
-                                    <li><a href="/profile/{{ Auth::user()->id }}">Profil</a></li>
-                                    
-                                    @if (Auth::user()->isAdmin())
-                                       <li><a href="/admin/dashboard/">Backend</a></li>
-                                    @endif
                                 </ul>
                             </li>
                         @endif
