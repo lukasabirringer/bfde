@@ -38,8 +38,12 @@ class BeachcourtController extends Controller
      */
     public function store(Request $request)
     {
-        $beachcourt = Beachcourt::findOrFail($id);
-        return view('admin.beachcourts.update', compact('beachcourt')); 
+        DB::table('beachcourts')->insert(
+            ['courtName' => $request->courtName,
+             'city' => $request->city,]
+        );
+    
+        return redirect('/admin/beachcourts/');
     }
 
     /**
@@ -92,6 +96,8 @@ class BeachcourtController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $beachcourt = Beachcourt::findOrFail($id);
+        $beachcourt->delete();
+        return redirect('/admin/beachcourts');
     }
 }

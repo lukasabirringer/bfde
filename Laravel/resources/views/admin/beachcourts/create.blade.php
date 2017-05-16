@@ -7,29 +7,24 @@
 				<div class="col-xs-12"> 
 
 				
-<form class="form-horizontal" action="/admin/pages/" method="POST">
+<form class="form-horizontal" action="{{ route('beachcourts.store') }}" method="POST">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">
-			    <label for="pageName" class="col-sm-2 control-label">Name</label>
+			    <label for="courtName" class="col-sm-2 control-label">Feld-Name</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" name="pageName" placeholder="Hier tippen ;)">
+			      <input type="text" class="form-control" name="courtName" placeholder="Hier tippen ;)">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
-			    <label for="pageDescription" class="col-sm-2 control-label">Kurzbeschreibung</label>
+			    <label for="city" class="col-sm-2 control-label">Ort</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" name="pageDescription" placeholder="Hier tippen ;)">
+			      <input type="text" class="form-control" name="city" placeholder="Hier tippen ;)">
 			    </div>
 			  </div>
 
-			  <div class="form-group">
-			    <label for="pageContent" class="col-sm-2 control-label">Inhalt</label>
-			    <div class="col-sm-10">
-			    	<textarea class="form-control" name="pageContent" rows="10" placeholder="Hier tippen ;)"></textarea>
-			    </div>
-			  </div>
+			  
 
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">

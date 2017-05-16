@@ -9,7 +9,7 @@
 				<h2>User-Listing</h2>
 				
 				<hr>
-				<a href="/admin/users/create/"><button type="button" class="btn btn-primary">Neuen User erstellen</button></a>
+				<a href="{{ route('users.create') }}"><button type="button" class="btn btn-primary">Neuen User erstellen</button></a>
 				<br><br>
 				<table class="table table-striped"> 
 						<thead> 
@@ -24,19 +24,20 @@
 						<tbody> 
 								@foreach ($users as $user)
 												<form action="/admin/users/{{ $user->id }}" method="POST">
+
 								<tr> 
 										<td>{{ $user->id }}</td>
 										<td>{{ $user->name }}</td>
 										<td>{{ $user->email }}</td>
 										<td>{{ $user->role }}</td>
 										<td>
-												<a href="/admin/users/{{ $user->id }}">
+												<a href="{{ route('users.show', $user->id) }}">
 													<button type="button" class="btn btn-default">
 														<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Öffnen
 													</button>
 												</a>
 												
-												<a href="/admin/users/{{ $user->id }}/edit/">
+												<a href="{{ route('users.edit', $user->id) }}">
 													<button type="button" class="btn btn-info">
 														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Bearbeiten
 													</button>
