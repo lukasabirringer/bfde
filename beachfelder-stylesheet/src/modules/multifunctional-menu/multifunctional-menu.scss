@@ -1,0 +1,62 @@
+@import "../../mixins/breakpoint";
+@import "../../mixins/animation";
+@import "../../base/align/align.mixin";
+@import "multifunctional-menu.setup";
+
+.multifunctional-menu {
+	@include -align-center();
+	@include transition(all, 0.2s);
+
+	position: absolute;
+
+	top: 1rem;
+	right: 1rem;
+
+	width: $multifunctional-menu-dimension;
+	height: $multifunctional-menu-dimension;
+	background-color: $multifunctional-menu-background-color;
+	border-radius: $multifunctional-menu-border-radius;
+	display: table;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	@include breakpoint('m') {
+		width: $multifunctional-menu-dimension-m;
+		height: $multifunctional-menu-dimension-m;
+	}
+
+	&:before {
+		@include -align-middle();
+		display: table-cell;
+		color: $multifunctional-menu-icon-color;
+		font-size: $multifunctional-menu-icon-font-size;
+	}
+
+	&:after { // safe clickable area
+	  content: '';
+	  position: absolute;
+	  top: $multifunctional-menu-safe-click-area;
+	  right: $multifunctional-menu-safe-click-area;
+	  bottom: $multifunctional-menu-safe-click-area;
+	  left: $multifunctional-menu-safe-click-area;
+	}
+
+	&:hover {
+		background-color: $multifunctional-menu-background-color-hovered;
+
+		&:before {
+			color: $multifunctional-menu-icon-color-hovered;
+		}
+	}
+
+	&__image {
+		width: $multifunctional-menu-dimension;
+		height: $multifunctional-menu-dimension;
+		border-radius: $multifunctional-menu-border-radius;
+
+		@include breakpoint('m') {
+			width: $multifunctional-menu-dimension-m;
+			height: $multifunctional-menu-dimension-m;
+		}
+	}
+}
