@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('x', 'beachfelder.de - Frontend') }}
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                                        
                                     @if (Auth::user()->isAdmin())
                                        <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
-                                       <li><a href="{{ route('home') }}">Frontend</a></li>
+                                       <li><a href="{{ url('/') }}">Frontend</a></li>
                                     @endif
                                 </ul>
                             </li>

@@ -7,7 +7,7 @@
 				<div class="col-xs-12"> 
 
 				
-<form class="form-horizontal" action="{{ route('beachcourts.store') }}" method="POST">
+<form class="form-horizontal" action="{{ url('admin/beachcourts/') }}" method="POST">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">

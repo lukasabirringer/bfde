@@ -8,7 +8,7 @@
 <h1>Beachfeld-Listing</h1>
 <hr>
 @foreach ($beachcourts as $beachcourt)
-<p>Name: <a href="{{ route('beachcourts.show', $beachcourt->id) }}">{{ $beachcourt->courtName }}</a></p>
+<p>Name: <a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->courtName }}</a></p>
 
 <p>in {{ $beachcourt->city }}</p>
 <p>owned by {{ $beachcourt->organization }}</p>

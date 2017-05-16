@@ -7,9 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Startseite</div>
 
-               
-				<a href="/beachcourts/"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
-				
+         <div class="panel-body">
+                    <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
+                </div>
             </div>
         </div>
     </div>

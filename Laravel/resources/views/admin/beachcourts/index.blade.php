@@ -9,7 +9,7 @@
 				<h2>Beachcourt-Listing</h2>
 				
 				<hr>
-				<a href="{{ route('beachcourts.create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
+				<a href="{{ url('admin/beachcourts/create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
 				<br><br>
 				
 
@@ -24,19 +24,19 @@
 						</thead> 
 						<tbody> 
 								@foreach ($beachcourts as $beachcourt)
-												<form action="/admin/beachcourts/{{ $beachcourt->id }}" method="POST">
+												<form action="{{ url('admin/beachcourts/'.$beachcourt->id) }}" method="POST">
 								<tr> 
 										<td>{{ $beachcourt->id }}</td>
 										<td>{{ $beachcourt->courtName }}</td>
 										<td>{{ $beachcourt->postalCode }} {{ $beachcourt->city }}</td>
 										<td>
-												<a href="/admin/beachcourts/{{ $beachcourt->id }}">
+												<a href="{{ url('admin/beachcourts'.$beachcourt->id) }}">
 													<button type="button" class="btn btn-default">
 														<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Öffnen
 													</button>
 												</a>
 												
-												<a href="/admin/beachcourts/{{ $beachcourt->id }}/edit/">
+												<a href="{{ url('admin/beachcourts/'.$beachcourt->id.'/edit/') }}">
 													<button type="button" class="btn btn-info">
 														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Bearbeiten
 													</button>

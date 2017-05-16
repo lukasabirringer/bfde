@@ -6,8 +6,8 @@
 		<div class="row">
 				<div class="col-xs-12"> 
 
-	
-<form class="form-horizontal" action="{{ route('beachcourts.update', $beachcourt->id) }}" method="POST">
+
+<form class="form-horizontal" action="{{ url('admin/beachcourts/'.$beachcourt->id) }}" method="POST">
 <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">
