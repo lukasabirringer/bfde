@@ -8,8 +8,8 @@
 
         <h2>Neuen User erstellen</h2>
 
-                
-<form class="form-horizontal" action="{{ route('users.store') }}" method="POST">
+   
+<form class="form-horizontal" action="{{ url('admin/users/') }}" method="POST">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group">

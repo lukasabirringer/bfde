@@ -66,8 +66,8 @@
                                     <li><a href="{{ url('profile/'.Auth::user()->id) }}">Profil</a></li>
                                     
                                     @if (Auth::user()->isAdmin())
-                                       <li><a href="{{ url('admin/dashboard') }}"">Backend</a></li>
-                                       <li><a href="{{ route('home') }}">Frontend</a></li>
+                                       <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
+                                       <li><a href="{{ url('/') }}">Frontend</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -79,10 +79,10 @@
 
         <div class="container">
             <ul class="nav nav-pills">
-                <li><a href="/admin/dashboard/">Dashboard</a></li>
-                <li><a href="/admin/pages/">Seiten</a></li>
-                <li><a href="/admin/beachcourts/">Beachcourts</a></li>
-                <li><a href="/admin/users/">User</a></li>
+                <li><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url('admin/pages') }}">Seiten</a></li>
+                <li><a href="{{ url('admin/beachcourts') }}">Beachcourts</a></li>
+                <li><a href="{{ url('admin/users') }}">User</a></li>
             </ul> 
         </div>
         @yield('content')
