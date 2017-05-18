@@ -37,6 +37,7 @@ ToDo
 - Beachcourt Feinschliff
 - Startseite Feinschliff
 - Pages Feinschliff
+- Rating Feinschliff
 - Email Funktion
 - Backend Dashboard
 - Testing
