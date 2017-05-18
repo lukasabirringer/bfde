@@ -18,7 +18,8 @@
 								<tr> 
 										<th class="col-md-1">ID</th> 
 										<th class="col-md-3">Name</th> 
-										<th class="col-md-4">Ort</th> 
+										<th class="col-md-3">Ort</th> 
+										<th class="col-md-1">Rating</th> 
 										<th class="col-md-4">Optionen</th> 
 								</tr> 
 						</thead> 
@@ -29,6 +30,7 @@
 										<td>{{ $beachcourt->id }}</td>
 										<td>{{ $beachcourt->courtName }}</td>
 										<td>{{ $beachcourt->postalCode }} {{ $beachcourt->city }}</td>
+										<td>{{ $beachcourt->realRating }}</td>
 										<td>
 												<a href="{{ url('admin/beachcourts/'.$beachcourt->id) }}">
 													<button type="button" class="btn btn-default">

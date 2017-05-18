@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Beachcourt;
+use App\Rating;
 use DB;
 
 class BeachcourtController extends Controller
@@ -24,6 +25,7 @@ class BeachcourtController extends Controller
     {
         {
         $beachcourt = Beachcourt::findOrFail($id);
+        $ratings = Rating::where('beachcourt_id', $id)->get();
         
         return view('frontend.beachcourts.show', compact('beachcourt', 'ratings')); 
         }
