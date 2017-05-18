@@ -1,8 +1,9 @@
 @import "../../setup/color-palette.setup";
 
+$input-width: 100% !default;
 
 $input-field-text-color: $color-palette-blue-2 !default;
-$input-field-horizontal-padding: 1.25rem !default; 
+$input-field-horizontal-padding: 1.25rem !default;
 $input-field-vertical-padding: 1.438rem !default;
 $input-field-max-height: 3.75rem !default;
 $input-field-label-font-size: 1rem !default;

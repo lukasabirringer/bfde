@@ -17,8 +17,10 @@
 
 	&__row {
 		@include flex();
-		@include flex--center-horizontal;
+		@include flex--center-horizontal();
+		@include flex--row-wrap();
 		height: $topbar-height;
+		position: relative;
 	}
 
 	&__logo {

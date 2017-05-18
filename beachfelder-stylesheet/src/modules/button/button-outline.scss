@@ -10,8 +10,6 @@
 
 	@include -font-primary;
 	@include -align-center;
-	@include -spacing-static-c;
-
 	width: $button-outline-width;
 	height: $button-outline-height;
 	display: inline-block;
@@ -23,16 +21,12 @@
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 
-	@include breakpoint('s') {
-	  margin-top: 0;
-	}
-
 	&__icon {
 	  display: inline-block;
 	  vertical-align: middle;
 	  position: relative;
 	  color: $button-outline-icon-color;
-	  font-size: $button-outline-icon-font-size;  
+	  font-size: $button-outline-icon-font-size;
 	}
 
 	&__label {
@@ -63,8 +57,8 @@
 	// button is disabled
 	&:disabled {
 
-		background: transparent;  
-	  	
+		background: transparent;
+
 	  	#{$bem-block}__icon {
 	    	color: $button-outline-icon-color-disabled;
 	  	}

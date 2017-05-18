@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - added header page
 - added checkbox and checkbox switch
 - added topbar
+- added page layout frontpage
 
 ## [0.0.1] - 2017-05-14
 ### Added

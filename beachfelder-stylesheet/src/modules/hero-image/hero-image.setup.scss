@@ -1,0 +1,13 @@
+@import "../../setup/color-palette.setup";
+
+/** basic **/
+$hero-image-width: 100% !default;
+$hero-image-min-height: 21.875rem !default;
+$hero-image-max-height: 30.625rem !default;
+
+/** overlay **/
+$hero-image-overlay-dimension: 100% !default;
+$hero-image-overlay-position: 0 !default;
+
+$hero-image-overlay-gradient-color-1: rgba($color-palette-gradient-color-1,0.45) !default;
+$hero-image-overlay-gradient-color-2: rgba($color-palette-gradient-color-2,0.45) !default;

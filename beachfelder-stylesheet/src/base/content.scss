@@ -1,11 +1,7 @@
 @import "../mixins/breakpoint.scss";
 
-.content { /* TODO: find a home for me */
-  padding: 0 7% 7%;
+.content {
+  padding: 0 7% 0 7%;
   max-width: 86rem;
   margin: 0 auto;
-
-  @include breakpoint('s') {
-    padding-bottom: 3rem;
-  }
 }
