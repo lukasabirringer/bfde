@@ -49,6 +49,10 @@
     content: '\f2bd';
   }
 
+  &--user:before {
+    content: '\f007';
+  }
+
   &--facebook:before {
     content: '\f230';
   }
@@ -96,5 +100,5 @@
   &--check:before {
     content: '\f00c';
   }
-  
+
 }

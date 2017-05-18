@@ -4,12 +4,12 @@
 
 .header-page {
 
-	&__headline {
+	&__title {
 		@include -typo-headline-1();
-		@include -font-secondary();	
+		@include -font-secondary();
 	}
 
-	&__subline {
+	&__subtitle {
 		@include -typo-copy();
 		@include -font-primary();
 		@include -text-color-blue-2();
