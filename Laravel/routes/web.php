@@ -15,9 +15,9 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::resource('/beachcourts', 'BeachcourtController');
 		Route::resource('/pages', 'PageController');
-
+		
 });
-
+Route::post('/rating/new', 'RatingController@store');
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdmin'], function () {
 
