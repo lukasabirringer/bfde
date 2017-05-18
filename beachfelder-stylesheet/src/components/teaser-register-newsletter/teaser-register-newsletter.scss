@@ -1,5 +1,9 @@
 @import "../../mixins/breakpoint";
+@import "../../base/typo/typo.mixin";
+@import "../../base/font/font.mixin";
+@import "../../base/spacing/spacing.mixin";
 @import "teaser-register-newsletter.setup";
+
 
 .teaser-register-newsletter {
 	@include -background-gradient();
@@ -12,5 +16,20 @@
 
 	@include breakpoint('l') {
 		padding: $teaser-register-newsletter-horizontal-spacing-l 0;
+	}
+
+	&__title {
+		@include -typo-headline-1();
+		@include -font-secondary();
+
+		color: $teaser-register-newsletter-title-color;
+	}
+
+	&__subtitle {
+		@include -typo-copy();
+		@include -font-primary();
+		@include -spacing-c();
+
+		color: $teaser-register-newsletter-subtitle-color;
 	}
 }
