@@ -97,8 +97,26 @@
     content: '\f071';
   }
 
+<<<<<<< HEAD
+  &--success:before {
+    content: '\f00c';
+  }
+
+	&--ellipsis:before {
+    content: '\f142';
+  }
+
+  &--bars:before {
+    content: '\f0c9';
+  }
+
+  &--cog:before {
+    content: '\f013';
+  }
+=======
   &--check:before {
     content: '\f00c';
   }
 
+>>>>>>> master
 }
