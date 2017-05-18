@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'beachfelder.de - Frontend') }}</title>
+    <title>{{ config('app.name', 'beachfelder.de - Backend') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,21 +29,19 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('x', 'beachfelder.de - Frontend') }}
+
+                        {{ config('x', 'beachfelder.de - Backend') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                   
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
+                            <li><a href="{{ url('admin/dashboard') }}"">Backend</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
@@ -69,6 +67,7 @@
                                     
                                     @if (Auth::user()->isAdmin())
                                        <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
+                                       <li><a href="{{ url('/') }}">Frontend</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -78,10 +77,20 @@
             </div>
         </nav>
 
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url('admin/pages') }}">Seiten</a></li>
+                <li><a href="{{ url('admin/beachcourts') }}">Beachcourts</a></li>
+                <li><a href="{{ url('admin/users') }}">User</a></li>
+            </ul> 
+        </div>
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- JavaScripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

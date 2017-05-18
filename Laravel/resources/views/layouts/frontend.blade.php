@@ -65,10 +65,12 @@
                                         </form>
                                     </li>
 
+                                    <!-- <li><a href="/profile/{{ Auth::user()->id }}">Profil</a></li> -->
                                     <li><a href="{{ url('profile/'.Auth::user()->id) }}">Profil</a></li>
-                                    
+                                       
                                     @if (Auth::user()->isAdmin())
                                        <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
+                                       <li><a href="{{ url('/') }}">Frontend</a></li>
                                     @endif
                                 </ul>
                             </li>

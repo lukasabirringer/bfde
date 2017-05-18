@@ -7,7 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Startseite</div>
 
-               
+         <div class="panel-body">
+                    <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
+                </div>
             </div>
         </div>
     </div>

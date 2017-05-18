@@ -49,6 +49,10 @@
     content: '\f2bd';
   }
 
+  &--user:before {
+    content: '\f007';
+  }
+
   &--facebook:before {
     content: '\f230';
   }
@@ -93,6 +97,7 @@
     content: '\f071';
   }
 
+<<<<<<< HEAD
   &--success:before {
     content: '\f00c';
   }
@@ -108,4 +113,10 @@
   &--cog:before {
     content: '\f013';
   }
+=======
+  &--check:before {
+    content: '\f00c';
+  }
+
+>>>>>>> master
 }

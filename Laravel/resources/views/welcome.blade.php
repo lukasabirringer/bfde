@@ -78,8 +78,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+               <div class="panel-body">
+                    <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
                 </div>
 
                 <div class="links">

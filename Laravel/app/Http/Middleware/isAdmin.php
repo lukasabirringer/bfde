@@ -28,7 +28,7 @@ class IsAdmin
             $userRole = Auth::user()->role;
 
             // checks if user is a admin  
-            if ($userRole == 'Admin') {
+            if ($userRole == 'admin') {
 
                 return $next($request);
 

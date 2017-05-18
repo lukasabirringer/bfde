@@ -1,5 +1,5 @@
 {
-	"header-page_headline": "Page headline",
-	"header-page_subline": "",
-	"header-page_headlineColor": ""
+	"header-page_title": "Page headline",
+	"header-page_subtitle": "",
+	"header-page_titleColor": ""
 }
