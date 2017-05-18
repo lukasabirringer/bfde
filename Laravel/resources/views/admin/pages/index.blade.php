@@ -6,10 +6,10 @@
 		<div class="row">
 				<div class="col-xs-12"> 
 
-				<h2>Beachcourt-Listing</h2>
+				<h2>Page-Listing</h2>
 				
 				<hr>
-				<a href="{{ url('admin/beachcourts/create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
+				<a href="{{ url('admin/pages/create') }}"><button type="button" class="btn btn-primary">Neue Page erstellen</button></a>
 				<br><br>
 				
 
@@ -18,25 +18,25 @@
 								<tr> 
 										<th class="col-md-1">ID</th> 
 										<th class="col-md-3">Name</th> 
-										<th class="col-md-4">Ort</th> 
+										<th class="col-md-4">Beschreibung</th> 
 										<th class="col-md-4">Optionen</th> 
 								</tr> 
 						</thead> 
 						<tbody> 
-								@foreach ($beachcourts as $beachcourt)
-												<form action="{{ url('admin/beachcourts/'.$beachcourt->id) }}" method="POST">
+								@foreach ($pages as $page)
+												<form action="{{ url('admin/pages/'.$page->id) }}" method="POST">
 								<tr> 
-										<td>{{ $beachcourt->id }}</td>
-										<td>{{ $beachcourt->courtName }}</td>
-										<td>{{ $beachcourt->postalCode }} {{ $beachcourt->city }}</td>
+										<td>{{ $page->id }}</td>
+										<td>{{ $page->name }}</td>
+										<td>{{ $page->description }} </td>
 										<td>
-												<a href="{{ url('admin/beachcourts/'.$beachcourt->id) }}">
+												<a href="{{ url('admin/pages/'.$page->id) }}">
 													<button type="button" class="btn btn-default">
 														<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Öffnen
 													</button>
 												</a>
 												
-												<a href="{{ url('admin/beachcourts/'.$beachcourt->id.'/edit/') }}">
+												<a href="{{ url('admin/pages/'.$page->id.'/edit/') }}">
 													<button type="button" class="btn btn-info">
 														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Bearbeiten
 													</button>
