@@ -14,6 +14,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::resource('/beachcourts', 'BeachcourtController');
+		Route::resource('/pages', 'PageController');
 
 });
 
@@ -26,5 +27,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 
 		Route::resource('/admin/users', 'UserController');
 		Route::resource('/admin/beachcourts', 'BeachcourtController');
+		Route::resource('/admin/pages', 'PageController');
 
 });
