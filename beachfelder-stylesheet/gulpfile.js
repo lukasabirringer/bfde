@@ -10,8 +10,8 @@ var gulp = require('gulp'),
   	run = require('gulp-run'),
   	gutil = require('gulp-util'),
   	ftp = require( 'vinyl-ftp' ),
-  	bump = require('gulp-bump');
-  	ftpconfig = require('./ftpconfig');
+  	bump = require('gulp-bump'),
+ 		ftpconfig = require('./ftpconfig');
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g, "/");
@@ -91,18 +91,13 @@ gulp.task( 'deploy', function () {
     log:      gutil.log
     });
 
- 	var package = './package.json';
-
  	var globs = [
-		'/beachfelder-stylesheet/patternlab/public/**',
-		'/beachfelder-stylesheet/dist/**',
+		'./patternlab/public/**'
 	];
 
- 	return gulp.src( package, globs, { base: '.', buffer: false } )
- 		.pipe(bump())
-  	.pipe( gulp.dest('./'))
- 		.pipe( conn.newer( '/beachfelder-stylesheet' ) )
- 	  .pipe( conn.dest( '/beachfelder-stylesheet' ) );
+ 	return gulp.src( globs, { buffer: false } )
+ 		.pipe( conn.newer( '/patternlab/public/' ) )
+ 	  .pipe( conn.dest( '/patternlab/public/' ) );
 } );
 
 
