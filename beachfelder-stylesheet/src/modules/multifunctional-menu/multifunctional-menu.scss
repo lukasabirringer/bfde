@@ -10,18 +10,20 @@
 	@include flex--center-horizontal();
 	@include flex--center-vertical();
 
-	position: absolute;
-
-	top: 1rem;
-	right: 1rem;
-
 	width: $multifunctional-menu-dimension;
 	height: $multifunctional-menu-dimension;
 	background-color: $multifunctional-menu-background-color;
 	border-radius: $multifunctional-menu-border-radius;
-
+	float: right;
 	box-sizing: border-box;
 	cursor: pointer;
+
+	@include breakpoint('s') {
+		position: absolute;
+
+		top: $multifunctional-menu-horizontal-position-s;
+		right: $multifunctional-menu-horizontal-position-s;
+	}
 
 	@include breakpoint('m') {
 		width: $multifunctional-menu-dimension-m;

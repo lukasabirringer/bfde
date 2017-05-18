@@ -1,6 +1,16 @@
+@import "../../mixins/breakpoint";
 @import "teaser-register-newsletter.setup";
 
 .teaser-register-newsletter {
-	@include -spacing-inner-a();
 	@include -background-gradient();
+
+	padding: $teaser-register-newsletter-horizontal-spacing 0;
+
+	@include breakpoint('s') {
+		padding: $teaser-register-newsletter-horizontal-spacing-s 0;
+	}
+
+	@include breakpoint('l') {
+		padding: $teaser-register-newsletter-horizontal-spacing-l 0;
+	}
 }

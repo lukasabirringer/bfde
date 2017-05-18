@@ -1,1 +1,5 @@
-@import "../../setup/color-palette.setup";
+@import "../../base/spacing/spacing.setup";
+
+$teaser-register-newsletter-horizontal-spacing: $spacing-inner-a-horizontal !default;
+$teaser-register-newsletter-horizontal-spacing-s: $spacing-inner-a-horizontal-s !default;
+$teaser-register-newsletter-horizontal-spacing-l: $spacing-inner-a-horizontal-l !default;

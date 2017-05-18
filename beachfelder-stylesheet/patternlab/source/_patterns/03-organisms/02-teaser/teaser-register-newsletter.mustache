@@ -1,18 +1,20 @@
 <div class="teaser-register-newsletter {{ styleModifier }}">
-	<div class="row">
-		<div class="column column--12">
-			{{> organisms-header-page("header-page_headline": "Bleibe immer am Ball", "header-page_subline": "Melde dich bei unserem Newsletter an und erfahre immer als erster, wann ein neues Beachfeld bewertet oder in unsere Seite aufgenommen wurde.", "header-page_headlineColor": "blue-1")}}
+	<div class="content">
+		<div class="row">
+			<div class="column column--12">
+				{{> organisms-header-page("header-page_headline": "Bleibe immer am Ball", "header-page_subline": "Melde dich bei unserem Newsletter an und erfahre immer als erster, wann ein neues Beachfeld bewertet oder in unsere Seite aufgenommen wurde.", "header-page_headlineColor": "blue-1")}}
+			</div>
 		</div>
-	</div>
-	<div class="row -spacing-a">
-		<div class="column column--12 column--s-4">
-			{{> molecules-input("input_label":"Dein Name") }}
-		</div>
-		<div class="column column--12 column--s-4">
-			{{> molecules-input("input_label":"Deine E-Mail Adresse", "input_type":"email")  }}
-		</div>
-		<div class="column column--12 column--s-4">
-			{{> molecules-button("button_label": "Zum Newsletter anmelden", "button_icon":"send") }}
+		<div class="row -spacing-a">
+			<div class="column column--12 column--s-4">
+				{{> molecules-input("input_label":"Dein Name") }}
+			</div>
+			<div class="column column--12 column--s-4">
+				{{> molecules-input("input_label":"Deine E-Mail Adresse", "input_type":"email")  }}
+			</div>
+			<div class="column column--12 column--s-4">
+				{{> molecules-button("button_label": "Zum Newsletter anmelden", "button_icon":"send") }}
+			</div>
 		</div>
 	</div>
 </div>

@@ -30,5 +30,5 @@
 
 @mixin -background-gradient() {
 	background: $background-gradient-color-1;
-	background-image: linear-gradient(to bottom, $background-gradient-color-1 0%,  $background-gradient-color-2 100%);
+	background-image: linear-gradient(to bottom, $background-gradient-color-1 0%, $background-gradient-color-2 100%);
 }
