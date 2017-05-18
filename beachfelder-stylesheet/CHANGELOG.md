@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - added teaser register newsletter
 - added header page
 - added checkbox and checkbox switch
+- added topbar
 
 ## [0.0.1] - 2017-05-14
 ### Added
