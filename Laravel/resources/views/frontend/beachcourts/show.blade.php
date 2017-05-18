@@ -19,7 +19,7 @@
 <hr>
 <div class="upload-form-wrapper">
 
-    <form action="/rating/new" method="POST" class="form-inline upload-file-form" enctype="multipart/form-data">
+    <form action="{{ url('/rating/new') }}" method="POST" class="form-inline upload-file-form" enctype="multipart/form-data">
         {{ csrf_field() }}
         
         <input type="hidden" value="{{ $beachcourt->id }}" content="text" name="beachcourtname">
