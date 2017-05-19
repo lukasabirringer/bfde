@@ -1,0 +1,15 @@
+@import "../../base/typo/typo";
+@import "../../base/font/font";
+@import "navigation-footer.setup";
+
+.navigation-footer {
+	&__item {
+		@include -font-primary();
+		@include -typo-copy();
+	}
+
+	&__link {
+		color: $navigation-footer-text-color;
+		text-decoration: none;
+	}
+}

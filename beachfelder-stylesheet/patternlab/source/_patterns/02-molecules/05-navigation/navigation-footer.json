@@ -1,0 +1,13 @@
+{
+	"navigation-footer": [
+		{
+				"linkTitle":"Link Item 1"
+		},
+		{
+				"linkTitle":"Link Item 2"
+		},
+		{
+				"linkTitle":"Link Item 3"
+		}
+	]
+}
