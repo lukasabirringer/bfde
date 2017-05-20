@@ -1,15 +1,32 @@
-@import "../../base/typo/typo";
-@import "../../base/font/font";
+@import "../../mixins/animation";
+@import "../../mixins/breakpoint";
+@import "../../base/typo/typo.mixin";
+@import "../../base/font/font.mixin";
+@import "../../base/spacing/spacing.mixin";
+@import "../../base/align/align.mixin";
 @import "navigation-footer.setup";
 
 .navigation-footer {
+	@include -align-center();
+	@include -spacing-static-c();
+
+	@include breakpoint('m') {
+		@include -align-left();
+		@include -spacing-zero();
+	}
+
 	&__item {
 		@include -font-primary();
 		@include -typo-copy();
 	}
 
 	&__link {
+		@include transition(color, .2s);
 		color: $navigation-footer-text-color;
 		text-decoration: none;
+
+		&:hover {
+			color: $navigation-footer-text-color-hovered;
+		}
 	}
 }

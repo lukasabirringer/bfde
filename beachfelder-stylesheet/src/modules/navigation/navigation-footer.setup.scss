@@ -1,3 +1,4 @@
 @import "../../setup/color-palette.setup";
 
 $navigation-footer-text-color: $color-palette-white !default;
+$navigation-footer-text-color-hovered: darken($color-palette-red, 25%) !default;
