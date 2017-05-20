@@ -7,6 +7,8 @@
 @import "navigation-footer.setup";
 
 .navigation-footer {
+	$bem-block: &;
+
 	@include -align-center();
 	@include -spacing-static-c();
 
@@ -17,16 +19,23 @@
 
 	&__item {
 		@include -font-primary();
-		@include -typo-copy();
+		font-size: $navigation-footer-item-font-size;
+
+		&:hover #{$bem-block}__link {
+			@include transition(color, .2s);
+			color: $navigation-footer-text-color-hovered;
+		}
+	}
+
+	&__icon {
+		color: $navigation-footer-icon-text-color;
+		font-size: $navigation-footer-icon-font-size;
+		vertical-align: text-bottom;
 	}
 
 	&__link {
-		@include transition(color, .2s);
 		color: $navigation-footer-text-color;
 		text-decoration: none;
-
-		&:hover {
-			color: $navigation-footer-text-color-hovered;
-		}
+		display: block;
 	}
 }

@@ -116,4 +116,16 @@
   &--check:before {
     content: '\f00c';
   }
+
+  &--shower:before {
+    content: '\f2cc';
+  }
+
+  &--parking:before {
+    content: '\f1b9';
+  }
+
+  &--eating:before {
+    content: '\f0f5';
+  }
 }

@@ -6,7 +6,17 @@
 			"name": "Beachcourt Name",
 			"longitude": "48.806320",
 			"latitude": "8.820813",
-			"benefits": false
+			"benefits": [
+				{
+					"icon": "shower"
+				},
+				{
+					"icon": "eating"
+				},
+				{
+					"icon": "parking"
+				}
+			]
 		}
 	]
 }
