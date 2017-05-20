@@ -1,13 +1,14 @@
+@import "../../mixins/animation";
 @import "../../base/font/font.mixin";
 @import "../../base/typo/typo.mixin";
 @import "../../base/align/align.mixin";
-@import "../../base/spacing/spacing.mixin";
 
 @import "button.setup";
 
 
 .button {
   $bem-block: &;
+  @include transition(all, .2s);
   @include -font-primary;
   @include -align-center;
 
@@ -20,7 +21,7 @@
   border: 0;
   background: $button-background-color;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+
 
   &__icon {
     display: inline-block;
@@ -45,6 +46,7 @@
   // button is hovered
   &:hover {
     background: $button-background-color-hovered;
+    box-shadow: 0 5px 30px 0 $button-box-shadow-color-focus;
   }
 
   // button is disabled

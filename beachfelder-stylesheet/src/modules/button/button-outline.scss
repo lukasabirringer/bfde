@@ -10,6 +10,7 @@
 
 	@include -font-primary;
 	@include -align-center;
+	@include transition(all, .2s);
 	width: $button-outline-width;
 	height: $button-outline-height;
 	display: inline-block;
@@ -19,7 +20,6 @@
 	border: $button-outline-border-size $button-outline-border-color solid;
 	background: $button-outline-background-color;
 	cursor: pointer;
-	transition: all 0.2s ease-in-out;
 
 	&__icon {
 	  display: inline-block;

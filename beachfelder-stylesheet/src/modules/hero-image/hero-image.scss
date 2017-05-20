@@ -1,4 +1,4 @@
-@import "../../mixins/animation";
+@import "../../base/grid/flex.mixin";
 @import "hero-image.setup";
 
 .hero-image {
@@ -11,6 +11,10 @@
   background-size: cover;
 
 	&__overlay {
+		@include flex();
+		@include flex--center-horizontal();
+		@include flex--center-vertical();
+
 		width: $hero-image-overlay-dimension;
 		height: $hero-image-overlay-dimension;
 		position: absolute;

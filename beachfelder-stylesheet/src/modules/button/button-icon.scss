@@ -1,0 +1,58 @@
+@import "../../mixins/animation";
+@import "../../base/align/align.mixin";
+@import "button-icon.setup";
+
+.button-icon {
+	$bem-block: &;
+	@include transition(all, .2s);
+	@include -align-center;
+
+	width: $button-icon-width;
+	height: $button-icon-height;
+	display: inline-block;
+	outline: none;
+	appearance: none;
+	box-sizing: border-box;
+	border: 0;
+	background: $button-icon-background-color;
+	cursor: pointer;
+
+	&__icon {
+		color: $button-icon-icon-color;
+		font-size: $button-icon-icon-font-size;
+	}
+
+	// button is hovered
+	&:hover {
+	  background: $button-icon-background-color-hovered;
+	  box-shadow: 0 5px 30px 0 $button-icon-box-shadow-color-focus;
+	}
+
+	// button is disabled
+	&:disabled {
+		cursor: normal;
+	  background: $button-icon-background-color-disabled;
+
+	  #{$bem-block}__icon {
+	    color: $button-icon-icon-color-disabled;
+	  }
+	}
+
+	&--red {
+		background: $button-icon-background-color-red;
+
+		&:hover {
+		  background: $button-icon-background-color-red-hovered;
+		}
+
+		// button is disabled
+		&:disabled {
+			cursor: normal;
+		  background: $button-icon-background-color-red-disabled;
+
+		  #{$bem-block}__icon {
+		    color: $button-icon-icon-color-red-disabled;
+		  }
+		}
+	}
+}
