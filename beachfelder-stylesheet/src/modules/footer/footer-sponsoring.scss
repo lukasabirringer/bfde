@@ -1,0 +1,76 @@
+@import "../../base/grid/flex.mixin";
+@import "../../base/spacing/spacing.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/text-color/text-color.mixin";
+@import "../../base/font/font.mixin";
+@import "../../mixins/breakpoint";
+@import "../../mixins/animation";
+@import "footer-sponsoring.setup";
+
+.footer-sponsoring {
+	@include -spacing-inner-a();
+
+	position: relative;
+	background: $footer-sponsoring-background-color;
+	overflow: hidden;
+
+	&__slider {
+		@include flex();
+		@include flex--row-wrap();
+		@include flex--justify-content(space-around);
+		@include -spacing-static-f();
+	}
+
+	&__item {
+		display: inline-block;
+
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4) {
+			display: none;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			@include breakpoint('s') {
+				display: inline-block;
+			}
+		}
+
+		&:nth-child(4) {
+			@include breakpoint('m') {
+				display: inline-block;
+			}
+		}
+
+	}
+
+	&__navigation {
+		@include flex();
+		@include flex--center-horizontal();
+		@include flex--center-vertical();
+		@include transition(all, .2s);
+
+		position: absolute;
+		top: $footer-sponsoring-navigation-vertical-position;
+		background: $footer-sponsoring-navigation-background-color;
+		color: $footer-sponsoring-icon-font-color;
+		height: $footer-sponsoring-navigation-height;
+		width: $footer-sponsoring-navigation-width;
+		font-size: $footer-sponsoring-icon-font-size;
+		cursor: pointer;
+		box-shadow: 0 5px 30px 0 $footer-sponsoring-box-shadow-color;
+
+		&:hover {
+			box-shadow: 0 5px 30px 0 $footer-sponsoring-box-shadow-color-hovered;
+		}
+
+		&--arrow-left {
+			left: 0;
+		}
+
+		&--arrow-right {
+			right: 0;
+		}
+	}
+}

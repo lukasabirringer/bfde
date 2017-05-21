@@ -1,11 +1,14 @@
 @import "../../mixins/animation";
+@import "../../mixins/breakpoint";
 @import "../../base/align/align.mixin";
+@import "../../base/spacing/spacing.mixin";
 @import "button-icon.setup";
 
 .button-icon {
 	$bem-block: &;
 	@include transition(all, .2s);
-	@include -align-center;
+	@include -align-center();
+	@include -spacing-f();
 
 	width: $button-icon-width;
 	height: $button-icon-height;
@@ -16,6 +19,11 @@
 	border: 0;
 	background: $button-icon-background-color;
 	cursor: pointer;
+
+	@include breakpoint('s') {
+		@include -spacing-zero();
+		width: $button-icon-width-s;
+	}
 
 	&__icon {
 		color: $button-icon-icon-color;

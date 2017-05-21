@@ -132,4 +132,12 @@
   &--mail:before {
     content: '\f0e0';
   }
+
+  &--arrow-right-thin:before {
+    content: '\f105';
+ 	}
+
+ 	&--arrow-left-thin:before {
+ 	  content: '\f104';
+ 	}
 }

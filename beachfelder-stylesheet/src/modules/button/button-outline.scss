@@ -2,6 +2,7 @@
 @import "../../base/typo/typo.mixin";
 @import "../../base/align/align.mixin";
 @import "../../base/spacing/spacing.mixin";
+@import "../../mixins/breakpoint";
 
 @import "button-outline.setup";
 
@@ -11,6 +12,8 @@
 	@include -font-primary;
 	@include -align-center;
 	@include transition(all, .2s);
+	@include -spacing-f();
+
 	width: $button-outline-width;
 	height: $button-outline-height;
 	display: inline-block;
@@ -20,6 +23,10 @@
 	border: $button-outline-border-size $button-outline-border-color solid;
 	background: $button-outline-background-color;
 	cursor: pointer;
+
+	@include breakpoint('s') {
+		@include -spacing-zero();
+	}
 
 	&__icon {
 	  display: inline-block;

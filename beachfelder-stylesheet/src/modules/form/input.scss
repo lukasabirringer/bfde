@@ -1,15 +1,22 @@
 @import "../../mixins/breakpoint";
 @import "../../mixins/animation";
 @import "../../base/font/font.mixin";
+@import "../../base/spacing/spacing.mixin";
 @import "../../base/typo/typo.mixin";
 
 @import "input.setup";
 
 .input {
+	@include -spacing-f();
+
 	display: inline-block;
 	border: none;
 	position: relative;
 	width: $input-width;
+
+	@include breakpoint('s') {
+		@include -spacing-zero();
+	}
 
 	&__field {
 		@include -font-primary();
