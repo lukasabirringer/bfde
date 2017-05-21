@@ -1,0 +1,18 @@
+{
+	"bodyClass":"sg-wrapper-dark",
+
+	"navigation-footer": [
+		{
+			"icon": "",
+			"linkTitle":"Link Item 1"
+		},
+		{
+			"icon": "facebook",
+			"linkTitle":"Link Item 2"
+		},
+		{
+			"icon": "instagram",
+			"linkTitle":"Link Item 3"
+		}
+	]
+}

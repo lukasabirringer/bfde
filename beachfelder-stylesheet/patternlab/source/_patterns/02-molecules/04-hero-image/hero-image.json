@@ -1,4 +1,5 @@
 {
 	"hero-image_image":"http://beachfelder.de/img/header-image.jpg",
-	"hero-image_overlay": true
+	"hero-image_overlay": true,
+	"hero-image_overlayContent": ""
 }

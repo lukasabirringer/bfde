@@ -12,6 +12,10 @@
   background-color: $background-gray-2;
 }
 
+@mixin -background-gray-3() {
+  background-color: $background-gray-3;
+}
+
 @mixin -background-red() {
   background-color: $background-red;
 }

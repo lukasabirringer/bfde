@@ -1,0 +1,108 @@
+@import "../../../base/font/font.mixin";
+@import "../../../base/typo/typo.mixin";
+@import "../../../base/grid/flex.mixin";
+@import "../../../base/align/align.mixin";
+@import "../../../base/text-color/text-color.mixin";
+@import "../../../mixins/breakpoint";
+
+@import "beachcourt-summary.setup";
+
+.beachcourt-summary {
+	@include -spacing-b();
+
+	position: relative;
+	overflow: hidden;
+	width: $beachcourt-summary-width;
+	height: $beachcourt-summary-height;
+
+	@include breakpoint('s') {
+		@include -spacing-zero();
+	}
+
+	&__image {
+		position: absolute;
+		top: $beachcourt-summary-image-position-top;
+		left: $beachcourt-summary-image-position-left;
+		width: $beachcourt-summary-image-dimension;
+		height: auto;
+
+		@include breakpoint('s') {
+			width: auto;
+			height: $beachcourt-summary-image-dimension;
+		}
+	}
+
+	&__overlay {
+		@include flex();
+		@include flex--center-horizontal();
+		@include flex--center-vertical();
+		@include -spacing-inner-b();
+
+		position: absolute;
+		top: $beachcourt-summary-overlay-position-top;
+		left: $beachcourt-summary-overlay-position-left;
+		width: $beachcourt-summary-overlay-width;
+		height: $beachcourt-summary-overlay-height;
+		background: $beachcourt-summary-overlay-background-color;
+	}
+
+	&__icon {
+		@include -text-color-white();
+		position: absolute;
+		right: $beachcourt-summary-icon-position-right;
+		top: $beachcourt-summary-icon-position-top;
+		font-size: $beachcourt-summary-icon-font-size;
+		cursor: pointer;
+		padding: $beachcourt-summary-icon-spacing;
+
+		@include breakpoint('s') {
+			padding: $beachcourt-summary-icon-spacing-s;
+		}
+	}
+
+	&__title {
+		@include -text-color-white();
+		@include -typo-headline-3();
+		@include -font-secondary();
+		@include -align-center();
+	}
+
+	&__location {
+		@include -spacing-c();
+		border-top: $beachcourt-summary-divider-border-width solid $beachcourt-summary-divider-border-color;
+	}
+
+	&__icon-location {
+		@include -text-color-white();
+		@include -typo-copy();
+		display: inline-block;
+	}
+
+	&__coordinate {
+		@include -text-color-white();
+		@include -typo-copy();
+		@include -font-primary();
+		@include -align-center();
+		@include -spacing-static-c();
+		display: inline-block;
+	}
+
+	&__benefits {
+		@include -text-color-white();
+		@include -align-center();
+		width: $beachcourt-summary-benefits-list-width;
+		position: absolute;
+		bottom: $beachcourt-summary-benefits-list-position-bottom;
+
+		@include breakpoint('s') {
+			bottom: $beachcourt-summary-benefits-list-position-bottom-s;
+		}
+
+		li {
+			display: inline-block;
+			padding-left: $beachcourt-summary-benefits-list-item-spacing-vertical;
+			padding-right: $beachcourt-summary-benefits-list-item-spacing-vertical;
+			font-size: $beachcourt-summary-benefits-list-item-font-size;
+		}
+	}
+}

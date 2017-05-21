@@ -1,0 +1,30 @@
+@import "../../../setup/color-palette.setup";
+
+$beachcourt-summary-width: 100% !default;
+$beachcourt-summary-height: 430px !default;
+$beachcourt-summary-background-color: $color-palette-red !default;
+
+$beachcourt-summary-image-position-left: 0 !default;
+$beachcourt-summary-image-position-top: 0 !default;
+$beachcourt-summary-image-dimension: 100% !default;
+
+$beachcourt-summary-overlay-position-top: 0 !default;
+$beachcourt-summary-overlay-position-left: 0 !default;
+$beachcourt-summary-overlay-width: 100% !default;
+$beachcourt-summary-overlay-height: 100% !default;
+$beachcourt-summary-overlay-background-color: rgba($color-palette-gray-1, 0.3) !default;
+
+$beachcourt-summary-divider-border-color: $color-palette-white !default;
+$beachcourt-summary-divider-border-width: 3px !default;
+
+$beachcourt-summary-icon-position-right: 0 !default;
+$beachcourt-summary-icon-position-top: 0 !default;
+$beachcourt-summary-icon-spacing: 1.25rem !default;
+$beachcourt-summary-icon-spacing-s: 1.875rem !default;
+$beachcourt-summary-icon-font-size: 1.5625rem !default;
+
+$beachcourt-summary-benefits-list-width: 100% !default;
+$beachcourt-summary-benefits-list-position-bottom: 1.25rem !default;
+$beachcourt-summary-benefits-list-position-bottom-s: 1.875rem !default;
+$beachcourt-summary-benefits-list-item-spacing-vertical: 1.5625rem !default;
+$beachcourt-summary-benefits-list-item-font-size: 1.5625rem !default;

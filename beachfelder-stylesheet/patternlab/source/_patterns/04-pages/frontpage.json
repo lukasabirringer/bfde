@@ -3,5 +3,25 @@
 
 	"header-page_title": "Willkommen",
 	"header-page_subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis reiciendis, magni voluptates minima itaque, facere, delectus tempora qui temporibus, nobis excepturi optio ratione impedit atque nostrum eum similique minus nesciunt?",
-	"header-page_titleColor": "blue-2"
+	"header-page_titleColor": "blue-2",
+
+	"beachcourt": [
+		{
+			"image": "http://beachfelder.de/img/beachcourt-summary-bg-dummy.jpg",
+			"name": "Heimsheim",
+			"longitude": "48.806320",
+			"latitude": "8.820813",
+			"benefits": [
+				{
+					"icon": "shower"
+				},
+				{
+					"icon": "eating"
+				},
+				{
+					"icon": "parking"
+				}
+			]
+		}
+	]
 }
