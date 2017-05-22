@@ -23,6 +23,7 @@
   border: 0;
   background: $button-background-color;
   cursor: pointer;
+  border-radius: $button-border-radius;
 
   @include breakpoint('s') {
 		@include -spacing-zero();

@@ -19,6 +19,7 @@
 	border: 0;
 	background: $button-icon-background-color;
 	cursor: pointer;
+	border-radius: $button-icon-border-radius;
 
 	@include breakpoint('s') {
 		@include -spacing-zero();
