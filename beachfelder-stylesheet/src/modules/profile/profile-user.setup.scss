@@ -1,7 +1,6 @@
 @import "../../setup/color-palette.setup";
 
-$profile-user-image-background-color-2: rgba($color-palette-gradient-color-1, .5) !default;
-$profile-user-image-background-color-1: rgba($color-palette-gradient-color-2, .5) !default;
+$profile-user-image-background-color: rgba($color-palette-green, .8) !default;
 
 $profile-user-label-width: 40% !default;
 $profile-user-label-inner-spacing-horizontal: .9375rem !default;
@@ -17,3 +16,4 @@ $profile-user-image-edit-label-margin: .625rem !default;
 
 $profile-user-icon-edit-position-top: 1.1875rem !default;
 $profile-user-icon-edit-position-right: .5rem !default;
+$profile-user-image-edit-height: 3.125rem !default;

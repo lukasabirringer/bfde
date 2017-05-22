@@ -76,14 +76,12 @@
 			@include transition(all, .2s);
 
 			width: auto;
-		  height: 100%;
+		  height: $profile-user-image-edit-height;
 		  position: absolute;
-		  top: 0;
+		  bottom: 0;
 		  left: 0;
 		  right: 0;
-		  opacity: 0;
-		  background: $profile-user-image-background-color-1;
-		  background-image: linear-gradient(to bottom, $profile-user-image-background-color-1 0%, $profile-user-image-background-color-2 100%);
+		  background: $profile-user-image-background-color;
 		}
 
 		&__icon {
@@ -97,10 +95,6 @@
 			color: $profile-user-image-edit-label-color;
 			font-size: $profile-user-image-edit-label-font-size;
 			cursor: pointer;
-		}
-
-		&:hover &__edit {
-			opacity: 1;
 		}
 	}
 
