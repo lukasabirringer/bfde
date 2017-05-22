@@ -44,7 +44,23 @@
 		@include -text-color-gray-1();
 		@include -overflow-ellipsis();
 
-		padding: $profile-user-info-inner-spacing-horizontal 0;
+		position: relative;
+		padding: $profile-user-info-inner-spacing-horizontal $profile-user-info-inner-spacing-vertical $profile-user-info-inner-spacing-horizontal 0;
+	}
+
+	&__icon {
+		@include -background-page();
+		@include -text-color-gray-2();
+		@include transition (color, .2s);
+
+		position: absolute;
+		right: $profile-user-icon-edit-position-right;
+		top: $profile-user-icon-edit-position-top;
+		cursor: pointer;
+
+		&:hover {
+			@include -text-color-green();
+		}
 	}
 
 	&-image {
