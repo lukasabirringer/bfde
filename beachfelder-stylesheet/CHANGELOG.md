@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
+- added profile page
+- added profile user details as organism
+
+## [0.0.7] - 2017-05-21
+- added footer sponsoring
+- added footer navigation
+- added shadow to input and buttons
+- added beachcourt summary
+- added multifunctional menu
+- added hero image
+- added icon to input
+- added new color "gray-3"
 
 ## [0.0.6] - 2017-05-18
 - added topbar
