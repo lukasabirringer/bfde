@@ -70,6 +70,16 @@
   line-height: 1.42857143;
 }
 
+@mixin -typo-copy--large() {
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.5625;
+}
+
+@mixin -typo-copy--row($rows) {
+	column-count: $rows;
+}
+
 @mixin -overflow-ellipsis() {
   overflow: hidden;
   text-overflow: ellipsis;

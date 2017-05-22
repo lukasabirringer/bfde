@@ -1,4 +1,5 @@
-@import "typo.mixin.scss";
+@import "typo.mixin";
+@import "../../mixins/breakpoint";
 
 .-typo {
 
@@ -13,6 +14,28 @@
   &-headline-5 { @include -typo-headline-5(); }
 
   &-copy { @include -typo-copy(); }
+
+  &-copy--large { @include -typo-copy--large(); }
+
+  &-copy--row-2 {
+  	@include -typo-copy--row(1);
+
+  	@include breakpoint('s') {
+  		@include -typo-copy--row(2);
+  	}
+  }
+
+  &-copy--row-3 {
+  	@include -typo-copy--row(1);
+
+  	@include breakpoint('s') {
+  		@include -typo-copy--row(2);
+  	}
+
+  	@include breakpoint('m') {
+  		@include -typo-copy--row(3);
+  	}
+  }
 }
 
 .overflow-ellipsis { @include -overflow-ellipsis(); }
