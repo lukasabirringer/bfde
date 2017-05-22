@@ -1,0 +1,27 @@
+<ul class="list-beachcourt {{ styleModifier }}">
+	{{# list-beachcourt }}
+		<li class="list-beachcourt__item">
+			<div class="list-beachcourt__image">
+				<img src="{{ image }}" alt="{{ title }}" class="image">
+			</div>
+			<div class="list-beachcourt__title-container column--12 column--s-4">
+				<h5 class="list-beachcourt__title">{{ title }}</h5>
+				<p class="list-beachcourt__date"> hinzugefügt am:<br>{{ added }} </p>
+			</div>
+			<div class="list-beachcourt__coordinates-container column--4 column--s-1">
+				<h5 class="list-beachcourt__title">{{ coordinatesTitle }}</h5>
+				<p class="list-beachcourt__coordinates"> {{ longitude }}<br>{{ latitude }} </p>
+			</div>
+			<div class="list-beachcourt__benefits column--3">
+				<ul class="list-beachcourt__icon-list">
+					{{# benefits }}
+						<li><span class="icon icon--{{ icon }}"></span></li>
+					{{/ benefits }}
+				</ul>
+			</div>
+			<div class="list-beachcourt__action">
+				{{> molecules-button-icon:button-icon--list-action(button-icon_icon:"delete") }}
+			</div>
+		</li>
+	{{/ list-beachcourt }}
+</ul>
