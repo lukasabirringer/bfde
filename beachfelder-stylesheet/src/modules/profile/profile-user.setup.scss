@@ -1,0 +1,15 @@
+@import "../../setup/color-palette.setup";
+
+$profile-user-image-background-color-2: rgba($color-palette-gradient-color-1, .5) !default;
+$profile-user-image-background-color-1: rgba($color-palette-gradient-color-2, .5) !default;
+
+$profile-user-label-width: 50% !default;
+$profile-user-label-inner-spacing-horizontal: .9375rem !default;
+$profile-user-label-margin-right: .625rem;
+
+$profile-user-info-inner-spacing-horizontal: .9375rem !default;
+
+$profile-user-image-edit-icon-text-color: $color-palette-white !default;
+$profile-user-image-edit-label-font-size: 1.125rem !default;
+$profile-user-image-edit-label-color: $color-palette-white !default;
+$profile-user-image-edit-label-margin: .625rem !default;
