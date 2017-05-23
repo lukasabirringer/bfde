@@ -64,4 +64,9 @@
 		  }
 		}
 	}
+
+	&--list-action {
+		height: $button-icon-list-action-height;
+		margin-top: $button-icon-list-action-margin-top;
+	}
 }

@@ -1,0 +1,95 @@
+@import "../../mixins/animation";
+@import "../../mixins/breakpoint";
+@import "../../base/font/font.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/align/align.mixin";
+@import "../../base/text-color/text-color.mixin";
+
+@import "list-beachcourt.setup";
+
+.list-beachcourt {
+
+	&__item {
+		@include transition(all, .2s);
+		@include flex();
+		@include flex--center-horizontal();
+	  justify-content: space-between;
+	  background: $list-beachcourt-item-background-color;
+	  height: $list-beachcourt-item-height;
+	  width: $list-beachcourt-item-width;
+	  cursor: pointer;
+	  padding: $list-beachcourt-item-padding;
+
+	  &:not(:first-child) {
+	    margin-top: $list-beachcourt-item-margin-top;
+	  }
+
+	  @include breakpoint('s') {
+	  	padding: $list-beachcourt-item-padding-s;
+	  }
+	}
+
+	&__image {
+	  width: $list-beachcourt-image-width;
+	  overflow: hidden;
+	  display: none;
+
+	  @include breakpoint('s') {
+	  	display: inline;
+	  }
+
+	  img {
+	    width: $list-beachcourt-image-width;
+	    height: $list-beachcourt-image-height;
+	  }
+	}
+
+	&__coordinates-container {
+		@include -align-center();
+		display: none;
+
+		@include breakpoint('xs') {
+			display: inline;
+		}
+	}
+
+	&__benefits {
+		display: none;
+
+		@include breakpoint('m') {
+			display: inline;
+		}
+	}
+
+	&__title {
+		@include -typo-headline-5();
+		@include -text-color-green();
+		@include -font-secondary();
+		@include -overflow-ellipsis();
+	}
+
+	&__date {
+		@include -typo-copy();
+		@include -text-color-blue-2();
+		@include -font-primary();
+	}
+
+	&__coordinates {
+		@include -typo-copy();
+		@include -text-color-blue-2();
+		@include -font-primary();
+	}
+
+	&__icon-list {
+
+    li {
+      display: inline-block;
+      margin: $list-beachcourt-icon-list-margin-horizontal $list-beachcourt-icon-list-margin-vertical;
+      color: $list-beachcourt-icon-list-font-color;
+    }
+  }
+
+  &__action {
+  	height: $list-beachcourt-action-height;
+  }
+}
