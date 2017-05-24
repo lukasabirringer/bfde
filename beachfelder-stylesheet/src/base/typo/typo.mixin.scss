@@ -70,6 +70,13 @@
   line-height: 1.42857143;
 }
 
+@mixin -typo-link() {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.42857143;
+  text-decoration: none;
+}
+
 @mixin -typo-copy--large() {
   font-weight: normal;
   font-size: 1.125rem;
