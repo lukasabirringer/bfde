@@ -5,8 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
+
+
+## [0.0.8] - 2017-05-24
 - added profile page
 - added profile user details as organism
+- added login page
+- added new font-size -copy--large and -copy-link
 
 ## [0.0.7] - 2017-05-21
 - added footer sponsoring

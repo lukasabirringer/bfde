@@ -1,6 +1,6 @@
 {
   "name": "beachfelder-stylesheet",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "beachfelder Stylesheet contains all neccessary styles for the patternlab components",
   "main": "index.js",
   "scripts": {
