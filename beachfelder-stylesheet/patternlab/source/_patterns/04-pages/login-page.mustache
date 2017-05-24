@@ -1,0 +1,35 @@
+<div class="page">
+	{{> organisms-topbar }}
+
+	<div class="row row--zero">
+		<div class="column column--12 column--zero">
+			{{> molecules-hero-image }}
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="row -spacing-widget-default">
+			<div class="column column--12">
+				{{> organisms-header-page }}
+			</div>
+		</div>
+		<div class="row -spacing-d">
+			<div class="column column--12 column--s-4">
+				<img src="{{ login-page_image }}" class="image">
+			</div>
+
+			<div class="column column--12 column--s-6 -align-center">
+				{{> molecules-input(input_label:"Deine E-Mail Adresse", input_type:"email", input_icon: "mail") }}
+				<br><br>
+				{{> molecules-input(input_label:"Dein Passwort", input_type: "password", input_icon: "password") }}
+				<br><br>
+				{{> molecules-button(button_label:"Anmelden") }}
+				<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">Noch kein Mitglied?
+					Dann <a href="#" class="-typo-copy-link -text-color-green">registriere</a> dich jetzt</p>
+			</div>
+		</div>
+	</div>
+
+	{{> organisms-footer-sponsoring:-spacing-widget-default }}
+	{{> organisms-footer }}
+</div>

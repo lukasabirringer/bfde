@@ -15,7 +15,10 @@
 
   &-copy { @include -typo-copy(); }
 
+  &-copy-link { @include -typo-link(); }
+
   &-copy--large { @include -typo-copy--large(); }
+
 
   &-copy--row-2 {
   	@include -typo-copy--row(1);

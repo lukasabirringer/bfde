@@ -10,7 +10,7 @@
 	}
 
 	&__subtitle {
-		@include -typo-copy();
+		@include -typo-copy--large();
 		@include -font-primary();
 		@include -text-color-blue-2();
 		@include -spacing-static-f();
