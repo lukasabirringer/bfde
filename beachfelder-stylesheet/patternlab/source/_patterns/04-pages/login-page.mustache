@@ -13,20 +13,21 @@
 				{{> organisms-header-page }}
 			</div>
 		</div>
-		<div class="row -spacing-d">
-			<div class="column column--12 column--s-4">
-				<img src="{{ login-page_image }}" class="image">
-			</div>
-
-			<div class="column column--12 column--s-6 -align-center">
+		<div class="row -spacing-d -spacing-inner-a">
+			<div class="column column--2"></div>
+			<div class="column column--12 column--m-8 -align-right">
 				{{> molecules-input(input_label:"Deine E-Mail Adresse", input_type:"email", input_icon: "mail") }}
 				<br><br>
 				{{> molecules-input(input_label:"Dein Passwort", input_type: "password", input_icon: "password") }}
 				<br><br>
 				{{> molecules-button(button_label:"Anmelden") }}
+				<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">
+					<a href="#" class="-typo-copy-link -text-color-green">Passwort vergessen?</a>
+				</p>
 				<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">Noch kein Mitglied?
 					Dann <a href="#" class="-typo-copy-link -text-color-green">registriere</a> dich jetzt</p>
 			</div>
+			<div class="column column--2"></div>
 		</div>
 	</div>
 
