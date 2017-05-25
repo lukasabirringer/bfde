@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 
-## [0.0.8] - 2017-05-24
+## [0.1.0] - 2017-05-24
 - added profile page
 - added profile user details as organism
 - added login page

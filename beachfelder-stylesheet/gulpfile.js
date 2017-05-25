@@ -81,7 +81,31 @@ gulp.task('pl-copy:beachfelder-stylesheet', gulp.series('pl-build:beachfelder-st
     .pipe(browserSync.stream());
 }));
 
+//bump version with patch
+gulp.task('bump-patch', function(){
 
+	var options = {
+	    type: 'patch'
+	};
+
+  gulp.src('./package.json')
+  .pipe(bump( options ))
+  .pipe(gulp.dest('./'));
+});
+
+//bump version with minor
+gulp.task('bump-minor', function(){
+
+	var options = {
+	    type: 'minor'
+	};
+
+  gulp.src('./package.json')
+  .pipe(bump( options ))
+  .pipe(gulp.dest('./'));
+});
+
+// deploys stylesheet to ftp server
 gulp.task( 'deploy', function () {
  	var conn = ftp.create( {
   	host:     ftpconfig.host,

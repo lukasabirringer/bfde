@@ -1,6 +1,6 @@
 {
   "name": "beachfelder-stylesheet",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "beachfelder Stylesheet contains all neccessary styles for the patternlab components",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
     "postcss:prod": "better-npm-run postcss:prod",
     "postinstall": "[ -d \"./patternlab\" ] && node patternlab/scripts/postinstall.js || echo",
     "gulp": "gulp -- ",
-    "release": "npm i && npm run build:all:dev && npm run build",
+    "version:patch": "gulp bump-patch",
+    "version:minor": "gulp bump-minor",
+    "deploy": "gulp deploy",
     "help": "gulp patternlab:help",
     "build": "gulp patternlab:build",
     "serve": "gulp patternlab:serve"
