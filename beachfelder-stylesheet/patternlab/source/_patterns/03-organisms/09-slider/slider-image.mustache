@@ -1,0 +1,18 @@
+<div class="slider-image {{ styleModifier }}">
+	<div class="slider-image__navigation slider-image__navigation--left icon icon--arrow-left-thin"></div>
+
+	{{# slider-image_items }}
+		<div class="slider-image__image">
+			<img src="{{ image }}" class="image">
+		</div>
+	{{/ slider-image_items }}
+
+	<div class="slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin"></div>
+	<div class="slider-image__indication-dots">
+		{{# slider-image_dots }}
+
+			<span class="slider-image__dot {{# isActive }} slider-image__dot--active {{/ isActive }}"></span>
+
+		{{/ slider-image_dots }}
+	</div>
+</div>

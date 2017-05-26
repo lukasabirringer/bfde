@@ -1,0 +1,21 @@
+{
+	"slider-image_items": [
+		{
+			"image": "https://dummyimage.com/540x340/000000/fff.jpg"
+		}
+	],
+	"slider-image_dots": [
+		{
+			"dot": true,
+			"isActive": false
+		},
+		{
+			"dot": true,
+			"isActive": false
+		},
+		{
+			"dot": true,
+			"isActive": true
+		}
+	]
+}
