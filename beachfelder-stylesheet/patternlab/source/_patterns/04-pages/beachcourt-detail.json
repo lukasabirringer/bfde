@@ -3,6 +3,12 @@
 	"header-page_title": "Beachvolleyball Feld Tiefenbronn-Mühlhausen",
 	"header-page_titleColor": "blue-2",
 
+	"slider-image_items": [
+		{
+			"image": "http://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg"
+		}
+	],
+
 	"notification-box-rating": [
 		{
 			"label": "Sand",

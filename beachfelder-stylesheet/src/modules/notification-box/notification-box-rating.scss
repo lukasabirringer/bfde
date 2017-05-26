@@ -13,6 +13,7 @@
 	@include flex--center-vertical();
 	@include flex--center-horizontal();
 	background-color: $notification-box-rating-background-color;
+	height: $notification-box-rating-height;
 
 	&__summary {
 
@@ -33,7 +34,7 @@
 		display: none;
 		width: 100%;
 
-		@include breakpoint('s') {
+		@include breakpoint('xs') {
 			display: inline-block;
 		}
 	}
