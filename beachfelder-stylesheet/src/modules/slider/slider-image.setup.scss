@@ -1,0 +1,22 @@
+@import "../../setup/color-palette.setup";
+
+$slider-image-navigation-position: 50% !default;
+$slider-image-navigation-height: 4.6875rem !default;
+$slider-image-navigation-inner-spacing: .9375rem !default;
+$slider-image-navigation-font-color: $color-palette-white !default;
+$slider-image-navigation-font-size: 2rem !default;
+$slider-image-navigation-position-left: 0 !default;
+$slider-image-navigation-position-right: 0 !default;
+$slider-image-navigation-background-color: $color-palette-blue-1 !default;
+
+$slider-image-navigation-box-shadow-position: 1.875rem !default;
+$slider-image-navigation-box-shadow-color: rgba($color-palette-white, .0) !default;
+$slider-image-navigation-box-shadow-color-hovered: rgba($color-palette-black, .2) !default;
+
+$slider-image-indication-dots-position: 0 !default;
+$slider-image-indication-dots-inner-spacing: .625rem !default;
+$slider-image-indication-dot-dimension: .75rem !default;
+$slider-image-indication-dot-border-radius: 100% !default;
+$slider-image-indication-dot-spacing-horizontal: .1875rem !default;
+$slider-image-indication-dot-background-color: $color-palette-white !default;
+$slider-image-indication-dot-background-color-active: $color-palette-blue-1 !default;
