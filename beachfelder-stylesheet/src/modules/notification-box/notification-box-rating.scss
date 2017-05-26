@@ -1,6 +1,7 @@
 @import "../../base/font/font.mixin";
 @import "../../base/typo/typo.mixin";
 @import "../../base/grid/flex.mixin";
+@import "../../mixins/breakpoint";
 @import "../../base/align/align.mixin";
 @import "../../base/text-color/text-color.mixin";
 @import "../../base/spacing/spacing.mixin";
@@ -9,6 +10,7 @@
 .notification-box-rating {
 	@include -spacing-inner-b();
 	@include flex();
+	@include flex--center-vertical();
 	@include flex--center-horizontal();
 	background-color: $notification-box-rating-background-color;
 
@@ -28,7 +30,12 @@
 	}
 
 	&__details {
+		display: none;
 		width: 100%;
+
+		@include breakpoint('s') {
+			display: inline-block;
+		}
 	}
 
 	&__label {

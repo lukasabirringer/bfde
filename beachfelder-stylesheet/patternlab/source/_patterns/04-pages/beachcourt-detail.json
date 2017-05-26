@@ -10,15 +10,30 @@
 		},
 		{
 			"label": "Netzanlage",
-			"rating": "45 of 50 Punkte"
+			"rating": "45 von 50 Punkten"
 		},
 		{
 			"label": "Begrenzung",
-			"rating": "25 of 30 Punkte"
+			"rating": "25 von 30 Punkten"
 		},
 		{
 			"label": "Umgebung",
-			"rating": "10 of 20 Punkte"
+			"rating": "10 von 20 Punkten"
+		}
+	],
+
+	"notification-box_headline": "Diese Feld wurde abgewertet",
+	"notification-box_subline": "Dieses Beachvolleyballfeld wurde auf Grund von Sicherheitsmängeln abgewertet.",
+	"notification-box_icon": "info",
+	"notification-box_list": [
+		{
+			"item": "Randbegrenzung ist ungenügend"
+		},
+		{
+			"item": "Kein Fangnetz zum Fluss"
+		},
+		{
+			"item": "Kein WC vorhanden"
 		}
 	]
 }

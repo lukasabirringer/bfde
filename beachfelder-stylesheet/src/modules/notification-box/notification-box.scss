@@ -40,6 +40,16 @@
 	  font-size: $notification-box-icon-font-size;
 	}
 
+	&__item {
+		@include -typo-copy();
+		@include -font-primary();
+		@include -text-color-blue-2();
+
+		&-icon {
+			margin-right: $notification-box-list-item-icon-margin-right;
+		}
+	}
+
 	&--info {
   	background: $notification-box-background-color-info;
 
