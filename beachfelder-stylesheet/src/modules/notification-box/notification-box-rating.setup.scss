@@ -1,0 +1,18 @@
+@import "../../setup/color-palette.setup";
+
+$notification-box-rating-background-color: $color-palette-green !default;
+
+$notification-box-rating-image-width: 4.875rem !default;
+
+$notification-box-rating-label-color: $color-palette-white !default;
+$notification-box-rating-label-width: 50% !default;
+$notification-box-rating-label-inner-spacing-horizontal: .4375rem !default;
+$notification-box-rating-label-inner-spacing-vertical: 1.875rem !default;
+$notification-box-rating-label-margin-right: .625rem;
+$notification-box-rating-label-border-width: 1px !default;
+$notification-box-rating-label-border-color: rgba($color-palette-white, 0.5) !default;
+$notification-box-rating-label-font-size: 1.125rem !default;
+
+$notification-box-rating-rating-inner-spacing-horizontal: .4375rem !default;
+$notification-box-rating-rating-inner-spacing-vertical: 1.875rem !default;
+$notification-box-rating-rating-font-size: 1.125rem !default;

@@ -8,9 +8,10 @@
 
 .notification-box {
 	$bem-block: &;
-	
+
 	@include flex();
 	background: $notification-box-background-color;
+	height: $notification-box-height;
 
 	&__message {
 		@include -spacing-inner-b();
@@ -29,7 +30,7 @@
 		@include -typo-copy();
 		@include -spacing-static-c();
 	}
-	
+
 	&__icon {
 		@include flex();
 		@include flex--center-horizontal();
@@ -41,31 +42,31 @@
 
 	&--info {
   	background: $notification-box-background-color-info;
-    
+
 	  #{$bem-block}__icon {
 	  	background: $notification-box-icon-bar-background-color-info;
 		}
  	}
-  
+
   &--warning {
   	background: $notification-box-background-color-warning;
-    
+
 	  #{$bem-block}__icon {
 	  	background: $notification-box-icon-bar-background-color-warning;
 	  }
-    
+
     #{$bem-block}__message {
     	color: $notification-box-text-color-warning;
 		}
 	}
-  
+
   &--success {
   	background: $notification-box-background-color-success;
-    
+
 	  #{$bem-block}__icon {
 	  	background: $notification-box-icon-bar-background-color-success;
 	  }
-    
+
 	  #{$bem-block}__message {
 	  	color: $notification-box-text-color-success;
 	  }
