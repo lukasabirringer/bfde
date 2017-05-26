@@ -1,5 +1,24 @@
 {
 	"bodyClass": "sg-wrapper-light",
 	"header-page_title": "Beachvolleyball Feld Tiefenbronn-Mühlhausen",
-	"header-page_titleColor": "blue-2"
+	"header-page_titleColor": "blue-2",
+
+	"notification-box-rating": [
+		{
+			"label": "Sand",
+			"rating": "30 von 50 Punkten"
+		},
+		{
+			"label": "Netzanlage",
+			"rating": "45 of 50 Punkte"
+		},
+		{
+			"label": "Begrenzung",
+			"rating": "25 of 30 Punkte"
+		},
+		{
+			"label": "Umgebung",
+			"rating": "10 of 20 Punkte"
+		}
+	]
 }
