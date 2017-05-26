@@ -1,3 +1,18 @@
 {
-	"bodyClass":"sg-wrapper-light"
+	"bodyClass":"sg-wrapper-light",
+
+	"navigation-footer": [
+		{
+			"icon": "",
+			"linkTitle":"Link Item 1"
+		},
+		{
+			"icon": "",
+			"linkTitle":"Link Item 2"
+		},
+		{
+			"icon": "",
+			"linkTitle":"Link Item 3"
+		}
+	]
 }

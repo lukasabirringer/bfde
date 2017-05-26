@@ -4,7 +4,7 @@ $input-width: 100% !default;
 
 $input-field-width: 100% !default;
 $input-field-text-color: $color-palette-blue-2 !default;
-$input-field-horizontal-padding: 2.6875rem !default;
+$input-field-horizontal-padding: 3rem !default;
 $input-field-vertical-padding: 1.438rem !default;
 $input-field-max-height: 3.75rem !default;
 $input-field-label-font-size: 1rem !default;
@@ -15,17 +15,19 @@ $input-field-border-color: $color-palette-gray-2 !default;
 
 $input-label-color: $color-palette-blue-2 !default;
 $input-label-font-size: 1rem !default;
-$input-label-position-left: 2.6875rem !default;
+$input-label-position-left: 3rem !default;
 $input-label-position-top: 50% !default;
 
+$input-icon-position-left: 0 !default;
+$input-icon-position-top: 0 !default;
 $input-icon-text-color: $color-palette-gray-2 !default;
 $input-icon-font-size: 1.25rem !default;
 $input-icon-spacing: 1.25rem !default;
 
-$input-label-position-left-not-focused: .525rem !default;
+$input-label-position-left-not-focused: 3rem !default;
 $input-label-position-top-not-focused: .525rem !default;
 $input-label-font-size-not-focused: .6875rem !default;
 
-$input-label-position-left-focused: .525rem !default;
+$input-label-position-left-focused: 3rem !default;
 $input-label-position-top-focused: .525rem !default;
 $input-label-font-size-focused: .6875rem !default;

@@ -30,14 +30,15 @@
 		outline: none;
 		width: $input-field-width;
 		border-radius: $input-field-border-radius;
+		appearance: none;
 	}
 
 	&__icon {
 		color: $input-icon-text-color;
 		font-size: $input-icon-font-size;
 		position: absolute;
-		left: 0;
-		top: 0;
+		left: $input-icon-position-left;
+		top: $input-icon-position-top;
 		padding: $input-icon-spacing;
 	}
 

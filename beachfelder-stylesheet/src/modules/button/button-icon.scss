@@ -65,6 +65,24 @@
 		}
 	}
 
+	&--green {
+		background: $button-icon-background-color-green;
+
+		&:hover {
+		  background: $button-icon-background-color-green-hovered;
+		}
+
+		// button is disabled
+		&:disabled {
+			cursor: normal;
+		  background: $button-icon-background-color-green-disabled;
+
+		  #{$bem-block}__icon {
+		    color: $button-icon-icon-color-green-disabled;
+		  }
+		}
+	}
+
 	&--list-action {
 		height: $button-icon-list-action-height;
 		margin-top: $button-icon-list-action-margin-top;

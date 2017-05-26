@@ -14,10 +14,17 @@ $button-icon-icon-font-size: 1.25rem !default;
 $button-icon-icon-color: $color-palette-white !default;
 $button-icon-icon-color-disabled: rgba($color-palette-white, 0.7) !default;
 
+/** red button **/
 $button-icon-background-color-red: $color-palette-red !default;
 $button-icon-background-color-red-hovered: darken($color-palette-red, 5%) !default;
 $button-icon-background-color-red-disabled: lighten($color-palette-red, 5%) !default;
 $button-icon-icon-color-red-disabled: rgba($color-palette-white, 0.7) !default;
+
+/** green button **/
+$button-icon-background-color-green: $color-palette-green !default;
+$button-icon-background-color-green-hovered: darken($color-palette-green, 5%) !default;
+$button-icon-background-color-green-disabled: lighten($color-palette-green, 5%) !default;
+$button-icon-icon-color-green-disabled: rgba($color-palette-white, 0.7) !default;
 
 $button-icon-box-shadow-color-focus: rgba($color-palette-black, .2) !default;
 
