@@ -16,6 +16,11 @@
 		@include -typo-headline-4();
 		@include -text-color-blue-2();
 		@include -font-secondary();
+		@include -spacing-static-b();
+
+		@include breakpoint('s') {
+			@include -spacing-zero();
+		}
 	}
 
 	&__details {
