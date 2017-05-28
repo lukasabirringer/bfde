@@ -85,16 +85,19 @@
             <div class="row">
                 <div class="col-xs-12"> 
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
+                            <form  method="post" action="{{ url('/search') }}" id="searchform"> 
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="text" name="searchQuery" class="form-control" placeholder="Gib' eine PLZ oder einen Ort ein">
+                            <input type="submit" name="submit" > 
+                   
+                            </form> 
                     </div>
                 </div>
             </div>
         </div>
+    
         @yield('content')
-       
+        
         @include('_partials.footer')
     </div>
     <!-- Scripts -->

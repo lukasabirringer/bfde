@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 		]]);
 		Route::post('/rating/new', 'RatingController@store');
 		Route::get('/', 'HomepageController@show');
+		Route::post('/search', 'SearchController@show');
 });
 
 
