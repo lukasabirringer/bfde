@@ -55,7 +55,7 @@ class PageController extends Controller
 
         $page = Page::where('slug', $slug)->firstorfail();
         $page->name = $newname;
-        $page->description = $dnewescription;
+        $page->description = $newescription;
         $page->content = $newcontent;
         $page->slug = $newslug;
         $page->visible = $newvisible;

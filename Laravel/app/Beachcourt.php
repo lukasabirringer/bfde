@@ -9,8 +9,9 @@ use Auth;
 class Beachcourt extends Model
 {
     protected $fillable = [
-        'courtName', 'city',
+        'courtName', 'city', 'created_at', 'updated_at'
     ];
+    public $timestamps = true;
     public function ratings()
     {
         return $this->hasMany('App\Rating');

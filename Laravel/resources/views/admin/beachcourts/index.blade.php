@@ -58,7 +58,7 @@
 								@endforeach
 						</tbody> 
 				</table>
-				
+				{{ $beachcourts->links() }}
 		</div>
 </div>
 

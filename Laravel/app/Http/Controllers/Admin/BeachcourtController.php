@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Beachcourt;
 use DB;
+use Carbon\Carbon;
 
 class BeachcourtController extends Controller
 {
@@ -16,7 +17,7 @@ class BeachcourtController extends Controller
      */
     public function index()
     {
-        $beachcourts = Beachcourt::all();
+        $beachcourts = Beachcourt::paginate(15);
         return view('admin.beachcourts.index', ['beachcourts' => $beachcourts]);
     }
 
@@ -38,11 +39,14 @@ class BeachcourtController extends Controller
      */
     public function store(Request $request)
     {
+        $date = Carbon::now()->toDateTimeString();
+     
         DB::table('beachcourts')->insert(
             ['courtName' => $request->courtName,
-             'city' => $request->city,]
+             'city' => $request->city,
+             'created_at' => $date]
         );
-    
+   
         return redirect('/admin/beachcourts/');
     }
 
