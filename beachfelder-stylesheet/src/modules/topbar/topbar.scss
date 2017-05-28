@@ -43,4 +43,8 @@
 	&__button {
 		max-width: $topbar-button-max-width;
 	}
+
+	&__mfm {
+		top: $topbar-mfm-position;
+	}
 }
