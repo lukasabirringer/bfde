@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Beachcourt;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role',
+        'name', 'email', 'password', 'role', 'user_id', 'beachcourt_id',
     ];
 
     /**
@@ -31,5 +32,9 @@ class User extends Authenticatable
     }
     public function isRegular(){
         return (\Auth::check() && $this->role == 'regular');
+    }
+    public function favorites()
+    {
+        return $this->belongsToMany(Beachcourt::class, 'favorites', 'user_id', 'beachcourt_id')->withTimeStamps();
     }
 }

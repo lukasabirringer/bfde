@@ -10,8 +10,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 
-Route::group(['namespace' => 'Frontend'], function () {
 
+Route::get('my_favorites', 'BeachcourtController@myFavorites')->middleware('auth');
+
+Route::group(['namespace' => 'Frontend'], function () {
+		Route::post('/favorite/{beachcourt}', 'BeachcourtController@favoriteBeachcourt');
+		Route::post('/unfavorite/{beachcourt}', 'BeachcourtController@unFavoriteBeachcourt');
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::resource('/beachcourts', 'BeachcourtController');
 		Route::resource('/pages', 'PageController');
