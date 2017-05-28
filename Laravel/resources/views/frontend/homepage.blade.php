@@ -8,7 +8,7 @@
           <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
           <a href="{{ url('pages') }}"><button type="button" class="btn btn-primary">Pages Übersicht</button></a>
 	</div>
-	<h2>Top5 Beachfelder</h2>
+	<h2>UNSERE NEUESTEN BEACHVOLLEYBALL-FELDER</h2>
 	@forelse ($beachcourts as $beachcourt)
                 <div class="panel panel-default">
                     <div class="panel-heading">

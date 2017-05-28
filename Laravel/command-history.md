@@ -28,15 +28,15 @@ Erledigt
 - Pages-Modul
 - Beachcourt-Modul
 - User-Modul
+- Rating-Modul
+- Footer-Navigation
+- Pages Feinschliff
 
 ToDo
 ------
-- Rating-Modul
 - Suchfunktion
 - User Feinschliff
 - Beachcourt Feinschliff
-- Startseite Feinschliff
-- Pages Feinschliff
 - Rating Feinschliff
 - Email Funktion
 - Backend Dashboard

@@ -8,14 +8,13 @@
 <h1>Beachfeld-Listing</h1>   
 <meta name="token" id="token" value="{{ csrf_token() }}">
 <hr>
- <div class="col-md-12 ">
-            <div class="page-header">
-                <h3>All Posts</h3>
-            </div>
+
             @forelse ($beachcourts as $beachcourt)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Name: {{ $beachcourt->courtName }}
+                    <p>Name: <a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->courtName }}</a></p>
+
+                   
                     </div>
 
                     <div class="panel-body">
@@ -35,8 +34,8 @@
                 <p>No Courts created.</p>
             @endforelse
 
-            {{ $beachcourts->links() }}
-        </div>
+          {{ $beachcourts->links() }}
+       
 
 
 </div>
