@@ -8,7 +8,7 @@
 <h1>Pages-Listing</h1>
 <hr>
 @foreach ($pages as $page)
-<p>Name: <a href="{{ url('pages/'.$page->id) }}">{{ $page->name }}</a></p>
+<p>Name: <a href="{{ url('pages/'.$page->slug) }}">{{ $page->name }}</a></p>
 
 <p>Beschreibung: {{ $page->description }}</p>
 <p>Inhalt: {{ $page->content }}</p>

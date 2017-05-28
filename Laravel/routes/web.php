@@ -1,25 +1,22 @@
 <?php
 
-Route::get('/', function () {
-    return view('startseite');
-});
 
-Route::get('/home', 'HomeController@index')->name('home');
+    
 
 
 Auth::routes();
 
-
-
-Route::get('my_favorites', 'BeachcourtController@myFavorites')->middleware('auth');
-
 Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/favorite/{beachcourt}', 'BeachcourtController@favoriteBeachcourt');
 		Route::post('/unfavorite/{beachcourt}', 'BeachcourtController@unFavoriteBeachcourt');
+		Route::get('my_favorites', 'BeachcourtController@myFavorites')->middleware('auth');
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::resource('/beachcourts', 'BeachcourtController');
-		Route::resource('/pages', 'PageController');
+		Route::resource('/pages', 'PageController', ['parameters' => [
+		    'pages' => 'slug'
+		]]);
 		Route::post('/rating/new', 'RatingController@store');
+		Route::get('/', 'HomepageController@show');
 });
 
 
@@ -31,6 +28,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 
 		Route::resource('/admin/users', 'UserController');
 		Route::resource('/admin/beachcourts', 'BeachcourtController');
-		Route::resource('/admin/pages', 'PageController');
-
+		Route::resource('/admin/pages', 'PageController', ['parameters' => [
+		    'admin/pages' => 'slug'
+		]]);
+		Route::resource('/admin/footernavigations', 'FooternavigationController');
 });
+

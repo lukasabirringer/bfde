@@ -17,26 +17,30 @@
 						<thead> 
 								<tr> 
 										<th class="col-md-1">ID</th> 
-										<th class="col-md-3">Name</th> 
-										<th class="col-md-4">Beschreibung</th> 
-										<th class="col-md-4">Optionen</th> 
+										<th class="col-md-2">Name</th> 
+										<th class="col-md-2">Beschreibung</th> 
+										<th class="col-md-2">Slug</th> 
+										<th class="col-md-2">sichtbar?</th> 
+										<th class="col-md-3">Optionen</th> 
 								</tr> 
 						</thead> 
 						<tbody> 
 								@foreach ($pages as $page)
-												<form action="{{ url('admin/pages/'.$page->id) }}" method="POST">
+												<form action="{{ url('admin/pages/'.$page->slug) }}" method="POST">
 								<tr> 
 										<td>{{ $page->id }}</td>
 										<td>{{ $page->name }}</td>
 										<td>{{ $page->description }} </td>
+										<td>{{ $page->slug }}</td>
+										<td>{{ $page->visible }} </td>
 										<td>
-												<a href="{{ url('admin/pages/'.$page->id) }}">
+												<a href="{{ url('admin/pages/'.$page->slug) }}">
 													<button type="button" class="btn btn-default">
 														<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Öffnen
 													</button>
 												</a>
 												
-												<a href="{{ url('admin/pages/'.$page->id.'/edit/') }}">
+												<a href="{{ url('admin/pages/'.$page->slug.'/edit/') }}">
 													<button type="button" class="btn btn-info">
 														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Bearbeiten
 													</button>

@@ -24,41 +24,49 @@ class PageController extends Controller
     public function store(Request $request)
     {
         DB::table('pages')->insert(
-            ['name' => $request->pageName,'description' => $request->pageDescription,'content' => $request->pageContent,]
+            ['name' => $request->pageName,
+             'description' => $request->pageDescription,
+             'content' => $request->pageContent,
+             'slug' => $request->pageSlug,
+             'visible' => $request->pageVisible,]
             );
         return redirect('/admin/pages/');
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::where('slug', $slug)->firstorfail();
         return view('admin.pages.show', compact('page'));  
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::where('slug', $slug)->firstorfail();
         return view('admin.pages.edit', compact('page'));  
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $name = $request->input('pageName');
-        $description = $request->input('pageDescription');
-        $content = $request->input('pageContent');
+        $newname = $request->input('pageName');
+        $newdescription = $request->input('pageDescription');
+        $newcontent = $request->input('pageContent');
+        $newslug = $request->input('pageSlug');
+        $newvisible = $request->input('pageVisible');
 
-        $page = Page::find($id);
-        $page->name = $name;
-        $page->description = $description;
-        $page->content = $content;
+        $page = Page::where('slug', $slug)->firstorfail();
+        $page->name = $newname;
+        $page->description = $dnewescription;
+        $page->content = $newcontent;
+        $page->slug = $newslug;
+        $page->visible = $newvisible;
         $page->save();
 
         return redirect('/admin/pages');
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::where('slug', $slug)->firstorfail();
         $page->delete();
         return redirect('/admin/pages');
     }

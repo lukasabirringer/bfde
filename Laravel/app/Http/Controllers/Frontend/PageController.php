@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Page;
+use App\Footernavigation;
 use DB;
 
 class PageController extends Controller
@@ -13,15 +14,15 @@ class PageController extends Controller
     {
         {
             $pages = Page::all();
-            
-            return view('frontend.pages.index', ['pages' => $pages]);
+            $footernavigations = Footernavigation::limit(5)->get();
+         
+            return view('frontend.pages.index', ['pages' => $pages, 'footernavigations' => $footernavigations]);
         }
     }
-    public function show($id)
-    {
-        $page = Page::findOrFail($id);
-
-        return view('frontend.pages.show', compact('page'));
+    public function show($slug)
+    {   
+        $page = Page::where('slug', $slug)->firstorfail();
+        $footernavigations = Footernavigation::limit(5)->get();
+        return view('frontend.pages.show', compact('page', 'footernavigations'));
     }
-
 }

@@ -83,6 +83,7 @@
                 <li><a href="{{ url('admin/pages') }}">Seiten</a></li>
                 <li><a href="{{ url('admin/beachcourts') }}">Beachcourts</a></li>
                 <li><a href="{{ url('admin/users') }}">User</a></li>
+                <li><a href="{{ url('admin/footernavigations') }}">Footer-Navigation</a></li>
             </ul> 
         </div>
         @yield('content')
