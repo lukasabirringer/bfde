@@ -14,18 +14,14 @@
 	height: $multifunctional-menu-dimension;
 	background-color: $multifunctional-menu-background-color;
 	border-radius: $multifunctional-menu-border-radius;
-	float: right;
+	position: absolute;
+	top: $multifunctional-menu-horizontal-position-top;
+	right: $multifunctional-menu-horizontal-position;
 	box-sizing: border-box;
 	cursor: pointer;
 
-	@include breakpoint('s') {
-		position: absolute;
-
-		top: $multifunctional-menu-horizontal-position-s;
-		right: $multifunctional-menu-horizontal-position-s;
-	}
-
 	@include breakpoint('m') {
+		top: $multifunctional-menu-horizontal-position-m;
 		width: $multifunctional-menu-dimension-m;
 		height: $multifunctional-menu-dimension-m;
 	}
@@ -35,7 +31,7 @@
 		font-size: $multifunctional-menu-icon-font-size;
 	}
 
-	&:after { // safe clickable area
+	&:after {
 	  content: '';
 	  position: absolute;
 	  top: $multifunctional-menu-safe-click-area;

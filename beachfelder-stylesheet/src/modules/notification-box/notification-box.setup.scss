@@ -2,11 +2,12 @@
 
 
 /** Standard Box **/
+$notification-box-height: 100% !default;
 $notification-box-background-color: $color-palette-white !default;
 $notification-box-message-width: 100% !default;
 $notification-box-icon-font-size: 1.875rem !default;
 $notification-box-icon-width: 4rem !default;
-
+$notification-box-list-item-icon-margin-right: .3125rem !default;
 /** Info Box **/
 $notification-box-background-color-info: $color-palette-gray-2 !default;
 $notification-box-icon-bar-background-color-info: $color-palette-blue-1 !default;

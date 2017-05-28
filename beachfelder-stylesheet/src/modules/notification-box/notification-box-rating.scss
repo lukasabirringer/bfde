@@ -1,0 +1,66 @@
+@import "../../base/font/font.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/grid/flex.mixin";
+@import "../../mixins/breakpoint";
+@import "../../base/align/align.mixin";
+@import "../../base/text-color/text-color.mixin";
+@import "../../base/spacing/spacing.mixin";
+@import "notification-box-rating.setup";
+
+.notification-box-rating {
+	@include -spacing-inner-b();
+	@include flex();
+	@include flex--center-vertical();
+	@include flex--center-horizontal();
+	background-color: $notification-box-rating-background-color;
+	height: $notification-box-rating-height;
+
+	&__summary {
+
+	}
+
+	&__points {
+		@include -typo-headline-4();
+		@include -text-color-white ();
+		@include -font-secondary();
+		@include -spacing-static-d();
+	}
+
+	&__image {
+		width: $notification-box-rating-image-width;
+	}
+
+	&__details {
+		display: none;
+		width: 100%;
+
+		@include breakpoint('xs') {
+			display: inline-block;
+		}
+	}
+
+	&__label {
+		@include -typo-copy();
+		@include -overflow-ellipsis();
+		@include -font-primary();
+		@include -text-color-white();
+		@include -align-right();
+
+		float: left;
+		font-weight: bold;
+		font-size: $notification-box-rating-label-font-size;
+		width: $notification-box-rating-label-width;
+		padding: $notification-box-rating-label-inner-spacing-horizontal $notification-box-rating-label-inner-spacing-vertical;
+		border-right: $notification-box-rating-label-border-width $notification-box-rating-label-border-color solid;
+	}
+
+	&__rating {
+		@include -typo-copy();
+		@include -font-primary();
+		@include -text-color-white();
+		@include -overflow-ellipsis();
+
+		font-size: $notification-box-rating-rating-font-size;
+		padding: $notification-box-rating-rating-inner-spacing-horizontal $notification-box-rating-rating-inner-spacing-vertical;
+	}
+}

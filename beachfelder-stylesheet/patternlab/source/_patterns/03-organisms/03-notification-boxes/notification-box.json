@@ -1,5 +1,10 @@
 {
 	"notification-box_headline": "Headline",
 	"notification-box_subline": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam velit culpa, sequi quo neque officiis incidunt quaerat itaque eaque beatae quia, ea nihil, odio harum perferendis, numquam ullam aut eos.",
-	"notification-box_icon": ""
+	"notification-box_icon": "",
+	"notification-box_list": [
+		{
+			"item": "Item 1"
+		}
+	]
 }

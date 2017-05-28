@@ -2,7 +2,10 @@
 @import "../../base/typo/typo.mixin";
 @import "../../base/text-color/text-color.mixin";
 
+@import "header-page.setup";
+
 .header-page {
+	max-width: $header-page-max-width;
 
 	&__title {
 		@include -typo-headline-1();
