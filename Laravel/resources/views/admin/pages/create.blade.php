@@ -31,7 +31,19 @@
 			    </div>
 			  </div>
 
-			  
+			  <div class="form-group">
+			    <label for="pageSlug" class="col-sm-2 control-label">Slug</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="pageSlug" placeholder="Hier tippen ;)">
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="pageVisible" class="col-sm-2 control-label">sichtbar?</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="pageVisible" placeholder="Hier tippen ;)">
+			    </div>
+			  </div>
 
 
 			  <div class="form-group">

@@ -9,6 +9,8 @@
 
 			<h2>Beschreibung: {{ $page->description }}</h2>
 			<h3>Inhalt: {{ $page->content }}</h3>
+			<h2>Slug: {{ $page->slug }}</h2>
+			<h3>Sichtbar?: {{ $page->visible }}</h3>
 
 			<a href="{{ URL::previous() }}">Zurück zur Übersicht</a>
 			

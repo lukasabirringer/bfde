@@ -83,8 +83,9 @@
         </nav>
 
         @yield('content')
+       
+        @include('_partials.footer')
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
