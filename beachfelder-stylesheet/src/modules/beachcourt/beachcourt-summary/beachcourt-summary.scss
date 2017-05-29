@@ -70,16 +70,18 @@
 	}
 
 	&__distance {
-		@include -text-color-white();
+		@include -background-page();
+		@include -text-color-gray-1();
 		@include -font-primary();
 		@include -typo-copy();
 		@include -spacing-static-c();
+		padding: $beachcourt-summary-distance-inner-spacing-vertical $beachcourt-summary-distance-inner-spacing-horizontal;
 	}
 
 	&__icon {
 
 		&-distance {
-			@include -text-color-white();
+			@include -text-color-gray-1();
 			margin-right: $beachcourt-summary-icon-distance-margin-right;
 		}
 
