@@ -93,8 +93,8 @@
 	}
 
 	&__location {
-		@include -spacing-d();
-		border-top: $beachcourt-summary-divider-border-width solid $beachcourt-summary-divider-border-color;
+		@include -spacing-static-c();
+		//border-top: $beachcourt-summary-divider-border-width solid $beachcourt-summary-divider-border-color;
 	}
 
 	&__coordinate {
@@ -102,7 +102,6 @@
 		@include -typo-copy();
 		@include -font-primary();
 		@include -align-center();
-		@include -spacing-static-c();
 		display: inline-block;
 	}
 
