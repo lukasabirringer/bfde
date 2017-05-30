@@ -14,7 +14,7 @@
 	top: $topbar-position-top;
 	left: $topbar-position-left;
 	z-index: $topbar-z-index;
-	box-shadow: 0 2px 10px $topbar-box-shadow-color;
+	box-shadow: 0 1px 10px $topbar-box-shadow-color;
 
 	&__row {
 		@include flex();
