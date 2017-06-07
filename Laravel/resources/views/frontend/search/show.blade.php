@@ -9,35 +9,37 @@
 			<a href="{{ URL::previous() }}">Zurück</a>
 			<h1>Suchergebnisse</h1>
 
-
 			<table class="table table-striped"> 
 						<thead> 
 							
 							<tr> 
 										<th class="col-md-3">Name</th> 
-										<th class="col-md-3">Ort</th> </tr>
-						
-								 
+										<th class="col-md-3">Ort</th> 
+										<th class="col-md-3">Betreiber</th> 
+						</tr>
+					
 						</thead> 
 						<tbody> 
+					
+							
+						
+						@foreach ($results as $innerArray) 
 
-								<!-- @foreach ($results as $result => $name)	<tr> 
-										<td class="col-md-3">{{ $name['zip'] }}</td> 
-										<td class="col-md-3">{{ $name['city'] }}</td> 
-								@endforeach
-								<td>
-								@foreach ($beachcourts as $beachcourt)a
-								@endforeach
-								</td>
-</tr>  -->
+												       @foreach ($innerArray as $value) 
 
-		
-			@foreach ($beachcourts as $beachcourt)
-			@if ($beachcourt->postalCode == 'left')
-				<tr>
-					<td class="col-md-3">{{ $beachcourt->courtName }}</td> 
-				</tr>
-			@endforeach
+												        			 @foreach ($beachcourts as $beachcourt) 
+												      						@if ($beachcourt->postalCode == $value)
+												      							<tr>
+																					   <td>{{ $beachcourt->courtName }}</td>
+																					   <td>{{ $beachcourt->city }}</td>
+																					   <td>{{ $beachcourt->operator }}</td>
+																				   	</tr>
+																					@endif
+											       					@endforeach 
+												  	@endforeach 
+									@endforeach
+								
+					
 
 			</tbody> 
 				</table>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Favorites;
+use App\Footernavigation;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,8 @@ class ProfileController extends Controller
                 
                 $myFavorites = Auth::user()->favorites;
                 // dd($myFavorites);
-        		return view('frontend.profile.show', compact('profile', 'myFavorites')); 
+                 $footernavigations = Footernavigation::limit(5)->get();
+        		return view('frontend.profile.show', compact('profile', 'myFavorites', 'footernavigations')); 
 
     		} else {
 
