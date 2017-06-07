@@ -1,13 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('content')
 
 <div class="content">
-    <div class="row -spacing-widget-default">
-        <div class="column column--12">
-            {{> organisms-header-page }}
-        </div>
-    </div>
+   
     <div class="row -spacing-d -spacing-inner-a">
         <div class="column column--2"></div>
         <div class="column column--12 column--m-8 -align-right">
@@ -42,15 +38,6 @@
                 <span class="button__label ">Anmelden</span>
             </button>
         </form>
-            <br><br>
-            {{> molecules-input(input_label:"Dein Passwort", input_type: "password", input_icon: "password") }}
-            <br><br>
-            {{> molecules-button(button_label:"Anmelden") }}
-            <p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">
-                <a href="#" class="-typo-copy-link -text-color-green">Passwort vergessen?</a>
-            </p>
-            <p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">Noch kein Mitglied?
-                Dann <a href="#" class="-typo-copy-link -text-color-green">registriere</a> dich jetzt</p>
         </div>
         <div class="column column--2"></div>
     </div>
