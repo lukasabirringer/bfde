@@ -18,7 +18,7 @@
 					<button type="submit">Profilbild speichern</button>
 
 			</form>
-			<form method="POST" action="">
+			<form method="POST" action="{{ url('profile/') }}">
 					{{ csrf_field() }}
 
 					<!-- USERNAME -->
@@ -60,7 +60,7 @@
 					<div class="form-group row">
 					  <label for="newGeburtstag" class="col-2 col-form-label">Geburtstag</label>
 					  <div class="col-10">
-					    <input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthday }}">
+					    <input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthdate }}">
 					  </div>
 					</div>
 					<!-- Email -->

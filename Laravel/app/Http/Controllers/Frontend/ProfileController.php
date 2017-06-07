@@ -16,6 +16,22 @@ use Image;
 
 class ProfileController extends Controller
 {
+    public function update(Request $request){
+
+        $user = Auth::user();
+        $user->name = $request->input('newName');
+        $user->firstName = $request->input('newVorname');
+        $user->lastName = $request->input('newNachname');
+        $user->email = $request->input('newEmail');
+        $user->password = $request->input('newPasswort');
+        $user->postalCode = $request->input('newNPLZ');
+        $user->city = $request->input('newWohnort');
+        $user->birthdate = $request->input('newGeburtstag');
+        $user->save();
+
+        return back();
+    }
+    
     public function show($id)
     {
             $authenticated_id = Auth::id();
