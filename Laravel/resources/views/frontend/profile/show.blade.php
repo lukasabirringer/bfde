@@ -7,7 +7,17 @@
 		<div class="col-xs-12"> 
 			<a href="{{ URL::previous() }}">Zurück zur Übersicht</a>
 			<h1>Profil von {{ $profile->name }}</h1>
-			<img width="300" src="https://www.xing.com/image/0_c_3_3fce34b38_15444149_3/fabian-pecher-foto.1024x1024.jpg">
+			
+			<img width="300px" src="/uploads/profilePictures/{{ $profilepicture }}"></img>
+
+			<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+					{{ csrf_field() }}
+
+					<input type="file" name="profilePicture">
+
+					<button type="submit">Profilbild speichern</button>
+
+			</form>
 			<p>Username: {{ $profile->name }}</p>
 			<p>Vorname: {{ $profile->name }}</p>
 			<p>Nachname: {{ $profile->name }}</p>
@@ -16,7 +26,10 @@
 			<p>Geburtsdatum: {{ $profile->name }}</p>
 			<p>Email-Adresse: {{ $profile->email }}</p>
 			<p>Passwort: {{ $profile->name }}</p>
-			
+			<p>picturePath</p>
+
+
+
 			<hr>
 
 			<h1>Meine Favoriten</h1>
