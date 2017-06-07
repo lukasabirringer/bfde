@@ -18,15 +18,70 @@
 					<button type="submit">Profilbild speichern</button>
 
 			</form>
-			<p>Username: {{ $profile->name }}</p>
-			<p>Vorname: {{ $profile->name }}</p>
-			<p>Nachname: {{ $profile->name }}</p>
-			<p>PLZ: {{ $profile->name }}</p>
-			<p>Wohnort: {{ $profile->name }}</p>
-			<p>Geburtsdatum: {{ $profile->name }}</p>
-			<p>Email-Adresse: {{ $profile->email }}</p>
-			<p>Passwort: {{ $profile->name }}</p>
-			<p>picturePath</p>
+			<form method="POST" action="">
+					{{ csrf_field() }}
+
+					<!-- USERNAME -->
+					<div class="form-group row">
+					  <label for="newName" class="col-2 col-form-label">Username</label>
+					  <div class="col-10">
+					    <input name="newName" class="form-control" type="text" value="{{ $profile->name }}">
+					  </div>
+					</div>
+					<!-- Vorname -->
+					<div class="form-group row">
+					  <label for="newVorname" class="col-2 col-form-label">Vorname</label>
+					  <div class="col-10">
+					    <input name="newVorname" class="form-control" type="text" value="{{ $profile->firstName }}">
+					  </div>
+					</div>
+					<!-- Nachname -->
+					<div class="form-group row">
+					  <label for="newNachname" class="col-2 col-form-label">Nachname</label>
+					  <div class="col-10">
+					    <input name="newNachname" class="form-control" type="text" value="{{ $profile->lastName }}">
+					  </div>
+					</div>
+					<!-- PLZ -->
+					<div class="form-group row">
+					  <label for="newPLZ" class="col-2 col-form-label">PLZ</label>
+					  <div class="col-10">
+					    <input name="newNPLZ" class="form-control" type="text" value="{{ $profile->postalCode }}">
+					  </div>
+					</div>
+					<!-- Wohnort -->
+					<div class="form-group row">
+					  <label for="newWohnort" class="col-2 col-form-label">Wohnort</label>
+					  <div class="col-10">
+					    <input name="newWohnort" class="form-control" type="text" value="{{ $profile->city }}">
+					  </div>
+					</div>
+					<!-- Geburtstag -->
+					<div class="form-group row">
+					  <label for="newGeburtstag" class="col-2 col-form-label">Geburtstag</label>
+					  <div class="col-10">
+					    <input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthday }}">
+					  </div>
+					</div>
+					<!-- Email -->
+					<div class="form-group row">
+					  <label for="newEmail" class="col-2 col-form-label">Email</label>
+					  <div class="col-10">
+					    <input name="newEmail" class="form-control" type="text" value="{{ $profile->email }}">
+					  </div>
+					</div>
+					<!-- Passwort -->
+					<div class="form-group row">
+					  <label for="newPasswort" class="col-2 col-form-label">Passwort</label>
+					  <div class="col-10">
+					    <input name="newPasswort" class="form-control" type="password" value="{{ $profile->password }}">
+					  </div>
+					</div>
+
+					<button type="submit">Daten speichern</button>
+
+			</form>
+
 
 
 

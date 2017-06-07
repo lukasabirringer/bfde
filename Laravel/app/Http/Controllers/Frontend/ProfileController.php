@@ -52,7 +52,7 @@ class ProfileController extends Controller
             if (!file_exists($path)) {
                  File::makeDirectory($path, 0777, true);
             }
-           
+            //http://image.intervention.io/api/resize
             Image::make($avatar)->resize(300, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename));
 
             $user = Auth::user();
@@ -63,7 +63,5 @@ class ProfileController extends Controller
         return back();
 
         }
-
-        //request()->file('profilePicture')->store('profilePictures');
         
     }
