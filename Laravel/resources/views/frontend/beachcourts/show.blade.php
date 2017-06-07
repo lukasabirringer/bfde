@@ -111,6 +111,9 @@
                         </tr>
                     @endforeach    
 </table>
+INFOBOX <br>
+BFDE-INFOBOX <br>
+GOOGLE MAPS
 </div>
 </div>
 </div>
