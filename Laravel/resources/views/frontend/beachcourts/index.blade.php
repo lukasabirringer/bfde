@@ -8,7 +8,7 @@
 <h1>Beachfeld-Listing</h1>   
 <meta name="token" id="token" value="{{ csrf_token() }}">
 <hr>
-
+            
             @forelse ($beachcourts as $beachcourt)
                 <div class="panel panel-default">
                     <div class="panel-heading">

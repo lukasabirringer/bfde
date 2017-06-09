@@ -27,7 +27,7 @@ class BeachcourtController extends Controller
         {
         $beachcourt = Beachcourt::findOrFail($id);
         $ratings = Rating::where('beachcourt_id', $id)->get();
-            $footernavigations = Footernavigation::limit(5)->get();
+        $footernavigations = Footernavigation::limit(5)->get();
         
         return view('frontend.beachcourts.show', compact('beachcourt', 'ratings', 'footernavigations')); 
         }

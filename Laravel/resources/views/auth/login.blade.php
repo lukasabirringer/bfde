@@ -1,9 +1,28 @@
 @extends('layouts.frontend')
 
 @section('content')
+<div class="row row--zero">
+        <div class="column column--12 column--zero">
+           
+            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
+           
 
+        </div>
+    </div>
+</div>
 <div class="content">
-   
+    <div class="row -spacing-widget-default">
+        <div class="column column--12">
+            <div class="header-page ">
+                <h1 class="header-page__title  -text-color-blue-2 ">
+                    Melde dich an
+                </h1>
+                <p class="header-page__subtitle">
+                    In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="row -spacing-d -spacing-inner-a">
         <div class="column column--2"></div>
         <div class="column column--12 column--m-8 -align-right">
@@ -21,6 +40,7 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
+            <br><br>
 
             <label class="input">
                 <input type="password" class="input__field" placeholder=" " name="password" required>
@@ -33,7 +53,7 @@
                     <strong>{{ $errors->first('password') }}</strong>
                 </span>
             @endif
-
+            <br><br>
             <button type="submit" class="button">
                 <span class="button__label ">Anmelden</span>
             </button>

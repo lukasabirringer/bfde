@@ -1,14 +1,13 @@
 <template>
     <span>
         <a href="#" v-if="isFavorited" @click.prevent="unFavorite(beachcourt)">
-            <i class="fa fa-heart"></i>
+            <span class="beachcourt-summary__favorite icon icon--heart"></span>
         </a>
         <a href="#" v-else @click.prevent="favorite(beachcourt)">
-            <i class="fa fa-heart-o"></i>
+            <span class="beachcourt-summary__favorite icon icon--heart-o"></span>
         </a>
     </span>
 </template>
-
 <script>
     export default {
         props: ['beachcourt', 'favorited'],
