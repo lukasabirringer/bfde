@@ -58,7 +58,7 @@
 					</div>
 					<!-- Geburtstag -->
 					<div class="form-group row">
-					  <label for="newGeburtstag" class="col-2 col-form-label">Geburtstag</label>
+					  <label for="newGeburtstag" class="col-2 col-form-label">Geburtstag (im Format: YYYY-MM-DD)</label>
 					  <div class="col-10">
 					    <input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthdate }}">
 					  </div>
