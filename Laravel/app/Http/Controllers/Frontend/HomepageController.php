@@ -12,8 +12,7 @@ class HomepageController extends Controller
 {
     public function show()
     {
-    		$footernavigations = Footernavigation::limit(5)->get();
     		$beachcourts = Beachcourt::limit(3)->latest()->get();
-        return view('frontend.homepage', compact('footernavigations', 'beachcourts'));  
+        return view('frontend.homepage', compact('beachcourts'));  
     }
 }
