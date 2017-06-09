@@ -1,0 +1,13 @@
+@import "../../setup/color-palette.setup";
+
+$modal-common-background-color: $color-palette-white !default;
+
+$modal-common-header-text-color: $color-palette-blue-2 !default;
+$modal-common-header-text-max-width: 90%;
+
+$modal-common-icon-font-size: 2rem !default;
+$modal-common-icon-dimension: 2rem !default;
+$modal-common-icon-position: .4375rem !default;
+$modal-common-icon-color: $color-palette-gray-2 !default;
+$modal-common-icon-color-hovered: $color-palette-blue-1 !default;
+$modal-common-icon-safe-area: -.4375rem !default;

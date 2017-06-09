@@ -1,0 +1,68 @@
+@import "../../mixins/animation";
+@import "../../base/spacing/spacing.mixin";
+@import "../../base/font/font.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../mixins/breakpoint";
+
+@import "modal-common.setup";
+
+.modal-common {
+	@include -spacing-inner-a();
+
+	background: $modal-common-background-color;
+	position: relative;
+	margin: auto;
+
+	@include breakpoint('m') {
+		width: 88.8888%;
+	}
+
+	@include breakpoint('l') {
+		width: 50%;
+	}
+
+	&__close {
+		@include transition(color, .2s);
+
+		position: absolute;
+		top: $modal-common-icon-position;
+		right: $modal-common-icon-position;
+		width: $modal-common-icon-dimension;
+		height: $modal-common-icon-dimension;
+		font-size: $modal-common-icon-font-size;
+		cursor: pointer;
+		text-align: center;
+		color: $modal-common-icon-color;
+
+		&:after { // safe clickable area
+		  content: '';
+		  position: absolute;
+		  top: $modal-common-icon-safe-area;
+		  right: $modal-common-icon-safe-area;
+		  bottom: $modal-common-icon-safe-area;
+		  left: $modal-common-icon-safe-area;
+		}
+
+		&:hover {
+			color: $modal-common-icon-color-hovered;
+		}
+	}
+
+	&__header {
+		@include -typo-headline-3();
+		@include -font-secondary();
+		@include -overflow-ellipsis();
+		max-width: $modal-common-header-text-max-width;
+		color: $modal-common-header-text-color;
+	}
+
+	&__body {
+		@include -font-primary();
+		@include -typo-copy();
+		@include -spacing-static-b();
+	}
+
+	&__footer {
+		@include -spacing-static-f();
+	}
+}
