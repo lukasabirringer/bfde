@@ -1,7 +1,6 @@
 <?php
 
 
-    
 
 
 Auth::routes();
@@ -10,7 +9,9 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/favorite/{beachcourt}', 'BeachcourtController@favoriteBeachcourt');
 		Route::post('/unfavorite/{beachcourt}', 'BeachcourtController@unFavoriteBeachcourt');
 		Route::get('my_favorites', 'BeachcourtController@myFavorites')->middleware('auth');
+		Route::post('/profile', 'ProfileController@update')->middleware('auth');
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
+		Route::post('/profile/uploadprofilepicture', 'ProfileController@storeimage')->middleware('auth');
 		Route::resource('/beachcourts', 'BeachcourtController');
 		Route::resource('/pages', 'PageController', ['parameters' => [
 		    'pages' => 'slug'
