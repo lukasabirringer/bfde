@@ -1,0 +1,102 @@
+@import "../../mixins/animation";
+@import "../../base/spacing/spacing.mixin";
+@import "../../base/font/font.mixin";
+@import "../../base/typo/typo.mixin";
+@import "../../base/grid/flex.mixin";
+@import "../../mixins/breakpoint";
+
+@import "modal-common.setup";
+
+.modal-common {
+
+	&__dialog {
+		width: $modal-common-dialog-width;
+		height: $modal-common-dialog-height;
+		position: fixed;
+		background: $modal-common-dialog-background-color;
+		top: $modal-common-dialog-position;
+		left: $modal-common-dialog-position;
+		right: $modal-common-dialog-position;
+
+		@include breakpoint('m') {
+			@include flex();
+			@include flex--center-vertical();
+			@include flex--center-horizontal();
+		}
+	}
+
+	&__content {
+		@include -spacing-inner-a();
+
+		background: $modal-common-content-background-color;
+		position: relative;
+		margin: auto;
+		width: $modal-common-content-width;
+		height: $modal-common-content-height;
+
+		@include breakpoint('m') {
+			width: $modal-common-content-width-m;
+			height: auto;
+			box-shadow: 0 0 $modal-common-content-box-shadow-blur $modal-common-content-box-shadow-spread $modal-common-content-box-shadow-color;
+		}
+
+		@include breakpoint('l') {
+			width: $modal-common-content-width-l;
+		}
+	}
+
+
+	&__close {
+		@include transition(color, .2s);
+
+		position: absolute;
+		top: $modal-common-icon-position;
+		right: $modal-common-icon-position;
+		width: $modal-common-icon-dimension;
+		height: $modal-common-icon-dimension;
+		font-size: $modal-common-icon-font-size;
+		cursor: pointer;
+		text-align: center;
+		color: $modal-common-icon-color;
+
+		&:after { // safe clickable area
+		  content: '';
+		  position: absolute;
+		  top: $modal-common-icon-safe-area;
+		  right: $modal-common-icon-safe-area;
+		  bottom: $modal-common-icon-safe-area;
+		  left: $modal-common-icon-safe-area;
+		}
+
+		&:hover {
+			color: $modal-common-icon-color-hovered;
+		}
+	}
+
+	&__header {
+		@include -typo-headline-3();
+		@include -font-secondary();
+		@include -overflow-ellipsis();
+		max-width: $modal-common-header-text-max-width;
+		color: $modal-common-header-text-color;
+	}
+
+	&__body {
+		@include -font-primary();
+		@include -typo-copy();
+		@include -spacing-static-b();
+	}
+
+	&__footer {
+		@include -spacing-static-f();
+		position: fixed;
+		bottom: $modal-common-footer-position-bottom;
+		left: $modal-common-footer-position;
+		width: $modal-common-footer-width;
+
+		@include breakpoint('m') {
+			position: relative;
+
+		}
+	}
+}

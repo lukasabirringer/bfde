@@ -1,0 +1,22 @@
+<div class="modal-common {{ styleModifier }}">
+	<div class="modal-common__dialog">
+		<div class="modal-common__content">
+			<div class="modal-common__close icon icon--close"></div>
+			<div class="modal-common__header">
+				{{ modal-common_title }}
+			</div>
+			<div class="modal-common__body">
+				{{ modal-common_content }}
+			</div>
+			<div class="modal-common__footer">
+				{{# modal-common_buttons }}
+					{{> molecules-button(button_label: "Ok") }}
+				{{/ modal-common_buttons }}
+
+				{{# modal-common_buttonsRow }}
+
+				{{/ modal-common_buttonsRow }}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+@import "../../setup/color-palette.setup";
+
+$modal-common-dialog-width: 100% !default;
+$modal-common-dialog-height: 100% !default;
+$modal-common-dialog-position: 0 !default;
+$modal-common-dialog-background-color: rgba($color-palette-black, .4) !default;
+
+$modal-common-content-background-color: $color-palette-white !default;
+$modal-common-content-width: 100% !default;
+$modal-common-content-height: 100vh !default;
+$modal-common-content-width-m: 88.8888% !default;
+$modal-common-content-width-l: 50% !default;
+$modal-common-content-box-shadow-blur: 1.875rem !default;
+$modal-common-content-box-shadow-spread: -.3125rem !default;
+$modal-common-content-box-shadow-color: rgba($color-palette-black, .2) !default;
+
+$modal-common-header-text-color: $color-palette-blue-2 !default;
+$modal-common-header-text-max-width: 90%;
+
+$modal-common-footer-position: 0 !default;
+$modal-common-footer-position-bottom: 1rem !default;
+$modal-common-footer-width: 100% !default;
+
+$modal-common-icon-font-size: 2rem !default;
+$modal-common-icon-dimension: 2rem !default;
+$modal-common-icon-position: .4375rem !default;
+$modal-common-icon-color: $color-palette-gray-2 !default;
+$modal-common-icon-color-hovered: $color-palette-blue-1 !default;
+$modal-common-icon-safe-area: -.4375rem !default;

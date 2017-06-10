@@ -41,6 +41,7 @@
 		@include -spacing-inner-b();
 
 		position: absolute;
+		box-sizing: border-box;
 		top: $beachcourt-summary-overlay-position-top;
 		left: $beachcourt-summary-overlay-position-left;
 		width: $beachcourt-summary-overlay-width;
