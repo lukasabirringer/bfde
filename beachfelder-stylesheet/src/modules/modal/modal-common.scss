@@ -2,24 +2,49 @@
 @import "../../base/spacing/spacing.mixin";
 @import "../../base/font/font.mixin";
 @import "../../base/typo/typo.mixin";
+@import "../../base/grid/flex.mixin";
 @import "../../mixins/breakpoint";
 
 @import "modal-common.setup";
 
 .modal-common {
-	@include -spacing-inner-a();
 
-	background: $modal-common-background-color;
-	position: relative;
-	margin: auto;
+	&__dialog {
+		width: $modal-common-dialog-width;
+		height: $modal-common-dialog-height;
+		position: fixed;
+		background: $modal-common-dialog-background-color;
+		top: $modal-common-dialog-position;
+		left: $modal-common-dialog-position;
+		right: $modal-common-dialog-position;
 
-	@include breakpoint('m') {
-		width: 88.8888%;
+		@include breakpoint('m') {
+			@include flex();
+			@include flex--center-vertical();
+			@include flex--center-horizontal();
+		}
 	}
 
-	@include breakpoint('l') {
-		width: 50%;
+	&__content {
+		@include -spacing-inner-a();
+
+		background: $modal-common-content-background-color;
+		position: relative;
+		margin: auto;
+		width: $modal-common-content-width;
+		height: $modal-common-content-height;
+
+		@include breakpoint('m') {
+			width: $modal-common-content-width-m;
+			height: auto;
+			box-shadow: 0 0 $modal-common-content-box-shadow-blur $modal-common-content-box-shadow-spread $modal-common-content-box-shadow-color;
+		}
+
+		@include breakpoint('l') {
+			width: $modal-common-content-width-l;
+		}
 	}
+
 
 	&__close {
 		@include transition(color, .2s);
@@ -64,5 +89,14 @@
 
 	&__footer {
 		@include -spacing-static-f();
+		position: fixed;
+		bottom: $modal-common-footer-position-bottom;
+		left: $modal-common-footer-position;
+		width: $modal-common-footer-width;
+
+		@include breakpoint('m') {
+			position: relative;
+
+		}
 	}
 }
