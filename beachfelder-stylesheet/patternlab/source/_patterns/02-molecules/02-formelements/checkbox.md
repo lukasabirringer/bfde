@@ -1,4 +1,0 @@
----
-title: checkbox
-state: inprogress
----
