@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "babel": "^6.23.0",
+    "beachfelder-stylesheet": "github:fpecher/beachfelder-stylesheet",
     "webpack": "^2.6.1"
   }
 }
