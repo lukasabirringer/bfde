@@ -12,24 +12,23 @@ use Auth;
 
 class BeachcourtController extends Controller
 {
-   
+
     public function index()
     {
-        
+
             $footernavigations = Footernavigation::limit(5)->get();
             $beachcourts = Beachcourt::paginate(15);
             return view('frontend.beachcourts.index', ['beachcourts' => $beachcourts, 'footernavigations' => $footernavigations]);
-        
+
     }
-    
     public function show($id)
     {
         {
         $beachcourt = Beachcourt::findOrFail($id);
         $ratings = Rating::where('beachcourt_id', $id)->get();
         $footernavigations = Footernavigation::limit(5)->get();
-        
-        return view('frontend.beachcourts.show', compact('beachcourt', 'ratings', 'footernavigations')); 
+
+        return view('frontend.beachcourts.show', compact('beachcourt', 'ratings', 'footernavigations'));
         }
     }
 
@@ -47,5 +46,5 @@ class BeachcourtController extends Controller
         return back();
     }
 
-   
+
 }
