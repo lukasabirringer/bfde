@@ -63,7 +63,7 @@ class ProfileController extends Controller
             $current = str_replace([':', ' '], '-', $current);
             $filename = $current . '-' . request()->user()->id . '.' . $avatar->extension();
 
-            $path = public_path('uploads/profilePictures/' . auth()->id() . '/');
+            $path = url('uploads/profilePictures/' . auth()->id() . '/');
          
             if (!file_exists($path)) {
                  File::makeDirectory($path, 0777, true);

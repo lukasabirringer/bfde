@@ -24,6 +24,10 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdmin'], function () {
 
+		Route::get('admin/', function () {
+				return view('admin.dashboard');
+		});
+
 		Route::get('admin/dashboard/', function () {
 				return view('admin.dashboard');
 		});
