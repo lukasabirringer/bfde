@@ -834,6 +834,10 @@ $(document).ready(function () {
   $('.multifunctional-menu--image').on('click', function () {
     $('.context-menu').toggleClass('context-menu--open');
   });
+
+  $('.topbar__button').on('click', function () {
+    $('.context-menu').toggleClass('context-menu--open');
+  });
 });
 
 $(document).keyup(function (e) {
@@ -31778,7 +31782,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('span', {
-    staticClass: "beachcourt-summary__favorite icon icon--heart"
+    staticClass: "beachcourt-summary__favorite icon icon--heart -text-color-red"
   })]) : _c('a', {
     attrs: {
       "href": "#"
