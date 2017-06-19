@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -74,6 +74,7 @@
 
 
 var bind = __webpack_require__(6);
+var isBuffer = __webpack_require__(30);
 
 /*global toString:true*/
 
@@ -248,13 +249,15 @@ function trim(str) {
  *  typeof document -> undefined
  *
  * react-native:
- *  typeof document.createElement -> undefined
+ *  navigator.product -> 'ReactNative'
  */
 function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+    return false;
+  }
   return (
     typeof window !== 'undefined' &&
-    typeof document !== 'undefined' &&
-    typeof document.createElement === 'function'
+    typeof document !== 'undefined'
   );
 }
 
@@ -352,6 +355,7 @@ function extend(a, b, thisArg) {
 module.exports = {
   isArray: isArray,
   isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
   isFormData: isFormData,
   isArrayBufferView: isArrayBufferView,
   isString: isString,
@@ -382,7 +386,6 @@ module.exports = {
 var utils = __webpack_require__(0);
 var normalizeHeaderName = __webpack_require__(25);
 
-var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
 };
@@ -412,6 +415,7 @@ var defaults = {
     normalizeHeaderName(headers, 'Content-Type');
     if (utils.isFormData(data) ||
       utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
       utils.isStream(data) ||
       utils.isFile(data) ||
       utils.isBlob(data)
@@ -435,7 +439,6 @@ var defaults = {
   transformResponse: [function transformResponse(data) {
     /*eslint no-param-reassign:0*/
     if (typeof data === 'string') {
-      data = data.replace(PROTECTION_PREFIX, '');
       try {
         data = JSON.parse(data);
       } catch (e) { /* Ignore */ }
@@ -461,7 +464,7 @@ defaults.headers = {
   }
 };
 
-utils.forEach(['delete', 'get', 'head'], function forEachMehtodNoData(method) {
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
   defaults.headers[method] = {};
 });
 
@@ -471,7 +474,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
 /* 2 */
@@ -564,7 +567,7 @@ module.exports = function xhrAdapter(config) {
     request.onerror = function handleError() {
       // Real errors are hidden from us by the browser
       // onerror should only fire if it's a network error
-      reject(createError('Network Error', config));
+      reject(createError('Network Error', config, null, request));
 
       // Clean up request
       request = null;
@@ -572,7 +575,8 @@ module.exports = function xhrAdapter(config) {
 
     // Handle timeout
     request.ontimeout = function handleTimeout() {
-      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED'));
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
 
       // Clean up request
       request = null;
@@ -617,7 +621,9 @@ module.exports = function xhrAdapter(config) {
       try {
         request.responseType = config.responseType;
       } catch (e) {
-        if (request.responseType !== 'json') {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
           throw e;
         }
       }
@@ -705,17 +711,18 @@ module.exports = function isCancel(value) {
 var enhanceError = __webpack_require__(16);
 
 /**
- * Create an Error with the specified message, config, error code, and response.
+ * Create an Error with the specified message, config, error code, request and response.
  *
  * @param {string} message The error message.
  * @param {Object} config The config.
  * @param {string} [code] The error code (for example, 'ECONNABORTED').
- @ @param {Object} [response] The response.
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
  * @returns {Error} The created error.
  */
-module.exports = function createError(message, config, code, response) {
+module.exports = function createError(message, config, code, request, response) {
   var error = new Error(message);
-  return enhanceError(error, config, code, response);
+  return enhanceError(error, config, code, request, response);
 };
 
 
@@ -775,7 +782,7 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window._ = __webpack_require__(31);
+window._ = __webpack_require__(32);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -784,7 +791,7 @@ window._ = __webpack_require__(31);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(30);
+  window.$ = window.jQuery = __webpack_require__(31);
 
   __webpack_require__(29);
 } catch (e) {}
@@ -813,7 +820,7 @@ if (token) {
   console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-window.Vue = __webpack_require__(36);
+window.Vue = __webpack_require__(37);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -821,7 +828,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('favorite', __webpack_require__(33));
+Vue.component('favorite', __webpack_require__(34));
 var app = new Vue({
   el: '#app'
 });
@@ -830,7 +837,7 @@ var app = new Vue({
 /* 9 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: Can't resolve './oswald-regular/Oswald-regular.eot' in '/Users/fabianpecher/Sites/bfde/Laravel/resources/assets/sass'\n    at factoryCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/webpack/lib/Compilation.js:264:39)\n    at factory (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/webpack/lib/NormalModuleFactory.js:247:20)\n    at resolver (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/webpack/lib/NormalModuleFactory.js:65:21)\n    at asyncLib.parallel.e (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/webpack/lib/NormalModuleFactory.js:138:21)\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/async/dist/async.js:3838:9\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/async/dist/async.js:421:16\n    at iteratorCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/async/dist/async.js:996:13)\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/async/dist/async.js:906:16\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/async/dist/async.js:3835:13\n    at resolvers.normal.resolve (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/webpack/lib/NormalModuleFactory.js:130:23)\n    at onResolved (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:70:11)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at afterInnerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:138:10)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at Resolver.applyPluginsAsyncSeriesBailResult1 (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/tapable/lib/Tapable.js:181:46)\n    at innerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:125:19)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/tapable/lib/Tapable.js:283:15\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:38:4\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at afterInnerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:138:10)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at Resolver.applyPluginsAsyncSeriesBailResult1 (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/tapable/lib/Tapable.js:181:46)\n    at innerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:125:19)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/tapable/lib/Tapable.js:283:15\n    at innerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/Resolver.js:123:11)\n    at loggingCallbackWrapper (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/createInnerCallback.js:31:19)\n    at /Users/fabianpecher/Sites/bfde/Laravel/node_modules/tapable/lib/Tapable.js:283:15\n    at resolver.doResolve.createInnerCallback (/Users/fabianpecher/Sites/bfde/Laravel/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:44:6)");
 
 /***/ }),
 /* 10 */
@@ -1003,6 +1010,7 @@ Axios.prototype.request = function request(config) {
   }
 
   config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+  config.method = config.method.toLowerCase();
 
   // Support baseURL config
   if (config.baseURL && !isAbsoluteURL(config.url)) {
@@ -1029,7 +1037,7 @@ Axios.prototype.request = function request(config) {
 };
 
 // Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, config) {
     return this.request(utils.merge(config || {}, {
@@ -1211,14 +1219,16 @@ module.exports = function dispatchRequest(config) {
  * @param {Error} error The error to update.
  * @param {Object} config The config.
  * @param {string} [code] The error code (for example, 'ECONNABORTED').
- @ @param {Object} [response] The response.
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
  * @returns {Error} The error.
  */
-module.exports = function enhanceError(error, config, code, response) {
+module.exports = function enhanceError(error, config, code, request, response) {
   error.config = config;
   if (code) {
     error.code = code;
   }
+  error.request = request;
   error.response = response;
   return error;
 };
@@ -1250,6 +1260,7 @@ module.exports = function settle(resolve, reject, response) {
       'Request failed with status code ' + response.status,
       response.config,
       null,
+      response.request,
       response
     ));
   }
@@ -1416,7 +1427,9 @@ module.exports = function buildURL(url, params, paramsSerializer) {
  * @returns {string} The combined URL
  */
 module.exports = function combineURLs(baseURL, relativeURL) {
-  return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
 };
 
 
@@ -4117,6 +4130,33 @@ if (typeof jQuery === 'undefined') {
 
 /***/ }),
 /* 30 */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
+
+
+/***/ }),
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14376,7 +14416,7 @@ return jQuery;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31465,10 +31505,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(37)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(38)(module)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -31658,14 +31698,14 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(34)(
+var Component = __webpack_require__(35)(
   /* script */
   __webpack_require__(28),
   /* template */
-  __webpack_require__(35),
+  __webpack_require__(36),
   /* scopeId */
   null,
   /* cssModules */
@@ -31692,7 +31732,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -31749,7 +31789,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -31788,7 +31828,7 @@ if (false) {
 }
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41487,7 +41527,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -41515,7 +41555,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
