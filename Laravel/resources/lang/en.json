@@ -1,6 +1,9 @@
 {
 	"beachfelder.de": "beachcourts.de",
 	"Unsere neuesten Beachvolleyball-Felder": "our latest beachvolleyball courts",
+    "Login-Daten speichern": "remember me",
+    "Passwot vergessen?": "Forgot Your Password?",
+    "Noch kein Mitglied? Dann melde dich schnell an!": "Not a member yet? Then register quickly!",
     "Mein Profil": "my profile",
     "Allgemeine Informationen": "user informations",
     "Username": "username",
@@ -15,5 +18,6 @@
     "Du hast noch keine Favoriten gespeichert.": "You haven't saved any favorites yet.",
     "Meine Favoriten": "my favorite beachcourts",
     "hinzugefügt am": "added",
-    "Koordinaten": "coordinates"
+    "Koordinaten": "coordinates",
+    "Feld einreichen": "Submit a beachcourt"
 }

@@ -41,7 +41,7 @@
 							{{ csrf_field() }}
 							<input type="file" name="profilePicture">
 							
-							@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Profilbild hochladen', 'buttonCustomClass'=>' ' ])
+							@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Profilbild hochladen', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
 						</form>
 						<p class="-typo-copy--large -text-color-blue-2 -font-primary">
 							@lang('Leider hast du noch kein Profilbild hochgeladen.')</p>
@@ -103,7 +103,7 @@
 							<span class="icon icon--edit profile-user__icon"></span>
 						</dd>
 					</dl>
-					@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ' ])
+					@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
 				</form>
 			</div>
 		</div>
@@ -118,7 +118,7 @@
 	</div>
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
-			<div class="header-page ">
+			<div class="header-page" id="my-favorites">
 				<h1 class="header-page__title  -text-color-blue-2 ">@lang('Meine Favoriten')</h1>
 			</div>
 		</div>

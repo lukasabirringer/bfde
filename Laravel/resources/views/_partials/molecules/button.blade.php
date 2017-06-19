@@ -2,6 +2,10 @@
 		class="button 
 		@if( $buttonCustomClass !== ' ' )
 			{{ $buttonCustomClass }}
+		@endif
+
+		@if ( $buttonBackgroundcolor !== '' )
+			button--{{ $buttonBackgroundcolor }}
 		@endif" 
 		
 		@if ( $buttonLinkTarget !== ' ' )

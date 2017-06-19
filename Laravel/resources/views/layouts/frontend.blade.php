@@ -10,8 +10,7 @@
 
     <title>{{ config('app.name', 'beachfelder.de - Frontend') }}</title>
 
-	<link rel="stylesheet" href="https://beachfelder.de/_design/patternlab/public/css/beachfelder-stylesheet.css">
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
       
@@ -23,7 +22,6 @@
 </div>
 
 </div>
-
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -40,11 +40,41 @@
 
             <div class="column column--6 -align-right">
                 @if (Auth::guest())
-                    @include('_partials.molecules.button', ['buttonType'=>'button', 'buttonLinkTarget'=>'login', 'buttonIcon'=>'user-circle', 'buttonLabel'=>'Anmelden', 'buttonCustomClass'=>'topbar__button'])
+                    @include('_partials.molecules.button', ['buttonType'=>'button', 'buttonLinkTarget'=>'login', 'buttonIcon'=>'user-circle', 'buttonLabel'=>'Anmelden', 'buttonCustomClass'=>'topbar__button', 'buttonBackgroundcolor'=>' '])
                 @else
                     <div class="multifunctional-menu topbar__mfm multifunctional-menu--image">
                         <img class="multifunctional-menu__image" src="/uploads/profilePictures/{{ Auth::user()->id }}/{{ Auth::user()->pictureName }}">
                     </div>
+                    <div class="context-menu">
+                        <ul class="context-menu__list">
+                            <li class="context-menu__item">
+                                <a href="./profile/{{ Auth::user()->id }}" class="context-menu__link">
+                                    <span class="context-menu__icon icon icon--user-circle"></span>
+                                    <span class="context-menu__title">@lang('Mein Profil')</span>
+                                </a>
+                            </li>
+                            <li class="context-menu__item">
+                                <a href="../profile/{{ Auth::user()->id }}/#my-favorites" class="context-menu__link">
+                                    <span class="context-menu__icon icon icon--heart"></span>
+                                    <span class="context-menu__title">@lang('Meine Favoriten')</span>
+                                </a>
+                            </li>
+
+                            <li class="context-menu__item">
+                                <a href="#" class="context-menu__link">
+                                    <span class="context-menu__icon icon icon--edit"></span>
+                                    <span class="context-menu__title">@lang('Feld einreichen')</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <button type="button" class="button button--red context-menu__button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="button__icon icon icon--sign-out"></span>
+                            <span class="button__label">Abmelden</span>
+                        </button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                    </div>
+
                 @endif
             </div>
         </div>
