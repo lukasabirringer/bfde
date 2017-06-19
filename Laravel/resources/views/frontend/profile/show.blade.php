@@ -119,7 +119,7 @@
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
 			<div class="header-page ">
-				<h1 class="header-page__title  -text-color-blue-2 ">Meine Favoriten</h1>
+				<h1 class="header-page__title  -text-color-blue-2 ">@lang('Meine Favoriten')</h1>
 			</div>
 		</div>
 		<div class="column column--12 -spacing-f">
