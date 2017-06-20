@@ -74,4 +74,6 @@
         <div class="column column--2"></div>
     </div>
 </div>
+@include('_partials.organism.footer')
+
 @endsection

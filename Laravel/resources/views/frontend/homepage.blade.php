@@ -52,6 +52,6 @@
           <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
           <a href="{{ url('pages') }}"><button type="button" class="btn btn-primary">Pages Übersicht</button></a>
 	</div>
-
+    
 @endsection
 

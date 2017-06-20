@@ -53,6 +53,6 @@
             </li>
         </a>
     @empty
-        <p class="-typo-copy--large -text-color-blue-2">@lang('Du hast noch keine Favoriten gespeichert.')</p>
+        <p class="-typo-copy--large -text-color-blue-2 -font-primary">@lang('Du hast noch keine Favoriten gespeichert.')</p>
     @endforelse
 </ul>
