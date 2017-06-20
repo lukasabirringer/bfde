@@ -12,10 +12,10 @@
         <div class="column column--12">
             <div class="header-page ">
                 <h1 class="header-page__title  -text-color-blue-2 ">
-                    Melde dich an
+                    @lang('Melde dich an')
                 </h1>
                 <p class="header-page__subtitle">
-                    In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.
+                    @lang('In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.')'
                 </p>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                         <span class="input__icon icon icon--mail "></span>
-                    <span class="input__label">Deine E-Mail Adresse</span>
+                    <span class="input__label">@lang('Deine E-Mail Adresse')</span>
                 </label>
 
                 @if ($errors->has('email'))
@@ -42,7 +42,7 @@
                 <label class="input">
                     <input type="password" class="input__field" placeholder=" " name="password" required>
                         <span class="input__icon icon icon--password "></span> 
-                    <span class="input__label">Dein Passwort</span>
+                    <span class="input__label">@lang('Dein Passwort')</span>
                 </label>
 
                 @if ($errors->has('password'))
@@ -59,9 +59,7 @@
                     <span class="checkbox-switch__label">@lang('Login-Daten speichern')</span>
                 </label>
                 <br><br><br>
-                <button type="submit" class="button">
-                    <span class="button__label ">Anmelden</span>
-                </button>
+                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
             </form>
             <p class="-typo-copy -font-primary -spacing-static-c">
                 <a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">@lang('Passwort vergessen?')</a>
