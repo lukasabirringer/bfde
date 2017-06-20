@@ -15,7 +15,7 @@
                     @lang('Melde dich an')
                 </h1>
                 <p class="header-page__subtitle">
-                    @lang('In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.')'
+                    @lang('In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.')
                 </p>
             </div>
         </div>
