@@ -2,123 +2,132 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12"> 
-			<a href="{{ URL::previous() }}">Zurück zur Übersicht</a>
-			<h1>Profil von {{ $profile->name }}</h1>
-			
-			<img width="300px" src="/uploads/profilePictures/{{ $profilepicture }}"></img>
-
-			<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
-					{{ csrf_field() }}
-
-					<input type="file" name="profilePicture">
-
-					<button type="submit">Profilbild speichern</button>
-
-			</form>
-			<form method="POST" action="{{ url('profile/') }}">
-					{{ csrf_field() }}
-
-					<!-- USERNAME -->
-					<div class="form-group row">
-					  <label for="newName" class="col-2 col-form-label">Username</label>
-					  <div class="col-10">
-					    <input name="newName" class="form-control" type="text" value="{{ $profile->name }}">
-					  </div>
-					</div>
-					<!-- Vorname -->
-					<div class="form-group row">
-					  <label for="newVorname" class="col-2 col-form-label">Vorname</label>
-					  <div class="col-10">
-					    <input name="newVorname" class="form-control" type="text" value="{{ $profile->firstName }}">
-					  </div>
-					</div>
-					<!-- Nachname -->
-					<div class="form-group row">
-					  <label for="newNachname" class="col-2 col-form-label">Nachname</label>
-					  <div class="col-10">
-					    <input name="newNachname" class="form-control" type="text" value="{{ $profile->lastName }}">
-					  </div>
-					</div>
-					<!-- PLZ -->
-					<div class="form-group row">
-					  <label for="newPLZ" class="col-2 col-form-label">PLZ</label>
-					  <div class="col-10">
-					    <input name="newNPLZ" class="form-control" type="text" value="{{ $profile->postalCode }}">
-					  </div>
-					</div>
-					<!-- Wohnort -->
-					<div class="form-group row">
-					  <label for="newWohnort" class="col-2 col-form-label">Wohnort</label>
-					  <div class="col-10">
-					    <input name="newWohnort" class="form-control" type="text" value="{{ $profile->city }}">
-					  </div>
-					</div>
-					<!-- Geburtstag -->
-					<div class="form-group row">
-					  <label for="newGeburtstag" class="col-2 col-form-label">Geburtstag (im Format: YYYY-MM-DD)</label>
-					  <div class="col-10">
-					    <input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthdate }}">
-					  </div>
-					</div>
-					<!-- Email -->
-					<div class="form-group row">
-					  <label for="newEmail" class="col-2 col-form-label">Email</label>
-					  <div class="col-10">
-					    <input name="newEmail" class="form-control" type="text" value="{{ $profile->email }}">
-					  </div>
-					</div>
-					<!-- Passwort -->
-					<div class="form-group row">
-					  <label for="newPasswort" class="col-2 col-form-label">Passwort</label>
-					  <div class="col-10">
-					    <input name="newPasswort" class="form-control" type="password" value="{{ $profile->password }}">
-					  </div>
-					</div>
-
-					<button type="submit">Daten speichern</button>
-
-			</form>
-
-
-
-
-			<hr>
-
-			<h1>Meine Favoriten</h1>
-			<div class="container">
-			    <div class="row">
-			        <div class="col-md-12">
-			            @forelse ($myFavorites as $myFavorite)
-			                <div class="panel panel-default">
-			                    <div class="panel-heading">
-			                        {{ $myFavorite->courtName }}
-			                    </div>
-
-			                    <div class="panel-body">
-			                        {{ $myFavorite->city }}
-			                    </div>
-			                    @if (Auth::check())
-			                        <div class="panel-footer">
-			                            <favorite
-			                                :beachcourt={{ $myFavorite->id }}
-			                                :favorited={{ $myFavorite->favorited() ? 'true' : 'false' }}
-			                            ></favorite>
-			                        </div>
-			                    @endif
-			                </div>
-			            @empty
-			                <p>You have no favorite posts.</p>
-			            @endforelse
-			         </div>
-			    </div>
+<div class="row row--zero">
+        <div class="column column--12 column--zero">
+            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+        </div>
+    </div>
+</div>
+	
+<div class="content">
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<div class="header-page">
+				<h1 class="header-page__title -text-color-blue-2">@lang('mein profil')</h1>
 			</div>
-		
-
 		</div>
 	</div>
 </div>
+
+<div class="profile-user -spacing-f">
+	<div class="content">
+		<div class="row">
+			<div class="column column--12 column--m-4">
+				<div class="profile-user-image">
+					@if($profile->pictureName !== '' )
+						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="image">
+						<div class="profile-user-image__edit">
+							<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<label class="input">
+									<input type="file" class="input__field">
+									<span class="input__icon icon icon--camera"></span>
+								</label>
+								@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'check', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> ' ' ])
+							</form>
+						</div>
+					@else
+						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+							{{ csrf_field() }}
+							<input type="file" name="profilePicture">
+							
+							@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Profilbild hochladen', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
+						</form>
+						<p class="-typo-copy--large -text-color-blue-2 -font-primary">
+							@lang('Leider hast du noch kein Profilbild hochgeladen.')</p>
+					@endif
+				</div>
+			</div>
+
+			<div class="column column--12 column--m-8">
+				<h4 class="profile-user__title"> @lang('Allgemeine Informationen') </h4>
+				<form method="POST" action="{{ url('profile/') }}">
+					{{ csrf_field() }}
+					<dl class="profile-user__details">
+						<dt class="profile-user__label">@lang('Username')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> name }}
+							<input name="newName" class="form-control" type="text" value="{{ $profile->name }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('Vorname')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> firstName }}
+							<input name="newVorname" class="form-control" type="text" value="{{ $profile->firstName }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('Nachname')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> lastName }}
+							<input name="newNachname" class="form-control" type="text" value="{{ $profile->lastName }}"> 
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> birthdate }} 
+							<input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthdate }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> email }} 
+							<input name="newEmail" class="form-control" type="text" value="{{ $profile->email }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('PLZ')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> postalCode }}
+							<input name="newNPLZ" class="form-control" type="text" value="{{ $profile->postalCode }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('Wohnort')</dt>
+						<dd class="profile-user__info">
+							{{ $profile -> city }}
+							<input name="newWohnort" class="form-control" type="text" value="{{ $profile->city }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+						<dt class="profile-user__label">@lang('Passwort')</dt>
+						<dd class="profile-user__info">
+							*******
+							<input name="newPasswort" class="form-control" type="password" value="{{ $profile->password }}">
+							<span class="icon icon--edit profile-user__icon"></span>
+						</dd>
+					</dl>
+					@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<hr class="divider" />
+		</div>
+	</div>
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<div class="header-page" id="my-favorites">
+				<h1 class="header-page__title  -text-color-blue-2 ">@lang('Meine Favoriten')</h1>
+			</div>
+		</div>
+		<div class="column column--12 -spacing-f">
+			@include('_partials.organism.list-beachcourt')
+		</div>
+	</div>
+</div>
+
+@include('_partials.organism.footer')
 
 @endsection

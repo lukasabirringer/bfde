@@ -56,3 +56,18 @@ Vue.component('favorite', require('./components/Favorite.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+
+/**
+ * Toggle User Menu if User is logged in
+ */
+
+$(document).ready(function(){
+	$('.multifunctional-menu--image').on('click', function(){
+		$('.context-menu').toggleClass('context-menu--open');
+	});
+});
+
+$(document).keyup(function(e) {
+  if (e.keyCode === 27) $('.context-menu').removeClass('context-menu--open');
+});

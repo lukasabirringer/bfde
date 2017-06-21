@@ -13,16 +13,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-      
     <div id="app">
-<div class="page">
-@include('_partials.organism.topbar')
-@yield('content')    
-    
-</div>
-
-</div>
-
+		<div class="page">
+			@include('_partials.organism.topbar')
+			@yield('content')    
+		</div>
+	</div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
