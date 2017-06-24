@@ -113,7 +113,9 @@
 </table>
 INFOBOX <br>
 BFDE-INFOBOX <br>
-GOOGLE MAPS
+
+<iframe  width="600" height="450" frameborder="0" zoom="8" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
+
 </div>
 </div>
 </div>
