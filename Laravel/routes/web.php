@@ -1,14 +1,12 @@
 <?php
 
-
-
-
 Auth::routes();
 
 Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/favorite/{beachcourt}', 'BeachcourtController@favoriteBeachcourt');
 		Route::post('/unfavorite/{beachcourt}', 'BeachcourtController@unFavoriteBeachcourt');
 		Route::get('my_favorites', 'BeachcourtController@myFavorites')->middleware('auth');
+		Route::get('/profile/deleteimage', 'ProfileController@destroy')->middleware('auth');
 		Route::post('/profile', 'ProfileController@update')->middleware('auth');
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::post('/profile/uploadprofilepicture', 'ProfileController@storeimage')->middleware('auth');
@@ -19,7 +17,12 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/rating/new', 'RatingController@store');
 		Route::get('/', 'HomepageController@show');
 		Route::post('/search', 'SearchController@show');
+		Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'ProfileController@confirmRegistration'
+]);
 });
+
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdmin'], function () {

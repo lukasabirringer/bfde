@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Input;
+use Mail;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -62,10 +65,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+   
+        $code = str_random(30);
+        $confirmation_code = ['foo' => $code];
+       
+         Mail::send('email.verify', $confirmation_code, function($message) {
+                $message->to('lukas.a.birringer@gmail.com', 'lulu')
+                    ->subject('Beachfelder.de // Registrierung bestätigen');
+            });
+
+        if (Mail::failures()) {
+            echo "fail";
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'confirmation_code' => $code
         ]);
+       
     }
+
 }

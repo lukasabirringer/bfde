@@ -2,6 +2,19 @@
 
 @section('content')
 
+required
+--------
+Username X
+Firstname X
+lastname X
+email X
+password X
+
+optional
+--------
+plz/stadt
+geburtsdatum/alter
+
 <div class="row row--zero">
         <div class="column column--12 column--zero">
             @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
@@ -31,12 +44,89 @@
                 <label class="input">
                     <input type="text" name="name" class="input__field" placeholder=" " value="{{ old('name') }}" required>
                         <span class="input__icon icon icon--user-circle "></span>
-                    <span class="input__label">@lang('Deine Username')</span>
+                    <span class="input__label">@lang('Dein Username')</span>
                 </label>
 
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="firstName" class="input__field" placeholder=" " value="{{ old('firstName') }}" required>
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Vorname')</span>
+                </label>
+
+                @if ($errors->has('firstName'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('firstName') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="lastName" class="input__field" placeholder=" " value="{{ old('lastName') }}" required>
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Nachname')</span>
+                </label>
+
+                @if ($errors->has('lastName'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('lastName') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="sex" class="input__field" placeholder=" " value="{{ old('sex') }}" required>
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Geschlecht')</span>
+                    <select class="form-control" name="sex" class="selectpicker">
+                          
+                            <option value="male">@lang('männlich')</option>
+                            <option value="female">@lang('weiblich')</option>
+                            <option value="trans">@lang('transsexuell/asexuel')</option>
+                    
+                    </select>
+                </label>
+
+                @if ($errors->has('sex'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('sex') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Deine Postleitzahl (optional)')</span>
+                </label>
+
+                @if ($errors->has('postalCode'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('postalCode') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Geburtsdatum (optional)')</span>
+                </label>
+
+                @if ($errors->has('birthdate'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('birthdate') }}</strong>
                     </span>
                 @endif
 
@@ -77,7 +167,7 @@
                 </label>
 
                 <br><br><br>
-                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Jetzt registrieren', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>''])
+                <button type="submit">Go</button>
             </form>
         </div>
     </div>

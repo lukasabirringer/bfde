@@ -27,6 +27,8 @@ class User extends Authenticatable
         'role', 
         'user_id', 
         'beachcourt_id',     
+        'sex',
+        'confirmation_code'
     ];
 
     /**

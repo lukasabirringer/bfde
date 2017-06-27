@@ -23,7 +23,7 @@
 
 <ul class="list-beachcourt ">
     @forelse ($myFavorites as $myFavorite)
-        <a href="#" class="list-beachcourt__link">
+        <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     <img src="https:&#x2F;&#x2F;dummyimage.com&#x2F;180x130&#x2F;f1f1f1&#x2F;333.jpg" alt="Beachcourt Name" class="image">
@@ -44,7 +44,8 @@
                     </ul>
                 </div>
                 <div class="list-beachcourt__action">
-                    <form action="#" class="list-beachcourt__form">
+                    <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                         <button type="submit" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>

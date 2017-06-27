@@ -47,6 +47,8 @@
 							@lang('Leider hast du noch kein Profilbild hochgeladen.')</p>
 					@endif
 				</div>
+				<a href="{{ url('profile/deleteimage') }}">Profilbild löschen</a>
+				    
 			</div>
 
 			<div class="column column--12 column--m-8">

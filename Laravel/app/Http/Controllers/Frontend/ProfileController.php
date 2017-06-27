@@ -27,6 +27,7 @@ class ProfileController extends Controller
         $user->postalCode = $request->input('newNPLZ');
         $user->city = $request->input('newWohnort');
         $user->birthdate = $request->input('newGeburtstag');
+     
         $user->save();
 
         return back();
@@ -64,12 +65,14 @@ class ProfileController extends Controller
             $filename = $current . '-' . request()->user()->id . '.' . $avatar->extension();
 
             $path = url('uploads/profilePictures/' . auth()->id() . '/');
+            
          
             if (!file_exists($path)) {
-                 File::makeDirectory($path, 0777, true);
+                 File::makeDirectory($path, 0777, true, true);
             }
+            $path = public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename);
             //http://image.intervention.io/api/resize
-            Image::make($avatar)->resize(300, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename));
+            Image::make($avatar->getRealPath())->resize(300, null, function ($constraint) {$constraint->aspectRatio();})->save($path);
 
             $user = Auth::user();
             $user->pictureName = $filename;
@@ -79,5 +82,37 @@ class ProfileController extends Controller
         return back();
 
         }
+        public function destroy()
+        {
+            $user = Auth::user();
+            $filename = $user->pictureName;
+            $file = public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename);
+         
+            File::delete($file);
+
+           
+            return back();
+        }
+
+        public function confirmRegistration($confirmationCode)
+            {
+                //dd($confirmationCode);
+                if( ! $confirmationCode)
+                {
+                    echo "fail code";
+                }
+                $user = User::where('confirmation_code', $confirmationCode)->firstOrFail();
+
+                if ( ! $user)
+                {
+                    echo "fail user";
+                }
+                
+                $user->confirmed = 1;
+                $user->confirmation_code = null;
+                $user->save();
+
+                return back();
+            }
         
     }
