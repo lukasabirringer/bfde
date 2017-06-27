@@ -26,7 +26,7 @@
 				<div class="profile-user__image-container">
 					@if($profile->pictureName !== '' )
 						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
-						<div class="multifunctional-menu icon icon--ellipsis profile-user__multifunctional-menu"></div>
+						<div class="multifunctional-menu icon icon--edit profile-user__multifunctional-menu"></div>
 
 						<div class="context-menu profile-user-image__context-menu">
 						    <form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">

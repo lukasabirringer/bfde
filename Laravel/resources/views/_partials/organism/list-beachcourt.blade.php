@@ -1,29 +1,6 @@
-<!-- @forelse ($myFavorites as $myFavorite)
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {{ $myFavorite->courtName }}
-        </div>
-
-        <div class="panel-body">
-            {{ $myFavorite->city }}
-        </div>
-        @if (Auth::check())
-            <div class="panel-footer">
-                <favorite
-                    :beachcourt={{ $myFavorite->id }}
-                    :favorited={{ $myFavorite->favorited() ? 'true' : 'false' }}
-                ></favorite>
-            </div>
-        @endif
-    </div>
-@empty
-    <p>You have no favorite posts.</p>
-@endforelse -->
-
-
 <ul class="list-beachcourt ">
     @forelse ($myFavorites as $myFavorite)
-        <a href="#" class="list-beachcourt__link">
+        <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     <img src="https:&#x2F;&#x2F;dummyimage.com&#x2F;180x130&#x2F;f1f1f1&#x2F;333.jpg" alt="Beachcourt Name" class="image">
@@ -44,7 +21,8 @@
                     </ul>
                 </div>
                 <div class="list-beachcourt__action">
-                    <form action="#" class="list-beachcourt__form">
+                    <form action="#" method="post" class="list-beachcourt__form">
+                    {{ csrf_field() }}
                         <button type="submit" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>
