@@ -51,7 +51,6 @@ const app = new Vue({
     el: '#app'
 });
 
-
 /**
  * Toggle User Menu if User is logged in
  */
@@ -93,6 +92,11 @@ $(document).keyup(function(e) {
   	}
   }
 });
+
+
+/**
+ * User Profile Page
+ */
 
 $('.profile-user-image__button').hide();
 

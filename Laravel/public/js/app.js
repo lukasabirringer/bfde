@@ -856,6 +856,10 @@ $(document).keyup(function (e) {
 	}
 });
 
+/**
+ * User Profile Page
+ */
+
 $('.profile-user-image__button').hide();
 
 ;(function ($, window, document, undefined) {
