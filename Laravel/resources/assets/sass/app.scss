@@ -1,3 +1,16 @@
 // Variables
 @import "variables";
 @import "node_modules/beachfelder-stylesheet/src/beachfelder-stylesheet";
+
+.overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.4);
+}
+
+.no-scroll {
+	overflow: hidden;
+}
