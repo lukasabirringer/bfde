@@ -71,9 +71,46 @@ $(document).ready(function(){
 	});
 
 	
-
 	$('.profile-user__multifunctional-menu').on('click', function(){
 		$('.profile-user-image__context-menu').toggleClass('context-menu--open');
+	});
+
+	/**
+	* Show and hide password
+	*/
+	$('.input__icon-wrapper').click(function() {
+		$('.toggle-password').toggleClass('icon--eye icon--password');
+				
+		var input = $($('.toggle-password').attr('toggle'));
+		if (input.attr('type') == 'password') {
+			input.attr('type', 'text');
+		} else {
+			input.attr('type', 'password');
+		}
+	});
+
+	/**
+	* Navigation tabs
+	*/
+	$('.navigation-tabs__item').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.navigation-tabs__item').removeClass('navigation-tabs__item--active');
+		$('.navigation-tabs__title').removeClass('navigation-tabs__title--active');
+		$('.navigation-tabs__content').removeClass('navigation-tabs__content--active');
+
+		$(this).addClass('navigation-tabs__item--active');
+		$(this).children('.navigation-tabs__title').addClass('navigation-tabs__title--active');
+		$("#"+tab_id).addClass('navigation-tabs__content--active');
+	});
+
+	/**
+	* Tooltips
+	*/
+
+	$('.tooltip').tooltipster({
+		theme: 'tooltipster-shadow',
+		delay: '0'
 	});
 });
 

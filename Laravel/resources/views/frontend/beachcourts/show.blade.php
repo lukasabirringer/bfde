@@ -2,6 +2,63 @@
 @extends('layouts.frontend')
 
 @section('content')
+<div class="row row--zero">
+        <div class="column column--12 column--zero">
+            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+        </div>
+    </div>
+</div>
+
+<div class="content">
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<div class="header-page">
+				<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="multifunctional-menu icon icon--ellipsis"></div>
+
+	<div class="row -spacing-a">
+		<div class="column column--12 column--m-6">
+			Here it goes
+		</div>
+
+		<div class="column column--12 column--m-6">
+			<div class="navigation-tabs ">
+				<ul class="navigation-tabs__title-bar">
+					<li class="navigation-tabs__item navigation-tabs__item--active" data-tab="tab-1">
+						<span class="navigation-tabs__title navigation-tabs__title--active">Ansprechpartner</span>
+					</li>
+					<li class="navigation-tabs__item" data-tab="tab-2">
+						<span class="navigation-tabs__title ">Tab Title 2</span>
+					</li>
+					<li class="navigation-tabs__item " data-tab="tab-3">
+						<span class="navigation-tabs__title ">Tab Title 3</span>
+					</li>
+				</ul>
+				<div id="tab-1" class="navigation-tabs__content navigation-tabs__content--active">
+					{{ $beachcourt -> organization }}
+				</div>
+				<div id="tab-2" class="navigation-tabs__content ">
+					<span class="tooltip" title="asdjasdasda">Ich habe einen Tooltip </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde esse rerum culpa nobis, nulla ut consectetur ipsam id mollitia ullam tempora ea.
+				</div>
+				<div id="tab-3" class="navigation-tabs__content ">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row -spacing-widget-default">
+	<div class="column column--12">
+		<iframe  width="100%" height="450" frameborder="0" zoom="5" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
+	</div>
+</div>
+
+
 <div class="container">
 <div class="row">
 <div class="col-xs-12"> 
@@ -113,9 +170,6 @@
 </table>
 INFOBOX <br>
 BFDE-INFOBOX <br>
-
-<iframe  width="600" height="450" frameborder="0" zoom="8" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
-
 </div>
 </div>
 </div>
