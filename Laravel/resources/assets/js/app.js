@@ -112,6 +112,24 @@ $(document).ready(function(){
 		theme: 'tooltipster-shadow',
 		delay: '0'
 	});
+
+	/**
+	* image Slide for beachcourt detail page
+	*/
+
+	$('.slider-image').owlCarousel({
+		items: 1,
+		lazyLoad: true,
+		navigation: true,
+		navClass: ['slider-image__navigation--left', 'slider-image__navigation--right']
+	});
+	
+	$('.slider-image').removeClass('owl-theme');
+	$( '.owl-prev').addClass('slider-image__navigation slider-image__navigation--left icon icon--arrow-left-thin');
+	$( '.owl-next').addClass('slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin');
+
+	$( '.owl-prev').html('');
+	$( '.owl-next').html('');
 });
 
 $(document).keyup(function(e) {

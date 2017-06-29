@@ -22,7 +22,13 @@
 
 	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
-			Here it goes
+			<div class="slider-image">
+				<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+			</div>
 		</div>
 
 		<div class="column column--12 column--m-6">
@@ -39,7 +45,19 @@
 					</li>
 				</ul>
 				<div id="tab-1" class="navigation-tabs__content navigation-tabs__content--active">
-					{{ $beachcourt -> organization }}
+					<p class="-typo-copy--large -font-primary -text-color-blue-2">
+						Fr. Mustermann
+					</p>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt -> organization }}
+					</p>
+					<p class="-typo-copy -font-primary -text-color-blue-2">
+						Tiefenbronner Str. 1<br>
+						75233 Tiefenbronn
+					</p>
+					<p class="-typo-copy -font-primary -text-color-green">
+						<a href="http://tiefenbronn.de" target="_blank">www.tiefenbronn.de</a>
+					</p>
 				</div>
 				<div id="tab-2" class="navigation-tabs__content ">
 					<span class="tooltip" title="asdjasdasda">Ich habe einen Tooltip </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde esse rerum culpa nobis, nulla ut consectetur ipsam id mollitia ullam tempora ea.
@@ -57,6 +75,8 @@
 		<iframe  width="100%" height="450" frameborder="0" zoom="5" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
 	</div>
 </div>
+
+@include('_partials.newsletter')
 
 
 <div class="container">
@@ -173,5 +193,7 @@ BFDE-INFOBOX <br>
 </div>
 </div>
 </div>
+
+@include('_partials.organism.footer')
 
 @endsection
