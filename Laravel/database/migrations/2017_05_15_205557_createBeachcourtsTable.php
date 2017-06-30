@@ -15,18 +15,21 @@ class CreateBeachcourtsTable extends Migration
     {
         Schema::create('beachcourts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('courtName');
-            $table->string('street');
-            $table->string('houseNumber');
+            $table->integer('user_id')->unsigned();
+            $table->string('courtName')->unique();
             $table->string('postalCode');
             $table->string('city');
-            $table->string('state');
-            $table->string('country');
+            $table->string('street');
+            $table->string('houseNumber');
+            $table->text('latitude');
+            $table->text('longitude');
             $table->string('operator');
-            $table->string('organization');
-            $table->string('coordinates');
-            $table->string('equipment');
-            $table->string('sanitary');
+            $table->string('operatorURL');
+            $table->boolean('chargeable')->default(0);
+            $table->string('notes');
+            $table->integer('courtCountOutdoor');
+            $table->integer('courtCountIndoor');
+            $table->boolean('public')->default(0);
             $table->double('realRating');
             $table->integer('ratingCount');
             $table->timestamp('ratingDate');
@@ -42,8 +45,7 @@ class CreateBeachcourtsTable extends Migration
      * @return void
      */
     public function down()
-    {   DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+    {   
         Schema::dropIfExists('beachcourts');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

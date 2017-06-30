@@ -22,9 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('postalCode')->nullable();
             $table->string('city')->nullable();
-            $table->string('picturePath')->nullable();
+            $table->text('pictureName');
             $table->string('birthdate')->nullable();
-            $table->string('role');
+            $table->string('role')->nullable();
+            $table->boolean('confirmed')->default(0);
+            $table->string('confirmation_code')->nullable();
+            $table->string('sex');
             $table->rememberToken();
             $table->timestamps();
         });
