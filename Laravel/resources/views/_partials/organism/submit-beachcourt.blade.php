@@ -1,31 +1,4 @@
-@extends('layouts.frontend')
-
-@section('content')
-<div class="row row--zero">
-        <div class="column column--12 column--zero">
-            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
-        </div>
-    </div>
-</div>
-<div class="content">
-    <div class="row -spacing-widget-default">
-        <div class="column column--12">
-            <div class="header-page ">
-                <h1 class="header-page__title  -text-color-blue-2 ">
-                    @lang('Melde dich an')
-                </h1>
-                <p class="header-page__subtitle">
-                    @lang('In deinem Benutzerprofil kannst du deine Daten ändern, Beachvolleyball Felder bewerten und deine Favoriten verwalten.')
-                </p>
-            </div>
-        </div>
-    </div>
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
-    <div class="row -spacing-d -spacing-inner-a">
+ <div class="row -spacing-d -spacing-inner-a">
         <div class="column column--2"></div>
         <div class="column column--12 column--m-8 -align-right">
             <form method="POST" action="{{ route('login') }}">
@@ -64,7 +37,7 @@
                     <span class="checkbox-switch__label">@lang('Login-Daten speichern')</span>
                 </label>
 
-                @include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
+                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
             </form>
             <p class="-typo-copy -font-primary -spacing-static-c">
                 <a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">@lang('Passwort vergessen?')</a>
@@ -76,7 +49,3 @@
         </div>
         <div class="column column--2"></div>
     </div>
-</div>
-@include('_partials.organism.footer')
-
-@endsection

@@ -188,3 +188,8 @@ $('.profile-user-image__button').hide();
 		.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
 	});
 })( jQuery, window, document );
+
+
+
+
+
