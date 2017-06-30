@@ -23,11 +23,17 @@
 	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
 			<div class="slider-image">
-				<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
-			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
-			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
-			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
-			  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image item">
+				<div class="slider-image__navi">
+					<div class="slider-image__navigation slider-image__navigation--left icon icon--arrow-left-thin"></div>
+					<div class="slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin"></div>
+				</div>
+				<div class="slider-image__slider">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+				</div>
 			</div>
 		</div>
 
@@ -38,10 +44,10 @@
 						<span class="navigation-tabs__title navigation-tabs__title--active">Ansprechpartner</span>
 					</li>
 					<li class="navigation-tabs__item" data-tab="tab-2">
-						<span class="navigation-tabs__title ">Tab Title 2</span>
+						<span class="navigation-tabs__title ">Allgemeine Informationen</span>
 					</li>
 					<li class="navigation-tabs__item " data-tab="tab-3">
-						<span class="navigation-tabs__title ">Tab Title 3</span>
+						<span class="navigation-tabs__title ">Lorem impjusm</span>
 					</li>
 				</ul>
 				<div id="tab-1" class="navigation-tabs__content navigation-tabs__content--active">
@@ -60,7 +66,11 @@
 					</p>
 				</div>
 				<div id="tab-2" class="navigation-tabs__content ">
-					<span class="tooltip" title="asdjasdasda">Ich habe einen Tooltip </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde esse rerum culpa nobis, nulla ut consectetur ipsam id mollitia ullam tempora ea.
+					<h4 class="-typo-headline-5 -font-secondary -text-color-green">Koordinaten</h4>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt->latitude }}<br>
+						{{ $beachcourt -> longitude }}
+					</p>
 				</div>
 				<div id="tab-3" class="navigation-tabs__content ">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde.

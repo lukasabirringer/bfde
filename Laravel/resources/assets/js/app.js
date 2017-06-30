@@ -117,19 +117,20 @@ $(document).ready(function(){
 	* image Slide for beachcourt detail page
 	*/
 
-	$('.slider-image').owlCarousel({
+	var owl = $(".slider-image__slider");
+
+	owl.owlCarousel({
 		items: 1,
-		lazyLoad: true,
-		navigation: true,
-		navClass: ['slider-image__navigation--left', 'slider-image__navigation--right']
+		lazyLoad: true
 	});
 	
-	$('.slider-image').removeClass('owl-theme');
-	$( '.owl-prev').addClass('slider-image__navigation slider-image__navigation--left icon icon--arrow-left-thin');
-	$( '.owl-next').addClass('slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin');
+	$('.slider-image__navigation--left').click(function(){
+		owl.trigger('prev.owl.carousel');
+	});	
 
-	$( '.owl-prev').html('');
-	$( '.owl-next').html('');
+	$('.slider-image__navigation--right').click(function(){
+		owl.trigger('next.owl.carousel');
+	});
 });
 
 $(document).keyup(function(e) {
