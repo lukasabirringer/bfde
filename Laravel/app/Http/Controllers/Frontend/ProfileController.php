@@ -72,7 +72,8 @@ class ProfileController extends Controller
             }
             $path = public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename);
             //http://image.intervention.io/api/resize
-            Image::make($avatar->getRealPath())->resize(300, null, function ($constraint) {$constraint->aspectRatio();})->save($path);
+
+            Image::make($avatar)->resize(600, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('uploads/profilePictures/' . auth()->id() . '/' . $filename));
 
             $user = Auth::user();
             $user->pictureName = $filename;

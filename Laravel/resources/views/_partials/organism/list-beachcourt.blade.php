@@ -1,26 +1,3 @@
-<!-- @forelse ($myFavorites as $myFavorite)
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {{ $myFavorite->courtName }}
-        </div>
-
-        <div class="panel-body">
-            {{ $myFavorite->city }}
-        </div>
-        @if (Auth::check())
-            <div class="panel-footer">
-                <favorite
-                    :beachcourt={{ $myFavorite->id }}
-                    :favorited={{ $myFavorite->favorited() ? 'true' : 'false' }}
-                ></favorite>
-            </div>
-        @endif
-    </div>
-@empty
-    <p>You have no favorite posts.</p>
-@endforelse -->
-
-
 <ul class="list-beachcourt ">
     @forelse ($myFavorites as $myFavorite)
         <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
@@ -44,8 +21,10 @@
                     </ul>
                 </div>
                 <div class="list-beachcourt__action">
+
                     <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">
                         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
                         <button type="submit" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>

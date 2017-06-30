@@ -23,29 +23,49 @@
 	<div class="content">
 		<div class="row">
 			<div class="column column--12 column--m-4">
-				<div class="profile-user-image">
+				<div class="profile-user__image-container">
 					@if($profile->pictureName !== '' )
-						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="image">
-						<div class="profile-user-image__edit">
-							<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
-								{{ csrf_field() }}
-								<label class="input">
-									<input type="file" class="input__field">
-									<span class="input__icon icon icon--camera"></span>
-								</label>
-								@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'check', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> ' ' ])
-							</form>
+						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
+						<div class="multifunctional-menu icon icon--edit profile-user__multifunctional-menu"></div>
+
+						<div class="context-menu profile-user-image__context-menu">
+						    <form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+						    	{{ csrf_field() }}
+
+							    <label class="input-fileupload">
+							    	<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
+							    	<span class="input-fileupload__icon icon icon--camera"></span>
+							    	<span class="input-fileupload__label">@lang('Neues Profilbild hochladen')</span>
+							    </label>
+
+							    @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'context-menu__button profile-user-image__button' ])
+						    </form>
+						    <form action="#" method="POST">
+						    	<input name="_method" type="hidden" value="DELETE">
+						    	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
+						    	<button class="button context-menu__button button--red" type="submit">
+						    		<span class="button__icon icon icon--delete"></span>
+						    		<span class="button__label">Profilbild löschen</span>
+						    	</button>
+						    </form>
 						</div>
 					@else
+
 						<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
+	
 						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
-							<input type="file" name="profilePicture">
-							
-							@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Profilbild hochladen', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
+
+							<label class="input-fileupload -spacing-static-d">
+								<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
+								<span class="input-fileupload__icon icon icon--camera"></span>
+								<span class="input-fileupload__label">@lang('Profilbild hochladen')</span>
+							</label>
+
+							@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'profile-user-image__button' ])
+
 						</form>
-						<p class="-typo-copy--large -text-color-blue-2 -font-primary">
-							@lang('Leider hast du noch kein Profilbild hochgeladen.')</p>
 					@endif
 				</div>
 				<a href="{{ url('profile/deleteimage') }}">Profilbild löschen</a>

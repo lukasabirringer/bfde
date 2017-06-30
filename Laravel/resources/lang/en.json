@@ -22,8 +22,14 @@
     "hinzugefügt am": "added",
     "Koordinaten": "coordinates",
     "Feld einreichen": "Submit a beachcourt",
-    "Dein Username": "Your Username",
+    "Dein Username": "Your username",
     "Deine E-Mail Adresse": "Your email address",
     "Dein Passwort": "Your password",
-    "Passwort wiederholen": "Confirm password"
+    "Passwort wiederholen": "Confirm password",
+    "Profilbild hochladen": "Upload profile image",
+    "Neues Profilbild hochladen": "Upload new profile image", 
+    "Tipps für das perfekte Profilbild": "Tips for the perfect profile picture",
+    "zeige uns dein schönstes Lächeln": "show us your most beautiful smile",
+    "oder": "or",
+    "zeige dich in Action": "show yourself in action"
 }

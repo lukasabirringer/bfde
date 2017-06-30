@@ -33,7 +33,6 @@
 
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
-                        <span class="input__icon icon icon--mail "></span>
                     <span class="input__label">@lang('Deine E-Mail Adresse')</span>
                 </label>
 
@@ -42,12 +41,13 @@
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
-                <br><br>
-
-                <label class="input">
-                    <input type="password" class="input__field" placeholder=" " name="password" required>
-                        <span class="input__icon icon icon--password "></span> 
-                    <span class="input__label">@lang('Dein Passwort')</span>
+                
+                <label class="input -spacing-static-b">
+                    <input type="password" class="input__field input__field--right input__field--icon" id="password-field" placeholder=" " name="password" required>
+                        <span class="input__icon-wrapper">
+                            <span class="input__icon icon icon--eye input__icon--right toggle-password" toggle="#password-field"></span>
+                        </span>
+                        <span class="input__label  input__label--right input__label--icon ">@lang('Dein Passwort')</span>
                 </label>
 
                 @if ($errors->has('password'))
@@ -55,16 +55,16 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
-                <br><br>
-                <label class="checkbox-switch ">
+
+                <label class="checkbox-switch -spacing-static-b">
                   <input class="checkbox-switch__field"
                          type="checkbox"
                          name="remember"
                          {{ old('remember') ? 'checked' : '' }}>
                     <span class="checkbox-switch__label">@lang('Login-Daten speichern')</span>
                 </label>
-                <br><br><br>
-                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
+
+                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
             </form>
             <p class="-typo-copy -font-primary -spacing-static-c">
                 <a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">@lang('Passwort vergessen?')</a>
