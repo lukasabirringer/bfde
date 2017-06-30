@@ -2,19 +2,6 @@
 
 @section('content')
 
-required
---------
-Username X
-Firstname X
-lastname X
-email X
-password X
-
-optional
---------
-plz/stadt
-geburtsdatum/alter
-
 <div class="row row--zero">
         <div class="column column--12 column--zero">
             @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
@@ -83,17 +70,41 @@ geburtsdatum/alter
 
                 <br><br>
 
-                <label class="input">
-                    <input type="text" name="sex" class="input__field" placeholder=" " value="{{ old('sex') }}" required>
-                        <span class="input__icon icon icon--user-circle "></span>
-                    <span class="input__label">@lang('Dein Geschlecht')</span>
-                    <select class="form-control" name="sex" class="selectpicker">
-                          
-                            <option value="male">@lang('männlich')</option>
-                            <option value="female">@lang('weiblich')</option>
-                            <option value="trans">@lang('transsexuell/asexuel')</option>
-                    
-                    </select>
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="male"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('männlich')</span>
+                    </div>
+                </label>
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="female"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('weiblich')</span>
+                    </div>
+                </label>
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="trans"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('transsexuell/asexuel')</span>
+                    </div>
                 </label>
 
                 @if ($errors->has('sex'))
@@ -113,6 +124,20 @@ geburtsdatum/alter
                 @if ($errors->has('postalCode'))
                     <span class="help-block">
                         <strong>{{ $errors->first('postalCode') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Wohnort (optional)')</span>
+                </label>
+
+                @if ($errors->has('city'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('city') }}</strong>
                     </span>
                 @endif
 
@@ -173,76 +198,4 @@ geburtsdatum/alter
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

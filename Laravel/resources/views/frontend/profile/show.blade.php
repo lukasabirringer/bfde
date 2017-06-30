@@ -37,6 +37,7 @@
 							</form>
 						</div>
 					@else
+						<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
 						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<input type="file" name="profilePicture">

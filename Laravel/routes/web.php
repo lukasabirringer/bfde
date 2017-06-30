@@ -18,9 +18,9 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::get('/', 'HomepageController@show');
 		Route::post('/search', 'SearchController@show');
 		Route::get('register/verify/{confirmationCode}', [
-    'as' => 'confirmation_path',
-    'uses' => 'ProfileController@confirmRegistration'
-]);
+			'as' => 'confirmation_path',
+			'uses' => 'ProfileController@confirmRegistration'
+		]);
 });
 
 
