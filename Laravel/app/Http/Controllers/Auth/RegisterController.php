@@ -6,6 +6,11 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Input;
+use Mail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -27,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -38,7 +43,14 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
 
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect('/login')->with('status', 'Check deine Mails - DU EUMEL!!!!');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,10 +74,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+   
+        $code = str_random(30);
+        $confirmation_code = ['foo' => $code];
+        $email = $data['email'];
+        $name = $data['name'];
+   
+        Mail::send('email.verify', $confirmation_code, function($message) use ($email, $name) {
+            $message->to($email, $name)->subject('Beachfelder.de // Registrierung bestätigen');
+        });
+
         return User::create([
             'name' => $data['name'],
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
+            'birthdate' => $data['birthdate'],
+            'postalCode' => $data['postalCode'],
+            'city' => $data['city'],
+            'sex' => $data['sex'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'confirmation_code' => $code
         ]);
+       
     }
 }

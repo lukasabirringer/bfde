@@ -31,12 +31,127 @@
                 <label class="input">
                     <input type="text" name="name" class="input__field" placeholder=" " value="{{ old('name') }}" required>
                         <span class="input__icon icon icon--user-circle "></span>
-                    <span class="input__label">@lang('Deine Username')</span>
+                    <span class="input__label">@lang('Dein Username')</span>
                 </label>
 
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="firstName" class="input__field" placeholder=" " value="{{ old('firstName') }}" required>
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Vorname')</span>
+                </label>
+
+                @if ($errors->has('firstName'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('firstName') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="lastName" class="input__field" placeholder=" " value="{{ old('lastName') }}" required>
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Nachname')</span>
+                </label>
+
+                @if ($errors->has('lastName'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('lastName') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="male"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('männlich')</span>
+                    </div>
+                </label>
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="female"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('weiblich')</span>
+                    </div>
+                </label>
+                <label class="radio-icon ">
+                    <input class="radio-icon__field"
+                                 type="radio"
+                                 name="sex"
+                                 value="trans"
+                                 
+                                 >
+                    <div class="radio-icon__container">
+                        <span class="radio-icon__icon  icon icon--check "></span>
+                            <span class="radio-icon__label">@lang('transsexuell/asexuel')</span>
+                    </div>
+                </label>
+
+                @if ($errors->has('sex'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('sex') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Deine Postleitzahl (optional)')</span>
+                </label>
+
+                @if ($errors->has('postalCode'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('postalCode') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Wohnort (optional)')</span>
+                </label>
+
+                @if ($errors->has('city'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('city') }}</strong>
+                    </span>
+                @endif
+
+                <br><br>
+
+                <label class="input">
+                    <input type="text" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
+                        <span class="input__icon icon icon--user-circle "></span>
+                    <span class="input__label">@lang('Dein Geburtsdatum (optional)')</span>
+                </label>
+
+                @if ($errors->has('birthdate'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('birthdate') }}</strong>
                     </span>
                 @endif
 
@@ -77,82 +192,10 @@
                 </label>
 
                 <br><br><br>
-                @include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Jetzt registrieren', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>''])
+                <button type="submit">Go</button>
             </form>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

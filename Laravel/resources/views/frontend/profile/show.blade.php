@@ -51,24 +51,9 @@
 						    </form>
 						</div>
 					@else
-						<p class="-typo-copy--large -text-color-blue-2 -font-primary">
-							@lang('Leider hast du noch kein Profilbild hochgeladen.')</p>
 
-						<p class="-typo-copy--large -text-color-blue-2 -font-primary -spacing-static-b">
-							@lang('Tipps für das perfekte Profilbild'):</p>						
-
-						<ul class="list-common -spacing-static-b">
-							<li class="list-common__item">
-								<span class="list-common__icon icon icon--caret-right"></span>
-								@lang('zeige uns dein schönstes Lächeln') @lang('oder')
-							</li>
-							<li class="list-common__item">
-								<span class="list-common__icon icon icon--caret-right"></span>
-								@lang('zeige dich in Action')
-							</li>
-						</ul>
-
-
+						<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
+	
 						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 
@@ -83,6 +68,8 @@
 						</form>
 					@endif
 				</div>
+				<a href="{{ url('profile/deleteimage') }}">Profilbild löschen</a>
+				    
 			</div>
 
 			<div class="column column--12 column--m-8">

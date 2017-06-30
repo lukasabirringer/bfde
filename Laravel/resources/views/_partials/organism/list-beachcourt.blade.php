@@ -21,8 +21,10 @@
                     </ul>
                 </div>
                 <div class="list-beachcourt__action">
-                    <form action="#" method="post" class="list-beachcourt__form">
-                    {{ csrf_field() }}
+
+                    <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
                         <button type="submit" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>

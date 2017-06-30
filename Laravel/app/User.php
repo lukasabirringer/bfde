@@ -27,6 +27,8 @@ class User extends Authenticatable
         'role', 
         'user_id', 
         'beachcourt_id',     
+        'sex',
+        'confirmation_code'
     ];
 
     /**
@@ -37,8 +39,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     public function isAdmin(){
-    return (\Auth::check() && $this->role == 'admin');
+        return (\Auth::check() && $this->role == 'admin');
     }
     public function isRegular(){
         return (\Auth::check() && $this->role == 'regular');

@@ -20,6 +20,11 @@
             </div>
         </div>
     </div>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="row -spacing-d -spacing-inner-a">
         <div class="column column--2"></div>
         <div class="column column--12 column--m-8 -align-right">
