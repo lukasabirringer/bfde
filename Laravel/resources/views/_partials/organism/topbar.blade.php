@@ -40,8 +40,9 @@
 
             <div class="column column--6 -align-right">
                 @if (Auth::guest())
-                    @include('_partials.molecules.button', ['buttonType'=>'button', 'buttonLinkTarget'=>'login', 'buttonIcon'=>'user-circle', 'buttonLabel'=>'Anmelden', 'buttonCustomClass'=>'topbar__button', 'buttonBackgroundcolor'=>' '])
+                    @include('_partials.molecules.button', ['buttonJavaScript'=>'load_modal_login()', 'buttonType'=>'button', 'buttonLinkTarget'=>'', 'buttonIcon'=>'user-circle', 'buttonLabel'=>'Anmelden', 'buttonCustomClass'=>'topbar__button', 'buttonBackgroundcolor'=>' '])
                 @elseif (Auth::user()->pictureName !== '')
+
                     <div class="multifunctional-menu topbar__mfm multifunctional-menu--image">
                         <img class="multifunctional-menu__image" src="/uploads/profilePictures/{{ Auth::user()->id }}/{{ Auth::user()->pictureName }}">
                     </div>
@@ -112,3 +113,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function load_modal_login()
+    {
+        $('.modal-image').load('/modal_login');
+        $('.modal-image__dialog').css("z-index", "100000000000");
+    }
+</script>

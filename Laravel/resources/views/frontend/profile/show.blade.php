@@ -126,7 +126,7 @@
 							<span class="icon icon--edit profile-user__icon"></span>
 						</dd>
 					</dl>
-					@include('_partials.molecules.button', ['buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
+					@include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
 				</form>
 			</div>
 		</div>

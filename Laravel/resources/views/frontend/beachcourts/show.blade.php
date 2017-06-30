@@ -8,7 +8,6 @@
         </div>
     </div>
 </div>
-
 <div class="content">
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
@@ -17,7 +16,7 @@
 			</div>
 		</div>
 	</div>
-
+	@include('_partials.organism.modals.modal-submit-beachcourt')
 	<div class="multifunctional-menu icon icon--ellipsis"></div>
 
 	<div class="row -spacing-a">

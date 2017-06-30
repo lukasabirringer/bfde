@@ -17,12 +17,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 </head>
 <body>
+
+
+
     <div id="app">
+    
 		<div class="page">
 			@include('_partials.organism.topbar')
 			@yield('content')    
 		</div>
 	</div>
+ <div class="modal-image"></div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
