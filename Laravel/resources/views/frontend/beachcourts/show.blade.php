@@ -2,6 +2,93 @@
 @extends('layouts.frontend')
 
 @section('content')
+<div class="row row--zero">
+        <div class="column column--12 column--zero">
+            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+        </div>
+    </div>
+</div>
+
+<div class="content">
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<div class="header-page">
+				<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="multifunctional-menu icon icon--ellipsis"></div>
+
+	<div class="row -spacing-a">
+		<div class="column column--12 column--m-6">
+			<div class="slider-image">
+				<div class="slider-image__navi">
+					<div class="slider-image__navigation slider-image__navigation--left icon icon--arrow-left-thin"></div>
+					<div class="slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin"></div>
+				</div>
+				<div class="slider-image__slider">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+				</div>
+			</div>
+		</div>
+
+		<div class="column column--12 column--m-6">
+			<div class="navigation-tabs ">
+				<ul class="navigation-tabs__title-bar">
+					<li class="navigation-tabs__item navigation-tabs__item--active" data-tab="tab-1">
+						<span class="navigation-tabs__title navigation-tabs__title--active">Ansprechpartner</span>
+					</li>
+					<li class="navigation-tabs__item" data-tab="tab-2">
+						<span class="navigation-tabs__title ">Allgemeine Informationen</span>
+					</li>
+					<li class="navigation-tabs__item " data-tab="tab-3">
+						<span class="navigation-tabs__title ">Lorem impjusm</span>
+					</li>
+				</ul>
+				<div id="tab-1" class="navigation-tabs__content navigation-tabs__content--active">
+					<p class="-typo-copy--large -font-primary -text-color-blue-2">
+						Fr. Mustermann
+					</p>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt -> organization }}
+					</p>
+					<p class="-typo-copy -font-primary -text-color-blue-2">
+						Tiefenbronner Str. 1<br>
+						75233 Tiefenbronn
+					</p>
+					<p class="-typo-copy -font-primary -text-color-green">
+						<a href="http://tiefenbronn.de" target="_blank">www.tiefenbronn.de</a>
+					</p>
+				</div>
+				<div id="tab-2" class="navigation-tabs__content ">
+					<h4 class="-typo-headline-5 -font-secondary -text-color-green">Koordinaten</h4>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt->latitude }}<br>
+						{{ $beachcourt -> longitude }}
+					</p>
+				</div>
+				<div id="tab-3" class="navigation-tabs__content ">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam maxime iusto tempore porro a, voluptas laborum, unde.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row -spacing-widget-default">
+	<div class="column column--12">
+		<iframe  width="100%" height="450" frameborder="0" zoom="5" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
+	</div>
+</div>
+
+@include('_partials.newsletter')
+
+
 <div class="container">
 <div class="row">
 <div class="col-xs-12"> 
@@ -113,11 +200,10 @@
 </table>
 INFOBOX <br>
 BFDE-INFOBOX <br>
+</div>
+</div>
+</div>
 
-<iframe  width="600" height="450" frameborder="0" zoom="8" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
-
-</div>
-</div>
-</div>
+@include('_partials.organism.footer')
 
 @endsection

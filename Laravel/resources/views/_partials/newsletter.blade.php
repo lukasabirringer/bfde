@@ -9,17 +9,17 @@
         <div class="row -spacing-b">
             <div class="column column--12 column--s-4">
                 <label class="input -spacing-d">
-    <input type="" class="input__field" placeholder=" ">
+    <input type="" class="input__field input__field--icon" placeholder=" ">
         <span class="input__icon icon icon--user "></span>
-    <span class="input__label">Dein Name</span>
+    <span class="input__label input__label--icon">Dein Name</span>
 </label>
 
             </div>
             <div class="column column--12 column--s-4">
                 <label class="input -spacing-d">
-    <input type="email" class="input__field" placeholder=" ">
+    <input type="email" class="input__field input__field--icon" placeholder=" ">
         <span class="input__icon icon icon--mail "></span>
-    <span class="input__label">Deine E-Mail Adresse</span>
+    <span class="input__label input__label--icon">Deine E-Mail Adresse</span>
 </label>
 
             </div>
