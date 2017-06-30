@@ -16,7 +16,6 @@
 			</div>
 		</div>
 	</div>
-	@include('_partials.organism.modals.modal-submit-beachcourt')
 	<div class="multifunctional-menu icon icon--ellipsis"></div>
 
 	<div class="row -spacing-a">

@@ -1,6 +1,6 @@
 <button type="{{ $buttonType }}"
 		class="button 
-		@if( $buttonCustomClass !== ' ' )
+		@if( $buttonCustomClass !== '' )
 			{{ $buttonCustomClass }}
 		@endif
 
@@ -9,12 +9,12 @@
 		@endif"
 		
 		@if ( $buttonLinkTarget !== '' )
-			onclick="window.location.href='{{ url('') }}/{{ $buttonLinkTarget }}' 
+			onclick="window.location.href='{{ url('') }}/{{ $buttonLinkTarget }}'"
 		@endif 
 
 		@if ( $buttonJavaScript !== '' )
-			onclick="{{ $buttonJavaScript }} 
-		@endif"
+			onclick="{{ $buttonJavaScript }}"
+		@endif
 	>
 	<span class="button__icon icon icon--{{ $buttonIcon }}"></span>
 	<span class="button__label button__label--icon">{{ $buttonLabel }}</span>

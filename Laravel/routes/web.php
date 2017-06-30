@@ -21,9 +21,17 @@ Route::group(['namespace' => 'Frontend'], function () {
 			'as' => 'confirmation_path',
 			'uses' => 'ProfileController@confirmRegistration'
 		]);
+
+
 		Route::get("/modal_login", function() {
 			return View::make('_partials.organism.modals.modal-login');
 		});
+
+		Route::get("/modal_submitBeachcourt", function() {
+			return View::make('_partials.organism.modals.modal-submit-beachcourt');
+		});
+
+
 });
 
 
