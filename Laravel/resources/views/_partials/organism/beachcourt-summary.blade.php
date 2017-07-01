@@ -18,10 +18,13 @@
                 <span class="icon icon--distance beachcourt-summary__icon-distance"></span>
                 {{ $beachcourt->id }}km entfernt
             </span>
+            
+            @if ($beachcourt->latitude !== '')
             <div class="beachcourt-summary__location">
                 <span class="beachcourt-summary__icon-location icon icon--map-marker"></span>
-                <span class="beachcourt-summary__coordinate">48.806320 <br> 8.820813</span>
+                <span class="beachcourt-summary__coordinate">{{ $beachcourt->latitude }} <br> {{ $beachcourt->longitude }} </span>
             </div>
+            @endif
         </div>
 
     </div>
