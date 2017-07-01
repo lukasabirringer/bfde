@@ -13,7 +13,8 @@
             ></favorite>
              @endif
              
-            <h3 class="beachcourt-summary__title"><a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->city }}</a></h3>
+            <h3 class="beachcourt-summary__title"><a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->courtName }}</a></h3>
+            <p class="-typo-copy--large -text-color-white -font-primary"> {{ $beachcourt->city }} </p>
             <span class="beachcourt-summary__distance">
                 <span class="icon icon--distance beachcourt-summary__icon-distance"></span>
                 {{ $beachcourt->id }}km entfernt
