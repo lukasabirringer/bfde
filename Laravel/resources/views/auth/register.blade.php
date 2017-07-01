@@ -22,15 +22,13 @@
             </div>
         </div>
     </div>
-    <div class="row -spacing-d -spacing-inner-a">
-        <div class="column column--2"></div>
-        <div class="column column--12 column--m-8 -align-right">
-            <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                {{ csrf_field() }}
-
+    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+        {{ csrf_field() }}
+        <div class="row -spacing-d">
+            
+            <div class="column column--12">
                 <label class="input">
                     <input type="text" name="name" class="input__field" placeholder=" " value="{{ old('name') }}" required>
-                        <span class="input__icon icon icon--user-circle "></span>
                     <span class="input__label">@lang('Dein Username')</span>
                 </label>
 
@@ -39,12 +37,12 @@
                         <strong>{{ $errors->first('name') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+        </div>
+        <div class="row -spacing-d">
+            <div class="column column--12 column--s-6">
                 <label class="input">
                     <input type="text" name="firstName" class="input__field" placeholder=" " value="{{ old('firstName') }}" required>
-                        <span class="input__icon icon icon--user-circle "></span>
                     <span class="input__label">@lang('Dein Vorname')</span>
                 </label>
 
@@ -53,12 +51,10 @@
                         <strong>{{ $errors->first('firstName') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+            <div class="column column--12 column--s-6">
                 <label class="input">
                     <input type="text" name="lastName" class="input__field" placeholder=" " value="{{ old('lastName') }}" required>
-                        <span class="input__icon icon icon--user-circle "></span>
                     <span class="input__label">@lang('Dein Nachname')</span>
                 </label>
 
@@ -67,43 +63,33 @@
                         <strong>{{ $errors->first('lastName') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+        </div>
+        <div class="row -spacing-static-d">
+            <div class="column column--4">
                 <label class="radio-icon ">
-                    <input class="radio-icon__field"
-                                 type="radio"
-                                 name="sex"
-                                 value="male"
-                                 
-                                 >
+                    <input class="radio-icon__field" type="radio" name="sex" value="male">
                     <div class="radio-icon__container">
-                        <span class="radio-icon__icon  icon icon--check "></span>
-                            <span class="radio-icon__label">@lang('männlich')</span>
+                        <span class="radio-icon__icon  icon icon--male "></span>
+                        <span class="radio-icon__label">@lang('männlich')</span>
                     </div>
                 </label>
+            </div>
+            <div class="column column--4">
                 <label class="radio-icon ">
-                    <input class="radio-icon__field"
-                                 type="radio"
-                                 name="sex"
-                                 value="female"
-                                 
-                                 >
+                    <input class="radio-icon__field" type="radio" name="sex" value="female">
                     <div class="radio-icon__container">
-                        <span class="radio-icon__icon  icon icon--check "></span>
-                            <span class="radio-icon__label">@lang('weiblich')</span>
+                        <span class="radio-icon__icon  icon icon--female "></span>
+                        <span class="radio-icon__label">@lang('weiblich')</span>
                     </div>
                 </label>
+            </div>
+            <div class="column column--4">
                 <label class="radio-icon ">
-                    <input class="radio-icon__field"
-                                 type="radio"
-                                 name="sex"
-                                 value="trans"
-                                 
-                                 >
+                    <input class="radio-icon__field" type="radio" name="sex" value="trans">
                     <div class="radio-icon__container">
-                        <span class="radio-icon__icon  icon icon--check "></span>
-                            <span class="radio-icon__label">@lang('transsexuell/asexuel')</span>
+                        <span class="radio-icon__icon  icon icon--transgender "></span>
+                        <span class="radio-icon__label">@lang('transgender')</span>
                     </div>
                 </label>
 
@@ -112,13 +98,13 @@
                         <strong>{{ $errors->first('sex') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+        </div>
+        <div class="row -spacing-static-d">
+            <div class="column column--2">
                 <label class="input">
                     <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}">
-                        <span class="input__icon icon icon--user-circle "></span>
-                    <span class="input__label">@lang('Deine Postleitzahl (optional)')</span>
+                    <span class="input__label">@lang('Deine PLZ (optional)')</span>
                 </label>
 
                 @if ($errors->has('postalCode'))
@@ -126,12 +112,10 @@
                         <strong>{{ $errors->first('postalCode') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+            <div class="column column--10">
                 <label class="input">
                     <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}">
-                        <span class="input__icon icon icon--user-circle "></span>
                     <span class="input__label">@lang('Dein Wohnort (optional)')</span>
                 </label>
 
@@ -140,12 +124,12 @@
                         <strong>{{ $errors->first('city') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+        </div>
+        <div class="row -spacing-static-d">
+            <div class="column column--12 column--s-6">
                 <label class="input">
-                    <input type="text" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
-                        <span class="input__icon icon icon--user-circle "></span>
+                    <input type="date" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
                     <span class="input__label">@lang('Dein Geburtsdatum (optional)')</span>
                 </label>
 
@@ -154,12 +138,10 @@
                         <strong>{{ $errors->first('birthdate') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+            <div class="column column--12 column--s-6">
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
-                        <span class="input__icon icon icon--mail "></span>
                     <span class="input__label">@lang('Deine E-Mail Adresse')</span>
                 </label>
 
@@ -168,12 +150,12 @@
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
-
-                <br><br>
-
+            </div>
+        </div>
+        <div class="row -spacing-static-d">
+            <div class="column column--12 column--s-6">
                 <label class="input">
                     <input type="password" name="password" class="input__field" placeholder=" " value="{{ old('email') }}" required>
-                        <span class="input__icon icon icon--password "></span>
                     <span class="input__label">@lang('Dein Passwort')</span>
                 </label>
 
@@ -182,20 +164,23 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
+            </div>
 
-                <br><br>
-
+            <div class="column column--12 column--s-6">
                 <label class="input">
                     <input type="password" name="password_confirmation" class="input__field" placeholder=" " required>
-                        <span class="input__icon icon icon--password "></span>
                     <span class="input__label">@lang('Passwort wiederholen')</span>
                 </label>
-
-                <br><br><br>
-                <button type="submit">Go</button>
-            </form>
+            </div>
         </div>
-    </div>
+        <div class="row -spacing-static-d">
+            <div class="column column--auto column--s-10"></div>
+            <div class="column column--12 column--s-2">
+                @include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Jetzt registrieren'])
+            </div>
+        </div>
+    </form>
 </div>
+@include('_partials.organism.footer')
 
 @endsection

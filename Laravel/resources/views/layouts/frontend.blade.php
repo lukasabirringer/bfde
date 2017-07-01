@@ -27,8 +27,6 @@
 			@yield('content')    
 		</div>
 	</div>
-    <div class="modal-image"></div>
-    <div class="modal-common"></div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         /**
@@ -36,9 +34,20 @@
         */
 
         function load_modal_login()
-        {
-          $('.modal-image').load('/modal_login');
+        {   
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-image"></div>');
+            $('.modal-image').load('/modal_login');
+
         }
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('.modal-image').remove();
+
+          }
+        });
 
         /**
             * Modal Submit Beachcourt
@@ -46,8 +55,18 @@
 
         function load_modal_submitBeachcourt()
         {
-          $('.modal-common').load('/modal_submitBeachcourt');
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('.modal-common').load('/modal_submitBeachcourt');
         }
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('.modal-common').remove();
+
+          }
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>

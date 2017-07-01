@@ -820,25 +820,38 @@ var app = new Vue({
 	el: '#app'
 });
 
-/**
- * Toggle User Menu if User is logged in
- */
-
 $(document).ready(function () {
+
+	/**
+  * Toggle User Menu if User is logged in
+  */
 	$('.topbar__mfm').on('click', function () {
 		if ($('.user__context-menu').hasClass('context-menu--open')) {
 
 			$('.user__context-menu').removeClass('context-menu--open');
-			$('.overlay').remove();
-			$('body').removeClass('no-scroll');
 		} else {
 			$('.user__context-menu').addClass('context-menu--open');
-			$('body').addClass('no-scroll').append('<div class="overlay"></div>');
 		}
 	});
 
+	/**
+ * Show and hide user-image editign menu
+ */
 	$('.profile-user__multifunctional-menu').on('click', function () {
-		$('.profile-user-image__context-menu').toggleClass('context-menu--open');
+
+		if ($('.profile-user-image__context-menu').hasClass('context-menu--open')) {
+			$('.profile-user-image__context-menu').removeClass('context-menu--open').css('display', 'none');
+		} else {
+			$('.profile-user-image__context-menu').css('display', 'block').addClass('context-menu--open');
+		}
+	});
+
+	/**
+ * Hide context menu if link inside is clicked
+ */
+	$('.context-menu__link').click(function () {
+
+		$(this).parents('.context-menu').removeClass('context-menu--open');
 	});
 
 	/**
@@ -871,25 +884,8 @@ $(document).ready(function () {
 	});
 
 	/**
- 	* Modal Login
- */
-
-	function load_modal_login() {
-		$('.modal-image').load('/modal_login');
-	}
-
-	/**
- 	* Modal Submit Beachcourt
- */
-
-	function load_modal_submitBeachcourt() {
-		$('.modal-common').load('/modal_submitBeachcourt');
-	}
-
-	/**
  * Tooltips
  */
-
 	$('.tooltip').tooltipster({
 		theme: 'tooltipster-shadow',
 		delay: '0'
@@ -898,7 +894,6 @@ $(document).ready(function () {
 	/**
  * image Slide for beachcourt detail page
  */
-
 	var owl = $(".slider-image__slider");
 
 	owl.owlCarousel({
@@ -920,11 +915,6 @@ $(document).keyup(function (e) {
 		if ($('.user__context-menu').hasClass('context-menu--open')) {
 
 			$('.user__context-menu').removeClass('context-menu--open');
-			$('.overlay').remove();
-			$('body').removeClass('no-scroll');
-		} else {
-			$('.user__context-menu').addClass('context-menu--open');
-			$('body').addClass('no-scroll').append('<div class="overlay"></div>');
 		}
 	}
 });
@@ -31806,7 +31796,7 @@ var Component = __webpack_require__(34)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/vagrant/Code/bfde/Laravel/resources/assets/js/components/Favorite.vue"
+Component.options.__file = "/Users/fabianpecher/Sites/bfde/Laravel/resources/assets/js/components/Favorite.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Favorite.vue: functional components are not supported with templates, they should use render functions.")}
 
