@@ -162,6 +162,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 	    $('.modal-common__close').click(function() {
+            $('.overlay').remove();
 	        $(this).parents('.modal-common').remove();
 	    });
 
