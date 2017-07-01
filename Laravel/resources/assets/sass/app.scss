@@ -38,8 +38,8 @@
 		width: 100px;
 		height: 100px;
 		position: relative;
-		border-top-color: #00FFA9;
-		border-bottom-color: #00FFA9;
+		border-top-color: $modal-image-dialog-gradient-color-1;
+		border-bottom-color: $modal-image-dialog-gradient-color-1;
 		animation: spin 1s infinite linear;
 
 		&::before,
@@ -64,8 +64,8 @@
 		    right: 22px;
 		    left: 22px;
 		    bottom: 22px;
-		    border-top-color: #5C008E;
-		    border-bottom-color: #5C008E;	
+		    border-top-color: $modal-image-dialog-gradient-color-2;
+		    border-bottom-color: $modal-image-dialog-gradient-color-2;	
 		}
 	}
 }
