@@ -10,4 +10,8 @@ class Favorite extends Model
     {
         return $this->belongsTo('App\Beachcourt');
     }
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

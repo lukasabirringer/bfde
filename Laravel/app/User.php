@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Beachcourt::class, 'favorites', 'user_id', 'beachcourt_id')->withTimeStamps();
     }
+
+    public function rating()
+    {
+        return $this->hasMany('App\Rating');
+    }
 }

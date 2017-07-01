@@ -12,6 +12,7 @@ class Beachcourt extends Model
         'courtName', 'city', 'created_at', 'updated_at'
     ];
     public $timestamps = true;
+
     public function ratings()
     {
         return $this->hasMany('App\Rating');
@@ -21,6 +22,7 @@ class Beachcourt extends Model
     {
         return $this->hasMany('App\Favorite');
     }
+    
     public function favorited()
 		{
 		    return (bool) Favorite::where('user_id', Auth::id())
