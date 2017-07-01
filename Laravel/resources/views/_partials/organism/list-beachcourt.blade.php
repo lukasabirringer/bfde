@@ -11,14 +11,7 @@
                 </div>
                 <div class="list-beachcourt__coordinates-container column--4 column--s-1">
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
-                    <p class="list-beachcourt__coordinates"> 48.806320<br>8.820813 </p>
-                </div>
-                <div class="list-beachcourt__benefits column--3">
-                    <ul class="list-beachcourt__icon-list">
-                        <li><span class="icon icon--shower"></span></li>
-                        <li><span class="icon icon--eating"></span></li>
-                        <li><span class="icon icon--parking"></span></li>
-                    </ul>
+                    <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
                 <div class="list-beachcourt__action">
 

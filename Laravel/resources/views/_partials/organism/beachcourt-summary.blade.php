@@ -22,12 +22,6 @@
                 <span class="beachcourt-summary__icon-location icon icon--map-marker"></span>
                 <span class="beachcourt-summary__coordinate">48.806320 <br> 8.820813</span>
             </div>
-
-            <ul class="beachcourt-summary__benefits">
-                    <li><span class="icon icon--shower"></span> </li>
-                    <li><span class="icon icon--eating"></span> </li>
-                    <li><span class="icon icon--parking"></span> </li>
-            </ul>
         </div>
 
     </div>

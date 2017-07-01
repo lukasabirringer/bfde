@@ -1814,6 +1814,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['beachcourt', 'favorited'],
@@ -31889,7 +31890,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('span', {
-    staticClass: "beachcourt-summary__favorite icon icon--heart"
+    staticClass: "tooltip beachcourt-summary__favorite icon icon--heart",
+    attrs: {
+      "title": "Dieses Feld befindet sich schon in deinen Favoriten"
+    }
   })]) : _c('a', {
     attrs: {
       "href": "#"
@@ -31901,7 +31905,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('span', {
-    staticClass: "beachcourt-summary__favorite icon icon--heart-o"
+    staticClass: "tooltip beachcourt-summary__favorite icon icon--heart-o",
+    attrs: {
+      "title": "Füge dieses Feld zu deinen Favoriten hinzu"
+    }
   })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
