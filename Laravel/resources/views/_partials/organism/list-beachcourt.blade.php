@@ -33,6 +33,12 @@
             </li>
         </a>
     @empty
-        <p class="-typo-copy--large -text-color-blue-2 -font-primary">@lang('Du hast noch keine Favoriten gespeichert.')</p>
+        <div class="column column--12 -spacing-inner-a -background-gray-3">
+          <p class="icon icon--heart-o -typo-headline-1 -text-color-blue-2 -align-center"></p>
+          <p class="-typo-copy--large -text-color-blue-2 -font-primary -align-center -spacing-static-b">@lang('Du hast noch keine Favoriten gespeichert.')</p>
+          <p class="-typo-copy--large -text-color-green -font-primary -align-center -spacing-static-b">
+              <a href="{{ url('beachcourts') }}">Füge dein erstes Beachvolleyballfeld hinzu</a>
+          </p>  
+        </div>
     @endforelse
 </ul>
