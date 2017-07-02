@@ -1,10 +1,10 @@
 <div class="modal-common__dialog">
 	<div class="modal-common__content">
 		<div class="modal-common__close icon icon--close"></div>
-		<div class="modal-common__header">Aktualisiere deine Informationen</div>
+		<div class="modal-common__header">@lang('Aktualisiere deine Informationen')</div>
 		<form method="POST" action="{{ url('profile/') }}">
 		{{ csrf_field() }}
-		
+
 		<div class="modal-common__body">
 			<p class="-typo-copy--large -text-color-blue-2 -font-primary">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, labore? Ratione, vero quos numquam est facilis eveniet ad eaque dolorem aliquid doloremque ex impedit fugit saepe, ipsa, iste minus, fuga.</p>
@@ -13,7 +13,7 @@
 				<div class="column column--12">
 					<label class="input">
 						<input name="newName" class="input__field" type="text" value="{{ $profile->name }}">	
-						<span class="input__label">Dein Username</span>
+						<span class="input__label">@lang('Dein Username')</span>
 					</label>
 				</div>
 			</div>
@@ -21,19 +21,19 @@
 				<div class="column column--12 column--s-4">
 					<label class="input">
 						<input name="newVorname" class="input__field" type="text" value="{{ $profile->firstName }}">	
-						<span class="input__label">Dein Vorname</span>
+						<span class="input__label">@lang('Dein Vorname')</span>
 					</label>
 				</div>
 				<div class="column column--12 column--s-4">
 					<label class="input">
 						<input name="newNachname" class="input__field" type="text" value="{{ $profile->lastName }}">	
-						<span class="input__label">Dein Nachname</span>
+						<span class="input__label">@lang('Dein Nachname')</span>
 					</label>
 				</div>
 				<div class="column column--12 column--s-4">
 					<label class="input">
 						<input name="newGeburtstag" class="input__field" type="date" value="{{ $profile->birthdate }}">	
-						<span class="input__label">Dein Geburtstag</span>
+						<span class="input__label">@lang('Dein Geburtstag')</span>
 					</label>
 				</div>
 			</div>
@@ -41,13 +41,13 @@
 				<div class="column column--12 column--s-3">
 					<label class="input">
 						<input name="newNPLZ" class="input__field" type="text" value="{{ $profile->postalCode }}">	
-						<span class="input__label">Deine PLZ</span>
+						<span class="input__label">@lang('Deine PLZ')</span>
 					</label>
 				</div>
 				<div class="column column--12 column--s-9">
 					<label class="input">
 						<input name="newWohnort" class="input__field" type="text" value="{{ $profile->city }}">	
-						<span class="input__label">Dein Wohnort</span>
+						<span class="input__label">@lang('Dein Wohnort')</span>
 					</label>
 				</div>
 			</div>
@@ -55,13 +55,13 @@
 				<div class="column column--12 column--s-6">
 					<label class="input">
 						<input name="newEmail" class="input__field" type="email" value="{{ $profile->email }}">	
-						<span class="input__label">Deine E-Mail Adresse</span>
+						<span class="input__label">@lang('Deine E-Mail Adresse')</span>
 					</label>
 				</div>
 				<div class="column column--12 column--s-6">
 					<label class="input">
 						<input name="newPasswort" class="input__field" type="password" value="{{ $profile->password }}">	
-						<span class="input__label">Dein Passwort</span>
+						<span class="input__label">@lang('Dein Passwort')</span>
 					</label>
 				</div>
 			</div>

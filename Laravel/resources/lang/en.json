@@ -13,7 +13,7 @@
     "Nachname": "Last Name",
     "Geburtsdatum": "Date of birth",
     "E-Mail Adresse": "Email address",
-    "PLZ": "Zip code",
+    "PLZ": "Postal code",
     "Wohnort": "Place of residence",
     "Passwort": "Password",
     "Leider hast du noch kein Profilbild hochgeladen.": "Unfortunately, you haven't uploaded a profile photo.",
@@ -23,7 +23,12 @@
     "Koordinaten": "coordinates",
     "Feld einreichen": "Submit a beachcourt",
     "Dein Username": "Your username",
+    "Dein Vorname": "Your first name",
+    "Dein Nachname": "Your last name",
+    "Deine PLZ": "Your postal code",
+    "Dein Wohnort": "Your place of residence",
     "Deine E-Mail Adresse": "Your email address",
+    "Dein Geburtstag": "Your birthday",
     "Dein Passwort": "Your password",
     "Passwort wiederholen": "Confirm password",
     "Profilbild hochladen": "Upload profile image",
@@ -31,5 +36,8 @@
     "Tipps für das perfekte Profilbild": "Tips for the perfect profile picture",
     "zeige uns dein schönstes Lächeln": "show us your most beautiful smile",
     "oder": "or",
-    "zeige dich in Action": "show yourself in action"
+    "zeige dich in Action": "show yourself in action",
+    "Aktualisiere deine Informationen": "Update your user information",
+    "Abmelden": "Logout",
+    "Übersicht aller Beachvolleyballfelder": "Overview of all beach volleyball courts"
 }
