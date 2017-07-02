@@ -9,7 +9,7 @@
                     <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>
                     <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $myFavorite->created_at }} </p>
                 </div>
-                <div class="list-beachcourt__coordinates-container column--4 column--s-1">
+                <div class="list-beachcourt__coordinates-container column--12 column--s-3">
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
                     <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
