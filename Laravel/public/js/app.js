@@ -884,6 +884,25 @@ $(document).ready(function () {
 	});
 
 	/**
+ * Accordion Nav
+ */
+	$('.navigation-accordion__header').click(function () {
+
+		if ($(this).next('.navigation-accordion__content').is(':visible')) {
+
+			$(this).next('.navigation-accordion__content').slideUp().removeClass('navigation-accordion__content--open');
+			$(this).find('.navigation-accordion__icon').removeClass('navigation-accordion__icon--open');
+		} else {
+
+			$('.navigation-accordion__content').slideUp();
+
+			$(this).next('.navigation-accordion__content').slideToggle().toggleClass('navigation-accordion__content--open');
+
+			$(this).find('.navigation-accordion__icon').toggleClass('navigation-accordion__icon--open');
+		}
+	});
+
+	/**
  * Tooltips
  */
 	$('.tooltip').tooltipster({
