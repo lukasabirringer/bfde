@@ -9,16 +9,9 @@
                     <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>
                     <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $myFavorite->created_at }} </p>
                 </div>
-                <div class="list-beachcourt__coordinates-container column--4 column--s-1">
+                <div class="list-beachcourt__coordinates-container column--12 column--s-3">
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
-                    <p class="list-beachcourt__coordinates"> 48.806320<br>8.820813 </p>
-                </div>
-                <div class="list-beachcourt__benefits column--3">
-                    <ul class="list-beachcourt__icon-list">
-                        <li><span class="icon icon--shower"></span></li>
-                        <li><span class="icon icon--eating"></span></li>
-                        <li><span class="icon icon--parking"></span></li>
-                    </ul>
+                    <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
                 <div class="list-beachcourt__action">
 
@@ -33,6 +26,12 @@
             </li>
         </a>
     @empty
-        <p class="-typo-copy--large -text-color-blue-2 -font-primary">@lang('Du hast noch keine Favoriten gespeichert.')</p>
+        <div class="column column--12 -spacing-inner-a -background-gray-3">
+          <p class="icon icon--heart-o -typo-headline-1 -text-color-blue-2 -align-center"></p>
+          <p class="-typo-copy--large -text-color-blue-2 -font-primary -align-center -spacing-static-b">@lang('Du hast noch keine Favoriten gespeichert.')</p>
+          <p class="-typo-copy--large -text-color-green -font-primary -align-center -spacing-static-b">
+              <a href="{{ url('beachcourts') }}">Füge dein erstes Beachvolleyballfeld hinzu</a>
+          </p>  
+        </div>
     @endforelse
 </ul>

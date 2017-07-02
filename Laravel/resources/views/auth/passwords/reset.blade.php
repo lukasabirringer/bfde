@@ -1,6 +1,44 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('content')
+
+@if (session('status'))
+    <div class="notification-sticky">
+        <div class="content notification-sticky__content">
+            <span class="notification-sticky__icon icon icon--info"></span>
+            <span class="notification-sticky__text">{{ session('status') }}</span>
+        </div>
+        <span class="notification-sticky__icon notification-sticky__icon--close icon icon--close"></span>
+    </div>
+@endif
+
+<div class="row row--zero">
+        <div class="column column--12 column--zero">
+            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="row -spacing-widget-default">
+        <div class="column column--12">
+            <div class="header-page ">
+                <h1 class="header-page__title  -text-color-blue-2 ">
+                    Passwort zurücksetzen
+                </h1>
+                <p class="header-page__subtitle">
+                    Falls du dein Passwort nicht mehr weißt, kannst du es hier problemlos zurücksetzen. Bitte gib' deine E-Mail Adresse ein und wir senden dir an diese eine E-Mail mit einem Link zum Zurücksetzen des Passwortes.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column column--12">
+            
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -73,4 +111,5 @@
         </div>
     </div>
 </div>
+
 @endsection
