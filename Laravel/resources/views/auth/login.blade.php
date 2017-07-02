@@ -1,6 +1,17 @@
 @extends('layouts.frontend')
 
 @section('content')
+
+@if (session('status'))
+    <div class="notification-sticky">
+        <div class="content notification-sticky__content">
+            <span class="notification-sticky__icon icon icon--info"></span>
+            <span class="notification-sticky__text">{{ session('status') }}</span>
+        </div>
+        <span class="notification-sticky__icon notification-sticky__icon--close icon icon--close"></span>
+    </div>
+@endif
+
 <div class="row row--zero">
         <div class="column column--12 column--zero">
             @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
@@ -20,14 +31,9 @@
             </div>
         </div>
     </div>
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
-    <div class="row -spacing-d -spacing-inner-a">
+    <div class="row -spacing-d">
         <div class="column column--2"></div>
-        <div class="column column--12 column--m-8 -align-right">
+        <div class="column column--12 column--m-8">
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
@@ -66,10 +72,10 @@
 
                 @include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Anmelden'])
             </form>
-            <p class="-typo-copy -font-primary -spacing-static-c">
+            <p class="-typo-copy -font-primary -spacing-static-c -align-right">
                 <a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">@lang('Passwort vergessen?')</a>
             </p>
-            <p class="-typo-copy -font-primary -spacing-static-c">
+            <p class="-typo-copy -font-primary -spacing-static-c -align-right">
                 <a href="{{ route('register') }}" class="-typo-copy-link -text-color-green">
                     @lang('Noch kein Mitglied? Dann melde dich schnell an!')</a> 
             </p>

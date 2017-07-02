@@ -13,21 +13,19 @@
             ></favorite>
              @endif
              
-            <h3 class="beachcourt-summary__title"><a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->city }}</a></h3>
+            <h3 class="beachcourt-summary__title"><a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->courtName }}</a></h3>
+            <p class="-typo-copy--large -text-color-white -font-primary"> {{ $beachcourt->city }} </p>
             <span class="beachcourt-summary__distance">
                 <span class="icon icon--distance beachcourt-summary__icon-distance"></span>
                 {{ $beachcourt->id }}km entfernt
             </span>
+            
+            @if ($beachcourt->latitude !== '')
             <div class="beachcourt-summary__location">
                 <span class="beachcourt-summary__icon-location icon icon--map-marker"></span>
-                <span class="beachcourt-summary__coordinate">48.806320 <br> 8.820813</span>
+                <span class="beachcourt-summary__coordinate">{{ $beachcourt->latitude }} <br> {{ $beachcourt->longitude }} </span>
             </div>
-
-            <ul class="beachcourt-summary__benefits">
-                    <li><span class="icon icon--shower"></span> </li>
-                    <li><span class="icon icon--eating"></span> </li>
-                    <li><span class="icon icon--parking"></span> </li>
-            </ul>
+            @endif
         </div>
 
     </div>

@@ -1,3 +1,4 @@
+@import "node_modules/beachfelder-stylesheet/src/setup/color-palette.setup";
 
 // Body
 $body-bg: #fff;
@@ -36,3 +37,7 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+
+$modal-image-dialog-gradient-color-1: rgba($color-palette-gradient-color-1, .4) !default;
+$modal-image-dialog-gradient-color-2: rgba($color-palette-gradient-color-2, .4) !default;
