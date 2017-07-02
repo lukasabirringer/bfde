@@ -1,4 +1,6 @@
 <div class="modal-common__dialog">
+    <form method="POST" action="{{ route('login') }}">
+    {{ csrf_field() }}
 	<div class="modal-common__content">
 		<div class="modal-common__close icon icon--close"></div>
 		<div class="modal-common__header">Beachvolleyballfeld vorschlagen</div>
@@ -8,9 +10,6 @@
 
             <p class="-typo-copy--large -text-color-blue-2 -font-primary -spacing-static-c">
             Wenn du mehr über das Beachvolleyballfeld weißt, darfst du uns aber gerne mehr Informationen darüber geben. Klicke dazu einfach unten im Formular auf "Mehr Infos einreichen".</p>
-
-			<form method="POST" action="{{ route('login') }}">
-            {{ csrf_field() }}
 
             <div class="row -spacing-static-f">
                 <div class="column column--12 column--s-3">
@@ -150,13 +149,13 @@
             <div class="row row-buttons ">
                 <div class="column column--auto column--s-10">
                 </div>
-                <div class="column column--12 column--s-2">
+                <div class="column column--12 column--s-6 column--l-5">
                     @include('_partials.molecules.button', ['buttonJavaScript'=>' ', 'buttonType'=>'submit', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'send', 'buttonLabel'=>'Feld vorschlagen'])
                 </div>
             </div>
-            </form>
 		</div>
 	</div>
+    </form>
 </div>
 
 <script type="text/javascript">
