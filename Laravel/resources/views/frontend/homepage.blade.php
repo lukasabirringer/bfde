@@ -1,12 +1,12 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="row row--zero">
-        <div class="column column--12 column--zero">
-            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+    <div class="row row--zero">
+            <div class="column column--12 column--zero">
+                @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+            </div>
         </div>
     </div>
-</div>
     <div class="-background-gray-2 -spacing-inner-a">
         <div class="content">
             <div class="row">
@@ -42,10 +42,16 @@
 
             </div>
         </div>
-         <div class="row -spacing-a">
+        <div class="row -spacing-a">
             @include('_partials.organism.beachcourt-summary')
-         </div>
+        </div>
+        <div class="row">
+            <div class="column column--12">
+                <p class="-typo-copy--large -font-primary -text-color-green -align-center -spacing-static-d"><a href="{{ url('beachcourts') }}">@lang('Übersicht aller Beachvolleyballfelder')</a></p>
+            </div>
+        </div>
     </div>
+
     @include('_partials.organism.footer')
 
 	<div class="panel-body">
