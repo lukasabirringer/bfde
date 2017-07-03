@@ -40,21 +40,14 @@
 
 							    @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'context-menu__button profile-user-image__button' ])
 						    </form>
-						    <form action="#" method="POST">
-						    	<input name="_method" type="hidden" value="DELETE">
-						    	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
-						    	<button class="button context-menu__button button--red" type="submit">
-						    		<span class="button__icon icon icon--delete"></span>
-						    		<span class="button__label">Profilbild löschen</span>
-						    	</button>
-						    </form>
+						    @include('_partials.molecules.button', ['buttonType' => 'button', 'buttonIcon' =>'delete', 'buttonLabel' => 'Profilbild löschen', 'buttonLinkTarget' => 'profile/deleteimage', 'buttonCustomClass' => 'context-menu__button', 'buttonBackgroundcolor' => 'red', 'buttonJavaScript' => ''])
 						</div>
 					@else
 
 						<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
 	
-						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data" style="position: absolute; top: 0;">
 							{{ csrf_field() }}
 
 							<label class="input-fileupload -spacing-static-d">
@@ -68,8 +61,6 @@
 						</form>
 					@endif
 				</div>
-				<a href="{{ url('profile/deleteimage') }}">Profilbild löschen</a>
-				    
 			</div>
 
 			<div class="column column--12 column--m-8">

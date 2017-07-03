@@ -1,10 +1,11 @@
 <template>
     <span>
         <a href="#" v-if="isFavorited" @click.prevent="unFavorite(beachcourt)">
-            <span class="beachcourt-summary__favorite icon icon--heart"></span>
+            <span class="tooltip beachcourt-summary__favorite icon icon--heart"
+            title="Dieses Feld befindet sich schon in deinen Favoriten" ></span>
         </a>
         <a href="#" v-else @click.prevent="favorite(beachcourt)">
-            <span class="beachcourt-summary__favorite icon icon--heart-o"></span>
+            <span class="tooltip beachcourt-summary__favorite icon icon--heart-o" title="Füge dieses Feld zu deinen Favoriten hinzu"></span>
         </a>
     </span>
 </template>

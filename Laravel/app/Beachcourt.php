@@ -23,7 +23,7 @@ class Beachcourt extends Model
     {
         return $this->hasMany('App\Favorite');
     }
-
+  
     public function favorited()
 	{
 	    return (bool) Favorite::where('user_id', Auth::id())->where('beachcourt_id', $this->id)->first();
