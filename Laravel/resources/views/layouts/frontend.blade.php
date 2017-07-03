@@ -18,8 +18,6 @@
 </head>
 <body>
 
-
-
     <div id="app">
 
 		<div class="page">
@@ -32,7 +30,6 @@
         /**
             * Modal Login
         */
-
         function load_modal_login()
         {   
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-image"></div>');
@@ -52,7 +49,6 @@
         /**
             * Modal Submit Beachcourt
         */
-
         function load_modal_submitBeachcourt()
         {
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');

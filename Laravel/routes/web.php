@@ -30,8 +30,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::get("/modal_submitBeachcourt", function() {
 			return View::make('_partials.organism.modals.modal-submit-beachcourt');
 		});
-
-
+		Route::resource('/beachcourtsubmit', 'SubmittedbeachcourtController');
 });
 
 
@@ -45,7 +44,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 		Route::get('admin/dashboard/', function () {
 				return view('admin.dashboard');
 		});
-
+		
 		Route::resource('/admin/users', 'UserController');
 		Route::resource('/admin/beachcourts', 'BeachcourtController');
 		Route::resource('/admin/pages', 'PageController', ['parameters' => [
