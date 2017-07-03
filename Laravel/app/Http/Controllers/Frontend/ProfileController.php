@@ -36,7 +36,7 @@ class ProfileController extends Controller
     public function show($id)
     {
             $authenticated_id = Auth::id();
-
+           
             if($id == $authenticated_id){
                 
                 $profile = User::findOrFail($id);

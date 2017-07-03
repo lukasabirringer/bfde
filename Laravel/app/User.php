@@ -46,8 +46,13 @@ class User extends Authenticatable
     public function isRegular(){
         return (\Auth::check() && $this->role == 'regular');
     }
+    public function submittedbeachcourts()
+    {
+        return $this->hasMany('App\Submittedbeachcourt');
+    }
     public function favorites()
     {
         return $this->belongsToMany(Beachcourt::class, 'favorites', 'user_id', 'beachcourt_id')->withTimeStamps();
     }
+
 }
