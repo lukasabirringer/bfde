@@ -4,7 +4,7 @@
 			{{ $buttonCustomClass }}
 		@endif
 
-		@if ( $buttonBackgroundcolor !== '' )
+		@if ( $buttonBackgroundcolor !== ' ' )
 			button--{{ $buttonBackgroundcolor }}
 		@endif"
 		

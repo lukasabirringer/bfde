@@ -65,60 +65,48 @@
 
 			<div class="column column--12 column--m-8">
 				<h4 class="profile-user__title"> @lang('Allgemeine Informationen') </h4>
-				<form method="POST" action="{{ url('profile/') }}">
-					{{ csrf_field() }}
-					<dl class="profile-user__details">
-						<dt class="profile-user__label">@lang('Username')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> name }}
-							<input name="newName" class="form-control" type="text" value="{{ $profile->name }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('Vorname')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> firstName }}
-							<input name="newVorname" class="form-control" type="text" value="{{ $profile->firstName }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('Nachname')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> lastName }}
-							<input name="newNachname" class="form-control" type="text" value="{{ $profile->lastName }}"> 
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> birthdate }} 
-							<input name="newGeburtstag" class="form-control" type="text" value="{{ $profile->birthdate }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> email }} 
-							<input name="newEmail" class="form-control" type="text" value="{{ $profile->email }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('PLZ')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> postalCode }}
-							<input name="newNPLZ" class="form-control" type="text" value="{{ $profile->postalCode }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('Wohnort')</dt>
-						<dd class="profile-user__info">
-							{{ $profile -> city }}
-							<input name="newWohnort" class="form-control" type="text" value="{{ $profile->city }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-						<dt class="profile-user__label">@lang('Passwort')</dt>
-						<dd class="profile-user__info">
-							*******
-							<input name="newPasswort" class="form-control" type="password" value="{{ $profile->password }}">
-							<span class="icon icon--edit profile-user__icon"></span>
-						</dd>
-					</dl>
-					@include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'check', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
-				</form>
+				<dl class="profile-user__details">
+					<dt class="profile-user__label">@lang('Username')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> name }}
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('Vorname')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> firstName }}
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('Nachname')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> lastName }}
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> birthdate }} 
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('PLZ')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> postalCode }}
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('Wohnort')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> city }}
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>
+					<dd class="profile-user__info">
+						{{ $profile -> email }} 
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+					<dt class="profile-user__label">@lang('Passwort')</dt>
+					<dd class="profile-user__info">
+						*******
+						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
+					</dd>
+				</dl>
 			</div>
 		</div>
 	</div>

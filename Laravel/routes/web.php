@@ -30,6 +30,13 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::get("/modal_submitBeachcourt", function() {
 			return View::make('_partials.organism.modals.modal-submit-beachcourt');
 		});
+
+		Route::get("/modal_editUserProfile", function() {
+			$id = Auth::id();
+			$profile = App\User::findOrFail($id);
+	  		return View::make('_partials.organism.modals.modal-edit-user-profile', compact('profile'));
+		});
+
 		Route::resource('/beachcourtsubmit', 'SubmittedbeachcourtController');
 });
 

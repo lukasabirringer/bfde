@@ -54,7 +54,7 @@
                     <div class="context-menu user__context-menu">
                         <ul class="context-menu__list">
                             <li class="context-menu__item">
-                                <a href="./profile/{{ Auth::user()->id }}" class="context-menu__link">
+                                <a href="../profile/{{ Auth::user()->id }}" class="context-menu__link">
                                     <span class="context-menu__icon icon icon--user-circle"></span>
                                     <span class="context-menu__title">@lang('Mein Profil')</span>
                                 </a>
@@ -76,7 +76,7 @@
                         
                         <button type="button" class="button button--red context-menu__button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span class="button__icon icon icon--sign-out"></span>
-                            <span class="button__label">Abmelden</span>
+                            <span class="button__label">@lang('Abmelden')</span>
                         </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </div>

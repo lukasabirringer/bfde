@@ -63,6 +63,25 @@
 
           }
         });
+
+        /**
+            * Modal Edit User Profile
+        */
+
+        function load_modal_editUserProfile()
+        {
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('.modal-common').load('/modal_editUserProfile');
+        }
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('.modal-common').remove();
+
+          }
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
