@@ -17,7 +17,11 @@
                 <p class="-typo-copy--large -text-color-white -font-primary"> {{ $beachcourt->city }} </p>
                 <span class="beachcourt-summary__distance">
                     <span class="icon icon--distance beachcourt-summary__icon-distance"></span>
-                    {{ $beachcourt->id }}km entfernt
+                    <?php 
+                        $distance = round($beachcourt->distance, 1)*2;
+                        $distance = str_replace('.', ',', $distance);
+                    ?>
+                    {{ $distance }} km entfernt
                 </span>
             
                 @if ($beachcourt->latitude !== '')

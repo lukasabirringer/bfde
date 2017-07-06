@@ -10,6 +10,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/profile', 'ProfileController@update')->middleware('auth');
 		Route::get('/profile/{id}', 'ProfileController@show')->middleware('auth');
 		Route::post('/profile/uploadprofilepicture', 'ProfileController@storeimage')->middleware('auth');
+		Route::post('/beachcourts/search', 'SearchController@show');
 		Route::resource('/beachcourts', 'BeachcourtController');
 		Route::resource('/pages', 'PageController', ['parameters' => [
 		    'pages' => 'slug'

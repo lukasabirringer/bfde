@@ -5,9 +5,25 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Favorite;
 use Auth;
+use Laravel\Scout\Searchable;
 
 class Beachcourt extends Model
 {
+
+    use Searchable;
+
+    public function toSearchableArray()
+    {
+        return [
+            'postalCode' => $this->postalCode,
+            'city' => $this->city,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+        ];
+        
+    }
+
+
     protected $fillable = [
         'courtName', 'city', 'created_at', 'updated_at'
     ];
