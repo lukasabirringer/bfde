@@ -16,5 +16,19 @@ class Rating extends Model
         return $this->belongsTo('App\User');
     }
 
-    protected $fillable = ['beachcourt_id', 'k1_sandqualitaet', 'k2_sicherheit', 'k3_netzqualitaet', 'k4_sonnenqualitaet', 'k5_luftqualitaet' ];
+    protected $fillable = [
+    'sandQuality',
+    'courtTopography',
+    'sandDepth',
+    'irrigationSystem',
+    'netHeight',
+    'netType',
+    'netAntennas',
+    'netTension',
+    'boundaryLines',
+    'fieldDimensions',
+    'securityZone',
+    'windProtection',
+    'interferenceCourt',
+     ];
 }

@@ -13,46 +13,92 @@ class RatingController extends Controller
 {
     public function store(Request $request)
         { 
-            //VIEL ZU KOMPLIZIERT --- MUSS VEREINFACHT WERDEN
-            //!!!!!!!!!!!!!
-            
-            // Daten der Form von beachcourts/list.blade.php die in $requests liegen in Variablen speichern 
-            $beachcourtid = $request->beachcourtname;
-            $sandqualitaet = $request->sandquali;
-            $sicherheit = $request->sicherheit;
-            $netzqualitaet = $request->netzquali;
-            $sonnenqualitaet = $request->sonnenquali;
-            $luftqualitaet = $request->luftquali;
+            $sandQuality = $request->sandQuality;
+            $courtTopography = $request->courtTopography;
+            $sandDepth = $request->sandDepth;
+            $irrigationSystem = $request->irrigationSystem;
+            $netHeight = $request->netHeight;
+            $netType = $request->netType;
+            $netAntennas = $request->netAntennas;
+            $netTension = $request->netTension;
+            $boundaryLines = $request->boundaryLines;
+            $fieldDimensions = $request->fieldDimensions;
+            $securityZone = $request->securityZone;
+            $windProtection = $request->windProtection;
+            $interferenceCourt = $request->interferenceCourt;
 
-            // beachcourt anhand der übergebenen beachcourt-Variable übergeben
+            $beachcourtid = $request->beachcourtname;
             $beachcourt = Beachcourt::where('id', $beachcourtid)->first(); 
 
-            //Rating in der ratings-tabelle speichern inkl. dem forgein-key der beachcourt-variable
             $newRating = $beachcourt->ratings()->create([
-                'k1_sandqualitaet' => $sandqualitaet, 
-                'k2_sicherheit' => $sicherheit,
-                'k3_netzqualitaet' => $netzqualitaet,
-                'k4_sonnenqualitaet' => $sonnenqualitaet,
-                'k5_luftqualitaet' => $luftqualitaet,
+                'sandQuality' => $sandQuality, 
+                'courtTopography' => $courtTopography,
+                'sandDepth' => $sandDepth,
+                'irrigationSystem' => $irrigationSystem,
+                'netHeight' => $netHeight,
+                'netType' => $netType,
+                'netAntennas' => $netAntennas,
+                'netTension' => $netTension,
+                'boundaryLines' => $boundaryLines,
+                'fieldDimensions' => $fieldDimensions,
+                'securityZone' => $securityZone,
+                'windProtection' => $windProtection,
+                'interferenceCourt' => $interferenceCourt,
             ]);
+
+            $sandQualityAverage = $beachcourt->ratings()->avg('sandQuality');
+            $courtTopographyAverage = $beachcourt->ratings()->avg('courtTopography');
+            $sandDepthAverage = $beachcourt->ratings()->avg('sandDepth');
+            $irrigationSystemAverage = $beachcourt->ratings()->avg('irrigationSystem');
+            $netHeightAverage = $beachcourt->ratings()->avg('netHeight');
+            $netTypeAverage = $beachcourt->ratings()->avg('netType');
+            $netAntennasAverage = $beachcourt->ratings()->avg('netAntennas');
+            $netTensionAverage = $beachcourt->ratings()->avg('netTension');
+            $boundaryLinesAverage = $beachcourt->ratings()->avg('boundaryLines');
+            $fieldDimensionsAverage = $beachcourt->ratings()->avg('fieldDimensions');
+            $securityZoneAverage = $beachcourt->ratings()->avg('securityZone');
+            $windProtectionAverage = $beachcourt->ratings()->avg('windProtection');
+            $interferenceCourtAverage = $beachcourt->ratings()->avg('interferenceCourt');
+            //dd($fieldDimensionsAverage);
+     
+            $newRating = ($sandQualityAverage + 
+                          $courtTopographyAverage + 
+                          $sandDepthAverage + 
+                          $irrigationSystemAverage + 
+                          $netHeightAverage + 
+                          $netTypeAverage + 
+                          $netAntennasAverage + 
+                          $netTensionAverage + 
+                          $boundaryLinesAverage + 
+                          $fieldDimensionsAverage + 
+                          $securityZoneAverage + 
+                          $windProtectionAverage + 
+                          $interferenceCourtAverage);
+         
+          
+            if ($newRating >= 90 && $val <= 100) {
+                $newRating = 5;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            } elseif ($newRating >= 80 && $newRating <= 90) {
+                $newRating = 4;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            } elseif ($newRating >= 70 && $newRating <= 80) {
+                $newRating = 3;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            } elseif ($newRating >= 60 && $newRating <= 70) {
+                $newRating = 2;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            } elseif ($newRating >= 50 && $newRating <= 60) {
+                $newRating = 1;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            } elseif ($newRating >= 0 && $newRating <= 50) {
+                $newRating = 0;
+                DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
+            }
             
-            //$beachcourt gibt den entsprechenden court zurück(s.o.); 
-            // Dann wird der Durchschnitt des entsprechenden ratings zu diesem court errechnet und in einer Variablen gespeichert
-      $sandqualitaetaverage = $beachcourt->ratings()->avg('k1_sandqualitaet');
-      $sicherheitaverage = $beachcourt->ratings()->avg('k2_sicherheit');
-      $netzqualitaetaverage = $beachcourt->ratings()->avg('k3_netzqualitaet');
-      $sonnenqualitaetaverage = $beachcourt->ratings()->avg('k4_sonnenqualitaet');
-      $luftqualitaetaverage = $beachcourt->ratings()->avg('k5_luftqualitaet');
-
-      //Das neue Rating wird ausgerechnet
-            $newRating = ($sandqualitaetaverage + $sicherheitaverage + $netzqualitaetaverage + $sonnenqualitaetaverage + $luftqualitaetaverage)/5;
-
-            // Das neue Rating wird gespeichert
-            DB::table('beachcourts')->where('id', $beachcourtid)->update(['realRating' => $newRating]);
-
-            // Der ratingCount wird um 1 erhöht (wichtig um zu sehen ob die User-Bewertungen in Kraft treten kann)
             DB::table('beachcourts')->where('id', $beachcourtid)->increment('ratingCount');
 
-          return back();
+            return back();
+
         }
 }

@@ -18,11 +18,21 @@ class CreateRatingsTable extends Migration
   
             $table->integer('beachcourt_id')->unsigned();
             $table->foreign('beachcourt_id')->references('id')->on('beachcourts');
-            $table->integer('k1_sandqualitaet');
-            $table->integer('k2_sicherheit');
-            $table->integer('k3_netzqualitaet');
-            $table->integer('k4_sonnenqualitaet');
-            $table->integer('k5_luftqualitaet');
+
+            $table->integer('sandQuality');
+            $table->integer('courtTopography');
+            $table->integer('sandDepth');
+            $table->integer('irrigationSystem');
+            $table->integer('netHeight');
+            $table->integer('netType');
+            $table->integer('netAntennas');
+            $table->integer('netTension');
+            $table->integer('boundaryLines');
+            $table->integer('fieldDimensions');
+            $table->integer('securityZone');
+            $table->integer('windProtection');
+            $table->integer('interferenceCourt');
+            
             $table->timestamps();
         });
     }
