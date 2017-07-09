@@ -162,12 +162,14 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        PragmaRX\ZipCode\Vendor\Laravel\ServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -229,6 +231,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Image' => 'Intervention\Image\Facades\Image',
+        'ZipCode' => 'PragmaRX\ZipCode\Vendor\Laravel\Facade',
 
     ],
 
