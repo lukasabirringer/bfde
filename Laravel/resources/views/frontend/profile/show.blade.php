@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="column column--12 column--m-4">
 				<div class="profile-user__image-container">
-					@if($profile->pictureName !== '' )
+					@if($profile->pictureName !== 'placeholder-user.png' )
 						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
 						<div class="multifunctional-menu icon icon--edit profile-user__multifunctional-menu"></div>
 

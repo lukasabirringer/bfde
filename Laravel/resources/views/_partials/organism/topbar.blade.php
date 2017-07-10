@@ -42,7 +42,7 @@
                 @if (Auth::guest())
                     @include('_partials.molecules.button', ['buttonJavaScript'=>'load_modal_login()', 'buttonType'=>'button', 'buttonLinkTarget'=>'', 'buttonIcon'=>'user-circle', 'buttonLabel'=>'Anmelden', 'buttonCustomClass'=>'topbar__button', 'buttonBackgroundcolor'=>' '])
                 @else
-                @if (Auth::user()->pictureName !== '')
+                @if (Auth::user()->pictureName !== 'placeholder-user.png')
 
                     <div class="multifunctional-menu topbar__mfm multifunctional-menu--image">
                         <img class="multifunctional-menu__image" src="/uploads/profilePictures/{{ Auth::user()->id }}/{{ Auth::user()->pictureName }}">
@@ -72,6 +72,14 @@
                                     <span class="context-menu__title">@lang('Feld einreichen')</span>
                                 </a>
                             </li>
+                        @if (Auth::user()->isAdmin())
+                            <li class="context-menu__item">
+                                <a href="{{ url('admin/dashboard') }}" class="context-menu__link">
+                                    <span class="context-menu__icon icon icon--cog"></span>
+                                    <span class="context-menu__title">@lang('Admin-Bereich')</span>
+                                </a>
+                            </li>
+                        @endif
                         </ul>
                         
                         <button type="button" class="button button--red context-menu__button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

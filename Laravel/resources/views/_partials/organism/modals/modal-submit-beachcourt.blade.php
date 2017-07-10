@@ -1,5 +1,5 @@
 <div class="modal-common__dialog">
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ url('/beachcourtsubmit/') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 	<div class="modal-common__content">
 		<div class="modal-common__close icon icon--close"></div>
@@ -14,7 +14,7 @@
             <div class="row -spacing-static-f">
                 <div class="column column--12 column--s-3">
                     <label class="input">
-                        <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}" required>
+                        <input type="search" id="zipCode" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}" required>
                         <span class="input__label">@lang('Postleitzahl')</span>
                     </label>
                     @if ($errors->has('postalCode'))
@@ -50,12 +50,39 @@
                 </div>
                 <div class="column column--12 column--s-2">
                     <label class="input">
-                        <input type="number" name="housenumber" class="input__field" placeholder=" " value="{{ old('housenumber') }}">
+                        <input type="number" name="houseNumber" class="input__field" placeholder=" " value="{{ old('houseNumber') }}">
                         <span class="input__label">@lang('Nr.')</span>
                     </label>
-                    @if ($errors->has('housenumber'))
+                    @if ($errors->has('houseNumber'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('housenumber') }}</strong>
+                            <strong>{{ $errors->first('houseNumber') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+
+            <div class="row -spacing-static-d row__hidden">
+                <div class="column column--12 column--s-6">
+                    <p class="-typo-copy -text-color-blue-2 -font-primary tooltip" title="Den Längengrad kannst du bei Google Maps herausfinden">Gib den Längengrad des Beachvolleyballfeldes an.</p>
+                    <label class="input -spacing-static-b">
+                        <input type="number" name="latitude" class="input__field" placeholder=" " value="{{ old('latitude') }}">
+                        <span class="input__label">@lang('Latitude')</span>
+                    </label>
+                    @if ($errors->has('latitude'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('latitude') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="column column--12 column--s-6">
+                    <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Breitengrad des Beachvolleyballfeldes an.</p>
+                    <label class="input -spacing-static-b">
+                        <input type="number" name="longitude" class="input__field" placeholder=" " value="{{ old('longitude') }}">
+                        <span class="input__label tooltip" title="Den Breitengrad kannst du bei Google Maps herausfinden" >@lang('Longitude')</span>
+                    </label>
+                    @if ($errors->has('longitude'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('longitude') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -64,23 +91,23 @@
             <div class="row -spacing-static-d row__hidden">
                 <div class="column column--12 column--s-6">
                     <label class="input">
-                        <input type="text" name="owner" class="input__field" placeholder=" " value="{{ old('owner') }}">
+                        <input type="text" name="operator" class="input__field" placeholder=" " value="{{ old('operator') }}">
                         <span class="input__label">@lang('Betreiber')</span>
                     </label>
-                    @if ($errors->has('owner'))
+                    @if ($errors->has('operator'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('owner') }}</strong>
+                            <strong>{{ $errors->first('operator') }}</strong>
                         </span>
                     @endif
                 </div>
                 <div class="column column--12 column--s-6">
                     <label class="input">
-                        <input type="url" name="ownerwebaddress" class="input__field" placeholder=" " value="{{ old('ownerwebaddress') }}">
+                        <input type="url" name="operatorURL" class="input__field" placeholder=" " value="{{ old('operatorURL') }}">
                         <span class="input__label">@lang('Website des Betreibers')</span>
                     </label>
-                    @if ($errors->has('ownerwebaddress'))
+                    @if ($errors->has('operatorURL'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('ownerwebaddress') }}</strong>
+                            <strong>{{ $errors->first('operatorURL') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -88,9 +115,10 @@
             <div class="row -spacing-static-d row__hidden">
                 <div class="column column--12 column--s-6">
                     <label class="select ">
-                      <select class="select__field" name="countBeachcourtIndoor">
-                            <option value=" " selected disabled> Anzahl der Felder indoor </option>
+                      <select class="select__field" name="courtCountIndoor">
+                            <option selected disabled> Anzahl der Felder indoor </option>
                             <option value="NaN"> nicht bekannt </option>
+                            <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
                             <option value="3"> 3 </option>
@@ -101,9 +129,10 @@
                 </div>
                 <div class="column column--12 column--s-6">
                     <label class="select ">
-                      <select class="select__field" name="countBeachcourtOutdoor">
-                            <option value=" " selected disabled> Anzahl der Felder outdoor </option>
+                      <select class="select__field" name="courtCountOutdoor">
+                            <option selected disabled> Anzahl der Felder outdoor </option>
                             <option value="NaN"> nicht bekannt </option>
+                            <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
                             <option value="3"> 3 </option>
@@ -117,22 +146,22 @@
                 <div class="row row--zero">
                     <div class="column column--12 column--s-6">
                         <label class="select ">
-                          <select class="select__field" name="#">
-                                <option value=" " selected disabled> Ist die Nutzung gebührenpflichtig oder kostenfrei? </option>
+                          <select class="select__field" name="chargeable">
+                                <option selected disabled> Ist die Nutzung gebührenpflichtig oder kostenfrei? </option>
                                 <option value="NaN"> nicht bekannt </option>
-                                <option value="free"> gebührenfrei </option>
-                                <option value="chargeable"> gebührenpflichtig </option>
+                                <option value="gebührenfrei"> gebührenfrei </option>
+                                <option value="gebührenpflichtig"> gebührenpflichtig </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
                     </div>
                     <div class="column column--12 column--s-6">
                         <label class="select ">
-                          <select class="select__field" name="#">
-                                <option value=" " selected disabled> Ist das Feld öffentlich zugänglich? </option>
+                          <select class="select__field" name="public">
+                                <option selected disabled> Ist das Feld öffentlich zugänglich? </option>
                                 <option value="NaN"> nicht bekannt </option>
-                                <option value="free"> öffentlich </option>
-                                <option value="chargeable"> nicht öffentlich </option>
+                                <option value="öffentlich"> öffentlich </option>
+                                <option value="nicht öffentlich"> nicht öffentlich </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
@@ -157,7 +186,7 @@
 	</div>
     </form>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	    $('.modal-common__close').click(function() {
@@ -170,6 +199,13 @@
             $('.row__hidden').delay(500).slideToggle();
             
         });
+
+        /**
+        * Tooltips
+        */
+        $('.tooltip').tooltipster({
+            theme: 'tooltipster-shadow',
+            delay: '0'
+        });
 	});
 </script>
-

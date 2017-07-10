@@ -56,24 +56,40 @@
 				</ul>
 				<div id="tab-1" class="navigation-tabs__content navigation-tabs__content--active">
 					<p class="-typo-copy--large -font-primary -text-color-blue-2">
-						Fr. Mustermann
+						{{ $beachcourt -> operator }}
 					</p>
 					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
 						{{ $beachcourt -> organization }}
 					</p>
-					<p class="-typo-copy -font-primary -text-color-blue-2">
-						Tiefenbronner Str. 1<br>
-						75233 Tiefenbronn
-					</p>
 					<p class="-typo-copy -font-primary -text-color-green">
-						<a href="http://tiefenbronn.de" target="_blank">www.tiefenbronn.de</a>
+						<a href="{{ $beachcourt->operatorURL }}" target="_blank">{{ $beachcourt->operatorURL }}</a>
 					</p>
 				</div>
 				<div id="tab-2" class="navigation-tabs__content ">
-					<h4 class="-typo-headline-5 -font-secondary -text-color-green">Koordinaten</h4>
+					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1">Koordinaten</h4>
 					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
 						{{ $beachcourt->latitude }}<br>
 						{{ $beachcourt -> longitude }}
+					</p>
+					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-c">Anschrift</h4>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt->street }} {{ $beachcourt->houseNumber }}<br>
+						{{ $beachcourt->postalCode }} {{ $beachcourt->city }}
+					</p>
+
+					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-c">Anzahl der Felder</h4>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						Indoor: {{ $beachcourt->courtCountIndoor }}<br>
+						Outdoor: {{ $beachcourt->courtCountOutdoor }}
+					</p>
+
+					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-c">Kostet mich das Spielen auf dem Feld etwas?</h4>
+					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+						@if ($beachcourt->chargeable == 1 )
+							Ja, dieses Feld ist kostenpflichtig. Die Preise dafür kannst du beim Betreiber in Erfahrung bringen.
+						@else
+							Nein, auf diesem Feld kannst du kostenlos spielen.
+						@endif
 					</p>
 				</div>
 				<div id="tab-3" class="navigation-tabs__content ">
@@ -82,121 +98,544 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="column column--12 column--s-6 -spacing-a">
+			<div class="notification-box-rating ">
+				<div class="notification-box-rating__summary">
+					<img src="http://beachfelder.de/img/badge-rating-beachcourt-detail-page@2x.png" class="notification-box-rating__image">
+					<h4 class="notification-box-rating__points">{{ $beachcourt->realRating }} von 5</h4>
+				</div>
+				<div class="notification-box-rating__details">
+						<dl>
+							<dt class="notification-box-rating__label"> Sand </dt>
+							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+						</dl>
+						<dl>
+							<dt class="notification-box-rating__label"> Netz </dt>
+							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+						</dl>
+						<dl>
+							<dt class="notification-box-rating__label"> Feld </dt>
+							<dd class="notification-box-rating__rating"> 45 of 50 Points </dd>
+						</dl>
+						<dl>
+							<dt class="notification-box-rating__label"> Umgebung </dt>
+							<dd class="notification-box-rating__rating"> 10 of 50 Points </dd>
+						</dl>
+				</div>
+			</div>
+		</div>
+		<div class="column column--12 column--s-6 -spacing-a">
+			<div class="notification-box   notification-box--info ">
+					<div class="notification-box__icon icon icon--info"></div>
+				<div class="notification-box__message">
+					<h4 class="notification-box__headline">Bemerkungen</h4>
+					<p class="notification-box__subline">{{ $beachcourt->notes }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="column column--12 -spacing-a -spacing-inner-b -background-gray-3">
+			    @if (Auth::guest())
+			    	@include('_partials.organism.teaser-link', ['teaserLinkIcon'=>'plus', 'teaserLinkTitle' => 'Melde dich an, um dieses Beachvolleyballfeld bewerten zu können', 'teaserLinkLinkTarget'=>'../login', 'teaserLinkName'=>'Jetzt anmelden', 'teaserLinkButton' => false])
+			    @else
+			    <form action="{{ url('/rating/new') }}" method="POST" class="form-inline upload-file-form" enctype="multipart/form-data">
+			        {{ csrf_field() }}
+			        
+			        <input type="hidden" value="{{ $beachcourt->id }}" content="text" name="beachcourtname">
+			       	
+			       	<div class="row">
+			       		<div class="column column--12">
+			       			<h3 class="-typo-headline-3 -font-secondary -text-color-blue-2">Sand</h3>
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie ist die Qualität des Sandes?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandQuality" value="10">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Sehr gut</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandQuality" value="5">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Gut</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandQuality" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Schlecht</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Ist die Spielfläche eben?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="courtTopography" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Ja</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="courtTopography" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Es geht so</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="courtTopography" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Nein</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie tief ist der Sand an der flachsten Stelle des Feldes?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandDepth" value="10">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Mehr als 30cm</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandDepth" value="5">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">20-30cm</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="sandDepth" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Weniger als 20cm</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Ist ein Staubschutz, wie zum Beispiel eine Bewässerungsanlage vorhanden?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="irrigationSystem" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Keine Staubentwicklung und/oder Wasseranschluss vorhanden</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="irrigationSystem" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Leichte Staubentwicklung,<br>kein Wasseranschluss</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="irrigationSystem" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Starke Staubentwicklung,<br>kein Wasseranschluss</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row -spacing-static-f">
+			       		<div class="column column--12">
+			       			<hr class="divider">
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<h3 class="-typo-headline-3 -font-secondary -text-color-blue-2">Netz</h3>
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Ist die Netzhöhe frei wählbar?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netHeight" value="10">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Ja, man kann alle Höhen von 2m bis 2,43m wählen</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netHeight" value="5">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Die Höhe stimmt, ist aber nicht verstellbar</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netHeight" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Nein, leider ist die Höhe nicht veränderbar</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie ist die Beschaffenheit des Netzes?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netType" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Stabiles Beachnetz <br>mit fester Einfassung</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netType" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Provisorisches Netz (zum Beispiel Hallen-Netz), Beachnetz mit Mängeln</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netType" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Schnur oder Kettennetz <br>oder Netz fehlt</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Sind Antennen vorhanden?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netAntennas" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Ja</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netAntennas" value="2">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Ja, aber die Befestigung ist mangelhaft</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netAntennas" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Nein</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Lässt sich das Netz korrekt spannen?</p>			
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netTension" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Spannseil und Abspannung intakt</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netTension" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Zu wenig Spannung, nicht justierbar</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="netTension" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Netz hängt durch, bzw. schwingt stark</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row -spacing-static-f">
+			       		<div class="column column--12">
+			       			<hr class="divider">
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<h3 class="-typo-headline-3 -font-secondary -text-color-blue-2">Spielfeld</h3>
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie ist die Beschaffenheit der Linien?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="boundaryLines" value="10">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">5 cm breit, im Boden verankert</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="boundaryLines" value="5">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Falsche Breite oder Verankerung lose</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="boundaryLines" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Keine Linien oder Linien nicht verankert</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Sind die Spielfeldmaße regelkonform?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">8 x 16 m +/- 5 cm, rechteckig</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Abweichung 5-25 cm oder nicht rechteckig gespannt</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Abweichung >25 cm oder geringe Abweichung + nicht rechteckig </span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Besteht eine ausreichende Sicherheitszone um das Spielfeld?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="securityZone" value="10">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">3 m ringsum oder mehr</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="securityZone" value="5">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">2 - 3 m</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="securityZone" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Unter 2 m</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row -spacing-static-f">
+			       		<div class="column column--12">
+			       			<hr class="divider">
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<h3 class="-typo-headline-3 -font-secondary -text-color-blue-2">Umgebung</h3>
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie gut ist das Spielfeld gegen Wind geschützt?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="windProtection" value="7">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Gut windgeschützt</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="windProtection" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Windanfällig bei schlechtem Wetter</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="windProtection" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Eigentlich immer windig, ohne Schutzmaßnahmen</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Beeinträchtigen andere Spielfelder das Spielgeschehen?</p>		
+			       		</div>
+			       	</div>
+			       	<div class="row row__step">
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="interferenceCourt" value="4">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--super "></span>
+			       					<span class="radio-icon__label">Einzelfeld,<br>bzw. Schutz durch Ballfangzaun</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="interferenceCourt" value="2">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--normal"></span>
+			       					<span class="radio-icon__label">Maximal 2 Felder nebeneinander ohne Ballfangzaun</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       		<div class="column column--12 column--s-4 -spacing-static-c">
+			       			<label class="radio-icon ">
+			       				<input class="radio-icon__field" type="radio" name="interferenceCourt" value="1">
+			       				<div class="radio-icon__container">
+			       					<span class="radio-icon__icon icon icon--bad "></span>
+			       					<span class="radio-icon__label">Mehrere Felder direkt nebeneinander ohne Ballfangzaun</span>
+			       				</div>
+			       			</label>
+			       		</div>
+			       	</div>
+
+			       	<div class="row row__step">
+			       		<div class="column column--12 -spacing-static-f">
+			       			<button type="submit" class="button">
+			       				<span class="button__icon icon icon--send"></span>
+			       				<span class="button__label">Bewertung abgeben</span>
+			       			</button>
+			       		</div>
+			       	</div>			       	
+			    </form>
+				@endif
+		</div>
+	</div>
 </div>
-
-
-
-    <form action="{{ url('/rating/new') }}" method="POST" class="form-inline upload-file-form" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        
-        <input type="hidden" value="{{ $beachcourt->id }}" content="text" name="beachcourtname">
-
-       
-        <h2>Kategorie: Sand</h2>
-			    <label for="sandQuality">sandQuality</label>
-			    <select class="form-control" name="sandQuality">
-			    	<option value="">Bitte wählen</option>
-					  <option value="10">:)</option>
-					  <option value="5">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="courtTopography">courtTopography</label>
-			    <select class="form-control" name="courtTopography">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="sandDepth">sandDepth</label>
-			    <select class="form-control" name="sandDepth">
-			    	<option value="">Bitte wählen</option>
-					  <option value="10">:)</option>
-					  <option value="5">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="irrigationSystem">irrigationSystem</label>
-			    <select class="form-control" name="irrigationSystem">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-
-					<h2>Kategorie: Netz</h2>
-			    <label for="netHeight">netHeight</label>
-			    <select class="form-control" name="netHeight">
-			    	<option value="">Bitte wählen</option>
-					  <option value="10">:)</option>
-					  <option value="5">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="netType">netType</label>
-			    <select class="form-control" name="netType">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="netAntennas">netAntennas</label>
-			    <select class="form-control" name="netAntennas">
-			    	<option value="">Bitte wählen</option>
-					  <option value="4">:)</option>
-					  <option value="2">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="netTension">netTension</label>
-			    <select class="form-control" name="netTension">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-
-					<h2>Kategorie: Feld</h2>
-			    <label for="boundaryLines">boundaryLines</label>
-			    <select class="form-control" name="boundaryLines">
-			    	<option value="">Bitte wählen</option>
-					  <option value="10">:)</option>
-					  <option value="5">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="fieldDimensions">fieldDimensions</label>
-			    <select class="form-control" name="fieldDimensions">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="securityZone">securityZone</label>
-			    <select class="form-control" name="securityZone">
-			    	<option value="">Bitte wählen</option>
-					  <option value="10">:)</option>
-					  <option value="5">:|</option>
-					  <option value="1">:(</option>
-					</select>
-
-					<h2>Kategorie: Umgebung</h2>
-			    <label for="windProtection">windProtection</label>
-			    <select class="form-control" name="windProtection">
-			    	<option value="">Bitte wählen</option>
-					  <option value="7">:)</option>
-					  <option value="4">:|</option>
-					  <option value="1">:(</option>
-					</select>
-			    <label for="interferenceCourt">interferenceCourt</label>
-			    <select class="form-control" name="interferenceCourt">
-			    	<option value="">Bitte wählen</option>
-					  <option value="4">:)</option>
-					  <option value="2">:|</option>
-					  <option value="1">:(</option>
-					</select>
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">
-              Bewertung abgeben
-          </button>
-        </div>
-    </form>
 
 
 <div class="row -spacing-widget-default">

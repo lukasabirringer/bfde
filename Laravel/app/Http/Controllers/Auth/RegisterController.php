@@ -49,7 +49,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return redirect('/login')->with('status', 'Check deine Mails - DU EUMEL!!!!');
+        return redirect('/login')->with('status', 'Wir haben dir eine E-Mail geschickt! Zur Bestätigung deines Profils einfach den Link in dieser anklicken und mit deinen User-Daten auf der Seite anmelden. Viel Spaß bei beachfelder.de!');
     }
     /**
      * Get a validator for an incoming registration request.
@@ -81,7 +81,7 @@ class RegisterController extends Controller
         $name = $data['name'];
    
         Mail::send('email.verify', $confirmation_code, function($message) use ($email, $name) {
-            $message->to($email, $name)->subject('Beachfelder.de // Registrierung bestätigen');
+            $message->to($email, $name)->subject('beachfelder.de // Registrierung abschließen');
         });
 
         return User::create([

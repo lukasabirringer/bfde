@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if (session('status'))
+    <div class="notification-sticky">
+        <div class="content notification-sticky__content">
+            <span class="notification-sticky__icon icon icon--info"></span>
+            <span class="notification-sticky__text">{{ session('status') }}</span>
+        </div>
+        <span class="notification-sticky__icon notification-sticky__icon--close icon icon--close"></span>
+    </div>
+@endif
+
 <div class="row row--zero">
         <div class="column column--12 column--zero">
             @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])    
@@ -24,6 +34,7 @@
     </div>
     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
         {{ csrf_field() }}
+        <input type="hidden" name="role" value="registered">
         <div class="row -spacing-d">
             
             <div class="column column--12">
