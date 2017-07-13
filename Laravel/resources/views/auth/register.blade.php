@@ -50,8 +50,8 @@
                 @endif
             </div>
         </div>
-        <div class="row -spacing-d">
-            <div class="column column--12 column--s-6">
+        <div class="row">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="text" name="firstName" class="input__field" placeholder=" " value="{{ old('firstName') }}" required>
                     <span class="input__label">@lang('Dein Vorname')</span>
@@ -63,7 +63,7 @@
                     </span>
                 @endif
             </div>
-            <div class="column column--12 column--s-6">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="text" name="lastName" class="input__field" placeholder=" " value="{{ old('lastName') }}" required>
                     <span class="input__label">@lang('Dein Nachname')</span>
@@ -76,9 +76,9 @@
                 @endif
             </div>
         </div>
-        <div class="row -spacing-static-d">
-            <div class="column column--4">
-                <label class="radio-icon ">
+        <div class="row">
+            <div class="column column--4 -spacing-d">
+                <label class="radio-icon">
                     <input class="radio-icon__field" type="radio" name="sex" value="male">
                     <div class="radio-icon__container">
                         <span class="radio-icon__icon  icon icon--male "></span>
@@ -86,7 +86,7 @@
                     </div>
                 </label>
             </div>
-            <div class="column column--4">
+            <div class="column column--4 -spacing-d">
                 <label class="radio-icon ">
                     <input class="radio-icon__field" type="radio" name="sex" value="female">
                     <div class="radio-icon__container">
@@ -95,7 +95,7 @@
                     </div>
                 </label>
             </div>
-            <div class="column column--4">
+            <div class="column column--4 -spacing-d">
                 <label class="radio-icon ">
                     <input class="radio-icon__field" type="radio" name="sex" value="trans">
                     <div class="radio-icon__container">
@@ -111,8 +111,8 @@
                 @endif
             </div>
         </div>
-        <div class="row -spacing-static-d">
-            <div class="column column--2">
+        <div class="row">
+            <div class="column column--4 column--s-2 -spacing-d">
                 <label class="input">
                     <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}">
                     <span class="input__label">@lang('Deine PLZ (optional)')</span>
@@ -124,7 +124,7 @@
                     </span>
                 @endif
             </div>
-            <div class="column column--10">
+            <div class="column column--8 column--s-10 -spacing-d">
                 <label class="input">
                     <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}">
                     <span class="input__label">@lang('Dein Wohnort (optional)')</span>
@@ -137,8 +137,8 @@
                 @endif
             </div>
         </div>
-        <div class="row -spacing-static-d">
-            <div class="column column--12 column--s-6">
+        <div class="row">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="date" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
                     <span class="input__label">@lang('Dein Geburtsdatum (optional)')</span>
@@ -150,7 +150,7 @@
                     </span>
                 @endif
             </div>
-            <div class="column column--12 column--s-6">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                     <span class="input__label">@lang('Deine E-Mail Adresse')</span>
@@ -163,8 +163,8 @@
                 @endif
             </div>
         </div>
-        <div class="row -spacing-static-d">
-            <div class="column column--12 column--s-6">
+        <div class="row">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="password" name="password" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                     <span class="input__label">@lang('Dein Passwort')</span>
@@ -177,16 +177,16 @@
                 @endif
             </div>
 
-            <div class="column column--12 column--s-6">
+            <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="password" name="password_confirmation" class="input__field" placeholder=" " required>
                     <span class="input__label">@lang('Passwort wiederholen')</span>
                 </label>
             </div>
         </div>
-        <div class="row -spacing-static-d">
-            <div class="column column--auto column--s-10"></div>
-            <div class="column column--12 column--s-2">
+        <div class="row">
+            <div class="column column--auto column--s-10 -spacing-d"></div>
+            <div class="column column--12 column--s-2 -spacing-d">
                 @include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonCustomClass'=>'-spacing-static-b', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'', 'buttonLabel'=>'Jetzt registrieren'])
             </div>
         </div>

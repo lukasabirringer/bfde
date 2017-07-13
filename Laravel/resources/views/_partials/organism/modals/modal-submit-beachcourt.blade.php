@@ -50,7 +50,7 @@
                 </div>
                 <div class="column column--12 column--s-2">
                     <label class="input">
-                        <input type="number" name="houseNumber" class="input__field" placeholder=" " value="{{ old('houseNumber') }}">
+                        <input type="text" name="houseNumber" class="input__field" placeholder=" " value="{{ old('houseNumber') }}">
                         <span class="input__label">@lang('Nr.')</span>
                     </label>
                     @if ($errors->has('houseNumber'))
@@ -65,7 +65,7 @@
                 <div class="column column--12 column--s-6">
                     <p class="-typo-copy -text-color-blue-2 -font-primary tooltip" title="Den Längengrad kannst du bei Google Maps herausfinden">Gib den Längengrad des Beachvolleyballfeldes an.</p>
                     <label class="input -spacing-static-b">
-                        <input type="number" name="latitude" class="input__field" placeholder=" " value="{{ old('latitude') }}">
+                        <input type="text" name="latitude" class="input__field" placeholder=" " value="{{ old('latitude') }}">
                         <span class="input__label">@lang('Latitude')</span>
                     </label>
                     @if ($errors->has('latitude'))
@@ -77,7 +77,7 @@
                 <div class="column column--12 column--s-6">
                     <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Breitengrad des Beachvolleyballfeldes an.</p>
                     <label class="input -spacing-static-b">
-                        <input type="number" name="longitude" class="input__field" placeholder=" " value="{{ old('longitude') }}">
+                        <input type="text" name="longitude" class="input__field" placeholder=" " value="{{ old('longitude') }}">
                         <span class="input__label tooltip" title="Den Breitengrad kannst du bei Google Maps herausfinden" >@lang('Longitude')</span>
                     </label>
                     @if ($errors->has('longitude'))
@@ -117,7 +117,7 @@
                     <label class="select ">
                       <select class="select__field" name="courtCountIndoor">
                             <option selected disabled> Anzahl der Felder indoor </option>
-                            <option value="NaN"> nicht bekannt </option>
+                            <option value="NULL"> nicht bekannt </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -131,7 +131,7 @@
                     <label class="select ">
                       <select class="select__field" name="courtCountOutdoor">
                             <option selected disabled> Anzahl der Felder outdoor </option>
-                            <option value="NaN"> nicht bekannt </option>
+                            <option value="NULL"> nicht bekannt </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -148,7 +148,7 @@
                         <label class="select ">
                           <select class="select__field" name="chargeable">
                                 <option selected disabled> Ist die Nutzung gebührenpflichtig oder kostenfrei? </option>
-                                <option value="NaN"> nicht bekannt </option>
+                                <option value="NULL"> nicht bekannt </option>
                                 <option value="gebührenfrei"> gebührenfrei </option>
                                 <option value="gebührenpflichtig"> gebührenpflichtig </option>
                           </select>
@@ -159,7 +159,7 @@
                         <label class="select ">
                           <select class="select__field" name="public">
                                 <option selected disabled> Ist das Feld öffentlich zugänglich? </option>
-                                <option value="NaN"> nicht bekannt </option>
+                                <option value="NULL"> nicht bekannt </option>
                                 <option value="öffentlich"> öffentlich </option>
                                 <option value="nicht öffentlich"> nicht öffentlich </option>
                           </select>

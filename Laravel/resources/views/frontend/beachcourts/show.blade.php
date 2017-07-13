@@ -126,28 +126,46 @@
 			</div>
 		</div>
 		<div class="column column--12 column--s-6 -spacing-a">
-			<div class="notification-box   notification-box--info ">
+			@if ($beachcourt->notes !== '')
+				<div class="notification-box   notification-box--info ">
 					<div class="notification-box__icon icon icon--info"></div>
-				<div class="notification-box__message">
-					<h4 class="notification-box__headline">Bemerkungen</h4>
-					<p class="notification-box__subline">{{ $beachcourt->notes }}</p>
+					<div class="notification-box__message">
+						<h4 class="notification-box__headline">Bemerkungen</h4>
+						<p class="notification-box__subline">{{ $beachcourt->notes }}</p>
+					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 	</div>
+</div>
 
-	<div class="row">
+
+<div class="row -spacing-widget-default">
+	<div class="column column--12">
+		<iframe  width="100%" height="450" frameborder="0" zoom="5" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
+	</div>
+</div>
+
+<div class="content">
+	<div class="row -spacing-widget-default">
 		<div class="column column--12 -spacing-a -spacing-inner-b -background-gray-3">
 			    @if (Auth::guest())
 			    	@include('_partials.organism.teaser-link', ['teaserLinkIcon'=>'plus', 'teaserLinkTitle' => 'Melde dich an, um dieses Beachvolleyballfeld bewerten zu können', 'teaserLinkLinkTarget'=>'../login', 'teaserLinkName'=>'Jetzt anmelden', 'teaserLinkButton' => false])
 			    @else
+
 			    <form action="{{ url('/rating/new') }}" method="POST" class="form-inline upload-file-form" enctype="multipart/form-data">
 			        {{ csrf_field() }}
 			        
 			        <input type="hidden" value="{{ $beachcourt->id }}" content="text" name="beachcourtname">
 			       	
+					<div class="row">
+						<div class="column column--12">
+							<h2 class="-typo-headline-2 -font-secondary -text-color-green">Bewerte dieses Beachvolleyballfeld</h2>
+						</div>
+					</div>
+
 			       	<div class="row">
-			       		<div class="column column--12">
+			       		<div class="column column--12 -spacing-static-f">
 			       			<h3 class="-typo-headline-3 -font-secondary -text-color-blue-2">Sand</h3>
 			       			<p class="-typo-copy--large -font-primary -text-color-blue-2">Wie ist die Qualität des Sandes?</p>			
 			       		</div>
@@ -487,7 +505,7 @@
 			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="7">
 			       				<div class="radio-icon__container">
 			       					<span class="radio-icon__icon icon icon--super "></span>
-			       					<span class="radio-icon__label">8 x 16 m +/- 5 cm, rechteckig</span>
+			       					<span class="radio-icon__label">8 x 16 m +/- 5 cm,<br>rechteckig</span>
 			       				</div>
 			       			</label>
 			       		</div>
@@ -496,7 +514,7 @@
 			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="4">
 			       				<div class="radio-icon__container">
 			       					<span class="radio-icon__icon icon icon--normal"></span>
-			       					<span class="radio-icon__label">Abweichung 5-25 cm oder nicht rechteckig gespannt</span>
+			       					<span class="radio-icon__label">Abweichung 5-25 cm<br>oder nicht rechteckig gespannt</span>
 			       				</div>
 			       			</label>
 			       		</div>
@@ -505,7 +523,7 @@
 			       				<input class="radio-icon__field" type="radio" name="fieldDimensions" value="1">
 			       				<div class="radio-icon__container">
 			       					<span class="radio-icon__icon icon icon--bad "></span>
-			       					<span class="radio-icon__label">Abweichung >25 cm oder geringe Abweichung + nicht rechteckig </span>
+			       					<span class="radio-icon__label">Abweichung >25 cm<br>oder geringe Abweichung + nicht rechteckig </span>
 			       				</div>
 			       			</label>
 			       		</div>
@@ -608,7 +626,7 @@
 			       				<input class="radio-icon__field" type="radio" name="interferenceCourt" value="2">
 			       				<div class="radio-icon__container">
 			       					<span class="radio-icon__icon icon icon--normal"></span>
-			       					<span class="radio-icon__label">Maximal 2 Felder nebeneinander ohne Ballfangzaun</span>
+			       					<span class="radio-icon__label">Maximal 2 Felder nebeneinander<br>ohne Ballfangzaun</span>
 			       				</div>
 			       			</label>
 			       		</div>
@@ -617,14 +635,15 @@
 			       				<input class="radio-icon__field" type="radio" name="interferenceCourt" value="1">
 			       				<div class="radio-icon__container">
 			       					<span class="radio-icon__icon icon icon--bad "></span>
-			       					<span class="radio-icon__label">Mehrere Felder direkt nebeneinander ohne Ballfangzaun</span>
+			       					<span class="radio-icon__label">Mehrere Felder direkt nebeneinander<br>ohne Ballfangzaun</span>
 			       				</div>
 			       			</label>
 			       		</div>
 			       	</div>
 
 			       	<div class="row row__step">
-			       		<div class="column column--12 -spacing-static-f">
+			       		<div class="column column--auto column--s-8"></div>
+			       		<div class="column column--12 column--s-4 -spacing-static-f">
 			       			<button type="submit" class="button">
 			       				<span class="button__icon icon icon--send"></span>
 			       				<span class="button__label">Bewertung abgeben</span>
@@ -634,13 +653,6 @@
 			    </form>
 				@endif
 		</div>
-	</div>
-</div>
-
-
-<div class="row -spacing-widget-default">
-	<div class="column column--12">
-		<iframe  width="100%" height="450" frameborder="0" zoom="5" style="border:0" allowfullscreen src="https://maps.google.de/maps?q={{ $beachcourt->latitude }},{{ $beachcourt->longitude }}&hl=es;z=14&amp;output=embed"></iframe>
 	</div>
 </div>
 
