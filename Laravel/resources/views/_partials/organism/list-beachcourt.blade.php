@@ -13,6 +13,14 @@
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
                     <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
+                <p>
+                    {{ str_limit($myFavorite->realRating, $limit = 3, $end = '') }} ({{ $myFavorite->ratingCount }} Stimmen)</span>
+                    @if (($myFavorite->ratingCount) < 10)
+                        Dieses Rating stammt von beachfelder.de
+                    @else
+                        Dieses Rating stammt von den Usern
+                    @endif
+                </p>
                 <div class="list-beachcourt__action">
 
                     <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">

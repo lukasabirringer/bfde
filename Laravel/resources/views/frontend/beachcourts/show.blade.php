@@ -8,6 +8,7 @@
             	<div class="hero-image-beachcourt-detail__overlay">
             		<h1 class="hero-image-beachcourt-detail__title"> {{ $beachcourt-> courtName }}</h1>
             		<h2 class="hero-image-beachcourt-detail__subtitle">in {{ $beachcourt-> city }}</h2>
+            <div></div>
             	</div>
             </div>
         </div>
@@ -17,7 +18,13 @@
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
 			<div class="header-page">
-				<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
+			@if (Auth::check())                 
+           <favorite
+              :beachcourt={{ $beachcourt->id }}
+              :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
+          ></favorite>
+      @endif
+			<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
 			</div>	
 			Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
 			@if (($beachcourt->ratingCount) < 10)
@@ -28,7 +35,6 @@
 		</div>
 	</div>
 	<div class="multifunctional-menu icon icon--ellipsis"></div>
-
 	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
 			<div class="slider-image">
@@ -45,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-
+ 						
 		<div class="column column--12 column--m-6">
 			<div class="navigation-tabs ">
 				<ul class="navigation-tabs__title-bar">
