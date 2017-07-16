@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Favorites;
 use App\Footernavigation;
+use App\Submittedbeachcourt;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -56,8 +57,15 @@ class ProfileController extends Controller
                 //dd($profilepicture);
                 $myFavorites = Auth::user()->favorites()->whereBetween('realRating', array($min, $max))->get();
                 //dd($myFavorites);
+                $subs = Submittedbeachcourt::limit(5)->get();
                 $footernavigations = Footernavigation::limit(5)->get();
-                return view('frontend.profile.show', compact('max','min','profile', 'myFavorites', 'profilepicture', 'footernavigations')); 
+                return view('frontend.profile.show', compact('subs',
+                                                             'max',
+                                                             'min',
+                                                             'profile',
+                                                             'myFavorites',
+                                                             'profilepicture',
+                                                             'footernavigations')); 
 
             } else {
 

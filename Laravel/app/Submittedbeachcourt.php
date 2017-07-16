@@ -10,4 +10,8 @@ class Submittedbeachcourt extends Model
     {
         return $this->belongsTo('App\User');
     }
+    protected $fillable = [
+        'postalCode', 'city', 'created_at', 'updated_at'
+    ];
+    public $timestamps = true;
 }

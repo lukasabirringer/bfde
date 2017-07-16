@@ -46,7 +46,7 @@ class SubmittedbeachcourtController extends Controller
     {
 
         $userid = Auth::id();
-     
+        $date = Carbon::now()->toDateTimeString();
         DB::table('submittedbeachcourts')->insert(
             ['user_id' => $userid,
              'postalCode' => $request->postalCode,
@@ -62,7 +62,8 @@ class SubmittedbeachcourtController extends Controller
              'courtCountOutdoor' => $request->courtCountOutdoor,
              'courtCountIndoor' => $request->courtCountIndoor,
              'public' => $request->public,
-             'submitState' => 'eingereicht']
+             'submitState' => 'eingereicht',
+             'created_at' => $date]
         );
 
         if ($request->hasFile('beachcourtPicture')) {
