@@ -29,7 +29,7 @@ bis
         <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
-                    <img src="https:&#x2F;&#x2F;dummyimage.com&#x2F;180x130&#x2F;f1f1f1&#x2F;333.jpg" alt="Beachcourt Name" class="image">
+                    <img src="/uploads/beachcourts/{{ $myFavorite->id }}/hero/{{ $myFavorite->picturePath }}" alt="Beachcourt Name" class="image">
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
                     <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>

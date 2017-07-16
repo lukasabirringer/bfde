@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         PragmaRX\ZipCode\Vendor\Laravel\ServiceProvider::class,
+        Spatie\CookieConsent\CookieConsentServiceProvider::class,
 
         /*
          * Package Service Providers...

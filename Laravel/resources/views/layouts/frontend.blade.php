@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 </head>
 <body>
-
+    
     <div id="app">
 
 		<div class="page">
@@ -25,6 +25,7 @@
 			@yield('content')    
 		</div>
         
+        @include('cookieConsent::index')    
 	</div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
