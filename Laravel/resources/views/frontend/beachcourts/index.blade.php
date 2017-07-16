@@ -18,9 +18,9 @@
     </div>
     <div class="row ">
        @include('_partials.organism.beachcourt-summary')
+       {{ $beachcourts->links() }}
     </div>
 </div>
-
 @include('_partials.organism.footer')
 
 @endsection
