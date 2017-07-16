@@ -129,7 +129,23 @@
 		</div>
 	</div>
 </div>
-
+<div class="content">
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<hr class="divider" />
+		</div>
+	</div>
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<div class="header-page" id="my-favorites">
+				<h1 class="header-page__title  -text-color-blue-2 ">@lang('Meine eingereichten Beachcourts')</h1>
+			</div>
+		</div>
+		<div class="column column--12 -spacing-f">
+			@include('_partials.organism.list-submitted-beachcourt')
+		</div>
+	</div>
+</div>
 @include('_partials.organism.footer')
 
 @endsection

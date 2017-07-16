@@ -5,9 +5,8 @@
             <img src="http:&#x2F;&#x2F;beachfelder.de&#x2F;img&#x2F;beachcourt-summary-bg-dummy.jpg" class="beachcourt-summary__image">
 
             <div class="beachcourt-summary__overlay">
-                @if (Auth::check())
-                                   
-                     <favorite
+                @if (Auth::check())                
+                    <favorite
                         :beachcourt={{ $beachcourt->id }}
                         :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
                     ></favorite>

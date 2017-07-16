@@ -8,6 +8,7 @@
             	<div class="hero-image-beachcourt-detail__overlay">
             		<h1 class="hero-image-beachcourt-detail__title"> {{ $beachcourt-> courtName }}</h1>
             		<h2 class="hero-image-beachcourt-detail__subtitle">in {{ $beachcourt-> city }}</h2>
+            <div></div>
             	</div>
             </div>
         </div>
@@ -17,7 +18,13 @@
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
 			<div class="header-page">
-				<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
+			@if (Auth::check())                 
+           <favorite
+              :beachcourt={{ $beachcourt->id }}
+              :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
+          ></favorite>
+      @endif
+			<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
 			</div>	
 			Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
 			@if (($beachcourt->ratingCount) < 10)
@@ -28,7 +35,6 @@
 		</div>
 	</div>
 	<div class="multifunctional-menu icon icon--ellipsis"></div>
-
 	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
 			<div class="slider-image">
@@ -37,15 +43,23 @@
 					<div class="slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin"></div>
 				</div>
 				<div class="slider-image__slider">
+						@if(!empty($myFavorite->sliderPath ) > 0)
+						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/1.png" class="slider-image__image">
+						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/2.png" class="slider-image__image">
+						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/3.png" class="slider-image__image">
+						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/4.png" class="slider-image__image">
+						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/5.png" class="slider-image__image">
+						@else
 						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
-					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
-					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
-					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
-					  	<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						@endif
 				</div>
 			</div>
 		</div>
-
+ 						
 		<div class="column column--12 column--m-6">
 			<div class="navigation-tabs ">
 				<ul class="navigation-tabs__title-bar">
@@ -113,19 +127,19 @@
 				<div class="notification-box-rating__details">
 						<dl>
 							<dt class="notification-box-rating__label"> Sand </dt>
-							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->SandRating }} of 34 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Netz </dt>
-							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->NetRating }} of 28 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Feld </dt>
-							<dd class="notification-box-rating__rating"> 45 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->CourtRating }} of 27 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Umgebung </dt>
-							<dd class="notification-box-rating__rating"> 10 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->EnvironmentRating }} of 11 Points </dd>
 						</dl>
 				</div>
 			</div>
@@ -662,19 +676,6 @@
 </div>
 
 @include('_partials.newsletter')
-
-
-<div class="content">
-<div class="row">
-		<div class="column column--12">
-<h1>Das ist das Beachfeld {{ $beachcourt->courtName }} in {{ $beachcourt->city }}</h1>
-
-</p>
-<hr>
-
-
-	</div></div>
-</div>
 
 @include('_partials.organism.footer')
 

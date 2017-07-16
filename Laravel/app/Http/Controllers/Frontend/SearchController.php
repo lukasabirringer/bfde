@@ -27,7 +27,7 @@ class SearchController extends Controller
         $lat = (float)$address["0"]["latitude"];
         $circle_radius = 3959;
         $max_distance = 1200;
-        
+        //$beachcourts = Beachcourt::all();
         $beachcourts = DB::select(
            'SELECT * FROM
                 (SELECT id, courtName, city, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *

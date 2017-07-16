@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Favorites;
 use App\Footernavigation;
+use App\Submittedbeachcourt;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -18,6 +19,9 @@ class ProfileController extends Controller
 {
     public function update(Request $request){
 
+        $dob = $request->input('newGeburtstag');
+        $dob = date('d.m.Y', strtotime($dob));
+      
         $user = Auth::user();
         $user->name = $request->input('newName');
         $user->firstName = $request->input('newVorname');
@@ -26,17 +30,27 @@ class ProfileController extends Controller
         $user->password = $request->input('newPasswort');
         $user->postalCode = $request->input('newNPLZ');
         $user->city = $request->input('newWohnort');
-        $user->birthdate = $request->input('newGeburtstag');
+        $user->birthdate = $dob;
      
         $user->save();
 
         return back();
     }
     
-    public function show($id)
+    public function show($id, Request $request)
     {
             $authenticated_id = Auth::id();
            
+            $min = $request->min;
+            $max = $request->max;
+            
+            if ($min === null) {
+                $min = 0;
+            }
+            if ($max === null) {
+                $max = 5;
+            }
+
             if($id == $authenticated_id){
                 
                 $profile = User::findOrFail($id);
@@ -44,10 +58,17 @@ class ProfileController extends Controller
                 $directory = ('profilePictures/' . auth()->id() . '/');
                 $profilepicture = auth()->id() . '/' . $filename;
                 //dd($profilepicture);
-                $myFavorites = Auth::user()->favorites;
-                // dd($myFavorites);
+                $myFavorites = Auth::user()->favorites()->whereBetween('realRating', array($min, $max))->get();
+                //dd($myFavorites);
+                $subs = Submittedbeachcourt::limit(5)->get();
                 $footernavigations = Footernavigation::limit(5)->get();
-                return view('frontend.profile.show', compact('profile', 'myFavorites', 'profilepicture', 'footernavigations')); 
+                return view('frontend.profile.show', compact('subs',
+                                                             'max',
+                                                             'min',
+                                                             'profile',
+                                                             'myFavorites',
+                                                             'profilepicture',
+                                                             'footernavigations')); 
 
             } else {
 

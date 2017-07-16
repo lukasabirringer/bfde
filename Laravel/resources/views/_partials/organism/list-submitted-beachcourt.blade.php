@@ -1,17 +1,21 @@
 <ul class="list-beachcourt ">
-    @forelse ($mySubmittedBeachcourts as $mySubmittedBeachcourt)
-        <a href="{{ url('beachcourts/'.$mySubmittedBeachcourt->id) }}" class="list-beachcourt__link">
+    @forelse ($subs as $mySubmittedBeachcourt)
+        <a href="" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
-                    <img src="https:&#x2F;&#x2F;dummyimage.com&#x2F;180x130&#x2F;f1f1f1&#x2F;333.jpg" alt="Beachcourt Name" class="image">
+                    @if(!empty($mySubmittedBeachcourt->picturePath ) > 0)
+                    <img src="/uploads/beachcourts/submitted/{{ $mySubmittedBeachcourt->id }}/hero/{{ $mySubmittedBeachcourt->picturePath }}" alt="Beachcourt Name" class="image">
+                    @else
+                    <img src="/uploads/beachcourts/standard/heroimage/fallback.jpg" alt="Beachcourt Name" class="image">
+                    @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
-                    <h5 class="list-beachcourt__title">{{ $mySubmittedBeachcourt->courtName }}</h5>
+                    <h5 class="list-beachcourt__title">{{ $mySubmittedBeachcourt->city }}</h5>
                     <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $mySubmittedBeachcourt->created_at }} </p>
                 </div>
                 <div class="list-beachcourt__coordinates-container column--12 column--s-3">
-                    <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
-                    <p class="list-beachcourt__coordinates">{{ $mySubmittedBeachcourt->latitude }} <br> {{ $mySubmittedBeachcourt->longitude }}</p>
+                    <h5 class="list-beachcourt__title">@lang('Status')</h5>
+                    <p class="list-beachcourt__coordinates">{{ $mySubmittedBeachcourt->submitState }}</p>
                 </div>
                 <div class="list-beachcourt__action">
 

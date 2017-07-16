@@ -1,9 +1,39 @@
+<p>Filter
+Rating
+mind:
+<form method="GET" action="/profile/{{ Auth::user()->id }}">
+    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+  <select name="min">
+      <option selected="selected" disabled>{{ $min }}</option>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+bis
+ <select name="max">
+      <option selected="selected" disabled>{{ $max }}</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+<br>
+<input type="submit"  value="filtern" name="">
+</form>
+</p>
 <ul class="list-beachcourt ">
     @forelse ($myFavorites as $myFavorite)
         <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
-                    <img src="https:&#x2F;&#x2F;dummyimage.com&#x2F;180x130&#x2F;f1f1f1&#x2F;333.jpg" alt="Beachcourt Name" class="image">
+                    @if(!empty($myFavorite->picturePath ) > 0)
+                    <img src="/uploads/beachcourts/{{ $myFavorite->id }}/hero/{{ $myFavorite->picturePath }}" alt="Beachcourt Name" class="image">
+                    @else
+                    <img src="/uploads/beachcourts/standard/heroimage/fallback.jpg" alt="Beachcourt Name" class="image">
+                    @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
                     <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>
@@ -13,6 +43,14 @@
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
                     <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
+                <p>
+                    {{ str_limit($myFavorite->realRating, $limit = 3, $end = '') }} ({{ $myFavorite->ratingCount }} Stimmen)</span>
+                    @if (($myFavorite->ratingCount) < 10)
+                        Dieses Rating stammt von beachfelder.de
+                    @else
+                        Dieses Rating stammt von den Usern
+                    @endif
+                </p>
                 <div class="list-beachcourt__action">
 
                     <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">

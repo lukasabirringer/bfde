@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Beachcourt;
 use App\Rating;
 use App\Footernavigation;
+use App\Favorites;
 use DB;
 use Auth;
 
@@ -23,13 +24,13 @@ class BeachcourtController extends Controller
     }
     public function show($id)
     {
-        {
+        
         $beachcourt = Beachcourt::findOrFail($id);
         $ratings = Rating::where('beachcourt_id', $id)->get();
         $footernavigations = Footernavigation::limit(5)->get();
 
         return view('frontend.beachcourts.show', compact('beachcourt', 'ratings', 'footernavigations'));
-        }
+        
     }
 
     public function favoriteBeachcourt(Beachcourt $beachcourt)

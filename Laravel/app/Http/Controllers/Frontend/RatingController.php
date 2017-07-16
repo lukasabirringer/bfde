@@ -60,7 +60,31 @@ class RatingController extends Controller
             $windProtectionAverage = $beachcourt->ratings()->avg('windProtection');
             $interferenceCourtAverage = $beachcourt->ratings()->avg('interferenceCourt');
             //dd($fieldDimensionsAverage);
-     
+            $newSandRating = ($sandQualityAverage + 
+                          $courtTopographyAverage + 
+                          $sandDepthAverage + 
+                          $irrigationSystemAverage);
+
+            $newNetRating = ($netHeightAverage + 
+                          $netTypeAverage + 
+                          $netAntennasAverage + 
+                          $netTensionAverage);
+
+            $newCourtRating = ($boundaryLinesAverage + 
+                          $fieldDimensionsAverage + 
+                          $securityZoneAverage);
+
+            $newEnvironmentRating = ($windProtectionAverage + 
+                          $interferenceCourtAverage);
+    
+            DB::table('beachcourts')->where('id', $beachcourtid)
+                                    ->update([
+                                        'SandRating' => $newSandRating,
+                                        'NetRating' => $newNetRating,
+                                        'CourtRating' => $newCourtRating,
+                                        'EnvironmentRating' => $newEnvironmentRating
+                                    ]);
+
             $newRating = ($sandQualityAverage + 
                           $courtTopographyAverage + 
                           $sandDepthAverage + 
@@ -74,7 +98,6 @@ class RatingController extends Controller
                           $securityZoneAverage + 
                           $windProtectionAverage + 
                           $interferenceCourtAverage);
-         
           
             if ($newRating >= 90 && $val <= 100) {
                 $newRating = 5;
