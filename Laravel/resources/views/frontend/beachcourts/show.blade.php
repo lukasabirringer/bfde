@@ -119,19 +119,19 @@
 				<div class="notification-box-rating__details">
 						<dl>
 							<dt class="notification-box-rating__label"> Sand </dt>
-							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->SandRating }} of 34 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Netz </dt>
-							<dd class="notification-box-rating__rating"> 30 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->NetRating }} of 28 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Feld </dt>
-							<dd class="notification-box-rating__rating"> 45 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->CourtRating }} of 27 Points </dd>
 						</dl>
 						<dl>
 							<dt class="notification-box-rating__label"> Umgebung </dt>
-							<dd class="notification-box-rating__rating"> 10 of 50 Points </dd>
+							<dd class="notification-box-rating__rating"> {{ $beachcourt->EnvironmentRating }} of 11 Points </dd>
 						</dl>
 				</div>
 			</div>

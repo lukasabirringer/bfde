@@ -1,6 +1,6 @@
 <ul class="list-beachcourt ">
     @forelse ($subs as $mySubmittedBeachcourt)
-        <a href="{{ url('beachcourts/'.$mySubmittedBeachcourt->id) }}" class="list-beachcourt__link">
+        <a href="" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     @if(!empty($mySubmittedBeachcourt->picturePath ) > 0)
