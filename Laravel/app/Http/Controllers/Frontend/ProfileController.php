@@ -33,10 +33,20 @@ class ProfileController extends Controller
         return back();
     }
     
-    public function show($id)
+    public function show($id, Request $request)
     {
             $authenticated_id = Auth::id();
            
+            $min = $request->min;
+            $max = $request->max;
+            
+            if ($min === null) {
+                $min = 0;
+            }
+            if ($max === null) {
+                $max = 5;
+            }
+
             if($id == $authenticated_id){
                 
                 $profile = User::findOrFail($id);
@@ -44,10 +54,10 @@ class ProfileController extends Controller
                 $directory = ('profilePictures/' . auth()->id() . '/');
                 $profilepicture = auth()->id() . '/' . $filename;
                 //dd($profilepicture);
-                $myFavorites = Auth::user()->favorites;
-                // dd($myFavorites);
+                $myFavorites = Auth::user()->favorites()->whereBetween('realRating', array($min, $max))->get();
+                //dd($myFavorites);
                 $footernavigations = Footernavigation::limit(5)->get();
-                return view('frontend.profile.show', compact('profile', 'myFavorites', 'profilepicture', 'footernavigations')); 
+                return view('frontend.profile.show', compact('max','min','profile', 'myFavorites', 'profilepicture', 'footernavigations')); 
 
             } else {
 
