@@ -52,7 +52,7 @@ class SubmittedbeachcourtController extends Controller
              'postalCode' => $request->postalCode,
              'city' => $request->city,
              'street' => $request->street,
-             'housenumber' => $request->housenumber,
+             'houseNumber' => $request->houseNumber,
              'latitude' => $request->latitude,
              'longitude' => $request->longitude,
              'operator' => $request->operator,

@@ -43,11 +43,19 @@
 					<div class="slider-image__navigation slider-image__navigation--right icon icon--arrow-right-thin"></div>
 				</div>
 				<div class="slider-image__slider">
+						@if(!empty($myFavorite->sliderPath ) > 0)
 						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/1.png" class="slider-image__image">
 						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/2.png" class="slider-image__image">
 						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/3.png" class="slider-image__image">
 						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/4.png" class="slider-image__image">
 						<img src="/uploads/beachcourts/{{ $beachcourt->id }}/slider/5.png" class="slider-image__image">
+						@else
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						<img src="https://beachfelder.de/img/dummy-image-beachcourt-detailpage.jpg" class="slider-image__image">
+						@endif
 				</div>
 			</div>
 		</div>
