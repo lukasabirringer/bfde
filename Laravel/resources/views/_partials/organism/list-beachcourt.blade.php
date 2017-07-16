@@ -29,7 +29,11 @@ bis
         <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
+                    @if(!empty($myFavorite->picturePath ) > 0)
                     <img src="/uploads/beachcourts/{{ $myFavorite->id }}/hero/{{ $myFavorite->picturePath }}" alt="Beachcourt Name" class="image">
+                    @else
+                    <img src="/uploads/beachcourts/standard/heroimage/fallback.jpg" alt="Beachcourt Name" class="image">
+                    @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
                     <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>
