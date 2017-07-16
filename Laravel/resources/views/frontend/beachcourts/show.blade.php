@@ -669,19 +669,6 @@
 
 @include('_partials.newsletter')
 
-
-<div class="content">
-<div class="row">
-		<div class="column column--12">
-<h1>Das ist das Beachfeld {{ $beachcourt->courtName }} in {{ $beachcourt->city }}</h1>
-
-</p>
-<hr>
-
-
-	</div></div>
-</div>
-
 @include('_partials.organism.footer')
 
 @endsection

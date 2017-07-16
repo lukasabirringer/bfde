@@ -19,6 +19,9 @@ class ProfileController extends Controller
 {
     public function update(Request $request){
 
+        $dob = $request->input('newGeburtstag');
+        $dob = date('d.m.Y', strtotime($dob));
+      
         $user = Auth::user();
         $user->name = $request->input('newName');
         $user->firstName = $request->input('newVorname');
@@ -27,7 +30,7 @@ class ProfileController extends Controller
         $user->password = $request->input('newPasswort');
         $user->postalCode = $request->input('newNPLZ');
         $user->city = $request->input('newWohnort');
-        $user->birthdate = $request->input('newGeburtstag');
+        $user->birthdate = $dob;
      
         $user->save();
 
