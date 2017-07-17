@@ -14,7 +14,7 @@
         <div class="column column--12">
             <div class="header-page">
                 <h1 class="header-page__title -text-color-blue-2">@lang('Suchergebnisse')</h1>
-                <p>(Gesucht nach: {{ $query }}/{{ $place }})</p>
+                <h5 class="-typo-headline-4 -font-secondary -text-color-blue-2">Du hast nach <span class="-text-color-green">{{ $query }} {{ $place }}</span> gesucht</h5>
             </div>
         </div>
     </div>

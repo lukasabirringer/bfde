@@ -2,20 +2,6 @@
 @import "variables";
 @import "node_modules/beachfelder-stylesheet/src/beachfelder-stylesheet";
 
-.overlay {
-	position: fixed;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background: $modal-image-dialog-gradient-color-2;
-	background-image: linear-gradient(to bottom, $modal-image-dialog-gradient-color-1 0%, $modal-image-dialog-gradient-color-2 100%);
-	z-index: 300;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .no-scroll {
 	overflow: hidden;
 }

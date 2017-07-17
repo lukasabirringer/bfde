@@ -68,16 +68,16 @@
 						<div class="column column--12">
 							<label class="checkbox-switch -spacing-static-b">
 								<input class="checkbox-switch__field" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-							   	<span class="checkbox-switch__label">@lang('Login-Daten speichern')</span>
+							   	<span class="checkbox-switch__label">@lang('Eingeloggt bleiben')</span>
 							</label>
 						</div>
 
 						<div class="column column--12 -align-right">
 							<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">
-								<a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">Passwort vergessen?</a>
+								<a href="{{ route('password.request') }}" class="-typo-copy-link -text-color-green">@lang('Passwort vergessen?')</a>
 							</p>
-							<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">Noch kein Mitglied?
-								Dann <a href="{{ route('register') }}" class="-typo-copy-link -text-color-green">registriere</a> dich jetzt</p>
+							<p class="-typo-copy -text-color-blue-2 -font-primary -spacing-static-c">@lang('Noch kein Mitglied?')
+								@lang('Dann <a href="#" onclick="load_modal_register(); return false;" class="-typo-copy-link -text-color-green">registriere</a> dich jetzt</p>')
 						</div>
 					</div>
 				</div>
@@ -95,7 +95,26 @@
 	$(document).ready(function() {
 	    $('.modal-image__close').click(function() {
 	    	$('.overlay').remove();
+	    	$('body').removeClass('no-scroll');
 	        $(this).parents('.modal-image').remove();
+	    });
+
+	    $('.modal-image a').on('click', function (){
+	    	$(this).parents('.modal-image').remove();
+	    });
+
+	    /**
+	    * Show and hide password
+	    */
+	    $('.input__icon-wrapper').click(function() {
+	    	$('.toggle-password').toggleClass('icon--eye icon--password');
+	    			
+	    	var input = $($('.toggle-password').attr('toggle'));
+	    	if (input.attr('type') == 'password') {
+	    		input.attr('type', 'text');
+	    	} else {
+	    		input.attr('type', 'password');
+	    	}
 	    });
 	});
 </script>

@@ -28,6 +28,10 @@ Route::group(['namespace' => 'Frontend'], function () {
 			return View::make('_partials.organism.modals.modal-login');
 		});
 
+		Route::get("/modal_register", function() {
+			return View::make('_partials.organism.modals.modal-register');
+		});
+
 		Route::get("/modal_submitBeachcourt", function() {
 			return View::make('_partials.organism.modals.modal-submit-beachcourt');
 		});

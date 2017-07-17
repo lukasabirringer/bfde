@@ -49,7 +49,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return redirect('/login')->with('status', 'Wir haben dir eine E-Mail geschickt! Zur Bestätigung deines Profils einfach den Link in dieser anklicken und mit deinen User-Daten auf der Seite anmelden. Viel Spaß bei beachfelder.de!');
+        return redirect('/')->with('status', 'Wir haben dir eine E-Mail geschickt! Zur Bestätigung deines Profils musst du einfach den Link in dieser anklicken und auf der Seite anmelden. Viel Spaß wünscht dir beachfelder.de!');
     }
     /**
      * Get a validator for an incoming registration request.

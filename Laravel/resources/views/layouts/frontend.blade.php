@@ -34,18 +34,20 @@
         function load_modal_login()
         {   
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-image"></div>');
+            $('body').addClass('no-scroll');
             $('.modal-image').load('/modal_login');
-
         }
 
-        $(document).keyup(function(e) {
-          if (e.keyCode === 27) {
+        /**
+            * Modal Register
+        */
+        function load_modal_register()
+        {   
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('body').addClass('no-scroll');
+            $('.modal-common').load('/modal_register');
 
-            $('.overlay').remove();
-            $('.modal-image').remove();
-
-          }
-        });
+        }
 
         /**
             * Modal Submit Beachcourt
@@ -53,17 +55,9 @@
         function load_modal_submitBeachcourt()
         {
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('body').addClass('no-scroll');
             $('.modal-common').load('/modal_submitBeachcourt');
         }
-
-        $(document).keyup(function(e) {
-          if (e.keyCode === 27) {
-
-            $('.overlay').remove();
-            $('.modal-common').remove();
-
-          }
-        });
 
         /**
             * Modal Edit User Profile
@@ -72,13 +66,26 @@
         function load_modal_editUserProfile()
         {
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('body').addClass('no-scroll');
             $('.modal-common').load('/modal_editUserProfile');
         }
+
 
         $(document).keyup(function(e) {
           if (e.keyCode === 27) {
 
             $('.overlay').remove();
+            $('body').removeClass('no-scroll');
+            $('.modal-image').remove();
+
+          }
+        });
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('body').removeClass('no-scroll');
             $('.modal-common').remove();
 
           }

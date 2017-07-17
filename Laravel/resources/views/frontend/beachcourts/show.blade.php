@@ -16,9 +16,6 @@
 <div class="content">
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
-			<div class="header-page">
-				<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
-			</div>	
 			Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
 			@if (($beachcourt->ratingCount) < 10)
 			    Dieses Rating stammt von beachfelder.de

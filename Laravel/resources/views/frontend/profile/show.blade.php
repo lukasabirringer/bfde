@@ -68,7 +68,11 @@
 				<dl class="profile-user__details">
 					<dt class="profile-user__label">@lang('Username')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> name }}
+						@if( $profile->name !== '' )
+							{{ $profile -> name }}
+						@else
+							Gib' deinen Usernamen an
+						@endif 
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Vorname')</dt>
@@ -83,17 +87,32 @@
 					</dd>
 					<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> birthdate }} 
+						@if( $profile->birthdate == '' )
+							<span class="-text-color-gray-2" >Dein Geburtstag</span>
+						@else
+							{{ $profile -> birthdate }}
+						@endif
+						
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('PLZ')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> postalCode }}
+						@if( $profile->postalCode == '' )
+							<span class="-text-color-gray-2">Deine PLZ</span>
+						@else
+							{{ $profile -> postalCode }}
+						@endif
+						
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Wohnort')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> city }}
+						@if( $profile->city == '' )
+							<span class="-text-color-gray-2">Dein Wohnort</span>
+						@else
+							{{ $profile -> city }}
+						@endif
+						
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>
