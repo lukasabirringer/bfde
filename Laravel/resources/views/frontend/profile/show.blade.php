@@ -3,8 +3,11 @@
 
 @section('content')
 <div class="row row--zero">
-        <div class="column column--12 column--zero">
-            @include('_partials.molecules.hero-image', ['id' => 'standard', 'heroImage'=> 'fallback.jpg'])
+    <div class="column column--12 column--zero">
+        <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">
+        	<div class="hero-image-beachcourt-detail__overlay">
+        		<h1 class="hero-image-beachcourt-detail__title">Willkommen,  {{ $profile-> name }}</h1>
+        	</div>
         </div>
     </div>
 </div>
@@ -57,7 +60,6 @@
 							</label>
 
 							@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'profile-user-image__button' ])
-
 						</form>
 					@endif
 				</div>
@@ -83,17 +85,29 @@
 					</dd>
 					<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> birthdate }} 
+						@if ( $profile -> birthdate =='' )
+							<span class="-text-color-gray-2 -font-primary -typo-copy">Dein Geburtstag</span>
+						@else
+							{{ $profile -> birthdate }}
+						@endif
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('PLZ')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> postalCode }}
+						@if ( $profile -> postalCode =='' )
+							<span class="-text-color-gray-2 -font-primary -typo-copy">Deine PLZ</span>
+						@else
+							{{ $profile -> postalCode }}
+						@endif
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Wohnort')</dt>
 					<dd class="profile-user__info">
-						{{ $profile -> city }}
+						@if ( $profile -> city =='' )
+							<span class="-text-color-gray-2 -font-primary -typo-copy">Dein Wohnort</span>
+						@else
+							{{ $profile -> city }}
+						@endif
 						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>

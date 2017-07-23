@@ -1,30 +1,42 @@
-<p>Filter
-Rating
-mind:
-<form method="GET" action="/profile/{{ Auth::user()->id }}">
+<div class="row">
+  <form method="GET" action="/profile/{{ Auth::user()->id }}">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-  <select name="min">
-      <option selected="selected" disabled>{{ $min }}</option>
-      <option>0</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-    </select>
-bis
- <select name="max">
-      <option selected="selected" disabled>{{ $max }}</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-<br>
-<input type="submit"  value="filtern" name="">
-</form>
-</p>
-<ul class="list-beachcourt ">
+    <div class="column column--12 column--s-4 -spacing-static-c">
+      <label class="select ">
+        <select class="select__field" name="min">
+            <option selected="selected" disabled="disabled">minimale Punktzahl</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <span class="select__icon icon icon--arrow-down"></span>
+      </label>
+    </div>
+    <div class="column column--12 column--s-4 -spacing-static-c">
+      <label class="select ">
+        <select class="select__field" name="max">
+            <option selected="selected" disabled="disabled">maximale Punktzahl</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <span class="select__icon icon icon--arrow-down"></span>
+      </label>
+    </div>
+    <div class="column column--12 column--s-4 -spacing-static-c">
+      <button type="submit" class="button" >
+          <span class="button__icon icon icon--star"></span>
+        <span class="button__label button__label--icon">Filtern</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<ul class="list-beachcourt -spacing-d">
     @forelse ($myFavorites as $myFavorite)
         <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">

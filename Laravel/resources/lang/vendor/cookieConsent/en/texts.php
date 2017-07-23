@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'message' => 'Diese Seite verwendet Cookies um das Nutzererlebnis zu steigern.',
+    'message' => 'This page uses cookies to improve your experience.',
     'agree' => 'Akzeptieren',
 ];
