@@ -97,5 +97,19 @@
 	    	$('.overlay').remove();
 	        $(this).parents('.modal-image').remove();
 	    });
+
+	    /**
+	    * Show and hide password
+	    */
+	    $('.input__icon-wrapper').click(function() {
+	    	$('.toggle-password').toggleClass('icon--eye icon--password');
+	    			
+	    	var input = $($('.toggle-password').attr('toggle'));
+	    	if (input.attr('type') == 'password') {
+	    		input.attr('type', 'text');
+	    	} else {
+	    		input.attr('type', 'password');
+	    	}
+	    });
 	});
 </script>
