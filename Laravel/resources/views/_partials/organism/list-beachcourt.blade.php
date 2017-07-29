@@ -1,5 +1,5 @@
 <div class="row">
-  <form method="GET" action="/profile/{{ Auth::user()->id }}">
+  <form method="GET" action="/profil/{{ Auth::user()->id }}">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     <div class="column column--12 column--s-4 -spacing-static-c">
       <label class="select ">

@@ -37,7 +37,7 @@ class ProfileController extends Controller
         return back();
     }
     
-    public function show($id, Request $request)
+    public function show($name, Request $request)
     {
             $authenticated_id = Auth::id();
            
@@ -50,10 +50,8 @@ class ProfileController extends Controller
             if ($max === null) {
                 $max = 5;
             }
-
-            if($id == $authenticated_id){
                 
-                $profile = User::findOrFail($id);
+                $profile = User::findOrFail($authenticated_id);
                 $filename = $profile->pictureName;
                 $directory = ('profilePictures/' . auth()->id() . '/');
                 $profilepicture = auth()->id() . '/' . $filename;
@@ -69,12 +67,6 @@ class ProfileController extends Controller
                                                              'myFavorites',
                                                              'profilepicture',
                                                              'footernavigations')); 
-
-            } else {
-
-                echo 'Dies ist nicht dein Profil';
-            
-            };
     }
     public function storeimage(Request $request){
 

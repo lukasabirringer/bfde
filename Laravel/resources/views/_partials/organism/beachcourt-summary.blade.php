@@ -10,8 +10,7 @@
                         :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
                     ></favorite>
                 @endif
-             
-                <h3 class="beachcourt-summary__title"><a href="{{ url('beachcourts/'.$beachcourt->id) }}">{{ $beachcourt->courtName }}</a></h3>
+                <h3 class="beachcourt-summary__title"><a href="{{ URL::route('beachcourts.show', array('city'=>$beachcourt->city,'latitude'=>$beachcourt->latitude,'longitude'=>$beachcourt->longitude,)) }}">{{ $beachcourt->courtName }}</a></h3>
                 <p class="-typo-copy--large -text-color-white -font-primary"> {{ $beachcourt->city }} </p>
                 <span class="beachcourt-summary__distance">
                     <span class="icon icon--distance beachcourt-summary__icon-distance"></span>

@@ -134,7 +134,7 @@
 	</div>
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
-			<div class="header-page" id="my-favorites">
+			<div class="header-page" id="meine-favoriten">
 				<h1 class="header-page__title  -text-color-blue-2 ">@lang('Meine Favoriten')</h1>
 			</div>
 		</div>
