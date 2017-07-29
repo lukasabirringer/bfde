@@ -26,7 +26,8 @@
 		</div>
         
         @include('cookieConsent::index')    
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         /**

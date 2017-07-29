@@ -14,7 +14,11 @@
                 <form action="{{ url('/beachcourts/search') }}" method="POST">
                 <div class="column column--12 column--s-10">
                 {{ csrf_field() }}
-                @include('_partials.molecules.input', ['inputName'=>'searchquery', 'inputIcon'=>'map-marker', 'inputType'=>'text', 'inputLabel'=>'Gib eine PLZ oder einen Ort ein'])
+                <label class="input ">
+                    <input type="text" class="input__field" placeholder="Gib eine PLZ oder einen Ort ein" id="address-input" style="height: 100%;">
+                    <!-- <span class=" input__label  input__label--right">Gib eine PLZ oder einen Ort ein</span> -->
+                </label>
+                <!-- @include('_partials.molecules.input', ['inputName'=>'searchquery', 'inputIcon'=>'map-marker', 'inputType'=>'text', 'inputLabel'=>'Gib eine PLZ oder einen Ort ein']) -->
                 </div>
                 <div class="column column--12 column--s-2">
                 @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'search', 'buttonIconBackgroundcolor'=>'red', 'buttonIconCustomClass'=> ' ' ])

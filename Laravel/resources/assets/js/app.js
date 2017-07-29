@@ -220,3 +220,14 @@ $('.profile-user-image__button').hide();
 		.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
 	});
 })( jQuery, window, document );
+
+
+
+var options = {
+  container: '#address-input',
+  type: 'city',
+  language: 'de_DE',
+  aroundLatLngViaIP: false,
+  countries: ['de']
+};
+places(options);
