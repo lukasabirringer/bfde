@@ -12,7 +12,10 @@ class HomepageController extends Controller
 {
     public function show()
     {
-    		$beachcourts = Beachcourt::limit(3)->latest()->get();
+    		$beachcourts = Beachcourt::limit(3)
+    					   ->latest()
+    					   ->paginate(3);
+    		
         return view('frontend.homepage', compact('beachcourts'));  
     }
 }

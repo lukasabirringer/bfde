@@ -18,7 +18,7 @@ class BeachcourtController extends Controller
     {
 
             $footernavigations = Footernavigation::limit(5)->get();
-            $beachcourts = Beachcourt::paginate(15);
+            $beachcourts = Beachcourt::paginate(6);
             return view('frontend.beachcourts.index', ['beachcourts' => $beachcourts, 'footernavigations' => $footernavigations]);
 
     }
