@@ -59,7 +59,6 @@ $(document).ready(function(){
 	 */
 	$('.topbar__mfm').on('click', function(){
 		if( $('.user__context-menu').hasClass('context-menu--open') ) {
-
 			$('.user__context-menu').removeClass('context-menu--open');
 		}
 
@@ -86,7 +85,6 @@ $(document).ready(function(){
 	* Hide context menu if link inside is clicked
 	*/
 	$('.context-menu__link').click(function() {
-		
 		$(this).parents('.context-menu').removeClass('context-menu--open');
 	});
 
@@ -171,6 +169,7 @@ $(document).ready(function(){
 	$('.slider-image__navigation--right').click(function(){
 		owl.trigger('next.owl.carousel');
 	});
+
 });
 
 $(document).keyup(function(e) {

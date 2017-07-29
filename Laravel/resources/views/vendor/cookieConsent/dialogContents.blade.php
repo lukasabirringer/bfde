@@ -1,4 +1,4 @@
-<div class="notification-sticky js-cookie-consent cookie-consent">
+<div class="notification-sticky js-cookie-consent cookie-consent" style="display: none;">
 	<div class="content notification-sticky__content">
 		<span class="notification-sticky__icon icon icon--info"></span>
 		<span class="notification-sticky__text"> {!! trans('cookieConsent::texts.message') !!}</span>
