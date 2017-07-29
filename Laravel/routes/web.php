@@ -48,10 +48,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 		Route::get('admin/', function () {
 				return view('admin.dashboard');
 		});
-
-		Route::get('admin/dashboard/', function () {
-				return view('admin.dashboard');
-		});
+		Route::get('/admin/dashboard', 'DashboardController@show');
 		
 		Route::resource('/admin/users', 'UserController');
 		Route::resource('/admin/beachcourts', 'BeachcourtController');
