@@ -18,15 +18,15 @@
 </head>
 <body>
     
-    <div id="app">
+   
 
-		<div class="page">
+		<div class="page" id="page">
 			@include('_partials.organism.topbar')
 			@yield('content')    
 		</div>
         
         @include('cookieConsent::index')    
-	</div>
+
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         /**
