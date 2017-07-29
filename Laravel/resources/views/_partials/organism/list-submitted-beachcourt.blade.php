@@ -11,7 +11,7 @@
             </div>
             <div class="list-beachcourt__title-container column--12 column--s-4">
                 <h5 class="list-beachcourt__title">{{ $mySubmittedBeachcourt->city }}</h5>
-                <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $mySubmittedBeachcourt->created_at }} </p>
+                <p class="list-beachcourt__date"> @lang('eingereicht am'):<br> {{ $mySubmittedBeachcourt->created_at }} </p>
             </div>
             <div class="list-beachcourt__coordinates-container column--12 column--s-3">
                 <h5 class="list-beachcourt__title">@lang('Status')</h5>
@@ -31,10 +31,10 @@
         
     @empty
         <div class="column column--12 -spacing-inner-a -background-gray-3">
-          <p class="icon icon--heart-o -typo-headline-1 -text-color-blue-2 -align-center"></p>
+          <p class="icon icon--plus -typo-headline-1 -text-color-blue-2 -align-center"></p>
           <p class="-typo-copy--large -text-color-blue-2 -font-primary -align-center -spacing-static-b">@lang('Du hast noch kein Beachvolleyballfeld eingereicht.')</p>
           <p class="-typo-copy--large -text-color-green -font-primary -align-center -spacing-static-b">
-              <a href="{{ url('beachcourts') }}">Bewerte doch dein erstes Beachvolleyballfeld</a>
+              <a href="{{ url('beachcourts') }}">@lang('Schlage uns doch ein Feld vor, welches wir aufnehmen sollen')</a>
           </p>  
         </div>
     @endforelse
