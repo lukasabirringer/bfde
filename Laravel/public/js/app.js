@@ -968,6 +968,9 @@ $('.profile-user-image__button').hide();
 	});
 })(jQuery, window, document);
 
+/**
+ * Algolia Search
+ */
 var options = {
 	container: '#address-input',
 	type: 'city',

@@ -29,7 +29,26 @@
     
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.9/jquery.jscroll.min.js"></script>
+    
     <script type="text/javascript">
+        /**
+         * Infinite Scroll
+         */
+        $('ul.pagination').hide();
+        $(function() {
+            $('.infinite-scroll').jscroll({
+                autoTrigger: true,
+                loadingHtml: '<p class="-text-color-blue -font-primary -typo-copy--large -align-center">Lade weitere Beachvolleyballfelder</p>',
+                padding: 0,
+                nextSelector: '.pagination li.active + li a',
+                contentSelector: 'div.infinite-scroll',
+                callback: function() {
+                    $('ul.pagination').remove();
+                }
+            });
+        });
+
         /**
             * Modal Login
         */
