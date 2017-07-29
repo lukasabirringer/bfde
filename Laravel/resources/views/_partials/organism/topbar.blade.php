@@ -54,19 +54,22 @@
                     <div class="context-menu user__context-menu">
                         <ul class="context-menu__list">
                             <li class="context-menu__item">
-                                <a href="../profile/{{ Auth::user()->id }}" class="context-menu__link">
+                                <!-- required: profile->name -->
+                                <a href="{{ URL::route('profile.show', Auth::user()->name) }}" class="context-menu__link">
                                     <span class="context-menu__icon icon icon--user-circle"></span>
                                     <span class="context-menu__title">@lang('Mein Profil')</span>
                                 </a>
                             </li>
                             <li class="context-menu__item">
-                                <a href="../profile/{{ Auth::user()->id }}/#my-favorites" class="context-menu__link">
+                                <!-- required: profile->name -->
+                                <a href="{{ URL::route('profile.show', Auth::user()->name) }}/#meine-favoriten" class="context-menu__link">
                                     <span class="context-menu__icon icon icon--heart"></span>
                                     <span class="context-menu__title">@lang('Meine Favoriten')</span>
                                 </a>
                             </li>
 
                             <li class="context-menu__item">
+                                <!-- required: - -->
                                 <a href="#" onclick="load_modal_submitBeachcourt(); return false;" class="context-menu__link">
                                     <span class="context-menu__icon icon icon--edit"></span>
                                     <span class="context-menu__title">@lang('Feld einreichen')</span>
@@ -74,7 +77,8 @@
                             </li>
                         @if (Auth::user()->isAdmin())
                             <li class="context-menu__item">
-                                <a href="{{ url('admin/dashboard') }}" class="context-menu__link">
+                                <!-- required: - -->
+                                <a href="{{ URL::route('adminDashboard.show') }}" class="context-menu__link">
                                     <span class="context-menu__icon icon icon--cog"></span>
                                     <span class="context-menu__title">@lang('Admin-Bereich')</span>
                                 </a>
@@ -86,7 +90,7 @@
                             <span class="button__icon icon icon--sign-out"></span>
                             <span class="button__label">@lang('Abmelden')</span>
                         </button>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                        <form id="logout-form" action="{{ URL::route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </div>
                 @endif
             </div>

@@ -22,10 +22,12 @@ class BeachcourtController extends Controller
             return view('frontend.beachcourts.index', ['beachcourts' => $beachcourts, 'footernavigations' => $footernavigations]);
 
     }
-    public function show($id)
+    public function show($name)
     {
-        
-        $beachcourt = Beachcourt::findOrFail($id);
+       
+        $beachcourt = Beachcourt::where('city', $name)->first(); 
+        $id = $beachcourt->id;
+
         $ratings = Rating::where('beachcourt_id', $id)->get();
         $footernavigations = Footernavigation::limit(5)->get();
 

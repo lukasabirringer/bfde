@@ -51,7 +51,7 @@
         </div>
         <div class="row">
             <div class="column column--12">
-                <p class="-typo-copy--large -font-primary -text-color-green -align-center -spacing-static-d"><a href="{{ url('beachcourts') }}">@lang('Übersicht aller Beachvolleyballfelder')</a></p>
+                <p class="-typo-copy--large -font-primary -text-color-green -align-center -spacing-static-d"><a href="{{ URL::route('beachcourts.index') }}">@lang('Übersicht aller Beachvolleyballfelder')</a></p>
             </div>
         </div>
     </div>
