@@ -16,8 +16,8 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::post('/favorite/{beachcourt}', 'BeachcourtController@favoriteBeachcourt');
 		Route::post('/unfavorite/{beachcourt}', 'BeachcourtController@unFavoriteBeachcourt');
 		Route::post('/rating/neu', 'RatingController@store')->name('rating.new');
-		Route::post('/beachvolleyballfeld/einreichen', 'beachcourtsubmit@store')->name('beachcourtsubmit.store');  
-		Route::post('/beachvolleyballfeld/submit/löschen/{beachcourtsubmit}', 'beachcourtsubmit@destroy')->name('beachcourtsubmit.destroy');   
+		Route::post('/beachvolleyballfeld/einreichen', 'SubmittedbeachcourtController@store')->name('beachcourtsubmit.store');  
+		Route::delete('/beachvolleyballfeld/submit/löschen/{id}', 'SubmittedbeachcourtController@destroy')->name('beachcourtsubmit.destroy');   
 
 		//Profil
 		Route::get('/profil/profilbild-loeschen', 'ProfileController@destroy')->middleware('auth')->name('profile.deleteimage');
