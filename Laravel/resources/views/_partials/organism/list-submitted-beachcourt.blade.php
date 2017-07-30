@@ -21,7 +21,7 @@
 
 
 
-                <form action="{{ URL::route('beachcourtsubmit.destroy', $myFavorite->id) }}" class="list-beachcourt__form" method="POST">
+                <form action="{{ URL::route('beachcourtsubmit.destroy', $mySubmittedBeachcourt->id) }}" class="list-beachcourt__form" method="POST">
                         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                         <input name="_method" type="hidden" value="DELETE">
 

@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Storage;
 use File;
 use Image;
+use App\Submittedbeachcourt;
 
 class SubmittedbeachcourtController extends Controller
 {
@@ -141,6 +142,8 @@ class SubmittedbeachcourtController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $beachcourtsubmit = Submittedbeachcourt::findOrFail($id);
+        $beachcourtsubmit->delete();
+        return back();
     }
 }
