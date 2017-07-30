@@ -14,7 +14,7 @@
                 <div class="row -spacing-static-f">
                		<div class="column column--12">
                			<p class="-typo-copy--large -font-primary -text-color-blue-2">
-               				Möchtest du wirklich dieses Beachvolleyball-Feld aus deinen Favoriten löschen?
+               				Möchtest du wirklich dieses Beachvolleyball-Feld von deinen Favoriten entfernen? Diese Aktion ist kann nicht rückgängig gemacht werden.
                			</p>
                		</div>
           		</div>
@@ -24,10 +24,16 @@
 			<div class="modal-common__footer">
 				<div class="row row-buttons ">
 					<div class="column column--12 column--s-6">
-						@include('_partials.molecules.button', ['buttonJavaScript'=>' ', 'buttonType'=>'button', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'red', 'buttonLinkTarget'=>'', 'buttonIcon'=>'close', 'buttonLabel'=>'Löschen'])
+						<button type="button" class="button button--red button--abort">
+							<span class="button__icon icon icon--close"></span>
+							<span class="button__label button__label--icon">Nein, doch nicht</span>
+						</button>	
 					</div>
 					<div class="column column--12 column--s-6">
-						@include('_partials.molecules.button', ['buttonJavaScript'=>' ', 'buttonType'=>'submit', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'delete', 'buttonLabel'=>'Löschen'])
+						<button type="submit" class="button" >
+								<span class="button__icon icon icon--delete"></span>
+							<span class="button__label button__label--icon">Ja, ich bin mir sicher</span>
+						</button>
 					</div>
 				</div>
             	</form>
@@ -35,3 +41,16 @@
 		</div>
 	</div>
 </div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.modal-common__close, .button--abort').click(function() {
+            $('.overlay').remove();
+            $('body').removeClass('no-scroll');
+	        $(this).parents('.modal-common').remove();
+	    });
+
+	});
+</script>

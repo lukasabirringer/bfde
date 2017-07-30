@@ -4,9 +4,9 @@
         <li class="list-beachcourt__item">
             <div class="list-beachcourt__image">
                 @if(!empty($mySubmittedBeachcourt->picturePath ) > 0)
-                <img src="/uploads/beachcourts/submitted/{{ $mySubmittedBeachcourt->id }}/hero/{{ $mySubmittedBeachcourt->picturePath }}" alt="Beachcourt Name" class="image">
+                <img src="/uploads/beachcourts/submitted/{{ $mySubmittedBeachcourt->id }}/hero/{{ $mySubmittedBeachcourt->picturePath }}" class="image">
                 @else
-                <img src="/uploads/beachcourts/standard/heroimage/fallback.jpg" alt="Beachcourt Name" class="image">
+                <img src="/uploads/beachcourts/standard/list-view-image/beachcourt-list-blind-image.jpg" class="image">
                 @endif
             </div>
             <div class="list-beachcourt__title-container column--12 column--s-4">
