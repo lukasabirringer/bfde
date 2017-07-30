@@ -16,8 +16,10 @@
             </div>
         </div>
     </div>
-    <div class="row infinite-scroll">
-       @include('_partials.organism.beachcourt-summary')
+    <div class="row">
+        <div class="infinite-scroll">
+            @include('_partials.organism.beachcourt-summary')            
+        </div>
     </div>
 </div>
 @include('_partials.organism.footer')

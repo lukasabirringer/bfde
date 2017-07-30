@@ -6,8 +6,8 @@
     <div class="column column--12 column--zero">
         <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">
         	<div class="hero-image-beachcourt-detail__overlay">
-        		<h1 class="hero-image-beachcourt-detail__title"> {{ $beachcourt-> courtName }}</h1>
-        		<h2 class="hero-image-beachcourt-detail__subtitle">in {{ $beachcourt-> city }}</h2>
+        		<h1 class="hero-image-beachcourt-detail__title">Beachvolleyballfeld<br>in {{ $beachcourt-> city }}</h1>
+        		<h2 class="hero-image-beachcourt-detail__subtitle">{{ $beachcourt-> latitude }}, {{ $beachcourt-> longitude }}</h2>
         	</div>
         </div>
     </div>
@@ -22,12 +22,10 @@
 	              :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
 	          ></favorite>
      		@endif
-			<h1 class="header-page__title -text-color-blue-2">Beachvolleyballfeld in {{ $beachcourt->city }}</h1>
-			</div>	
+			</div>
 			Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
 		</div>
 	</div>
-	<div class="multifunctional-menu icon icon--ellipsis"></div>
 	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
 			<div class="slider-image">

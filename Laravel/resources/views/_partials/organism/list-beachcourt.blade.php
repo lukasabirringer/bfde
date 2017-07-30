@@ -48,21 +48,13 @@
                     @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
-                    <h5 class="list-beachcourt__title">{{ $myFavorite->courtName }}</h5>
+                    <h5 class="list-beachcourt__title">Feld in {{ $myFavorite->zipCode }} {{ $myFavorite->city }}</h5>
                     <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $myFavorite->created_at }} </p>
                 </div>
                 <div class="list-beachcourt__coordinates-container column--12 column--s-3">
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
                     <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
-                <p>
-                    {{ str_limit($myFavorite->realRating, $limit = 3, $end = '') }} ({{ $myFavorite->ratingCount }} Stimmen)</span>
-                    @if (($myFavorite->ratingCount) < 10)
-                        Dieses Rating stammt von beachfelder.de
-                    @else
-                        Dieses Rating stammt von den Usern
-                    @endif
-                </p>
                 <div class="list-beachcourt__action">
 
                     <form action="#" class="list-beachcourt__form" method="POST">
