@@ -25,13 +25,21 @@ class BeachcourtController extends Controller
     public function show($name)
     {
        
-        $beachcourt = Beachcourt::where('city', $name)->first(); 
+        $beachcourt = Beachcourt::where('citySlug', $name)->first(); 
         $id = $beachcourt->id;
 
         $ratings = Rating::where('beachcourt_id', $id)->get();
         $footernavigations = Footernavigation::limit(5)->get();
 
         return view('frontend.beachcourts.show', compact('beachcourt', 'ratings', 'footernavigations'));
+        
+    }
+    public function showstate($stateSlug)
+    {
+       
+        $beachcourts = Beachcourt::where('stateSlug', $stateSlug)->paginate(15);
+
+        return view('frontend.beachcourts.states', compact('beachcourts', 'stateSlug'));
         
     }
 

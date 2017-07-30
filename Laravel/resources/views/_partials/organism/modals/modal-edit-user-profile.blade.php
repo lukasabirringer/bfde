@@ -2,7 +2,7 @@
 	<div class="modal-common__content">
 		<div class="modal-common__close icon icon--close"></div>
 		<div class="modal-common__header">@lang('Aktualisiere deine Informationen')</div>
-		<form method="POST" action="{{ url('profile/') }}">
+		<form method="POST" action="{{ URL::route('profil.update') }}">
 		{{ csrf_field() }}
 
 		<div class="modal-common__body">
