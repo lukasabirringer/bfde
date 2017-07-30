@@ -33,6 +33,10 @@ class ProfileController extends Controller
         $user->birthdate = $dob;
      
         $user->save();
+        $request->session()->flash(
+                            'alert-success', 
+                            'Dein Profil wurde erfolgreich aktualisiert!'
+                            );
 
         return back();
     }
@@ -58,7 +62,7 @@ class ProfileController extends Controller
                 //dd($profilepicture);
                 $myFavorites = Auth::user()->favorites()->whereBetween('realRating', array($min, $max))->get();
                 //dd($myFavorites);
-                $subs = Submittedbeachcourt::limit(5)->get();
+                $subs = Submittedbeachcourt::limit(5)->where('user_id', auth()->id())->get();
                 $footernavigations = Footernavigation::limit(5)->get();
                 return view('frontend.profile.show', compact('subs',
                                                              'max',

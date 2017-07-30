@@ -48,8 +48,11 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
-
-        return redirect('/login')->with('status', 'Wir haben dir eine E-Mail geschickt! Zur Bestätigung deines Profils einfach den Link in dieser anklicken und mit deinen User-Daten auf der Seite anmelden. Viel Spaß bei beachfelder.de!');
+        $request->session()->flash(
+                            'alert-success', 
+                            'Wir haben dir eine E-Mail geschickt! Zur Bestätigung deines Profils einfach den Link in dieser anklicken und mit deinen User-Daten auf der Seite anmelden. Viel Spaß bei beachfelder.de!'
+                            );
+        return redirect('/login');
     }
     /**
      * Get a validator for an incoming registration request.
@@ -60,7 +63,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|unique:users|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);

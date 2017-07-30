@@ -36,7 +36,7 @@ class SubmittedbeachcourtController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -96,7 +96,10 @@ class SubmittedbeachcourtController extends Controller
             $beachcourtsubmit->save();
         }
 
- 
+        $request->session()->flash(
+                            'alert-success', 
+                            'Dein Beachfeld wurde erfolgreich eingereicht! Danke :)'
+                            );
         return back();
     }
 
@@ -140,10 +143,17 @@ class SubmittedbeachcourtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Request $request, $id)
     {
         $beachcourtsubmit = Submittedbeachcourt::findOrFail($id);
         $beachcourtsubmit->delete();
+
+        $request->session()->flash(
+                            'alert-success', 
+                            'Das eingereichte Beachfeld wurde erfolgreicht entfernt!'
+                            );
+
         return back();
     }
 }
