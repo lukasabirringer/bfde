@@ -9,7 +9,7 @@
 				<h2>Beachcourt-Listing</h2>
 				
 				<hr>
-				<a href="{{ url('admin/beachcourts/create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
+				<a href="{{ URL::route('adminBeachcourt.create') }}"><button type="button" class="btn btn-primary">Neuen Beachcourt erstellen</button></a>
 				<br><br>
 				
 
@@ -25,20 +25,20 @@
 						</thead> 
 						<tbody> 
 								@foreach ($beachcourts as $beachcourt)
-												<form action="{{ url('admin/beachcourts/'.$beachcourt->id) }}" method="POST">
+												<form action="{{ URL::route('adminBeachcourt.destroy', $beachcourt->id) }}" method="POST">
 								<tr> 
 										<td>{{ $beachcourt->id }}</td>
 										<td>{{ $beachcourt->courtName }}</td>
 										<td>{{ $beachcourt->postalCode }} {{ $beachcourt->city }}</td>
 										<td>{{ $beachcourt->realRating }}</td>
 										<td>
-												<a href="{{ url('admin/beachcourts/'.$beachcourt->id) }}">
+												<a href="{{ URL::route('adminBeachcourt.show', $beachcourt->id) }}">
 													<button type="button" class="btn btn-default">
 														<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Öffnen
 													</button>
 												</a>
 												
-												<a href="{{ url('admin/beachcourts/'.$beachcourt->id.'/edit/') }}">
+												<a href="{{ URL::route('adminBeachcourt.edit', $beachcourt->id) }}">
 													<button type="button" class="btn btn-info">
 														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Bearbeiten
 													</button>

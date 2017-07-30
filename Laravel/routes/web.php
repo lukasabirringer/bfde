@@ -49,23 +49,23 @@ Route::group(['namespace' => 'Frontend'], function () {
 Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdmin'], function () {
 
 		//Dashboard
-		Route::get('/admin/dashboard', 'DashboardController@show')->name('admin.dashboard.show');
+		Route::get('/admin/dashboard', 'DashboardController@show')->name('adminDashboard.show');
 		//User
-		Route::get('/admin/user/{name}', 'UserController@show')->name('admin.user.show');
-		Route::get('/admin/user', 'UserController@index')->name('admin.user.index');
-		Route::get('/admin/user/hinzufuegen', 'UserController@create')->name('admin.user.create');
-		Route::put('/admin/user/{name}', 'UserController@update')->name('admin.user.update');
-		Route::delete('/admin/user/{name}', 'UserController@destroy')->name('admin.user.destroy');
-		Route::post('/admin/user/erstellen', 'UserController@store')->name('admin.user.store');
-		Route::get('/admin/user/{name}/bearbeiten', 'UserController@edit')->name('admin.user.edit');
+		Route::get('/admin/user/{name}', 'UserController@show')->name('adminUser.show');
+		Route::get('/admin/user', 'UserController@index')->name('adminUser.index');
+		Route::get('/admin/user/hinzufuegen', 'UserController@create')->name('adminUser.create');
+		Route::put('/admin/user/{name}', 'UserController@update')->name('adminUser.update');
+		Route::delete('/admin/user/{name}', 'UserController@destroy')->name('adminUser.destroy');
+		Route::post('/admin/user/erstellen', 'UserController@store')->name('adminUser.store');
+		Route::get('/admin/user/{name}/bearbeiten', 'UserController@edit')->name('adminUser.edit');
 		//Beachfelder
-		Route::get('/admin/beachcourt/{id}', 'BeachcourtController@show')->name('admin.beachcourt.show');
-		Route::get('/admin/beachcourt', 'BeachcourtController@index')->name('admin.beachcourt.index');
-		Route::get('/admin/beachcourt/hinzufuegen', 'BeachcourtController@create')->name('admin.beachcourt.create');
-		Route::put('/admin/beachcourt/{id}', 'BeachcourtController@update')->name('admin.beachcourt.update');
-		Route::delete('/admin/beachcourt/{id}', 'BeachcourtController@destroy')->name('admin.beachcourt.destroy');
-		Route::post('/admin/beachcourt/erstellen', 'BeachcourtController@store')->name('admin.beachcourt.store');
-		Route::get('/admin/beachcourt/{id}/bearbeiten', 'BeachcourtController@edit')->name('admin.beachcourt.edit');
+		Route::get('/admin/beachcourt/{id}', 'BeachcourtController@show')->name('adminBeachcourt.show');
+		Route::get('/admin/beachcourt', 'BeachcourtController@index')->name('adminBeachcourt.index');
+		Route::get('/admin/beachcourt/hinzufuegen', 'BeachcourtController@create')->name('adminBeachcourt.create');
+		Route::patch('/admin/beachcourt/{id}', 'BeachcourtController@update')->name('adminBeachcourt.update');
+		Route::delete('/admin/beachcourt/{id}', 'BeachcourtController@destroy')->name('adminBeachcourt.destroy');
+		Route::post('/admin/beachcourt/erstellen', 'BeachcourtController@store')->name('adminBeachcourt.store');
+		Route::get('/admin/beachcourt/{id}/bearbeiten', 'BeachcourtController@edit')->name('adminBeachcourt.edit');
 		
 		// Route::resource('/admin/users', 'UserController');
 		// Route::resource('/admin/beachcourts', 'BeachcourtController');
