@@ -143,10 +143,17 @@ class SubmittedbeachcourtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Request $request, $id)
     {
         $beachcourtsubmit = Submittedbeachcourt::findOrFail($id);
         $beachcourtsubmit->delete();
+
+        $request->session()->flash(
+                            'alert-success', 
+                            'Das eingereichte Beachfeld wurde erfolgreicht entfernt!'
+                            );
+
         return back();
     }
 }

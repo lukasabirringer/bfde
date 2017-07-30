@@ -164,7 +164,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         PragmaRX\ZipCode\Vendor\Laravel\ServiceProvider::class,
         Spatie\CookieConsent\CookieConsentServiceProvider::class,
-        Lrgt\LaravelFormAjaxValidation\LaravelFormAjaxValidationServiceProvider::class,
 
         /*
          * Package Service Providers...
