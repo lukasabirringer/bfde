@@ -36,7 +36,7 @@ class SubmittedbeachcourtController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -96,7 +96,10 @@ class SubmittedbeachcourtController extends Controller
             $beachcourtsubmit->save();
         }
 
- 
+        $request->session()->flash(
+                            'alert-success', 
+                            'Dein Beachfeld wurde erfolgreich eingereicht! Danke :)'
+                            );
         return back();
     }
 

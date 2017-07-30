@@ -2,6 +2,8 @@
 @extends('layouts.frontend')
 
 @section('content')
+
+
 <div class="row row--zero">
     <div class="column column--12 column--zero">
         <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">

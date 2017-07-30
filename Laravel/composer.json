@@ -13,7 +13,9 @@
         "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "~5.0",
+        "lrgt/laravel-form-ajax-validation": "^5.1",
         "pragmarx/zipcode": "^1.5",
+        "proengsoft/laravel-jsvalidation": "^2.0",
         "spatie/laravel-cookie-consent": "^1.8"
     },
     "require-dev": {
@@ -48,8 +50,10 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php artisan vendor:publish --provider=\"Proengsoft\\JsValidation\\JsValidationServiceProvider\" --tag=public --force"
         ]
+
     },
     "config": {
         "preferred-install": "dist",

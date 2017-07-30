@@ -18,10 +18,17 @@
 </head>
 <body>
     
-   
+
 
 		<div class="page" id="page">
 			@include('_partials.organism.topbar')
+
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if(Session::has('alert-' . $msg))
+                    @include('_partials.organism.notification-success')
+                @endif
+            @endforeach
+            
 			@yield('content')    
 		</div>
         
