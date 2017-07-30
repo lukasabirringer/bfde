@@ -1,5 +1,5 @@
 <div class="modal-common__dialog">
-    <form method="POST" action="{{ url('/beachcourtsubmit/') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ URL::route('beachcourtsubmit.store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 	<div class="modal-common__content">
 		<div class="modal-common__close icon icon--close"></div>

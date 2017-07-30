@@ -32,7 +32,7 @@
 				@lang('Melde dich an')
 			</div>
 
-			<form method="POST" action="{{ route('login') }}">
+			<form method="POST" action="{{ URL::route('login') }}">
 				{{ csrf_field() }}
 				<div class="row modal-image__body">
 					<div class="row row--zero">

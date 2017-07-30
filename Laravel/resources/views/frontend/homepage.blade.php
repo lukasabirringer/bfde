@@ -61,6 +61,18 @@
     </div>
 
     @include('_partials.organism.footer')
-    
+
+
+	<div class="panel-body">
+          <a href="{{ url('beachcourts') }}"><button type="button" class="btn btn-primary">Beachcourt Übersicht</button></a>
+          <a href="{{ url('pages') }}"><button type="button" class="btn btn-primary">Pages Übersicht</button></a>
+	</div>
+    <ul>
+        <li><a href="{{ URL::route('beachcourts.showstate', 'baden-wuerttemberg') }}">Baden-Württemberg</a></li>
+        <li><a href="{{ URL::route('beachcourts.showstate', 'bayern') }}">Bayern</a></li>
+        <li><a href="{{ URL::route('beachcourts.showstate', 'sachsen') }}">Sachsen</a></li>
+        <li><a href="{{ URL::route('beachcourts.showstate', 'saarland') }}">Saarland</a></li>
+    </ul>
+
 @endsection
 

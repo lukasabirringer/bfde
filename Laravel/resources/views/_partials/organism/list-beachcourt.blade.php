@@ -1,5 +1,5 @@
 <div class="row">
-  <form method="GET" action="/profil/{{ Auth::user()->id }}">
+  <form method="GET" action="{{ URL::route('profile.show', Auth::user()->name) }}">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     <div class="column column--12 column--s-4 -spacing-static-c">
       <label class="select ">
@@ -38,7 +38,7 @@
 
 <ul class="list-beachcourt -spacing-d">
     @forelse ($myFavorites as $myFavorite)
-        <a href="{{ url('beachcourts/'.$myFavorite->id) }}" class="list-beachcourt__link">
+        <a href="{{ URL::route('beachcourts.show', array('city'=>$myFavorite->citySlug,'latitude'=>$myFavorite->latitude,'longitude'=>$myFavorite->longitude,)) }}" class="list-beachcourt__link">
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     @if(!empty($myFavorite->picturePath ) > 0)
@@ -80,7 +80,7 @@
           <p class="icon icon--heart-o -typo-headline-1 -text-color-blue-2 -align-center"></p>
           <p class="-typo-copy--large -text-color-blue-2 -font-primary -align-center -spacing-static-b">@lang('Du hast noch keine Favoriten gespeichert.')</p>
           <p class="-typo-copy--large -text-color-green -font-primary -align-center -spacing-static-b">
-              <a href="{{ url('beachcourts') }}">Füge dein erstes Beachvolleyballfeld hinzu</a>
+              <a href="{{ URL::route('beachcourts.index') }}">Füge dein erstes Beachvolleyballfeld hinzu</a>
           </p>  
         </div>
     @endforelse
