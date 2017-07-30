@@ -5,7 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-
 window._ = require('lodash');
 
 /**
@@ -220,3 +219,16 @@ $('.profile-user-image__button').hide();
 		.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
 	});
 })( jQuery, window, document );
+
+
+/**
+ * Algolia Search
+ */
+var options = {
+  container: '#address-input',
+  type: 'city',
+  language: 'de_DE',
+  aroundLatLngViaIP: false,
+  countries: ['de']
+};
+places(options);

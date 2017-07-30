@@ -16,12 +16,10 @@
             </div>
         </div>
     </div>
-    <div class="row ">
+    <div class="row infinite-scroll">
        @include('_partials.organism.beachcourt-summary')
-       {{ $beachcourts->links() }}
     </div>
 </div>
 @include('_partials.organism.footer')
 
 @endsection
-

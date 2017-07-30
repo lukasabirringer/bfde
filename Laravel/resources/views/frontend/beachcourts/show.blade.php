@@ -81,12 +81,12 @@
 						Outdoor: {{ $beachcourt->courtCountOutdoor }}
 					</p>
 
-					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-c">Kostet mich das Spielen auf dem Feld etwas?</h4>
+					<h4 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-c">Kann ich auf diesem Feld kostenlos spielen?</h4>
 					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
 						@if ($beachcourt->chargeable == 1 )
-							Ja, dieses Feld ist kostenpflichtig. Die Preise dafür kannst du beim Betreiber in Erfahrung bringen.
+							Nein, dieses Feld ist kostenpflichtig. Die Preise dafür kannst du beim Betreiber in Erfahrung bringen.
 						@else
-							Nein, auf diesem Feld kannst du kostenlos spielen.
+							Ja, auf diesem Feld kannst du kostenlos spielen.
 						@endif
 					</p>
 				</div>

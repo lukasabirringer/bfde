@@ -77,7 +77,9 @@
 	$(document).ready(function() {
 	    $('.modal-common__close').click(function() {
             $('.overlay').remove();
+            $('body').removeClass('no-scroll');
 	        $(this).parents('.modal-common').remove();
 	    });
+
 	});
 </script>

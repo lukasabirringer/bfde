@@ -26,14 +26,35 @@
 		</div>
         
         @include('cookieConsent::index')    
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.9/jquery.jscroll.min.js"></script>
+    
     <script type="text/javascript">
+        /**
+         * Infinite Scroll
+         */
+        $('ul.pagination').hide();
+        $(function() {
+            $('.infinite-scroll').jscroll({
+                autoTrigger: true,
+                loadingHtml: '<p class="-text-color-blue-2 -font-primary -typo-copy--large -align-center">Lade weitere Beachvolleyballfelder</p>',
+                padding: 0,
+                nextSelector: '.pagination li.active + li a',
+                contentSelector: 'div.infinite-scroll',
+                callback: function() {
+                    $('ul.pagination').remove();
+                }
+            });
+        });
+
         /**
             * Modal Login
         */
         function load_modal_login()
         {   
+            $('body').addClass('no-scroll');
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-image"></div>');
             $('.modal-image').load('/modal_login');
 
@@ -43,6 +64,7 @@
           if (e.keyCode === 27) {
 
             $('.overlay').remove();
+            $('body').removeClass('no-scroll');
             $('.modal-image').remove();
 
           }
@@ -53,6 +75,7 @@
         */
         function load_modal_submitBeachcourt()
         {
+            $('body').addClass('no-scroll');
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
             $('.modal-common').load('/modal_submitBeachcourt');
         }
@@ -61,6 +84,7 @@
           if (e.keyCode === 27) {
 
             $('.overlay').remove();
+            $('body').removeClass('no-scroll');
             $('.modal-common').remove();
 
           }
@@ -72,6 +96,7 @@
 
         function load_modal_editUserProfile()
         {
+            $('body').addClass('no-scroll');
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
             $('.modal-common').load('/modal_editUserProfile');
         }
@@ -80,6 +105,29 @@
           if (e.keyCode === 27) {
 
             $('.overlay').remove();
+            $('body').removeClass('no-scroll');
+            $('.modal-common').remove();
+
+          }
+        });
+
+
+        /**
+            * Modal Remove favorite Beachcourt
+        */
+
+        function load_modal_removeFavoriteBeachcourt()
+        {
+            $('body').addClass('no-scroll');
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('.modal-common').load('/modal_removeFavoriteBeachcourt');
+        }
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('body').removeClass('no-scroll');
             $('.modal-common').remove();
 
           }

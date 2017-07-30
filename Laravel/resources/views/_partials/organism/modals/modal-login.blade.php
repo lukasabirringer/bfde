@@ -95,6 +95,7 @@
 	$(document).ready(function() {
 	    $('.modal-image__close').click(function() {
 	    	$('.overlay').remove();
+	    	$('body').removeClass('no-scroll');
 	        $(this).parents('.modal-image').remove();
 	    });
 

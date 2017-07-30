@@ -42,9 +42,9 @@
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     @if(!empty($myFavorite->picturePath ) > 0)
-                    <img src="/uploads/beachcourts/{{ $myFavorite->id }}/hero/{{ $myFavorite->picturePath }}" alt="Beachcourt Name" class="image">
+                    <img src="/uploads/beachcourts/{{ $myFavorite->id }}/hero/{{ $myFavorite->picturePath }}" alt="Beachvolleyballfeld in {{ $myFavorite-> city }}" class="image">
                     @else
-                    <img src="/uploads/beachcourts/standard/heroimage/fallback.jpg" alt="Beachcourt Name" class="image">
+                    <img src="/uploads/beachcourts/standard/list-view-image/beachcourt-list-blind-image.jpg" class="image">
                     @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
@@ -65,10 +65,10 @@
                 </p>
                 <div class="list-beachcourt__action">
 
-                    <form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">
+                    <form action="#" class="list-beachcourt__form" method="POST">
                         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
-                        <button type="submit" class="button-icon list-beachcourt__button">
+                        <button type="button" onclick="load_modal_removeFavoriteBeachcourt(); return false;" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>
                     </form>

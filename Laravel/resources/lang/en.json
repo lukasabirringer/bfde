@@ -21,6 +21,7 @@
     "Du hast noch keine Favoriten gespeichert.": "You haven't saved any favorites yet.",
     "Meine Favoriten": "My favorite beachcourts",
     "hinzugefügt am": "added",
+    "eingereicht am": "filed on",
     "Koordinaten": "coordinates",
     "Feld einreichen": "Submit a beachcourt",
     "Dein Username": "Your username",
@@ -41,5 +42,6 @@
     "Aktualisiere deine Informationen": "Update your user information",
     "Abmelden": "Logout",
     "Übersicht aller Beachvolleyballfelder": "Overview of all beach volleyball courts",
-    "Klicke, um auf der Karte zu navigieren": "Click to unlock map"
+    "Klicke, um auf der Karte zu navigieren": "Click to unlock map",
+    "Schlage uns doch ein Feld vor, welches wir aufnehmen sollen": "Suggest us a field!"
 }

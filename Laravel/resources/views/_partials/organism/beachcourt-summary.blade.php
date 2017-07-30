@@ -1,4 +1,3 @@
-
 @foreach ($beachcourts as $beachcourt)
     <div class="column column--12 column--s-6 column--m-4 -spacing-c">
         <div class="beachcourt-summary" >
@@ -32,3 +31,5 @@
         </div>
     </div>
 @endforeach
+
+    {{ $beachcourts->links() }}
