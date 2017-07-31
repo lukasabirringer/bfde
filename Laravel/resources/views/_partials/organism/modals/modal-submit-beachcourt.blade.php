@@ -1,3 +1,7 @@
+<style>
+    .tooltip_templates { display: none; }
+</style>
+
 <div class="modal-common__dialog">
     <form method="POST" action="{{ URL::route('beachcourtsubmit.store') }}" id="myform" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -14,25 +18,29 @@
             <div class="row -spacing-static-f">
                 <div class="column column--12 column--s-3">
                     <label class="input">
-                        <input type="search" id="zipCode" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}" required>
+                        <input type="text" id="zipCode" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}" required>
                         <span class="input__label">@lang('Postleitzahl')</span>
+
+                        @if ($errors->has('postalCode'))
+                            <span class="input__error">
+                                {{ $errors->first('postalCode') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('postalCode'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('postalCode') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
                 <div class="column column--12 column--s-9">
                     <label class="input">
                         <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}" required>
                         <span class="input__label">@lang('Ort')</span>
+
+                        @if ($errors->has('city'))
+                            <span class="input__error">
+                                {{ $errors->first('city') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('city'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('city') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
             </div>
 
@@ -41,50 +49,62 @@
                     <label class="input">
                         <input type="text" name="street" class="input__field" placeholder=" " value="{{ old('street') }}">
                         <span class="input__label">@lang('Straße')</span>
+
+                        @if ($errors->has('street'))
+                            <span class="input__error">
+                                {{ $errors->first('street') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('street'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('street') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
                 <div class="column column--12 column--s-2">
                     <label class="input">
                         <input type="text" name="houseNumber" class="input__field" placeholder=" " value="{{ old('houseNumber') }}">
                         <span class="input__label">@lang('Nr.')</span>
-                    </label>
-                    @if ($errors->has('houseNumber'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('houseNumber') }}</strong>
+
+                        @if ($errors->has('houseNumber'))
+                        <span class="input__error">
+                            {{ $errors->first('houseNumber') }}
                         </span>
                     @endif
+                    </label>
+                    
                 </div>
             </div>
 
             <div class="row -spacing-static-d row__hidden">
                 <div class="column column--12 column--s-6">
-                    <p class="-typo-copy -text-color-blue-2 -font-primary tooltip" title="Den Längengrad kannst du bei Google Maps herausfinden">Gib den Längengrad des Beachvolleyballfeldes an.</p>
+                    <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Längengrad des Beachvolleyballfeldes an.
+                    <a href="#" class="-text-color-green tooltip">Hilfestellung</a>
+                    </p>
+
                     <label class="input -spacing-static-b">
                         <input type="text" name="latitude" class="input__field" placeholder=" " value="{{ old('latitude') }}">
                         <span class="input__label">@lang('Latitude')</span>
-                    </label>
-                    @if ($errors->has('latitude'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('latitude') }}</strong>
+
+                        @if ($errors->has('latitude'))
+                        <span class="input__error">
+                            {{ $errors->first('latitude') }}
                         </span>
                     @endif
+                    </label>
+                    
                 </div>
                 <div class="column column--12 column--s-6">
-                    <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Breitengrad des Beachvolleyballfeldes an.</p>
+                    <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Breitengrad des Beachvolleyballfeldes an.
+                    <a href="#" class="-text-color-green tooltip">Hilfestellung</a></p>
                     <label class="input -spacing-static-b">
                         <input type="text" name="longitude" class="input__field" placeholder=" " value="{{ old('longitude') }}">
-                        <span class="input__label tooltip" title="Den Breitengrad kannst du bei Google Maps herausfinden" >@lang('Longitude')</span>
+                        <span class="input__label" >@lang('Longitude')</span>
+
+                        @if ($errors->has('longitude'))
+                            <span class="input__error">
+                                {{ $errors->first('longitude') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('longitude'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('longitude') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
             </div>
 
@@ -93,52 +113,60 @@
                     <label class="input">
                         <input type="text" name="operator" class="input__field" placeholder=" " value="{{ old('operator') }}">
                         <span class="input__label">@lang('Betreiber')</span>
+
+                        @if ($errors->has('operator'))
+                            <span class="input__error">
+                                {{ $errors->first('operator') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('operator'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('operator') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
                 <div class="column column--12 column--s-6">
                     <label class="input">
                         <input type="url" name="operatorURL" class="input__field" placeholder=" " value="{{ old('operatorURL') }}">
                         <span class="input__label">@lang('Website des Betreibers')</span>
+
+                        @if ($errors->has('operatorURL'))
+                            <span class="input__error">
+                                {{ $errors->first('operatorURL') }}
+                            </span>
+                        @endif
                     </label>
-                    @if ($errors->has('operatorURL'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('operatorURL') }}</strong>
-                        </span>
-                    @endif
+                    
                 </div>
             </div>
             <div class="row -spacing-static-d row__hidden">
                 <div class="column column--12 column--s-6">
-                    <label class="select ">
-                      <select class="select__field" name="courtCountIndoor">
-                            <option selected disabled> Anzahl der Felder indoor </option>
-                            <option value="NULL"> nicht bekannt </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                      </select>
-                      <span class="select__icon icon icon--arrow-down"></span>
+
+                    <label class="input-range">
+                        <span class="input-range__label">Anzahl der Felder indoor</span>
+                        <input type="range" 
+                                id="courtCountIndoorSlider"
+                                class="input-range__field"
+                                min="0"
+                                max="10"
+                                name="courtCountIndoor"
+                                value="0"
+                                onchange="updateTextInputIndoor(this.value);"
+                        >
+                        <output id="courtCountIndoor" class="input-range__output" value="0">0</output>
                     </label>
                 </div>
                 <div class="column column--12 column--s-6">
-                    <label class="select ">
-                      <select class="select__field" name="courtCountOutdoor">
-                            <option selected disabled> Anzahl der Felder outdoor </option>
-                            <option value="NULL"> nicht bekannt </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                      </select>
-                      <span class="select__icon icon icon--arrow-down"></span>
+
+                    <label class="input-range">
+                        <span class="input-range__label">Anzahl der Felder outdoor</span>
+                        <input type="range"
+                                id="courtCountOutdoorSlider"
+                                class="input-range__field"
+                                name="courtCountOutdoor"
+                                min="0"
+                                max="10"
+                                value="0"
+                                onchange="updateTextInputOutdoor(this.value);"
+                        >
+                        <output id="courtCountOutdoor" class="input-range__output">0</output>
                     </label>
                 </div>
             </div>
@@ -147,10 +175,10 @@
                     <div class="column column--12 column--s-6">
                         <label class="select ">
                           <select class="select__field" name="chargeable">
-                                <option selected disabled> Ist die Nutzung gebührenpflichtig oder kostenfrei? </option>
+                                <option selected disabled><span class="-overflow-elipsis">Ist die Nutzung gebührenpflichtig oder kostenfrei?</span></option>
                                 <option value="NULL"> nicht bekannt </option>
-                                <option value="gebührenfrei"> gebührenfrei </option>
-                                <option value="gebührenpflichtig"> gebührenpflichtig </option>
+                                <option value="0"> gebührenfrei </option>
+                                <option value="1"> gebührenpflichtig </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
@@ -160,8 +188,8 @@
                           <select class="select__field" name="public">
                                 <option selected disabled> Ist das Feld öffentlich zugänglich? </option>
                                 <option value="NULL"> nicht bekannt </option>
-                                <option value="öffentlich"> öffentlich </option>
-                                <option value="nicht öffentlich"> nicht öffentlich </option>
+                                <option value="1"> öffentlich </option>
+                                <option value="0"> nicht öffentlich </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
@@ -185,6 +213,19 @@
 		</div>
 	</div>
     </form>
+
+    <div class="tooltip_templates">
+        <span id="tooltip_coordinates">
+            <h5 class="-typo-headline-5 -font-secondary -text-color-green">Den Längengrad und Breitengrad herausfinden</h5>
+            <p class="-typo-copy -font-primary -text-color-blue-2">
+                Den Längengrad und Breitengrad kannst du mit Hilfe von Google Maps ganz einfach herausfinden.
+            </p>
+            <p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
+                Oder du verwendest folgende Website dafür: 
+                <a href="https://www.laengengrad-breitengrad.de/" target="_blank" class="-text-color-green">laengengrad-breitengrad.de</a>
+            </p>
+        </span>
+    </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
 <script type="text/javascript">
@@ -206,7 +247,23 @@
         */
         $('.tooltip').tooltipster({
             theme: 'tooltipster-shadow',
-            delay: '0'
+            content: $('#tooltip_coordinates'),
+            delay: '0',
+            interactive: true,
+            multiple: true
         });
 	});
+
+    /**
+    * Update the Value of the slider
+    */
+    function updateTextInputIndoor(val) {
+        document.getElementById('courtCountIndoorSlider').value = val;
+        document.getElementById('courtCountIndoor').value = val;
+    }
+
+    function updateTextInputOutdoor(val) {
+        document.getElementById('courtCountOutdoorSlider').value = val;
+        document.getElementById('courtCountOutdoor').value = val; 
+    }
 </script>

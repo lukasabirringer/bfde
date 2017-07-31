@@ -16,9 +16,7 @@
 	justify-content: center;
 }
 
-.no-scroll {
-	overflow: hidden;
-}
+.no-scroll { overflow: hidden; }
 
 .modal-image__dialog,
 .modal-common__dialog {
@@ -82,9 +80,7 @@
 }
 
 .row {
-	&__hidden {
-		display: none;
-	}
+	&__hidden { display: none; }
 }
 
 .link__readmore {
