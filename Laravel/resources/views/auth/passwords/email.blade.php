@@ -31,24 +31,23 @@
             </div>
         </div>
     </div>
-    <div class="row -spacing-static-d">
+    <div class="row">
         <form role="form" method="POST" action="{{ route('password.email') }}">
             {{ csrf_field() }}
-            <div class="column column--12 column--s-8">
+            <div class="column column--12 column--s-8 -spacing-static-d">
                 <label class="input">
                     <input type="email" placeholder=" " class="input__field input__field--icon" name="email" value="{{ old('email') }}" required>
                     <span class="input__icon icon icon--mail"></span>
                     <span class="input__label input__label--icon">@lang('Deine E-Mail Adresse')</span>
+
+                    @if ($errors->has('email'))
+                        <span class="input__error">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </label>
-
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-
             </div>
-            <div class="column column--12 column--s-4">
+            <div class="column column--12 column--s-4 -spacing-static-d">
                 @include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonCustomClass'=>'', 'buttonBackgroundcolor'=>'', 'buttonLinkTarget'=>'', 'buttonIcon'=>'send', 'buttonLabel'=>'Link zusenden'])
             </div>
         </form>
