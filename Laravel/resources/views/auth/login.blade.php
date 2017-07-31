@@ -30,27 +30,27 @@
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                     <span class="input__label">@lang('Deine E-Mail Adresse')</span>
+
+                    @if ($errors->has('email'))
+                        <span class="input__error">
+                            {{ $errors->first('email') }}
+                        </span>
+                    @endif
                 </label>
 
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-                
                 <label class="input -spacing-static-b">
                     <input type="password" class="input__field input__field--right input__field--icon" id="password-field" placeholder=" " name="password" required>
                         <span class="input__icon-wrapper">
                             <span class="input__icon icon icon--eye input__icon--right toggle-password" toggle="#password-field"></span>
                         </span>
                         <span class="input__label  input__label--right input__label--icon ">@lang('Dein Passwort')</span>
-                </label>
 
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
+                        @if ($errors->has('password'))
+                            <span class="input__error">
+                                {{ $errors->first('password') }}
+                            </span>
+                        @endif
+                </label>
 
                 <label class="checkbox-switch -spacing-static-b">
                   <input class="checkbox-switch__field"

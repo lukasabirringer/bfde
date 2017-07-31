@@ -41,13 +41,13 @@
                 <label class="input">
                     <input type="text" name="name" class="input__field" placeholder=" " value="{{ old('name') }}" required>
                     <span class="input__label">@lang('Dein Username')</span>
-                </label>
 
-                @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('name'))
+                        <span class="input__error">
+                            {{ $errors->first('name') }}
+                        </span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
@@ -55,25 +55,25 @@
                 <label class="input">
                     <input type="text" name="firstName" class="input__field" placeholder=" " value="{{ old('firstName') }}" required>
                     <span class="input__label">@lang('Dein Vorname')</span>
-                </label>
 
-                @if ($errors->has('firstName'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('firstName') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('firstName'))
+                        <span class="input__error">
+                            {{ $errors->first('firstName') }}
+                        </span>
+                    @endif
+                </label>
             </div>
             <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="text" name="lastName" class="input__field" placeholder=" " value="{{ old('lastName') }}" required>
                     <span class="input__label">@lang('Dein Nachname')</span>
-                </label>
 
-                @if ($errors->has('lastName'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('lastName') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('lastName'))
+                        <span class="input__error">
+                            {{ $errors->first('lastName') }}
+                        </span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
@@ -102,13 +102,13 @@
                         <span class="radio-icon__icon  icon icon--transgender "></span>
                         <span class="radio-icon__label">@lang('transgender')</span>
                     </div>
-                </label>
 
-                @if ($errors->has('sex'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('sex') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('sex'))
+                        <span class="input__error">
+                            {{ $errors->first('sex') }}
+                        </span>
+                    @endif
+                </label>                
             </div>
         </div>
         <div class="row">
@@ -116,25 +116,25 @@
                 <label class="input">
                     <input type="text" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}">
                     <span class="input__label">@lang('Deine PLZ (optional)')</span>
-                </label>
 
-                @if ($errors->has('postalCode'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('postalCode') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('postalCode'))
+                        <span class="input__error">
+                            {{ $errors->first('postalCode') }}
+                        </span>
+                    @endif
+                </label>
             </div>
             <div class="column column--8 column--s-10 -spacing-d">
                 <label class="input">
                     <input type="text" name="city" class="input__field" placeholder=" " value="{{ old('city') }}">
                     <span class="input__label">@lang('Dein Wohnort (optional)')</span>
-                </label>
 
-                @if ($errors->has('city'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('city') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('city'))
+                        <span class="input__error">
+                            {{ $errors->first('city') }}
+                        </span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
@@ -142,25 +142,25 @@
                 <label class="input">
                     <input type="date" name="birthdate" class="input__field" placeholder=" " value="{{ old('birthdate') }}">
                     <span class="input__label">@lang('Dein Geburtsdatum (optional)')</span>
-                </label>
 
-                @if ($errors->has('birthdate'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('birthdate') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('birthdate'))
+                        <span class="input__error">
+                            {{ $errors->first('birthdate') }}
+                        </span>
+                    @endif
+                </label>
             </div>
             <div class="column column--12 column--s-6 -spacing-d">
                 <label class="input">
                     <input type="email" name="email" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                     <span class="input__label">@lang('Deine E-Mail Adresse')</span>
-                </label>
 
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('email'))
+                        <span class="input__error">
+                            {{ $errors->first('email') }}
+                        </span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
@@ -168,13 +168,13 @@
                 <label class="input">
                     <input type="password" name="password" class="input__field" placeholder=" " value="{{ old('email') }}" required>
                     <span class="input__label">@lang('Dein Passwort')</span>
-                </label>
 
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('password'))
+                        <span class="input__error">
+                            {{ $errors->first('password') }}
+                        </span>
+                    @endif
+                </label>
             </div>
 
             <div class="column column--12 column--s-6 -spacing-d">
