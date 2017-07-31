@@ -1,7 +1,7 @@
-<div class="notification-box   notification-box--success ">
-		<div class="notification-box__icon icon icon--success"></div>
-	<div class="notification-box__message">
-		<h4 class="notification-box__headline">Oki Doki</h4>
-		<p class="notification-box__subline">{{ Session::get('alert-' . $msg) }}</p>
+<div class="notification-sticky">
+	<div class="content notification-sticky__content">
+		<span class="notification-sticky__icon icon icon--success"></span>
+		<span class="notification-sticky__text">{{ Session::get('alert-' . $msg) }}</span>
 	</div>
+	<span class="notification-sticky__icon notification-sticky__icon--close icon icon--close"></span>
 </div>

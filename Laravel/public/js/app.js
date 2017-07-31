@@ -925,6 +925,13 @@ $(document).ready(function () {
 	$('.slider-image__navigation--right').click(function () {
 		owl.trigger('next.owl.carousel');
 	});
+
+	/**
+ * close the notification sticky
+ */
+	$('.notification-sticky__icon--close').on('click', function () {
+		$(this).parent('.notification-sticky').slideUp();
+	});
 });
 
 $(document).keyup(function (e) {
