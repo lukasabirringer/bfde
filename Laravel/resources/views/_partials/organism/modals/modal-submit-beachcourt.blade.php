@@ -19,7 +19,7 @@
                 <div class="column column--12 column--s-3">
                     <label class="input">
                         <input type="text" id="zipCode" name="postalCode" class="input__field" placeholder=" " value="{{ old('postalCode') }}" required>
-                        <span class="input__label">@lang('Postleitzahl')</span>
+                        <span class="input__label">@lang('PLZ')</span>
 
                         @if ($errors->has('postalCode'))
                             <span class="input__error">
@@ -61,7 +61,7 @@
                 <div class="column column--12 column--s-2">
                     <label class="input">
                         <input type="text" name="houseNumber" class="input__field" placeholder=" " value="{{ old('houseNumber') }}">
-                        <span class="input__label">@lang('Nr.')</span>
+                        <span class="input__label">@lang('Nr').</span>
 
                         @if ($errors->has('houseNumber'))
                         <span class="input__error">
@@ -76,7 +76,7 @@
             <div class="row -spacing-static-d row__hidden">
                 <div class="column column--12 column--s-6">
                     <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Längengrad des Beachvolleyballfeldes an.
-                    <a href="#" class="-text-color-green tooltip">Hilfestellung</a>
+                    <a href="#" class="-text-color-green tooltip">@lang('Hilfestellung')</a>
                     </p>
 
                     <label class="input -spacing-static-b">
@@ -93,7 +93,7 @@
                 </div>
                 <div class="column column--12 column--s-6">
                     <p class="-typo-copy -text-color-blue-2 -font-primary">Gib den Breitengrad des Beachvolleyballfeldes an.
-                    <a href="#" class="-text-color-green tooltip">Hilfestellung</a></p>
+                    <a href="#" class="-text-color-green tooltip">@lang('Hilfestellung')</a></p>
                     <label class="input -spacing-static-b">
                         <input type="text" name="longitude" class="input__field" placeholder=" " value="{{ old('longitude') }}">
                         <span class="input__label" >@lang('Longitude')</span>
@@ -125,7 +125,7 @@
                 <div class="column column--12 column--s-6">
                     <label class="input">
                         <input type="url" name="operatorURL" class="input__field" placeholder=" " value="{{ old('operatorURL') }}">
-                        <span class="input__label">@lang('Website des Betreibers')</span>
+                        <span class="input__label">@lang('Website') @lang('des Betreibers')</span>
 
                         @if ($errors->has('operatorURL'))
                             <span class="input__error">
@@ -140,7 +140,7 @@
                 <div class="column column--12 column--s-6">
 
                     <label class="input-range">
-                        <span class="input-range__label">Anzahl der Felder indoor</span>
+                        <span class="input-range__label">@lang('Anzahl der Felder') @lang('indoor')</span>
                         <input type="range" 
                                 id="courtCountIndoorSlider"
                                 class="input-range__field"
@@ -156,7 +156,7 @@
                 <div class="column column--12 column--s-6">
 
                     <label class="input-range">
-                        <span class="input-range__label">Anzahl der Felder outdoor</span>
+                        <span class="input-range__label">@lang('Anzahl der Felder') @lang('outdoor')</span>
                         <input type="range"
                                 id="courtCountOutdoorSlider"
                                 class="input-range__field"
@@ -175,10 +175,10 @@
                     <div class="column column--12 column--s-6">
                         <label class="select ">
                           <select class="select__field" name="chargeable">
-                                <option selected disabled><span class="-overflow-elipsis">Ist die Nutzung gebührenpflichtig oder kostenfrei?</span></option>
-                                <option value="NULL"> nicht bekannt </option>
-                                <option value="0"> gebührenfrei </option>
-                                <option value="1"> gebührenpflichtig </option>
+                                <option selected disabled><span class="-overflow-elipsis">@lang('Ist die Nutzung kostenfrei')?</span></option>
+                                <option value="NULL"> @lang('nicht bekannt') </option>
+                                <option value="0"> @lang('Ja') </option>
+                                <option value="1"> @lang('Nein') </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
@@ -186,10 +186,10 @@
                     <div class="column column--12 column--s-6">
                         <label class="select ">
                           <select class="select__field" name="public">
-                                <option selected disabled> Ist das Feld öffentlich zugänglich? </option>
-                                <option value="NULL"> nicht bekannt </option>
-                                <option value="1"> öffentlich </option>
-                                <option value="0"> nicht öffentlich </option>
+                                <option selected disabled>@lang('Ist das Feld öffentlich zugänglich')? </option>
+                                <option value="NULL"> @lang('nicht bekannt') </option>
+                                <option value="1"> @lang('Ja') </option>
+                                <option value="0"> @lang('Nein') </option>
                           </select>
                           <span class="select__icon icon icon--arrow-down"></span>
                         </label>
@@ -200,7 +200,7 @@
 		<div class="modal-common__footer">
             <p class="-typo-copy -text-color-green -font-primary -align-center link__readmore">
                 <span class="icon icon--arrow-down -text-color-green link__readmore-icon"></span>
-                <span class="link__readmore-label">Mehr Infos einreichen</span>
+                <span class="link__readmore-label">@lang('Mehr Infos einreichen')</span>
             </p>
         
             <div class="row row-buttons ">
@@ -239,7 +239,6 @@
         $('.link__readmore').on('click', function() {
             $('.link__readmore-icon').toggleClass('link__readmore-icon--open');
             $('.row__hidden').delay(500).slideToggle();
-            
         });
 
         /**

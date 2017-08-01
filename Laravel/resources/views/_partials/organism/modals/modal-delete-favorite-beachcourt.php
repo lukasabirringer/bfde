@@ -14,11 +14,11 @@
                 <div class="row -spacing-static-f">
                		<div class="column column--12">
                			<p class="-typo-copy--large -font-primary -text-color-blue-2">
-               				Möchtest du wirklich dieses Beachvolleyball-Feld von deinen Favoriten entfernen? Diese Aktion ist kann nicht rückgängig gemacht werden.
+               				Möchtest du wirklich dieses Beachvolleyballfeld aus deinen Favoriten entfernen? Diese Aktion ist kann nicht rückgängig gemacht werden.
                			</p>
                		</div>
           		</div>
-   
+  
 			</div> 
   
 			<div class="modal-common__footer">
@@ -41,8 +41,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 <script type="text/javascript">
 	$(document).ready(function() {

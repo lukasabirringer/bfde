@@ -18,13 +18,10 @@
                     <p class="list-beachcourt__coordinates">{{ $mySubmittedBeachcourt->submitState }}</p>
                 </div>
                 <div class="list-beachcourt__action">
-
-
-
                     <form action="{{ URL::route('beachcourtsubmit.destroy', $mySubmittedBeachcourt->id) }}" class="list-beachcourt__form" method="POST">
-                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                            <input name="_method" type="hidden" value="DELETE">
-
+                            
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                        <input name="_method" type="hidden" value="DELETE">
 
                         <button type="submit" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
@@ -39,7 +36,7 @@
           <p class="-typo-copy--large -text-color-blue-2 -font-primary -align-center -spacing-static-b">@lang('Du hast noch kein Beachvolleyballfeld eingereicht.')</p>
           <p class="-typo-copy--large -text-color-green -font-primary -align-center -spacing-static-b">
 
-              <a href="{{ URL::route('beachcourts.index') }}">Bewerte doch dein erstes Beachvolleyballfeld</a>
+              <a href="#" onclick="load_modal_submitBeachcourt(); return false;">Schlag' uns jetzt dein Lieblingsfeld vor</a>
 
           </p>  
         </div>

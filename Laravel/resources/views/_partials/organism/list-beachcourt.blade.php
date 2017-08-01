@@ -4,7 +4,7 @@
     <div class="column column--12 column--s-4 -spacing-static-c">
       <label class="select ">
         <select class="select__field" name="min">
-            <option selected="selected" disabled="disabled">minimale Punktzahl</option>
+            <option selected="selected" disabled="disabled">@lang('minimale Punktzahl')</option>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -17,7 +17,7 @@
     <div class="column column--12 column--s-4 -spacing-static-c">
       <label class="select ">
         <select class="select__field" name="max">
-            <option selected="selected" disabled="disabled">maximale Punktzahl</option>
+            <option selected="selected" disabled="disabled">@lang('maximale Punktzahl')</option>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -29,8 +29,8 @@
     </div>
     <div class="column column--12 column--s-4 -spacing-static-c">
       <button type="submit" class="button" >
-          <span class="button__icon icon icon--star"></span>
-        <span class="button__label button__label--icon">Filtern</span>
+          <span class="button__icon icon icon--filter"></span>
+        <span class="button__label button__label--icon">@lang('Filtern')</span>
       </button>
     </div>
   </form>

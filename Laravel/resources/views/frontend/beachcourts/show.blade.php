@@ -7,26 +7,20 @@
         <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">
         	<div class="hero-image-beachcourt-detail__overlay">
         		<h1 class="hero-image-beachcourt-detail__title">Beachvolleyballfeld<br>in {{ $beachcourt-> city }}</h1>
-        		<h2 class="hero-image-beachcourt-detail__subtitle">{{ $beachcourt-> latitude }}, {{ $beachcourt-> longitude }}</h2>
+        		<h2 class="hero-image-beachcourt-detail__subtitle">@ {{ $beachcourt-> latitude }}, {{ $beachcourt-> longitude }}</h2>
+
+        		@if (Auth::check())
+    				<favorite 
+	           			:beachcourt={{ $beachcourt->id }}
+	           			:favorited={{ $beachcourt->favorited() ? 'true' : 'false' }} >
+					</favorite>
+	     		@endif
         	</div>
         </div>
     </div>
 </div>
 <div class="content">
 	<div class="row -spacing-widget-default">
-		<div class="column column--12">
-			<div class="header-page">
-			@if (Auth::check())                 
-	           <favorite
-	              :beachcourt={{ $beachcourt->id }}
-	              :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
-	          ></favorite>
-     		@endif
-			</div>
-			Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
-		</div>
-	</div>
-	<div class="row -spacing-a">
 		<div class="column column--12 column--m-6">
 			<div class="slider-image">
 				<div class="slider-image__navi">
@@ -50,9 +44,49 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- <div class="row -spacing-widget-default">
+			<div class="column column--12">
+				Rating:<span> <b>{{ str_limit($beachcourt->realRating, $limit = 3, $end = '') }}</b> ({{ $beachcourt->ratingCount }} Stimmen)</span>
+			</div>
+		</div> -->
  						
 		<div class="column column--12 column--m-6">
-			<div class="navigation-tabs ">
+			<div class="notification-box-rating ">
+				<div class="notification-box-rating__summary">
+					<img src="http://beachfelder.de/img/badge-rating-beachcourt-detail-page@2x.png" class="notification-box-rating__image">
+					<h4 class="notification-box-rating__points">{{ $beachcourt->realRating }} von 5</h4>
+				</div>
+				<div class="notification-box-rating__details">
+					<dl>
+						<dt class="notification-box-rating__label"> Sand </dt>
+						<dd class="notification-box-rating__rating"> {{ $beachcourt->SandRating }} von 34 Punkten </dd>
+					</dl>
+					<dl>
+						<dt class="notification-box-rating__label"> Netz </dt>
+						<dd class="notification-box-rating__rating"> {{ $beachcourt->NetRating }} von 28 Punkten </dd>
+					</dl>
+					<dl>
+						<dt class="notification-box-rating__label"> Feld </dt>
+						<dd class="notification-box-rating__rating"> {{ $beachcourt->CourtRating }} von 27 Punkten </dd>
+					</dl>
+					<dl>
+						<dt class="notification-box-rating__label"> Umgebung </dt>
+						<dd class="notification-box-rating__rating"> {{ $beachcourt->EnvironmentRating }} von 11 Punkten </dd>
+					</dl>
+				</div>
+			</div>
+
+			@if ($beachcourt->notes !== '')
+				<div class="notification-box notification-box--info -spacing-static-e">
+					<div class="notification-box__icon icon icon--info"></div>
+					<div class="notification-box__message">
+						<h4 class="notification-box__headline">Bemerkungen</h4>
+						<p class="notification-box__subline">{{ $beachcourt->notes }}</p>
+					</div>
+				</div>
+			@endif
+			<!--<div class="navigation-tabs ">
 				<ul class="navigation-tabs__title-bar">
 					<li class="navigation-tabs__item navigation-tabs__item--active" data-tab="tab-1">
 						<span class="navigation-tabs__title navigation-tabs__title--active">Allgemeine Informationen </span>
@@ -92,57 +126,83 @@
 					<p class="-typo-copy--large -font-primary -text-color-blue-2">
 						{{ $beachcourt -> operator }}
 					</p>
-					<p class="-typo-copy -font-primary -text-color-blue-2 -spacing-static-a">
-						{{ $beachcourt -> organization }}
-					</p>
 					<p class="-typo-copy -font-primary -text-color-green">
 						<a href="{{ $beachcourt->operatorURL }}" target="_blank">{{ $beachcourt->operatorURL }}</a>
 					</p>
 				</div>
 				
+			</div>-->
+		</div>
+	</div>
+	
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<hr class="divider">
+		</div>	
+	</div>
+	
+	<div class="row -spacing-widget-default">
+		<div class="column column--12">
+			<h1 class="-typo-headline-1 -font-secondary -text-color-blue-2">Allgemeine Informationen</h1>
+
+			<div class="row row--zero">
+				<div class="column column--zero column--12 column--s-6">
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Koordinaten des Feldes</h5>
+					<p class="-typo-copy--large -font-primary -text-color-blue-2 -spacing-static-a">
+						Breitengrad: {{ $beachcourt->latitude }}<br>
+						Längengrad: {{ $beachcourt -> longitude }}
+					</p>
+
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Adresse des Feldes</h5>
+					<p class="-typo-copy--large -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt->street }} {{ $beachcourt->houseNumber }}<br>
+						{{ $beachcourt->postalCode }} {{ $beachcourt->city }}
+					</p>
+				</div>
+				<div class="column column--zero column--12 column--s-6">
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Anzahl der Felder</h5>
+					<p class="-typo-copy--large -font-primary -text-color-blue-2 -spacing-static-a">
+						
+						Indoor: {{ $beachcourt->courtCountIndoor }}<br>
+						Outdoor: {{ $beachcourt->courtCountOutdoor }}
+					</p>
+
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Kann ich auf diesem Feld kostenlos spielen?</h5>
+					<p class="-typo-copy--large -font-primary -text-color-blue-2 -spacing-static-a">
+						
+						@if ($beachcourt->chargeable == 1 )
+							Nein, dieses Feld ist kostenpflichtig. Die Preise dafür kannst du beim Betreiber in Erfahrung bringen.
+						@else
+							Ja, auf diesem Feld kannst du kostenlos spielen.
+						@endif
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column column--12 -spacing-widget-default">
+			<hr class="divider">
+		</div>
+		
+		<div class="column column--12 -spacing-widget-default">
+			<h1 class="-typo-headline-1 -font-secondary -text-color-blue-2">Betreiber-Informationen</h1>
+			<div class="row row--zero">
+				<div class="column column--zero column--12 column--s-6">
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Betreiber des Feldes</h5>
+					<p class="-typo-copy--large -font-primary -text-color-blue-2 -spacing-static-a">
+						{{ $beachcourt -> operator }}
+					</p>
+				</div>
+				<div class="column column--zero column--12 column--s-6">
+					<h5 class="-typo-headline-5 -font-secondary -text-color-blue-1 -spacing-static-e">Website des Betreibers</h5>
+					<p class="-typo-copy -font-primary -text-color-green">
+						<span class="icon icon--arrow-right-thin"></span> <a href="{{ $beachcourt->operatorURL }}" target="_blank">{{ $beachcourt->operatorURL }}</a>
+					</p>
+				</div>	
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="column column--12 column--s-6 -spacing-a">
-			<div class="notification-box-rating ">
-				<div class="notification-box-rating__summary">
-					<img src="http://beachfelder.de/img/badge-rating-beachcourt-detail-page@2x.png" class="notification-box-rating__image">
-					<h4 class="notification-box-rating__points">{{ $beachcourt->realRating }} von 5</h4>
-				</div>
-				<div class="notification-box-rating__details">
-					<dl>
-						<dt class="notification-box-rating__label"> Sand </dt>
-						<dd class="notification-box-rating__rating"> {{ $beachcourt->SandRating }} von 34 Punkten </dd>
-					</dl>
-					<dl>
-						<dt class="notification-box-rating__label"> Netz </dt>
-						<dd class="notification-box-rating__rating"> {{ $beachcourt->NetRating }} von 28 Punkten </dd>
-					</dl>
-					<dl>
-						<dt class="notification-box-rating__label"> Feld </dt>
-						<dd class="notification-box-rating__rating"> {{ $beachcourt->CourtRating }} von 27 Punkten </dd>
-					</dl>
-					<dl>
-						<dt class="notification-box-rating__label"> Umgebung </dt>
-						<dd class="notification-box-rating__rating"> {{ $beachcourt->EnvironmentRating }} von 11 Punkten </dd>
-					</dl>
-				</div>
-			</div>
-		</div>
-		<div class="column column--12 column--s-6 -spacing-a">
-			@if ($beachcourt->notes !== '')
-				<div class="notification-box   notification-box--info ">
-					<div class="notification-box__icon icon icon--info"></div>
-					<div class="notification-box__message">
-						<h4 class="notification-box__headline">Bemerkungen</h4>
-						<p class="notification-box__subline">{{ $beachcourt->notes }}</p>
-					</div>
-				</div>
-			@endif
-		</div>
-	</div>
-</div>
+</div><!-- .content ENDE -->
 
 
 <div class="row row--zero -spacing-widget-default">
