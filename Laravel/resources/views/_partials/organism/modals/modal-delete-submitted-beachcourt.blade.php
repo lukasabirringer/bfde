@@ -1,13 +1,14 @@
- <div class="modal-common ">
+<div class="modal-common ">
 	<div class="modal-common__dialog">
 		<div class="modal-common__content">
 			<div class="modal-common__close icon icon--close"></div>
 			<div class="modal-common__header">
 				Löschen bestätigen
 			</div>
-			<form action="{{ url('unfavorite/'.$myFavorite->id) }}" class="list-beachcourt__form" method="POST">
+			<form action="{{ URL::route('beachcourtsubmit.destroy', $mySubmittedBeachcourt->id) }}" class="list-beachcourt__form" method="POST">
 				<div class="modal-common__body">
 	                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+	                <input name="_method" type="hidden" value="DELETE">
 
 	                <div class="row -spacing-static-f">
 	               		<div class="column column--12">

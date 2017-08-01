@@ -42,7 +42,9 @@ Route::group(['namespace' => 'Frontend'], function () {
 		Route::get("/modal_submitBeachcourt", function() {return View::make('_partials.organism.modals.modal-submit-beachcourt');});
 		Route::get("/modal_editUserProfile", function() {$id = Auth::id(); $profile = App\User::findOrFail($id); return View::make('_partials.organism.modals.modal-edit-user-profile', compact('profile'));});
 
-		Route::get("/modal_removeFavoriteBeachcourt", function() {$id = Auth::id(); $profile = App\User::findOrFail($id); return View::make('_partials.organism.modals.modal-delete-favorite-beachcourt', compact('profile'));});
+		Route::get("/modal_deleteFavoriteBeachcourt", function() {return View::make('_partials.organism.modals.modal-delete-favorite-beachcourt');});
+
+		Route::get("/modal_deleteSubmittedBeachcourt", function() {return View::make('_partials.organism.modals.modal-delete-submitted-beachcourt');});
 
 });
 

@@ -29,7 +29,7 @@
                 @endif
             @endforeach
             
-			@yield('content')    
+			@yield('content')
 		</div>
         
         @include('cookieConsent::index')    
@@ -120,14 +120,35 @@
 
 
         /**
-            * Modal Remove favorite Beachcourt
+            * Modal Remove Favorite Beachcourt
         */
 
-        function load_modal_removeFavoriteBeachcourt()
+        function load_modal_deleteFavoriteBeachcourt()
         {
             $('body').addClass('no-scroll');
             $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
-            $('.modal-common').load('/modal_removeFavoriteBeachcourt');
+            $('.modal-common').load('/modal_deleteFavoriteBeachcourt');
+        }
+
+        $(document).keyup(function(e) {
+          if (e.keyCode === 27) {
+
+            $('.overlay').remove();
+            $('body').removeClass('no-scroll');
+            $('.modal-common').remove();
+
+          }
+        });
+
+        /**
+            * Modal Delete Submitted Beachcourt
+        */
+
+        function load_modal_deleteSubmittedBeachcourt()
+        {
+            $('body').addClass('no-scroll');
+            $('body').append('<div class="overlay"><div class="preloader__spinner-container"><div class="preloader__spinner"></div></div></div>').append('<div class="modal-common"></div>');
+            $('.modal-common').load('/modal_deleteSubmittedBeachcourt');
         }
 
         $(document).keyup(function(e) {

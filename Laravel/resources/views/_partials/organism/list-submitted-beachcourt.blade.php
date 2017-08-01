@@ -4,9 +4,9 @@
             <li class="list-beachcourt__item">
                 <div class="list-beachcourt__image">
                     @if(!empty($mySubmittedBeachcourt->picturePath ) > 0)
-                    <img src="/uploads/beachcourts/submitted/{{ $mySubmittedBeachcourt->id }}/hero/{{ $mySubmittedBeachcourt->picturePath }}" class="image">
+                        <img src="/uploads/beachcourts/submitted/{{ $mySubmittedBeachcourt->id }}/hero/{{ $mySubmittedBeachcourt->picturePath }}" class="image">
                     @else
-                    <img src="/uploads/beachcourts/standard/list-view-image/beachcourt-list-blind-image.jpg" class="image">
+                        <img src="/uploads/beachcourts/standard/list-view-image/beachcourt-list-blind-image.jpg" class="image">
                     @endif
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
@@ -18,12 +18,8 @@
                     <p class="list-beachcourt__coordinates">{{ $mySubmittedBeachcourt->submitState }}</p>
                 </div>
                 <div class="list-beachcourt__action">
-                    <form action="{{ URL::route('beachcourtsubmit.destroy', $mySubmittedBeachcourt->id) }}" class="list-beachcourt__form" method="POST">
-                            
-                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                        <input name="_method" type="hidden" value="DELETE">
-
-                        <button type="submit" class="button-icon list-beachcourt__button">
+                    <form action="#" class="list-beachcourt__form" method="POST">
+                        <button type="button" onclick="load_modal_deleteSubmittedBeachcourt(); return false;" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>
                     </form>
