@@ -57,7 +57,7 @@
                 </div>
                 <div class="list-beachcourt__action">
 
-                    <form action="#" class="list-beachcourt__form" method="POST">
+                    <div class="list-beachcourt__form">
                         <button type="button" onclick="load_modal_removeFavoriteBeachcourt(); return false;" class="button-icon list-beachcourt__button">
                             <span class="button-icon__icon icon icon--delete"></span>
                         </button>
