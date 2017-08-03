@@ -63,7 +63,7 @@
                                         </form>
                                     </li>
 
-                                    <li><a href="{{ url('profile/'.Auth::user()->id) }}">Profil</a></li>
+                                    <li><a href="{{ URL::route('profile.show', Auth::user()->name) }}">Profil</a></li>
                                     
                                     @if (Auth::user()->isAdmin())
                                        <li><a href="{{ url('admin/dashboard') }}">Backend</a></li>
@@ -79,11 +79,9 @@
 
         <div class="container">
             <ul class="nav nav-pills">
-                <li><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ url('admin/pages') }}">Seiten</a></li>
-                <li><a href="{{ url('admin/beachcourts') }}">Beachcourts</a></li>
-                <li><a href="{{ url('admin/users') }}">User</a></li>
-                <li><a href="{{ url('admin/footernavigations') }}">Footer-Navigation</a></li>
+                <li><a href="{{ URL::route('adminDashboard.show') }}">Dashboard</a></li>
+                <li><a href="{{ URL::route('adminBeachcourt.index') }}">Beachcourts</a></li>
+                <li><a href="{{ URL::route('adminUser.index') }}">User</a></li>
             </ul> 
         </div>
         @yield('content')

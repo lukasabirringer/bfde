@@ -7,7 +7,7 @@
 				<div class="col-xs-12"> 
 
 	
-<form class="form-horizontal" action="{{ url('admin/users/'.$user->id) }}" method="POST">
+<form class="form-horizontal" action="{{ URL::route('adminUser.update', $user->id) }}" method="POST">
 <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">

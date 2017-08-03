@@ -50,16 +50,30 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdmin'], function () {
 
-		Route::get('admin/', function () {
-				return view('admin.dashboard');
-		});
+		//Dashboard
 		Route::get('/admin/dashboard', 'DashboardController@show')->name('adminDashboard.show');
+		//User
+		Route::get('/admin/user/hinzufuegen', 'UserController@create')->name('adminUser.create');
+		Route::get('/admin/user/{name}', 'UserController@show')->name('adminUser.show');
+		Route::get('/admin/user', 'UserController@index')->name('adminUser.index');
+		Route::put('/admin/user/{name}', 'UserController@update')->name('adminUser.update');
+		Route::delete('/admin/user/{name}', 'UserController@destroy')->name('adminUser.destroy');
+		Route::post('/admin/user/erstellen', 'UserController@store')->name('adminUser.store');
+		Route::get('/admin/user/{name}/bearbeiten', 'UserController@edit')->name('adminUser.edit');
+		//Beachfelder
+		Route::get('/admin/beachvolleyballfeld/hinzufuegen', 'BeachcourtController@create')->name('adminBeachcourt.create');
+		Route::get('/admin/beachvolleyballfeld/{id}', 'BeachcourtController@show')->name('adminBeachcourt.show');
+		Route::get('/admin/beachvolleyballfeld', 'BeachcourtController@index')->name('adminBeachcourt.index');
+		Route::patch('/admin/beachvolleyballfeld/{id}', 'BeachcourtController@update')->name('adminBeachcourt.update');
+		Route::delete('/admin/beachvolleyballfeld/{id}', 'BeachcourtController@destroy')->name('adminBeachcourt.destroy');
+		Route::post('/admin/beachvolleyballfeld/erstellen', 'BeachcourtController@store')->name('adminBeachcourt.store');
+		Route::get('/admin/beachvolleyballfeld/{id}/bearbeiten', 'BeachcourtController@edit')->name('adminBeachcourt.edit');
 		
-		Route::resource('/admin/users', 'UserController');
-		//Route::resource('/admin/beachcourts', 'BeachcourtController');
-		Route::resource('/admin/pages', 'PageController', ['parameters' => [
-		    'admin/pages' => 'slug'
-		]]);
-		Route::resource('/admin/footernavigations', 'FooternavigationController');
+		// Route::resource('/admin/users', 'UserController');
+		// Route::resource('/admin/beachcourts', 'BeachcourtController');
+		// Route::resource('/admin/pages', 'PageController', ['parameters' => [
+		//     'admin/pages' => 'slug'
+		// ]]);
+		// Route::resource('/admin/footernavigations', 'FooternavigationController');
 });
 
