@@ -14,8 +14,8 @@
                         :favorited={{ $beachcourt->favorited() ? 'true' : 'false' }}
                     ></favorite>
                 @endif
-                <h3 class="beachcourt-summary__title"><a href="{{ URL::route('beachcourts.show', array('city'=>$beachcourt->citySlug,'latitude'=>$beachcourt->latitude,'longitude'=>$beachcourt->longitude,)) }}">Beachvolleyballfeld in </a></h3>
-                <p class="-typo-copy--large -text-color-white -font-primary"> {{ $beachcourt->city }} </p>
+                <h3 class="beachcourt-summary__title"><a href="{{ URL::route('beachcourts.show', array('city'=>$beachcourt->citySlug,'latitude'=>$beachcourt->latitude,'longitude'=>$beachcourt->longitude,)) }}">Beachvolleyballfeld </a></h3>
+                <p class="-typo-copy--large -text-color-white -font-primary -align-center">{{ $beachcourt->postalCode }} {{ $beachcourt->city }} <br>{{ $beachcourt->street }}  {{ $beachcourt->houseNumber }} </p>
                 <span class="beachcourt-summary__distance">
                     <span class="icon icon--distance beachcourt-summary__icon-distance"></span>
                     <?php 
