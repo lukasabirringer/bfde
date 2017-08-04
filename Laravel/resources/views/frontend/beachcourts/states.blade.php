@@ -12,7 +12,7 @@
     <div class="row -spacing-widget-default">
         <div class="column column--12">
             <div class="header-page">
-                <h1 class="header-page__title -text-color-blue-2">@lang('Übersicht aller Beachvolleyballfelder in ' .$stateSlug )</h1>
+                <h1 class="header-page__title -text-color-blue-2">@lang('Beachvolleyballfelder in ' .$stateSlug )</h1>
             </div>
         </div>
     </div>

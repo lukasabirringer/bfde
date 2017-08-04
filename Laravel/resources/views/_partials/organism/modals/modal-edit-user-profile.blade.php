@@ -6,8 +6,8 @@
 		{{ csrf_field() }}
 
 		<div class="modal-common__body">
-			<p class="-typo-copy--large -text-color-blue-2 -font-primary">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, labore? Ratione, vero quos numquam est facilis eveniet ad eaque dolorem aliquid doloremque ex impedit fugit saepe, ipsa, iste minus, fuga.</p>
+			<!-- <p class="-typo-copy--large -text-color-blue-2 -font-primary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, labore? Ratione, vero quos numquam est facilis eveniet ad eaque dolorem aliquid doloremque ex impedit fugit saepe, ipsa, iste minus, fuga.</p> -->
 				
 			<div class="row -spacing-static-c">
 				<div class="column column--12">
@@ -65,6 +65,24 @@
 					</label>
 				</div>
 			</div>
+			<!-- <div class="row -spacing-static-d">
+				<div class="column column--12 column--s-6">
+					<label class="checkbox">
+					  <input class="checkbox__field publicFavorites" type="checkbox" name="publicFavorites" value="{{ $profile->publicFavorites }}">
+
+					  <span class="checkbox__icon icon icon--check"></span>
+					    <span class="checkbox__label tooltip" title="Möchtest du deine Favoriten für andere User öffentlich machen?">@lang('Favoriten öffentlich')</span>
+					</label>
+				</div>
+				<div class="column column--12 column--s-6">
+					<label class="checkbox">
+					  <input class="checkbox__field publicSubmittedCourts" type="checkbox" name="publicSubmittedCourts" value="{{ $profile->publicSubmittedCourts }}">
+
+					  <span class="checkbox__icon icon icon--check"></span>
+					    <span class="checkbox__label tooltip" title="Möchtest du deine eingereichten Felder für andere User öffentlich machen?">@lang('Eingereichte Felder öffentlich')</span>
+					</label>
+				</div>
+			</div> -->
 		</div>
 		<div class="modal-common__footer">
 			@include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'save', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])
@@ -81,5 +99,23 @@
 	        $(this).parents('.modal-common').remove();
 	    });
 
+	    /**
+	    * Tooltips
+	    */
+	    $('.tooltip').tooltipster({
+	        theme: 'tooltipster-shadow',
+	        delay: '0',
+	        multiple: true
+	    });
+
+	    $('.publicSubmittedCourts').on('change', function(){
+	       this.value = this.checked ? 1 : 0;
+	       console.log(this.value);
+	    }).change();
+
+	    $('.publicFavorites').on('change', function(){
+	       this.value = this.checked ? 1 : 0;
+	       console.log(this.value);
+	    }).change();
 	});
 </script>
