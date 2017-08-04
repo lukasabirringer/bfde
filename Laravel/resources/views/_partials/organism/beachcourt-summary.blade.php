@@ -25,12 +25,22 @@
                     {{ $distance }} km entfernt
                 </span>
             
-                @if ($beachcourt->latitude !== '')
+                <!-- @if ($beachcourt->latitude !== '')
                     <div class="beachcourt-summary__location">
                         <span class="beachcourt-summary__icon-location icon icon--map-marker"></span>
                         <span class="beachcourt-summary__coordinate">{{ $beachcourt->latitude }} <br> {{ $beachcourt->longitude }} </span>
                     </div>
-                @endif
+                @endif -->
+
+                <div class="beachcourt-summary__location">
+                    <span class="beachcourt-summary__coordinate">
+                    @if ($beachcourt->courtCountOutdoor > 0) 
+                    Felder outdoor: {{ $beachcourt->courtCountOutdoor }}
+                    @endif 
+                    @if ($beachcourt->courtCountIndoor > 0) 
+                        <br>Felder Indoor: {{ $beachcourt->courtCountIndoor }} </span>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
