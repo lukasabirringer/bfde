@@ -43,10 +43,17 @@ class UserController extends Controller
             ['name' => $request->userName,
              'email' => $request->userEmail,
              'role' => $request->userRole, 
-             'password' => bcrypt($request->userPass),]
+             'postalCode' => $request->postalCode, 
+             'city' => $request->city, 
+             'firstName' => $request->firstName, 
+             'lastName' => $request->lastName, 
+             'birthdate' => $request->birthdate, 
+             'sex' => $request->sex, 
+             'password' => bcrypt($request->userPass),
+             ]
         );
     
-        return redirect('/admin/users');
+        return redirect('/admin/user');
     }
 
     /**
@@ -85,14 +92,26 @@ class UserController extends Controller
         $name = $request->input('userName');
         $email = $request->input('userEmail');
         $role = $request->input('userRole');
+        $postalCode = $request->input('postalCode');
+        $city = $request->input('city');
+        $firstName = $request->input('firstName');
+        $lastName = $request->input('lastName');
+        $birthdate = $request->input('birthdate');
+        $sex = $request->input('sex');
 
         $user = User::find($id);
         $user->name = $name;
         $user->email = $email;
         $user->role = $role;
+        $user->postalCode = $postalCode;
+        $user->city = $city;
+        $user->firstName = $firstName;
+        $user->lastName = $lastName;
+        $user->birthdate = $birthdate;
+        $user->sex = $sex;
         $user->save();
 
-        return redirect('/admin/users');
+        return redirect('/admin/user');
     }
 
     /**
@@ -105,6 +124,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect('/admin/users');
+        return redirect('/admin/user');
     }
 }

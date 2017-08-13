@@ -5,12 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Favorite;
 use Auth;
-use Laravel\Scout\Searchable;
 
 class Beachcourt extends Model
 {
 
-    use Searchable;
 
     public function toSearchableArray()
     {
