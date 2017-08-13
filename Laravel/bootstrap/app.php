@@ -10,7 +10,8 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
-
+	
+setlocale(LC_TIME, 'de_DE');
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );

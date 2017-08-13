@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Berlin',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,6 +233,7 @@ return [
         'Html' => 'Collective\Html\HtmlFacade',
         'Image' => 'Intervention\Image\Facades\Image',
         'ZipCode' => 'PragmaRX\ZipCode\Vendor\Laravel\Facade',
+        'Carbon' => 'Carbon/Carbon',
 
     ],
 

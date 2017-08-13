@@ -49,7 +49,7 @@
                 </div>
                 <div class="list-beachcourt__title-container column--12 column--s-4">
                     <h5 class="list-beachcourt__title">Feld in {{ $myFavorite->zipCode }} {{ $myFavorite->city }}</h5>
-                    <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $myFavorite->created_at }} </p>
+                    <p class="list-beachcourt__date"> @lang('hinzugefügt am'):<br> {{ $myFavorite->created_at->formatLocalized('%d. %m. %Y') }} </p>
                 </div>
                 <div class="list-beachcourt__coordinates-container column--12 column--s-3">
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
