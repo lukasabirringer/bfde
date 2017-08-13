@@ -55,6 +55,7 @@
                     <h5 class="list-beachcourt__title">@lang('Koordinaten')</h5>
                     <p class="list-beachcourt__coordinates">{{ $myFavorite->latitude }} <br> {{ $myFavorite->longitude }}</p>
                 </div>
+                @if($eigenesprofil === 'true' )
                 <div class="list-beachcourt__action">
 
                     <div class="list-beachcourt__form">
@@ -63,6 +64,8 @@
                         </button>
                     </form>
                 </div>
+                @else
+                @endif
             </li>
         </a>
     @empty

@@ -44,18 +44,37 @@ class ProfileController extends Controller
     public function show($name, Request $request)
     {
             $authenticated_id = Auth::id();
-           
-            $min = $request->min;
-            $max = $request->max;
+            //profil/user zur url
+          
             
-            if ($min === null) {
-                $min = 0;
+            $profile = User::where('name', $name)->first(); 
+            if (!$profile) {
+              return back();
             }
-            if ($max === null) {
-                $max = 5;
+
+            // id dazu
+            $id = $profile->id;
+            if ($id === $authenticated_id) {
+                $eigenesprofil = 'true';
+            } else {
+                $eigenesprofil = 'false';
             }
+            //dd($eigenesprofil);
+
+          
+                //dd($name);
+                $min = $request->min;
+                $max = $request->max;
                 
-                $profile = User::findOrFail($authenticated_id);
+                if ($min === null) {
+                    $min = 0;
+                }
+                if ($max === null) {
+                    $max = 5;
+                }
+                    
+                //$profile = User::findOrFail($authenticated_id);
+                
                 $filename = $profile->pictureName;
                 $directory = ('profilePictures/' . auth()->id() . '/');
                 $profilepicture = auth()->id() . '/' . $filename;
@@ -65,12 +84,14 @@ class ProfileController extends Controller
                 $subs = Submittedbeachcourt::limit(5)->where('user_id', auth()->id())->get();
                 $footernavigations = Footernavigation::limit(5)->get();
                 return view('frontend.profile.show', compact('subs',
+                                                             'eigenesprofil',
                                                              'max',
                                                              'min',
                                                              'profile',
                                                              'myFavorites',
                                                              'profilepicture',
                                                              'footernavigations')); 
+                     
     }
     public function storeimage(Request $request){
 

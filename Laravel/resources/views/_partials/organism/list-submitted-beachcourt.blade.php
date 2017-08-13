@@ -17,6 +17,7 @@
                     <h5 class="list-beachcourt__title">@lang('Status')</h5>
                     <p class="list-beachcourt__coordinates">{{ $mySubmittedBeachcourt->submitState }}</p>
                 </div>
+                @if($eigenesprofil === 'true' )
                 <div class="list-beachcourt__action">
                     <div class="list-beachcourt__form">
                         <button type="button" onclick="load_modal_deleteSubmittedBeachcourt(); return false;" class="button-icon list-beachcourt__button">
@@ -24,6 +25,8 @@
                         </button>
                     </div>
                 </div>
+                @else
+                @endif
             </li>
         </a>
     @empty
