@@ -54,12 +54,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 		Route::get('/admin/dashboard', 'DashboardController@show')->name('adminDashboard.show');
 		//User
 		Route::get('/admin/user/hinzufuegen', 'UserController@create')->name('adminUser.create');
-		Route::get('/admin/user/{name}', 'UserController@show')->name('adminUser.show');
+		Route::get('/admin/user/{id}', 'UserController@show')->name('adminUser.show');
 		Route::get('/admin/user', 'UserController@index')->name('adminUser.index');
-		Route::put('/admin/user/{name}', 'UserController@update')->name('adminUser.update');
-		Route::delete('/admin/user/{name}', 'UserController@destroy')->name('adminUser.destroy');
+		Route::patch('/admin/user/{id}', 'UserController@update')->name('adminUser.update');
+		Route::delete('/admin/user/{id}', 'UserController@destroy')->name('adminUser.destroy');
 		Route::post('/admin/user/erstellen', 'UserController@store')->name('adminUser.store');
-		Route::get('/admin/user/{name}/bearbeiten', 'UserController@edit')->name('adminUser.edit');
+		Route::get('/admin/user/{id}/bearbeiten', 'UserController@edit')->name('adminUser.edit');
 		//Beachfelder
 		Route::get('/admin/beachvolleyballfeld/hinzufuegen', 'BeachcourtController@create')->name('adminBeachcourt.create');
 		Route::get('/admin/beachvolleyballfeld/{id}', 'BeachcourtController@show')->name('adminBeachcourt.show');
@@ -68,7 +68,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'App\Http\Middleware\IsAdm
 		Route::delete('/admin/beachvolleyballfeld/{id}', 'BeachcourtController@destroy')->name('adminBeachcourt.destroy');
 		Route::post('/admin/beachvolleyballfeld/erstellen', 'BeachcourtController@store')->name('adminBeachcourt.store');
 		Route::get('/admin/beachvolleyballfeld/{id}/bearbeiten', 'BeachcourtController@edit')->name('adminBeachcourt.edit');
-		
+		//eingereichte Beachfelder
+		Route::get('/admin/eingereichte-beachvolleyballfelder', 'SubmittedbeachcourtController@index')->name('adminBeachcourtSubmit.index');
+		Route::get('/admin/eingereichte-beachvolleyballfelder/{id}', 'SubmittedbeachcourtController@show')->name('adminBeachcourtSubmit.show');
+		Route::patch('/admin/eingereichte-beachvolleyballfelder/{id}', 'SubmittedbeachcourtController@update')->name('adminBeachcourtSubmit.update');
+		Route::get('/admin/eingereichte-beachvolleyballfelder/{id}/bearbeiten', 'SubmittedbeachcourtController@edit')->name('adminBeachcourtSubmit.edit');
+		Route::delete('/admin/eingereichte-beachvolleyballfelder/{id}', 'SubmittedbeachcourtController@destroy')->name('adminBeachcourtSubmit.destroy');
+
 		// Route::resource('/admin/users', 'UserController');
 		// Route::resource('/admin/beachcourts', 'BeachcourtController');
 		// Route::resource('/admin/pages', 'PageController', ['parameters' => [

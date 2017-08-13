@@ -7,7 +7,7 @@
 				<div class="col-xs-12"> 
 
 
-<form class="form-horizontal" action="{{ URL::route('adminBeachcourt.update', $beachcourt->id) }}" method="POST">
+<form class="form-horizontal" action="{{ URL::route('adminBeachcourtSubmit.update', $beachcourt->id) }}" method="POST">
 <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			  <div class="form-group">

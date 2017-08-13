@@ -6,11 +6,9 @@
     "type": "project",
     "require": {
         "php": "^7.1",
-        "algolia/algoliasearch-client-php": "^1.18",
         "daltcore/laravel-deploy-helper": "^1.1",
         "faustbrian/laravel-cookie-consent": "^3.0",
         "laravel/framework": "5.4.*",
-        "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "~5.0",
         "lrgt/laravel-form-ajax-validation": "^5.1",

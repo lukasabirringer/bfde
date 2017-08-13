@@ -16,13 +16,49 @@
 			      <input type="text" class="form-control" name="userName" value="{{ $user->name }}">
 			    </div>
 			  </div>
-
 			  <div class="form-group">
 			    <label for="userEmail" class="col-sm-2 control-label">E-Mail-Adresse</label>
 			    <div class="col-sm-10">
 			      <input type="text" class="form-control" name="userEmail" value="{{ $user->email }}">
 			    </div>
 			  </div>
+			  <div class="form-group">
+			    <label for="firstName" class="col-sm-2 control-label">Vorname</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="firstName" value="{{ $user->firstName }}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastName" class="col-sm-2 control-label">Nachname</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="lastName" value="{{ $user->lastName }}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="postalCode" class="col-sm-2 control-label">PLZ</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="postalCode" value="{{ $user->postalCode }}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="city" class="col-sm-2 control-label">Stadt</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="city" value="{{ $user->city }}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="birthdate" class="col-sm-2 control-label">Geburtstag</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="birthdate" value="{{ $user->birthdate }}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="sex" class="col-sm-2 control-label">Geschlecht</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="sex" value="{{ $user->sex }}">
+			    </div>
+			  </div>
+
 
 			  <div class="form-group">
 			    <label for="userRole" class="col-sm-2 control-label">Rolle</label>

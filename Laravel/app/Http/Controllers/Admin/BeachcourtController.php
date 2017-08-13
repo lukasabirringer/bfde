@@ -38,16 +38,31 @@ class BeachcourtController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $date = Carbon::now()->toDateTimeString();
      
-        DB::table('beachcourts')->insert(
-            ['courtName' => $request->courtName,
+        $sandQuality = $request->sandQuality;
+
+        DB::table('beachcourts')->insert([
+             'postalCode' => $request->postalCode,
              'city' => $request->city,
-             'created_at' => $date]
-        );
+             'citySlug' => $request->city,
+             'street' => $request->street,
+             'houseNumber' => $request->houseNumber,
+             'country' => $request->country,
+             'state' => $request->state,
+             'stateSlug' => $request->state,
+             'latitude' => $request->latitude,
+             'longitude' => $request->longitude,
+             'operator' => $request->operator,
+             'operatorURL' => $request->operatorURL,
+             'chargeable' => $request->chargeable,
+             'courtCountOutdoor' => $request->courtCountOutdoor,
+             'courtCountIndoor' => $request->courtCountIndoor,
+             'public' => $request->public
+        ]);
    
-        return redirect('/admin/beachcourts/');
+        redirect('/admin/beachvolleyballfeld/');
     }
 
     /**
@@ -83,13 +98,43 @@ class BeachcourtController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->input('courtName');
+        $postalCode = $request->input('postalCode');
+        $city = $request->input('city');
+        $citySlug = $request->input('city');
+        $street = $request->input('street');
+        $houseNumber = $request->input('houseNumber');
+        $country = $request->input('country');
+        $state = $request->input('state');
+        $stateSlug = $request->input('stateSlug');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $operator = $request->input('operator');
+        $operatorURL = $request->input('operatorURL');
+        $chargeable = $request->input('chargeable');
+        $courtCountOutdoor = $request->input('courtCountOutdoor');
+        $courtCountIndoor = $request->input('longicourtCountIndoorude');
+        $public = $request->input('public');
 
         $beachcourt = Beachcourt::find($id);
-        $beachcourt->courtName = $name;
+        $beachcourt->postalCode = $postalCode;
+        $beachcourt->city = $city;
+        $beachcourt->citySlug = $citySlug;
+        $beachcourt->street = $street;
+        $beachcourt->houseNumber = $houseNumber;
+        $beachcourt->country = $country;
+        $beachcourt->state = $state;
+        $beachcourt->stateSlug = $stateSlug;
+        $beachcourt->latitude = $latitude;
+        $beachcourt->longitude = $longitude;
+        $beachcourt->operator = $operator;
+        $beachcourt->operatorURL = $operatorURL;
+        $beachcourt->chargeable = $chargeable;
+        $beachcourt->courtCountOutdoor = $courtCountOutdoor;
+        $beachcourt->courtCountIndoor = $courtCountIndoor;
+        $beachcourt->public = $public;
         $beachcourt->save();
 
-        return redirect('/admin/beachcourts');
+        return redirect('/admin/beachvolleyballfeld');
     }
 
     /**
@@ -102,6 +147,6 @@ class BeachcourtController extends Controller
     {
         $beachcourt = Beachcourt::findOrFail($id);
         $beachcourt->delete();
-        return redirect('/admin/beachcourts');
+        return redirect('/admin/beachvolleyballfeld');
     }
 }

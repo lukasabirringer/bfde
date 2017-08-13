@@ -82,6 +82,7 @@
                 <li><a href="{{ URL::route('adminDashboard.show') }}">Dashboard</a></li>
                 <li><a href="{{ URL::route('adminBeachcourt.index') }}">Beachcourts</a></li>
                 <li><a href="{{ URL::route('adminUser.index') }}">User</a></li>
+                <li><a href="{{ URL::route('adminBeachcourtSubmit.index') }}">eingereichte Beachcourts</a></li>
             </ul> 
         </div>
         @yield('content')
