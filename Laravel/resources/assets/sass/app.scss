@@ -95,3 +95,26 @@
 		}
 	}
 }
+
+.profile-user {
+
+	&__image-container {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		border: .3125rem #FFF solid;
+		width: 12.5rem;
+		height: 12.5rem;
+	}
+
+	&__image {
+		width: auto;
+		height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

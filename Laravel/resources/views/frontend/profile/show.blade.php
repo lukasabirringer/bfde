@@ -9,23 +9,64 @@
         <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">
         	<div class="hero-image-beachcourt-detail__overlay">
         		@if($eigenesprofil === 'true' )
-        		<h1 class="hero-image-beachcourt-detail__title">@lang('Willkommen'), {{ $profile->name }}</h1>
+        			<h1 class="hero-image-beachcourt-detail__title">@lang('Willkommen'), {{ $profile->name }}</h1>
         		@else
+        			<h1 class="hero-image-beachcourt-detail__title">@lang('Profil') @lang('von') {{ $profile->name }}</h1>
         		@endif
         	</div>
         </div>
     </div>
 </div>
-	
+
+<div class="profile-user__image-container">
+	@if($profile->pictureName !== 'placeholder-user.png' )
+		<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
+		@if($eigenesprofil === 'true' )
+			<div class="multifunctional-menu icon icon--edit profile-user__multifunctional-menu"></div>
+			
+			<div class="context-menu profile-user-image__context-menu">
+			    <form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+			    	{{ csrf_field() }}
+
+				    <label class="input-fileupload">
+				    	<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
+				    	<span class="input-fileupload__icon icon icon--camera"></span>
+				    	<span class="input-fileupload__label">@lang('Neues Profilbild hochladen')</span>
+				    </label>
+
+				    @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'context-menu__button profile-user-image__button' ])
+			    </form>
+
+			    @include('_partials.molecules.button', ['buttonType' => 'button', 'buttonIcon' =>'delete', 'buttonLabel' => 'Profilbild löschen', 'buttonLinkTarget' => 'profile/deleteimage', 'buttonCustomClass' => 'context-menu__button', 'buttonBackgroundcolor' => 'red', 'buttonJavaScript' => ''])
+			</div>
+		@endif
+	@else
+		<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
+		@if($eigenesprofil === 'true' )
+			<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data" style="position: absolute; top: 0;">
+				{{ csrf_field() }}
+
+				<label class="input-fileupload -spacing-static-d">
+					<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
+					<span class="input-fileupload__icon icon icon--camera"></span>
+					<span class="input-fileupload__label">@lang('Profilbild hochladen')</span>
+				</label>
+
+				@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'profile-user-image__button' ])
+			</form>
+		@endif
+	@endif
+</div>
+
 <div class="content">
 	<div class="row -spacing-widget-default">
 		<div class="column column--12">
 			<div class="header-page">
 				@if($eigenesprofil === 'true' )
-				<h1 class="header-page__title -text-color-blue-2">@lang('mein profil')</h1>
+					<h1 class="header-page__title -text-color-blue-2">@lang('mein profil')</h1>
 				@else
-				<h1 class="header-page__title -text-color-blue-2">@lang('profil von') {{ $profile->name }}</h1>
-    		@endif
+					<h1 class="header-page__title -text-color-blue-2">@lang('Profil') @lang('von') {{ $profile->name }}</h1>
+    			@endif
 			</div>
 		</div>
 	</div>
@@ -34,53 +75,7 @@
 <div class="profile-user -spacing-f">
 	<div class="content">
 		<div class="row">
-			<div class="column column--12 column--m-4">
-				<div class="profile-user__image-container">
-					@if($profile->pictureName !== 'placeholder-user.png' )
-						<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
-						@if($eigenesprofil === 'true' )
-						<div class="multifunctional-menu icon icon--edit profile-user__multifunctional-menu"></div>
-						
-						<div class="context-menu profile-user-image__context-menu">
-						    <form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
-						    	{{ csrf_field() }}
-
-							    <label class="input-fileupload">
-							    	<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
-							    	<span class="input-fileupload__icon icon icon--camera"></span>
-							    	<span class="input-fileupload__label">@lang('Neues Profilbild hochladen')</span>
-							    </label>
-
-							    @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'context-menu__button profile-user-image__button' ])
-						    </form>
-
-						    @include('_partials.molecules.button', ['buttonType' => 'button', 'buttonIcon' =>'delete', 'buttonLabel' => 'Profilbild löschen', 'buttonLinkTarget' => 'profile/deleteimage', 'buttonCustomClass' => 'context-menu__button', 'buttonBackgroundcolor' => 'red', 'buttonJavaScript' => ''])
-						</div>
-							@else
-        		@endif
-					@else
-
-						<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
-						@if($eigenesprofil === 'true' )
-						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data" style="position: absolute; top: 0;">
-							{{ csrf_field() }}
-
-							<label class="input-fileupload -spacing-static-d">
-								<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
-								<span class="input-fileupload__icon icon icon--camera"></span>
-								<span class="input-fileupload__label">@lang('Profilbild hochladen')</span>
-							</label>
-
-							@include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'profile-user-image__button' ])
-						</form>
-						@else
-        		@endif
-					@endif
-				</div>
-			</div>
-
-			<div class="column column--12 column--m-8">
-				<h4 class="profile-user__title"> @lang('Allgemeine Informationen') </h4>
+			<div class="column column--12">
 				<dl class="profile-user__details">
 				@if($eigenesprofil === 'true' )
 					<dt class="profile-user__label">@lang('Username')</dt>

@@ -120,7 +120,7 @@
 
 
         /**
-            * Modal Remove Favorite Beachcourt
+            * Modal Delete Favorite Beachcourt
         */
 
         function load_modal_deleteFavoriteBeachcourt()
