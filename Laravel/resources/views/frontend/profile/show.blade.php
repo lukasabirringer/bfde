@@ -6,12 +6,15 @@
 
 <div class="row row--zero">
     <div class="column column--12 column--zero">
-        <div class="hero-image-beachcourt-detail " style="background-image: url(http://beachfelder.de/img/header-image.jpg)">
+        <div class="hero-image-beachcourt-detail " style="background-image: url('/uploads/profilePictures/{{ $profilepicture }}')">
         	<div class="hero-image-beachcourt-detail__overlay">
         		@if($eigenesprofil === 'true' )
+
         			<h1 class="hero-image-beachcourt-detail__title">@lang('Willkommen'), {{ $profile->name }}</h1>
+        			<h1 class="hero-image-beachcourt-detail__subtitle"><span class="icon icon--map-marker"></span> {{ $profile->city }}</h1>
         		@else
-        			<h1 class="hero-image-beachcourt-detail__title">@lang('Profil') @lang('von') {{ $profile->name }}</h1>
+        			<h1 class="hero-image-beachcourt-detail__title">{{ $profile->name }}</h1>
+        			<h1 class="hero-image-beachcourt-detail__subtitle"><span class="icon icon--map-marker"></span> {{ $profile->city }}</h1>
         		@endif
         	</div>
         </div>
