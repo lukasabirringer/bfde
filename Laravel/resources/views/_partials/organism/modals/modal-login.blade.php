@@ -5,7 +5,7 @@
 		<div class="modal-image__image">
 			<img src="http:&#x2F;&#x2F;beachfelder.de&#x2F;img&#x2F;header-image.jpg" class="image" />
 			<div class="modal-image__overlay">
-				<div class="header-page ">
+				<!-- <div class="header-page ">
 					<h1 class="header-page__title  -text-color-white ">
 						Deine Vorteile
 					</h1>
@@ -24,7 +24,7 @@
 						<span class="list-common__icon icon icon--caret-right"></span>
 						Einreichen von neuen Beachvolleyballfeldern
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 		</div>
 		<div class="modal-image__inner">

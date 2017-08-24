@@ -64,6 +64,7 @@
 			<div class="header-page">
 				@if($eigenesprofil === 'true' )
 					<h1 class="header-page__title -text-color-blue-2">@lang('mein profil')</h1>
+					<div class="multifunctional-menu icon icon--edit button--edit" onclick="load_modal_editUserProfile()"></div>
 				@else
 					<h1 class="header-page__title -text-color-blue-2">@lang('Profil') @lang('von') {{ $profile->name }}</h1>
     			@endif
@@ -81,17 +82,14 @@
 					<dt class="profile-user__label">@lang('Username')</dt>
 					<dd class="profile-user__info">
 						{{ $profile -> name }}
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Vorname')</dt>
 					<dd class="profile-user__info">
 						{{ $profile -> firstName }}
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Nachname')</dt>
 					<dd class="profile-user__info">
 						{{ $profile -> lastName }}
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
 					<dd class="profile-user__info">
@@ -100,7 +98,6 @@
 						@else
 							{{ $profile -> birthdate }}
 						@endif
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('PLZ')</dt>
 					<dd class="profile-user__info">
@@ -109,7 +106,6 @@
 						@else
 							{{ $profile -> postalCode }}
 						@endif
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Wohnort')</dt>
 					<dd class="profile-user__info">
@@ -118,19 +114,15 @@
 						@else
 							{{ $profile -> city }}
 						@endif
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('E-Mail Adresse')</dt>
 					<dd class="profile-user__info">
 						{{ $profile -> email }} 
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
 					<dt class="profile-user__label">@lang('Passwort')</dt>
 					<dd class="profile-user__info">
 						*******
-						<a href="#" onclick="load_modal_editUserProfile()" class="icon icon--edit profile-user__icon tooltip" title="Information bearbeiten"></a>
 					</dd>
-
 				@else
 					<dt class="profile-user__label">@lang('Geburtsdatum')</dt>
 					<dd class="profile-user__info">
@@ -156,8 +148,7 @@
 							{{ $profile -> city }}
 						@endif
 					</dd>
-    		@endif
-
+    			@endif
 				</dl>
 			</div>
 		</div>

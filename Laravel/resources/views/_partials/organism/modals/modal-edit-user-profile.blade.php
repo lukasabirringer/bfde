@@ -6,9 +6,6 @@
 		{{ csrf_field() }}
 
 		<div class="modal-common__body">
-			<!-- <p class="-typo-copy--large -text-color-blue-2 -font-primary">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, labore? Ratione, vero quos numquam est facilis eveniet ad eaque dolorem aliquid doloremque ex impedit fugit saepe, ipsa, iste minus, fuga.</p> -->
-				
 			<div class="row -spacing-static-c">
 				<div class="column column--12">
 					<label class="input">
@@ -32,7 +29,7 @@
 				</div>
 				<div class="column column--12 column--s-4">
 					<label class="input">
-						<input name="newGeburtstag" class="input__field" type="date" value="{{ $profile->birthdate }}">	
+						<input name="newGeburtstag" class="input__field" type="text" value="{{ $profile->birthdate }}">	
 						<span class="input__label">@lang('Dein Geburtstag')</span>
 					</label>
 				</div>
@@ -65,7 +62,7 @@
 					</label>
 				</div>
 			</div>
-			<!-- <div class="row -spacing-static-d">
+			<div class="row -spacing-static-d">
 				<div class="column column--12 column--s-6">
 					<label class="checkbox">
 					  <input class="checkbox__field publicFavorites" type="checkbox" name="publicFavorites" value="{{ $profile->publicFavorites }}">
@@ -82,7 +79,7 @@
 					    <span class="checkbox__label tooltip" title="Möchtest du deine eingereichten Felder für andere User öffentlich machen?">@lang('Eingereichte Felder öffentlich')</span>
 					</label>
 				</div>
-			</div> -->
+			</div>
 		</div>
 		<div class="modal-common__footer">
 			@include('_partials.molecules.button', ['buttonJavaScript'=>'', 'buttonType'=>'submit', 'buttonLinkTarget'=>'', 'buttonIcon'=>'save', 'buttonLabel'=>'Änderungen speichern', 'buttonCustomClass'=>' ', 'buttonBackgroundcolor'=>' ' ])

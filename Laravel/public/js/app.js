@@ -852,6 +852,11 @@ $(document).ready(function () {
 		$(this).parents('.context-menu').removeClass('context-menu--open');
 	});
 
+	$('.profile-user__icon').hide();
+	$('.button--edit').on('click', function () {
+		$('.profile-user__icon').toggle();
+	});
+
 	/**
  * Show and hide password
  */

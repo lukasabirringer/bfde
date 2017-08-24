@@ -17,22 +17,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 </head>
 <body>
-    
+	<div class="page" id="page">
+		@include('_partials.organism.topbar')
 
-
-		<div class="page" id="page">
-			@include('_partials.organism.topbar')
-
-            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                @if(Session::has('alert-' . $msg))
-                    @include('_partials.organism.notification-success')
-                @endif
-            @endforeach
-            
-			@yield('content')
-		</div>
+        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+            @if(Session::has('alert-' . $msg))
+                @include('_partials.organism.notification-success')
+            @endif
+        @endforeach
         
-        @include('cookieConsent::index')    
+		@yield('content')
+	</div>
+    
+    @include('cookieConsent::index')    
     
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.15"></script>
     <script src="{{ asset('js/app.js') }}"></script>
