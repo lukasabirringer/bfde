@@ -947,10 +947,8 @@ $(document).keyup(function (e) {
  * User Profile Page
  */
 
-$('.profile-user-image__button').hide();
-
 ;(function ($, window, document, undefined) {
-	$('.input-fileupload__field').each(function () {
+	$('.image-profile__field').each(function () {
 		var $input = $(this),
 		    $label = $input.parent('label'),
 		    labelVal = $label.html();
@@ -961,8 +959,12 @@ $('.profile-user-image__button').hide();
 			if (this.files && this.files.length > 1) fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);else if (e.target.value) fileName = e.target.value.split('\\').pop();
 
 			if (fileName) {
-				$label.find('.input-fileupload__label').html(fileName);
-				$('.profile-user-image__button').show();
+				$('.image-profile__overlay').css('display', 'flex');
+				$('.image-profile__icon').hide();
+				$('.image-profile__label').show();
+				$label.find('.image-profile__label').html(fileName);
+				$('.image-profile__button').hide();
+				$('.image-profile__button--save').show();
 			} else $label.html(labelVal);
 		});
 

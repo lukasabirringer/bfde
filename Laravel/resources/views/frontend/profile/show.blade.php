@@ -6,26 +6,59 @@
 
 <div class="row row--zero">
     <div class="column column--12 column--zero">
-        <div class="hero-image-beachcourt-detail " style="background-image: url('/uploads/profilePictures/{{ $profilepicture }}')">
+		<div class="hero-image-profile " style="background-image: url('/uploads/profilePictures/{{ $profilepicture }}')">
+			<div class="hero-image-profile__overlay">
+				
+				<div class="image-profile hero-image-profile__image">
+					@if($profile->pictureName !== 'placeholder-user.png')
+						<img src="/uploads/profilePictures/{{ $profilepicture }}"
+							 class="image image-profile__image">
+					@else 
+						<img src="/uploads/profilePictures/fallback/placeholder-user.png"
+							 class="image image-profile__image">
+					@endif
+					@if($eigenesprofil === 'true')
+						<form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
+							{{ csrf_field() }}
+							<div class="image-profile__overlay">
+								<label class="image-profile__upload">
+									<input type="file" name="profilePicture" class="image-profile__field" data-multiple-caption="{count} files selected" />
+									<span class="icon icon--camera image-profile__icon"></span>
+									<span class="image-profile__label"> </span>	
+								</label>
+
+								<span class="icon icon--delete image-profile__button" onclick="window.location.href='{{ url('') }}/profile/deleteimage'"></span>
+
+								<button type="button" class="icon icon--save image-profile__button image-profile__button--save" onclick="window.location.href='{{ url('') }}/profile/deleteimage'"></button>
+							</div>
+						</form>
+					@endif
+				</div>
+				@if($eigenesprofil === 'true')
+					<h1 class="hero-image-profile__title">@lang('Willkommen'), {{ $profile->name }}</h1>
+					<h2 class="hero-image-profile__subtitle">
+						<span class="icon icon--map-marker"></span>
+						{{$profile->city}}
+					</h2>
+				@else
+					<h1 class="hero-image-profile__title">>{{ $profile->name }}</h1>
+					<h2 class="hero-image-profile__subtitle">
+						<span class="icon icon--map-marker"></span>
+						{{$profile->city}}
+					</h2>
+				@endif
+			</div>
+		</div>
+
+        <!-- <div class="hero-image-beachcourt-detail " style="background-image: url('/uploads/profilePictures/{{ $profilepicture }}')">
         	<div class="hero-image-beachcourt-detail__overlay">
         		@if($eigenesprofil === 'true')
 					@if($profile->pictureName !== 'placeholder-user.png' )
 						<div class="multifunctional-menu icon icon--camera profile-user__multifunctional-menu"></div>
 						
 						<div class="context-menu profile-user-image__context-menu">
-						    <form method="POST" action="{{ url('profile/uploadprofilepicture/') }}" enctype="multipart/form-data">
-						    	{{ csrf_field() }}
-
-							    <label class="input-fileupload">
-							    	<input type="file" name="profilePicture" class="input-fileupload__field" data-multiple-caption="{count} files selected" />
-							    	<span class="input-fileupload__icon icon icon--camera"></span>
-							    	<span class="input-fileupload__label">@lang('Neues Profilbild hochladen')</span>
-							    </label>
-
-							    @include('_partials.molecules.button-icon', ['buttonIconType'=> 'submit','buttonIconIcon'=>'upload', 'buttonIconBackgroundcolor'=>' ', 'buttonIconCustomClass'=> 'context-menu__button profile-user-image__button' ])
-						    </form>
-
-						    @include('_partials.molecules.button', ['buttonType' => 'button', 'buttonIcon' =>'delete', 'buttonLabel' => 'Profilbild löschen', 'buttonLinkTarget' => 'profile/deleteimage', 'buttonCustomClass' => 'context-menu__button', 'buttonBackgroundcolor' => 'red', 'buttonJavaScript' => ''])
+						    
+						   
 						</div>
 
 					@else 
@@ -42,26 +75,9 @@
 						</form>	
 					@endif
 				@endif
-
-        		@if($eigenesprofil === 'true' )
-
-        			<h1 class="hero-image-beachcourt-detail__title">@lang('Willkommen'), {{ $profile->name }}</h1>
-        			<h1 class="hero-image-beachcourt-detail__subtitle"><span class="icon icon--map-marker"></span> {{ $profile->city }}</h1>
-        		@else
-        			<h1 class="hero-image-beachcourt-detail__title">{{ $profile->name }}</h1>
-        			<h1 class="hero-image-beachcourt-detail__subtitle"><span class="icon icon--map-marker"></span> {{ $profile->city }}</h1>
-        		@endif
         	</div>
-        </div>
+        </div> -->
     </div>
-</div>
-
-<div class="profile-user__image-container">
-	@if($profile->pictureName !== 'placeholder-user.png' )
-		<img src="/uploads/profilePictures/{{ $profilepicture }}" class="profile-user__image">
-	@else
-		<img src="/uploads/profilePictures/fallback/placeholder-user.png" class="image">
-	@endif
 </div>
 
 <div class="content">
